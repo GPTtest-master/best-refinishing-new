@@ -349,6 +349,23 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        {/* Google Ads & GA4 */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17663809026" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-17663809026');
+              gtag('config', 'G-TGTB5S47RN');
+              gtag('config', 'AW-17663809026/FtVGCJjCjtIbEIKs4eZB', {
+                'phone_conversion_number': '+1 (206) 786-9915'
+              });
+            `,
+          }}
+        />
+        {/* Schema.org JSON-LD */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -364,6 +381,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
       </head>
       <body className={`${inter.className} antialiased`}>
         <Header />

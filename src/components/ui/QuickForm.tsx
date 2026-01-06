@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface QuickFormProps {
   variant?: 'light' | 'dark' | 'glass';
@@ -18,7 +19,11 @@ const services = [
   'Other',
 ];
 
+// Google Sheets webhook URL - replace with your actual webhook
+const WEBHOOK_URL = process.env.NEXT_PUBLIC_FORM_WEBHOOK_URL || '';
+
 export default function QuickForm({ variant = 'light', title, compact = false }: QuickFormProps) {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -32,8 +37,43 @@ export default function QuickForm({ variant = 'light', title, compact = false }:
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      // Send to webhook/Google Sheets if configured
+      if (WEBHOOK_URL) {
+        await fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            ...formData,
+            timestamp: new Date().toISOString(),
+            source: window.location.href,
+          }),
+        });
+      }
+
+      // Also send to our API route
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      // Fire GA4 event
+      if (typeof window !== 'undefined' && (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag) {
+        (window as unknown as { gtag: (...args: unknown[]) => void }).gtag('event', 'generate_lead', {
+          currency: 'USD',
+          value: 50,
+          service: formData.service,
+        });
+      }
+
+      // Redirect to thank you page
+      router.push('/thank-you');
+    } catch (error) {
+      console.error('Form submission error:', error);
+      // Still redirect on error - we don't want to lose the lead
+      router.push('/thank-you');
+    }
 
     setIsSubmitting(false);
     setIsSubmitted(true);
