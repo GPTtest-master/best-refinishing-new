@@ -59,13 +59,13 @@ export default function Header() {
         <nav className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center h-20 md:h-24">
             {/* Logo - MAXIMUM SIZE */}
-            <Link href="/" className="flex items-center flex-shrink-0 h-full py-1">
+            <Link href="/" className="flex items-center flex-shrink-0 h-full py-0.5">
               <Image
                 src="/images/logo-new.svg"
                 alt="Best Refinishing"
-                width={320}
-                height={92}
-                className="h-[72px] md:h-[88px] w-auto object-contain"
+                width={400}
+                height={96}
+                className="h-[76px] md:h-[92px] w-auto object-contain"
                 priority
               />
             </Link>
