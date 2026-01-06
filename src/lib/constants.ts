@@ -1,0 +1,325 @@
+// Business Information
+export const BUSINESS = {
+  name: 'Best Refinishing',
+  tagline: 'Seattle Reglazing Experts',
+  phone: '(206) 786-9915',
+  phoneLink: 'tel:+12067869915',
+  smsLink: 'sms:+12067869915',
+  email: 'info@best-refinishing.com',
+  website: 'https://www.best-refinishing.com',
+  hours: 'Open 24/7',
+  responseTime: '30 minutes',
+  warranty: '5 Years',
+  experience: '15+',
+  projectsCompleted: '500+',
+  rating: '4.98',
+  reviewCount: '87',
+} as const;
+
+// Services
+export const SERVICES = [
+  {
+    id: 'bathtub',
+    title: 'Bathtub Refinishing',
+    shortTitle: 'Bathtub',
+    subtitle: 'Most Popular',
+    description: 'Cracked, stained, or outdated tub? We restore it to factory-fresh condition in just 4-6 hours. Looks brand new, costs 80% less than replacement.',
+    longDescription: 'Professional bathtub refinishing restores your worn, damaged, or outdated bathtub to like-new condition. Our expert technicians use commercial-grade coatings and professional HVLP spray equipment to deliver a flawless, glass-like finish that lasts for years. Tub with surrounding walls available from $850.',
+    features: ['Same-day service', 'Any color available', '5-year warranty', 'Porcelain, Cast Iron, Fiberglass'],
+    price: 'From $700',
+    savings: 'Save $4,000+',
+    popular: true,
+    image: '/images/bathtub-3-after.webp',
+    beforeImage: '/images/bathtub-3-before.webp',
+    href: '/services/bathtub-refinishing',
+  },
+  {
+    id: 'shower',
+    title: 'Shower Refinishing',
+    shortTitle: 'Shower',
+    subtitle: 'Full Restoration',
+    description: 'Eliminate mold, mildew, and years of buildup. We restore your entire shower enclosure — walls, floor, and fixtures — to pristine condition.',
+    longDescription: 'Complete shower refinishing eliminates years of mold, mildew, and staining. We restore fiberglass, acrylic, and tile shower enclosures to pristine condition with our professional reglazing process.',
+    features: ['Mold-resistant finish', 'Anti-slip options', 'Ready in 24hrs', 'All materials'],
+    price: 'From $900',
+    savings: 'Save $5,000+',
+    popular: false,
+    image: '/images/local-5-after.webp',
+    href: '/services/shower-refinishing',
+  },
+  {
+    id: 'tile',
+    title: 'Tile & Grout Refinishing',
+    shortTitle: 'Tile',
+    subtitle: 'Complete Refresh',
+    description: 'Transform dated pink, green, or stained tiles without demolition. We refinish tile AND grout for a completely new look in one day.',
+    longDescription: 'Tile and grout refinishing transforms your dated or damaged ceramic and porcelain tiles without the mess and cost of replacement. We refinish both tile surfaces and grout lines for a complete refresh.',
+    features: ['No messy demolition', 'Grout included', 'Modern colors', 'Ceramic & Porcelain'],
+    price: 'From $400',
+    savings: 'Save $6,000+',
+    popular: false,
+    image: '/images/bathtub-4-after.webp',
+    href: '/services/tile-refinishing',
+  },
+  {
+    id: 'sink',
+    title: 'Sink Refinishing',
+    shortTitle: 'Sink',
+    subtitle: 'Kitchen & Bath',
+    description: 'Chips, rust stains, or worn finish? We refinish porcelain, cast iron, and fiberglass sinks to look showroom-new. Done in 2-3 hours.',
+    longDescription: 'Sink refinishing restores your kitchen or bathroom sink to showroom condition. We repair chips, eliminate rust stains, and apply a durable new finish to porcelain, cast iron, and cultured marble sinks.',
+    features: ['Stain-resistant', 'Chip repair included', 'Quick turnaround', 'All sink types'],
+    price: 'From $400',
+    savings: 'Save $800+',
+    popular: false,
+    image: '/images/bathtub-2-after.webp',
+    href: '/services/sink-refinishing',
+  },
+  {
+    id: 'countertop',
+    title: 'Countertop Refinishing',
+    shortTitle: 'Countertop',
+    subtitle: 'Modern Update',
+    description: 'Update laminate, tile, or cultured marble countertops to a sleek, modern finish. Granite and marble looks available at a fraction of the cost.',
+    longDescription: 'Countertop refinishing updates your kitchen or bathroom countertops without costly replacement. Transform laminate, tile, or cultured marble surfaces to a modern finish with granite or marble-look options.',
+    features: ['Stone-look finishes', 'Heat resistant', 'Seamless result', 'Multiple styles'],
+    price: 'From $550',
+    savings: 'Save $3,000+',
+    popular: false,
+    image: '/images/counter-bg.webp',
+    href: '/services/countertop-refinishing',
+  },
+  {
+    id: 'repair',
+    title: 'Chip & Crack Repair',
+    shortTitle: 'Repair',
+    subtitle: 'Quick Fix',
+    description: 'Small damage? No problem. We repair chips, cracks, and scratches on any surface — often same day. Invisible repairs guaranteed.',
+    longDescription: 'Professional chip and crack repair fixes damage on bathtubs, sinks, tiles, and countertops. Our invisible repair technique restores surfaces without the need for complete refinishing.',
+    features: ['Same-day service', 'Invisible repairs', 'All surfaces', 'Affordable'],
+    price: 'From $100',
+    savings: 'Quick & affordable',
+    popular: false,
+    image: '/images/Chips -&-Cracks-in-Bathtubs-Sinks-and-Countertops.webp',
+    href: '/services/repair',
+  },
+] as const;
+
+// Locations for Local SEO
+export const LOCATIONS = [
+  { id: 'seattle', name: 'Seattle', href: '/locations/seattle', primary: true },
+  { id: 'bellevue', name: 'Bellevue', href: '/locations/bellevue', primary: true },
+  { id: 'redmond', name: 'Redmond', href: '/locations/redmond', primary: true },
+  { id: 'kirkland', name: 'Kirkland', href: '/locations/kirkland', primary: true },
+  { id: 'bothell', name: 'Bothell', href: '/locations/bothell', primary: true },
+  { id: 'renton', name: 'Renton', href: '/locations/renton', primary: true },
+  { id: 'kent', name: 'Kent', href: '/locations/kent', primary: false },
+  { id: 'federal-way', name: 'Federal Way', href: '/locations/federal-way', primary: false },
+  { id: 'tacoma', name: 'Tacoma', href: '/locations/tacoma', primary: false },
+  { id: 'lynnwood', name: 'Lynnwood', href: '/locations/lynnwood', primary: false },
+  { id: 'sammamish', name: 'Sammamish', href: '/locations/sammamish', primary: false },
+  { id: 'issaquah', name: 'Issaquah', href: '/locations/issaquah', primary: false },
+] as const;
+
+// Additional nearby areas for broader SEO coverage
+export const ADDITIONAL_LOCATIONS = [
+  { id: 'shoreline', name: 'Shoreline', href: '/locations/shoreline', primary: false },
+  { id: 'burien', name: 'Burien', href: '/locations/burien', primary: false },
+  { id: 'tukwila', name: 'Tukwila', href: '/locations/tukwila', primary: false },
+  { id: 'seatac', name: 'SeaTac', href: '/locations/seatac', primary: false },
+  { id: 'mercer-island', name: 'Mercer Island', href: '/locations/mercer-island', primary: false },
+  { id: 'woodinville', name: 'Woodinville', href: '/locations/woodinville', primary: false },
+  { id: 'kenmore', name: 'Kenmore', href: '/locations/kenmore', primary: false },
+  { id: 'lake-forest-park', name: 'Lake Forest Park', href: '/locations/lake-forest-park', primary: false },
+  { id: 'mountlake-terrace', name: 'Mountlake Terrace', href: '/locations/mountlake-terrace', primary: false },
+  { id: 'edmonds', name: 'Edmonds', href: '/locations/edmonds', primary: false },
+  { id: 'mukilteo', name: 'Mukilteo', href: '/locations/mukilteo', primary: false },
+  { id: 'everett', name: 'Everett', href: '/locations/everett', primary: false },
+  { id: 'auburn', name: 'Auburn', href: '/locations/auburn', primary: false },
+  { id: 'covington', name: 'Covington', href: '/locations/covington', primary: false },
+  { id: 'maple-valley', name: 'Maple Valley', href: '/locations/maple-valley', primary: false },
+  { id: 'newcastle', name: 'Newcastle', href: '/locations/newcastle', primary: false },
+  { id: 'clyde-hill', name: 'Clyde Hill', href: '/locations/clyde-hill', primary: false },
+  { id: 'medina', name: 'Medina', href: '/locations/medina', primary: false },
+  { id: 'hunts-point', name: 'Hunts Point', href: '/locations/hunts-point', primary: false },
+  { id: 'yarrow-point', name: 'Yarrow Point', href: '/locations/yarrow-point', primary: false },
+  { id: 'des-moines', name: 'Des Moines', href: '/locations/des-moines', primary: false },
+  { id: 'normandy-park', name: 'Normandy Park', href: '/locations/normandy-park', primary: false },
+  { id: 'white-center', name: 'White Center', href: '/locations/white-center', primary: false },
+  { id: 'lake-city', name: 'Lake City', href: '/locations/lake-city', primary: false },
+  { id: 'ballard', name: 'Ballard', href: '/locations/ballard', primary: false },
+  { id: 'west-seattle', name: 'West Seattle', href: '/locations/west-seattle', primary: false },
+  { id: 'capitol-hill', name: 'Capitol Hill', href: '/locations/capitol-hill', primary: false },
+  { id: 'queen-anne', name: 'Queen Anne', href: '/locations/queen-anne', primary: false },
+  { id: 'fremont', name: 'Fremont', href: '/locations/fremont', primary: false },
+  { id: 'greenwood', name: 'Greenwood', href: '/locations/greenwood', primary: false },
+  { id: 'university-district', name: 'University District', href: '/locations/university-district', primary: false },
+  { id: 'columbia-city', name: 'Columbia City', href: '/locations/columbia-city', primary: false },
+  { id: 'beacon-hill', name: 'Beacon Hill', href: '/locations/beacon-hill', primary: false },
+  { id: 'georgetown', name: 'Georgetown', href: '/locations/georgetown', primary: false },
+  { id: 'rainier-valley', name: 'Rainier Valley', href: '/locations/rainier-valley', primary: false },
+  { id: 'northgate', name: 'Northgate', href: '/locations/northgate', primary: false },
+  { id: 'magnolia', name: 'Magnolia', href: '/locations/magnolia', primary: false },
+  { id: 'alki', name: 'Alki', href: '/locations/alki', primary: false },
+] as const;
+
+// All locations combined for SEO
+export const ALL_LOCATIONS = [...LOCATIONS, ...ADDITIONAL_LOCATIONS] as const;
+
+// 6-Step Process
+export const PROCESS_STEPS = [
+  {
+    number: 1,
+    title: 'Free Inspection & Quote',
+    description: 'Our technician assesses your surface condition and provides an accurate, no-obligation quote on the spot.',
+    color: '#0b66b3',
+  },
+  {
+    number: 2,
+    title: 'Surface Preparation',
+    description: 'We thoroughly clean and prepare the surface, repairing any chips, cracks, or damage before refinishing.',
+    color: '#f59e0b',
+  },
+  {
+    number: 3,
+    title: 'Professional Masking',
+    description: 'We carefully mask and protect surrounding areas to ensure a clean, precise refinishing job.',
+    color: '#10b981',
+  },
+  {
+    number: 4,
+    title: 'Primer & Topcoat Application',
+    description: 'We apply 2-3 coats of commercial-grade bonding primer followed by 2-3 layers of premium topcoat using professional HVLP equipment.',
+    color: '#8b5cf6',
+  },
+  {
+    number: 5,
+    title: 'Quality Inspection',
+    description: 'Our technician performs a thorough quality check to ensure a flawless, glass-like finish.',
+    color: '#ec4899',
+  },
+  {
+    number: 6,
+    title: 'Ready in 24 Hours',
+    description: 'Your professionally refinished surface is ready to use in just 24 hours. Full cure in 7 days for maximum durability.',
+    color: '#06b6d4',
+  },
+] as const;
+
+// FAQ Data
+export const FAQ_ITEMS = [
+  {
+    question: 'How long before I can use the tub?',
+    answer: 'Your refinished surface is ready to use in just 24 hours. The coating continues to cure and harden over the next week, reaching maximum durability and hardness.',
+  },
+  {
+    question: 'Is reglazing safe and low-odor?',
+    answer: 'Yes! We use low-VOC, environmentally safe coatings. Our professional ventilation system ensures minimal odor during the process. The area is safe to use after 24 hours.',
+  },
+  {
+    question: 'How long does refinishing last?',
+    answer: 'With proper care, a professional refinishing job lasts 10-15 years or more. We back our work with a comprehensive 5-year warranty.',
+  },
+  {
+    question: 'Do you repair chips or rust?',
+    answer: 'Absolutely! Chip and crack repair is included in our refinishing process. We fill and smooth all damage before applying the new finish for a flawless result.',
+  },
+  {
+    question: 'What does the warranty cover?',
+    answer: 'Our 5-year warranty covers peeling, flaking, and adhesion issues. If anything goes wrong due to our workmanship, we fix it at no charge.',
+  },
+  {
+    question: 'Will it look brand new after resurfacing?',
+    answer: 'Yes! Our professional refinishing restores surfaces to factory-fresh condition. Most customers say their refinished tub looks better than new.',
+  },
+  {
+    question: 'How can I get a quote or schedule service?',
+    answer: 'Simply fill out our instant quote form or call us at (206) 786-9915. We respond within 30 minutes and can often schedule same-week appointments.',
+  },
+] as const;
+
+// Navigation
+export const NAV_ITEMS = [
+  { name: 'Services', href: '#services' },
+  { name: 'Gallery', href: '#gallery' },
+  { name: 'Process', href: '/process' },
+  { name: 'Blog', href: '/blog' },
+  { name: 'Commercial', href: '/commercial' },
+  { name: 'Contact', href: '/contact' },
+] as const;
+
+// Blog Posts
+export const BLOG_POSTS = [
+  {
+    id: 'bathtub-refinishing-vs-replacement-cost-seattle',
+    slug: 'bathtub-refinishing-vs-replacement-cost-seattle',
+    title: 'Bathtub Refinishing vs Replacement: Complete Cost Guide for Seattle Homeowners (2025)',
+    excerpt: 'Discover the true costs of bathtub refinishing vs replacement in Seattle. Learn why 80% of homeowners choose refinishing and save $4,000+ on their bathroom renovation.',
+    content: ``,
+    author: 'Best Refinishing Team',
+    date: '2025-01-03',
+    readTime: '8 min read',
+    category: 'Cost Guide',
+    tags: ['bathtub refinishing cost', 'seattle bathroom renovation', 'tub replacement vs refinishing', 'save money bathroom'],
+    image: '/images/bathtub-3-after.webp',
+    featured: true,
+  },
+  {
+    id: 'how-long-does-bathtub-refinishing-last',
+    slug: 'how-long-does-bathtub-refinishing-last',
+    title: 'How Long Does Bathtub Refinishing Last? Expert Guide to Durability & Care',
+    excerpt: 'Professional bathtub refinishing lasts 10-15 years with proper care. Learn expert tips to maximize the lifespan of your refinished tub and what affects durability.',
+    content: ``,
+    author: 'Best Refinishing Team',
+    date: '2025-01-01',
+    readTime: '6 min read',
+    category: 'Expert Guide',
+    tags: ['bathtub refinishing durability', 'how long reglazing lasts', 'bathtub care tips', 'refinishing maintenance'],
+    image: '/images/bathtub-4-after.webp',
+    featured: true,
+  },
+] as const;
+
+// Reviews/Testimonials
+export const REVIEWS = [
+  {
+    name: 'Sarah M.',
+    location: 'Seattle, WA',
+    rating: 5,
+    text: 'Absolutely amazing work! They transformed my old, stained bathtub into something that looks brand new. The team was professional, on time, and cleaned up everything after. Highly recommend!',
+    date: '2 weeks ago',
+    service: 'Bathtub Refinishing',
+  },
+  {
+    name: 'Michael R.',
+    location: 'Bellevue, WA',
+    rating: 5,
+    text: "Saved us thousands compared to replacing the tub. The finish looks incredible and they guaranteed their work for 5 years. Best money we've spent on home improvement.",
+    date: '1 month ago',
+    service: 'Bathtub & Tile Refinishing',
+  },
+  {
+    name: 'Jennifer L.',
+    location: 'Kirkland, WA',
+    rating: 5,
+    text: "Quick response, fair pricing, and excellent results. They fixed chips in my kitchen sink and countertop - you can't even tell there was ever any damage. Will use again!",
+    date: '3 weeks ago',
+    service: 'Chip & Crack Repair',
+  },
+  {
+    name: 'David K.',
+    location: 'Redmond, WA',
+    rating: 5,
+    text: 'Our shower looked terrible with all the grout stains and yellowed tiles. After their refinishing, it looks like we installed a completely new shower. Incredible transformation!',
+    date: '1 month ago',
+    service: 'Shower Refinishing',
+  },
+  {
+    name: 'Lisa T.',
+    location: 'Renton, WA',
+    rating: 5,
+    text: 'Professional from start to finish. They explained the whole process, gave us an honest quote, and delivered exactly what they promised. The bathtub looks beautiful!',
+    date: '2 months ago',
+    service: 'Bathtub Refinishing',
+  },
+] as const;
