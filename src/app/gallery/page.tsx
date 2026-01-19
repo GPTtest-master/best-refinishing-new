@@ -5,18 +5,22 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { BUSINESS } from '@/lib/constants';
 
-// Gallery photos - add your photos here
+// Gallery photos
 const galleryPhotos = [
-  { id: 1, src: '/images/optimized/bathtub-3-after.webp', alt: 'Refinished bathtub - gleaming white finish', category: 'bathtub' },
-  { id: 2, src: '/images/bathtub-4-after.webp', alt: 'Cast iron tub after refinishing', category: 'bathtub' },
-  { id: 3, src: '/images/sink-after-1.webp', alt: 'Restored sink with new finish', category: 'sink' },
-  { id: 4, src: '/images/tub-tiles-after-1.webp', alt: 'Tub and tiles refinished', category: 'tiles' },
-  { id: 5, src: '/images/tub-after-1.webp', alt: 'White bathtub refinishing result', category: 'bathtub' },
-  { id: 6, src: '/images/optimized/local-after-1.webp', alt: 'Seattle bathroom refinishing', category: 'bathtub' },
-  { id: 7, src: '/images/local-5-after.webp', alt: 'Professional bathtub restoration', category: 'bathtub' },
-  { id: 8, src: '/images/tub-after-rotate1jpg.webp', alt: 'Bathtub with new coating', category: 'bathtub' },
-  // Add more photos here - just copy the pattern above
-  // { id: 9, src: '/images/your-photo.webp', alt: 'Description', category: 'bathtub' | 'sink' | 'tiles' | 'countertop' },
+  { id: 1, src: '/images/optimized/entirebath.webp', alt: 'Complete bathroom refinishing - after', category: 'bathtub' },
+  { id: 2, src: '/images/optimized/entire-bath-before.webp', alt: 'Complete bathroom - before refinishing', category: 'bathtub' },
+  { id: 3, src: '/images/optimized/IMG_5026.webp', alt: 'Professional bathtub refinishing', category: 'bathtub' },
+  { id: 4, src: '/images/optimized/IMG_5030.webp', alt: 'Bathtub restoration project', category: 'bathtub' },
+  { id: 5, src: '/images/optimized/IMG_7087.webp', alt: 'Tub and tile refinishing', category: 'bathtub' },
+  { id: 6, src: '/images/optimized/IMG_7247.webp', alt: 'Bathroom surface restoration', category: 'bathtub' },
+  { id: 7, src: '/images/optimized/IMG_7432.webp', alt: 'Refinished bathtub result', category: 'bathtub' },
+  { id: 8, src: '/images/optimized/IMG_74332.webp', alt: 'Seattle bathtub reglazing', category: 'bathtub' },
+  { id: 9, src: '/images/optimized/baztub-after.webp', alt: 'Gleaming white tub finish', category: 'bathtub' },
+  { id: 10, src: '/images/optimized/bathtub-4-after.webp', alt: 'Cast iron tub after refinishing', category: 'bathtub' },
+  { id: 11, src: '/images/optimized/sink-after-1.webp', alt: 'Restored sink with new finish', category: 'sink' },
+  { id: 12, src: '/images/optimized/local-after-1.webp', alt: 'Seattle bathroom refinishing', category: 'bathtub' },
+  { id: 13, src: '/images/optimized/local-5-after.webp', alt: 'Professional bathtub restoration', category: 'bathtub' },
+  { id: 14, src: '/images/optimized/tub-after-1.webp', alt: 'White bathtub refinishing result', category: 'bathtub' },
 ];
 
 const categories = [
