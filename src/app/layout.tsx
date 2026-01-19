@@ -8,6 +8,7 @@ import ExitIntentPopup from "@/components/ui/ExitIntentPopup";
 import { BUSINESS } from "@/lib/constants";
 import { generateHomePageSchema } from "@/lib/schema";
 import { SchemaScript } from "@/components/SchemaScript";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -133,6 +134,7 @@ export default function RootLayout({
         <Footer />
         <FloatingCTA />
         <ExitIntentPopup />
+        <SpeedInsights />
       </body>
     </html>
   );
