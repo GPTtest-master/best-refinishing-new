@@ -7,8 +7,8 @@ import { BUSINESS } from '@/lib/constants';
 
 // Gallery photos
 const galleryPhotos = [
-  { id: 1, src: '/images/optimized/entirebath.webp', alt: 'Complete bathroom refinishing - after', category: 'bathtub' },
-  { id: 2, src: '/images/optimized/entire-bath-before.webp', alt: 'Complete bathroom - before refinishing', category: 'bathtub' },
+  { id: 1, src: '/images/optimized/entire-bath-before.webp', alt: 'Complete bathroom - before refinishing', category: 'bathtub' },
+  { id: 2, src: '/images/optimized/entirebath.webp', alt: 'Complete bathroom refinishing - after', category: 'bathtub' },
   { id: 3, src: '/images/optimized/IMG_5026.webp', alt: 'Professional bathtub refinishing', category: 'bathtub' },
   { id: 4, src: '/images/optimized/IMG_5030.webp', alt: 'Bathtub restoration project', category: 'bathtub' },
   { id: 5, src: '/images/optimized/IMG_7087.webp', alt: 'Tub and tile refinishing', category: 'bathtub' },
