@@ -1,55 +1,9 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { BUSINESS } from '@/lib/constants';
-
-// Before/After transformation pairs
-const transformations = [
-  {
-    id: 'bathtub-1',
-    category: 'bathtub',
-    label: 'Bathtub Refinishing',
-    before: '/images/optimized/bathtub-3-before.webp',
-    after: '/images/optimized/bathtub-3-after.webp',
-  },
-  {
-    id: 'bathtub-2',
-    category: 'bathtub',
-    label: 'Cast Iron Tub Restoration',
-    before: '/images/bathtub-4-before.webp',
-    after: '/images/bathtub-4-after.webp',
-  },
-  {
-    id: 'tub-tiles',
-    category: 'tiles',
-    label: 'Tub & Tile Combo',
-    before: '/images/tiles-tub-before-1.webp',
-    after: '/images/tub-tiles-after-1.webp',
-  },
-  {
-    id: 'sink-1',
-    category: 'sink',
-    label: 'Sink Refinishing',
-    before: '/images/sink-before-1.webp',
-    after: '/images/sink-after-1.webp',
-  },
-  {
-    id: 'local-1',
-    category: 'bathtub',
-    label: 'Bathtub Transformation',
-    before: '/images/optimized/local-before-1.webp',
-    after: '/images/optimized/local-after-1.webp',
-  },
-  {
-    id: 'tub-classic',
-    category: 'bathtub',
-    label: 'Classic Tub Restoration',
-    before: '/images/tub-before-1.webp',
-    after: '/images/tub-after-1.webp',
-  },
-];
 
 // Gallery photos - add your photos here
 const galleryPhotos = [
@@ -74,47 +28,8 @@ const categories = [
 ];
 
 export default function GalleryPage() {
-  const [activeTransformation, setActiveTransformation] = useState(0);
-  const [sliderPosition, setSliderPosition] = useState(50);
-  const [isDragging, setIsDragging] = useState(false);
   const [activeCategory, setActiveCategory] = useState('all');
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
-  const sliderRef = useRef<HTMLDivElement>(null);
-
-  const handleSliderMove = (clientX: number) => {
-    if (!sliderRef.current || !isDragging) return;
-    const rect = sliderRef.current.getBoundingClientRect();
-    const x = clientX - rect.left;
-    const percentage = Math.max(5, Math.min(95, (x / rect.width) * 100));
-    setSliderPosition(percentage);
-  };
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    setIsDragging(true);
-    handleSliderMove(e.clientX);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (isDragging) {
-      handleSliderMove(e.clientX);
-    }
-  };
-
-  const handleMouseUp = () => setIsDragging(false);
-  const handleMouseLeave = () => setIsDragging(false);
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setIsDragging(true);
-    handleSliderMove(e.touches[0].clientX);
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (isDragging) {
-      handleSliderMove(e.touches[0].clientX);
-    }
-  };
-
-  const handleTouchEnd = () => setIsDragging(false);
 
   const filteredPhotos = activeCategory === 'all'
     ? galleryPhotos
@@ -136,127 +51,6 @@ export default function GalleryPage() {
             Explore our portfolio of stunning transformations. See the quality and craftsmanship
             that makes Best Refinishing the top choice in Seattle.
           </p>
-        </div>
-      </section>
-
-      {/* Before/After Slider Section */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <span className="inline-block text-[#0b66b3] font-semibold text-sm uppercase tracking-wider mb-3">
-              Transformations
-            </span>
-            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
-              Before & After Results
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Drag the slider to reveal the dramatic difference our refinishing makes
-            </p>
-          </div>
-
-          <div className="max-w-4xl mx-auto">
-            {/* Transformation Tabs */}
-            <div className="flex gap-2 mb-6 overflow-x-auto pb-2 scrollbar-hide justify-center flex-wrap">
-              {transformations.map((item, index) => (
-                <button
-                  key={item.id}
-                  onClick={() => {
-                    setActiveTransformation(index);
-                    setSliderPosition(50);
-                  }}
-                  className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap ${
-                    activeTransformation === index
-                      ? 'bg-[#0b66b3] text-white shadow-lg'
-                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                  }`}
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-
-            {/* Slider Container */}
-            <div
-              ref={sliderRef}
-              className={`relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl select-none ${
-                isDragging ? 'cursor-grabbing' : 'cursor-grab'
-              }`}
-              onMouseDown={handleMouseDown}
-              onMouseMove={handleMouseMove}
-              onMouseUp={handleMouseUp}
-              onMouseLeave={handleMouseLeave}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-            >
-              {/* Before Image */}
-              <div className="absolute inset-0">
-                <Image
-                  src={transformations[activeTransformation].before}
-                  alt="Before refinishing"
-                  fill
-                  className="object-cover pointer-events-none"
-                  draggable={false}
-                />
-              </div>
-
-              {/* After Image */}
-              <div
-                className="absolute inset-0 overflow-hidden"
-                style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
-              >
-                <Image
-                  src={transformations[activeTransformation].after}
-                  alt="After refinishing"
-                  fill
-                  className="object-cover pointer-events-none"
-                  draggable={false}
-                />
-              </div>
-
-              {/* Slider Line */}
-              <div
-                className="absolute top-0 bottom-0 w-1 bg-white shadow-lg pointer-events-none"
-                style={{ left: `${sliderPosition}%`, transform: 'translateX(-50%)' }}
-              >
-                <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-white shadow-xl flex items-center justify-center border-3 border-[#0b66b3] transition-transform ${isDragging ? 'scale-110' : ''}`}>
-                  <svg className="w-7 h-7 text-[#0b66b3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
-                  </svg>
-                </div>
-              </div>
-
-              {/* Labels */}
-              <div className="absolute bottom-4 left-4 px-5 py-2.5 rounded-full bg-red-500/90 text-white text-sm font-bold pointer-events-none shadow-lg">
-                BEFORE
-              </div>
-              <div className="absolute bottom-4 right-4 px-5 py-2.5 rounded-full bg-green-500/90 text-white text-sm font-bold pointer-events-none shadow-lg">
-                AFTER
-              </div>
-            </div>
-
-            {/* Drag hint */}
-            <p className="text-gray-500 text-sm mt-6 text-center flex items-center justify-center gap-2">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
-              </svg>
-              Drag the slider to compare before & after
-            </p>
-
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 mt-10">
-              {[
-                { value: '500+', label: 'Projects Completed' },
-                { value: '100%', label: 'Satisfaction Rate' },
-                { value: '5-Year', label: 'Warranty' },
-              ].map((stat) => (
-                <div key={stat.label} className="text-center p-4 bg-gray-50 rounded-xl">
-                  <div className="text-2xl font-black text-[#0b66b3]">{stat.value}</div>
-                  <div className="text-gray-500 text-sm">{stat.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
