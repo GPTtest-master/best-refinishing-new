@@ -19,8 +19,9 @@ const galleryPhotos = [
   { id: 10, src: '/images/optimized/bathtub-4-after.webp', alt: 'Cast iron tub after refinishing', category: 'bathtub' },
   { id: 11, src: '/images/optimized/sink-after-1.webp', alt: 'Restored sink with new finish', category: 'sink' },
   { id: 12, src: '/images/optimized/local-after-1.webp', alt: 'Seattle bathroom refinishing', category: 'bathtub' },
-  { id: 13, src: '/images/optimized/local-5-after.webp', alt: 'Professional bathtub restoration', category: 'bathtub' },
-  { id: 14, src: '/images/optimized/tub-after-1.webp', alt: 'White bathtub refinishing result', category: 'bathtub' },
+  { id: 13, src: '/images/optimized/local-5.webp', alt: 'Local Repair Before', category: 'bathtub' },
+  { id: 14, src: '/images/optimized/local-5-after.webp', alt: 'Local Repair After', category: 'bathtub' },
+  { id: 15, src: '/images/optimized/tub-after-1.webp', alt: 'White bathtub refinishing result', category: 'bathtub' },
 ];
 
 const categories = [
