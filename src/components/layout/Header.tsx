@@ -20,30 +20,31 @@ export default function Header() {
   return (
     <>
       {/* Top Bar - hidden on mobile */}
-      <div className="hidden md:block bg-[#0b1220] text-white text-sm">
-        <div className="max-w-7xl mx-auto px-4 py-2 flex justify-center items-center">
-          <div className="flex items-center gap-8">
-            <span className="flex items-center gap-2">
-              <span className="text-amber-400">💰</span>
-              Save $5,000+
-            </span>
-            <span className="flex items-center gap-2">
-              <span className="text-green-400">🛡️</span>
-              Licensed & Insured
-            </span>
-            <span className="flex items-center gap-2">
-              <span className="text-amber-400">✅</span>
-              5-Year Warranty
-            </span>
-            <span className="flex items-center gap-2">
-              <span className="text-amber-400">⚡</span>
-              Done in 1 Day
-            </span>
-            <span className="flex items-center gap-2">
-              <span className="text-yellow-400">★★★★★</span>
-              <span className="text-white">{BUSINESS.rating}</span>
-              <span className="text-gray-400">({BUSINESS.reviewCount} reviews)</span>
-            </span>
+      <div className="hidden md:block bg-gradient-to-r from-slate-100 to-blue-50 text-gray-700 text-sm border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 py-2 flex justify-between items-center">
+          {/* Left - 24/7 Quote */}
+          <a href="#quote" className="flex items-center gap-2 font-semibold text-[#0b66b3] hover:text-[#084c8a] transition">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            24/7 Free Quotes
+          </a>
+
+          {/* Center - Value proposition */}
+          <div className="flex items-center gap-2 text-gray-700 font-semibold">
+            <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+            <span>Don&apos;t Replace It — <span className="text-[#0b66b3]">Refinish It!</span> Save 80%</span>
+          </div>
+
+          {/* Right - Rating */}
+          <div className="flex items-center gap-1.5 font-semibold">
+            <svg className="w-4 h-4 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            <span className="text-gray-900">{BUSINESS.rating}</span>
+            <span className="text-gray-500">({BUSINESS.reviewCount} reviews)</span>
           </div>
         </div>
       </div>
@@ -58,14 +59,14 @@ export default function Header() {
       >
         <nav className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center h-20 md:h-24">
-            {/* Logo - MAXIMUM SIZE */}
-            <Link href="/" className="flex items-center flex-shrink-0 h-full py-0.5">
+            {/* Logo */}
+            <Link href="/" className="flex items-center flex-shrink-0 h-full py-1">
               <Image
                 src="/images/logo-new.svg"
                 alt="Best Refinishing"
-                width={400}
-                height={96}
-                className="h-[76px] md:h-[92px] w-auto object-contain"
+                width={320}
+                height={275}
+                className="h-[72px] md:h-[88px] w-auto object-contain"
                 priority
               />
             </Link>
@@ -85,24 +86,19 @@ export default function Header() {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex items-center gap-3">
-              {/* Phone - desktop only */}
+            <div className="flex items-center gap-4">
+              {/* Phone - desktop only, simplified */}
               <a
                 href={BUSINESS.phoneLink}
-                className="hidden xl:flex items-center gap-2 px-4 py-2 text-gray-700 font-bold hover:text-[#0b66b3] transition"
+                className="hidden xl:flex items-center gap-2 text-gray-700 font-semibold hover:text-[#0b66b3] transition"
               >
-                <div className="w-10 h-10 rounded-full bg-[#0b66b3]/10 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-[#0b66b3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                </div>
-                <div className="text-left">
-                  <div className="text-xs text-gray-500">Call Now</div>
-                  <div className="text-[#0b66b3]">{BUSINESS.phone}</div>
-                </div>
+                <svg className="w-5 h-5 text-[#0b66b3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                {BUSINESS.phone}
               </a>
 
-              {/* Get Quote button - AMBER for contrast */}
+              {/* Get Quote button */}
               <a
                 href="#quote"
                 className="hidden sm:inline-flex px-6 py-3 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold hover:from-amber-600 hover:to-amber-700 transition shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 hover:scale-105 transform"

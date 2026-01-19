@@ -155,7 +155,7 @@ export default function CommercialPage() {
               <div className="text-gray-500 mt-1">Turnaround Time</div>
             </div>
             <div>
-              <div className="text-4xl font-black text-[#0b66b3]">{BUSINESS.warranty}</div>
+              <div className="text-4xl font-black text-[#0b66b3]">3 Years</div>
               <div className="text-gray-500 mt-1">Warranty</div>
             </div>
           </div>

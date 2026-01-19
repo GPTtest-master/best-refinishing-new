@@ -16,12 +16,13 @@ Modern conversion-focused website for Best Refinishing — professional bathtub,
 
 ---
 
-## Site Statistics (as of Jan 5, 2025)
-- **Total Pages:** 77 static pages
+## Site Statistics (as of Jan 10, 2025)
+- **Total Pages:** 149 static pages
 - **Location Pages:** 50 (12 primary + 38 additional areas)
+- **Location+Service Pages:** 72 (12 cities × 6 services)
 - **Service Pages:** 6
 - **Blog Posts:** 2
-- **Static Pages:** 13 (home, contact, faq, process, etc.)
+- **Static Pages:** 15 (home, contact, faq, process, privacy, terms, etc.)
 
 ---
 
@@ -34,16 +35,16 @@ Modern conversion-focused website for Best Refinishing — professional bathtub,
 
 ---
 
-## Services & Prices (Updated)
+## Services & Prices (Updated Jan 10, 2025)
 | Service | Price |
 |---------|-------|
 | Bathtub Refinishing | from $700 |
-| Sink Refinishing | from $400 |
-| Countertop Refinishing | from $550 |
+| Sink Refinishing | from $450 |
+| Countertop Refinishing | from $600 |
 | Shower Refinishing | from $900 |
-| Tub + Surrounding Walls | from $850 |
+| Tub + Surrounding Walls | from $900 |
 | Tile & Grout Refinishing | from $400 |
-| Chip & Crack Repair | from $100 |
+| Chip & Crack Repair | from $350 |
 
 ---
 
@@ -133,11 +134,18 @@ npm start        # Start production
 ## Environment Variables Needed (for Vercel)
 ```
 NEXT_PUBLIC_FORM_WEBHOOK_URL=<your-google-sheets-webhook>
+
+# Twilio SMS (for lead notifications)
+TWILIO_ACCOUNT_SID=<your-twilio-account-sid>
+TWILIO_AUTH_TOKEN=<your-twilio-auth-token>
+TWILIO_PHONE_NUMBER=<your-twilio-phone-number>
+BUSINESS_PHONE=+12067869915
 ```
 
 ---
 
 ## Changelog
+- **2025-01-06** — Services section redesign (bigger images, no prices), Twilio SMS integration
 - **2025-01-05** — Full SEO optimization, 50 locations, Google tracking, Thank You page
 - **v0.2** — Full rebuild with all pages, SEO optimization
 - **v0.1** — Initial structure

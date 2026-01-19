@@ -11,6 +11,7 @@ export default function ContactPage() {
     service: '',
     location: '',
     message: '',
+    smsConsent: false,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -175,6 +176,24 @@ export default function ContactPage() {
                           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                           className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[#0b66b3] focus:ring-0 transition resize-none"
                         />
+                      </div>
+
+                      {/* SMS Consent */}
+                      <div className="flex items-start gap-3 p-4 rounded-xl bg-slate-50">
+                        <input
+                          type="checkbox"
+                          id="smsConsent-contact"
+                          required
+                          checked={formData.smsConsent}
+                          onChange={(e) => setFormData({ ...formData, smsConsent: e.target.checked })}
+                          className="mt-0.5 w-5 h-5 rounded border-2 border-gray-300 text-[#0b66b3] focus:ring-[#0b66b3] cursor-pointer flex-shrink-0"
+                        />
+                        <label htmlFor="smsConsent-contact" className="text-sm text-gray-600 leading-relaxed cursor-pointer">
+                          I agree to receive SMS/text messages from Best Refinishing regarding my quote request.
+                          Message frequency varies. Msg & data rates may apply. Reply STOP to opt-out.{' '}
+                          <a href="/privacy" className="text-[#0b66b3] underline">Privacy Policy</a> &{' '}
+                          <a href="/terms" className="text-[#0b66b3] underline">Terms of Service</a>.
+                        </label>
                       </div>
 
                       <button

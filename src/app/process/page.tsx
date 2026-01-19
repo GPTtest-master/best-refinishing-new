@@ -11,45 +11,45 @@ export const metadata: Metadata = {
 const processSteps = [
   {
     number: 1,
-    title: 'Free Inspection & Quote',
-    description: 'We assess your surface condition, discuss your goals, and provide an accurate quote on the spot. No hidden fees, no pressure.',
-    image: '/images/process-1.jpg', // Placeholder
-    details: ['Same-day appointments available', 'Transparent pricing', 'Expert recommendations'],
+    title: 'Online Quote in Minutes',
+    description: 'Send us photos of your surface and get an accurate quote within minutes — completely online. No estimate visits needed, no waiting around. Just snap a few photos, text or email them to us, and receive your exact price right away.',
+    image: '/images/tub-bg.webp',
+    details: ['100% online process', 'Exact price via photos', 'No estimate visits needed'],
   },
   {
     number: 2,
     title: 'Surface Preparation',
     description: 'We thoroughly clean and prepare the surface, removing all contaminants and repairing any chips, cracks, or damage.',
-    image: '/images/process-2.jpg', // Placeholder
+    image: '/images/img-7041-rotated.jpg',
     details: ['Deep cleaning & decontamination', 'Chip & crack repair', 'Surface etching for adhesion'],
   },
   {
     number: 3,
     title: 'Professional Masking',
     description: 'We carefully mask and protect all surrounding areas including walls, floors, fixtures, and drains.',
-    image: '/images/process-3.jpg', // Placeholder
+    image: '/images/optimized/bathtub-3-before.webp',
     details: ['Complete area protection', 'Precise tape application', 'Hardware protection'],
   },
   {
     number: 4,
     title: 'Primer Application',
     description: 'We apply 2-3 coats of commercial-grade bonding primer using professional HVLP spray equipment.',
-    image: '/images/process-4.jpg', // Placeholder
+    image: '/images/img-7119-rotated.jpg',
     details: ['Industrial bonding primer', 'Multiple thin coats', 'Perfect adhesion'],
   },
   {
     number: 5,
     title: 'Topcoat Finishing',
     description: 'We apply 2-3 layers of premium topcoat for a durable, glass-like finish that lasts for years.',
-    image: '/images/process-5.jpg', // Placeholder
+    image: '/images/optimized/baztub-after.webp',
     details: ['Automotive-grade finish', 'Any color available', 'UV-resistant coating'],
   },
   {
     number: 6,
-    title: 'Quality Inspection',
-    description: 'Final inspection ensures a flawless finish. We clean up completely and provide care instructions.',
-    image: '/images/process-6.jpg', // Placeholder
-    details: ['100% quality check', 'Complete cleanup', 'Care guide provided'],
+    title: 'Final Quality Inspection',
+    description: 'Before we leave, we perform a thorough inspection of every inch of the refinished surface. We check for any imperfections, ensure uniform coverage, verify proper curing, and make sure everything meets our high standards. Only when we\'re 100% satisfied with the result do we consider the job complete. We also clean up the entire work area and provide you with detailed care instructions to maximize the lifespan of your new finish.',
+    image: null,
+    details: ['Detailed surface inspection', 'Check for any imperfections', 'Verify uniform coverage', 'Complete area cleanup', 'Care instructions provided'],
   },
 ];
 
@@ -86,25 +86,28 @@ export default function ProcessPage() {
                   index % 2 === 1 ? 'lg:flex-row-reverse' : ''
                 }`}
               >
-                {/* Image */}
+                {/* Image or Icon */}
                 <div className="w-full lg:w-1/2">
-                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-[#0b66b3] to-[#084c8a] shadow-2xl">
-                    {/* Placeholder - replace with actual images */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center text-white">
-                        <div className="text-8xl font-black opacity-20 mb-2">{step.number}</div>
-                        <p className="text-white/60 text-sm">Photo placeholder</p>
+                  {step.image ? (
+                    <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+                      <Image
+                        src={step.image}
+                        alt={step.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center">
+                      <div className="text-center text-white p-8">
+                        <svg className="w-24 h-24 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <p className="text-2xl font-bold">Quality Guaranteed</p>
+                        <p className="text-white/80 mt-2">We don&apos;t leave until it&apos;s perfect</p>
                       </div>
                     </div>
-                    {/* Uncomment when images are ready:
-                    <Image
-                      src={step.image}
-                      alt={step.title}
-                      fill
-                      className="object-cover"
-                    />
-                    */}
-                  </div>
+                  )}
                 </div>
 
                 {/* Content */}

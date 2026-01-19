@@ -12,30 +12,34 @@ const trustBadges = [
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden min-h-[600px] md:min-h-[700px]" id="hero">
+    <section className="relative overflow-hidden min-h-[550px] md:min-h-[700px]" id="hero">
       {/* Background Image */}
       <div className="absolute inset-0">
         {/* Desktop image */}
         <Image
-          src="/images/hero-bathroom.png"
-          alt="Modern luxury bathroom"
+          src="/images/hero-bathroom.webp"
+          alt="Modern luxury bathroom refinishing in Seattle"
           fill
           className="object-cover hidden md:block"
           priority
+          sizes="100vw"
+          quality={85}
         />
         {/* Mobile image */}
         <Image
-          src="/images/hero-bathroom-mob.png"
-          alt="Modern luxury bathroom"
+          src="/images/hero-bathroom-mob.webp"
+          alt="Modern luxury bathroom refinishing in Seattle"
           fill
           className="object-cover md:hidden"
           priority
+          sizes="100vw"
+          quality={85}
         />
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/40 via-slate-900/20 to-transparent" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 pt-20 md:pt-28 pb-8 md:pb-16 flex flex-col justify-center min-h-[600px] md:min-h-[700px]">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 pt-12 md:pt-28 pb-6 md:pb-16 flex flex-col justify-center min-h-[550px] md:min-h-[700px]">
         <div className="max-w-2xl">
           {/* Main headline */}
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-3 md:mb-4">
@@ -48,12 +52,23 @@ export default function Hero() {
             Get a brand new look without the renovation hassle.
           </p>
 
-          {/* Trust badges - interactive cards */}
-          <div className="flex flex-wrap md:flex-nowrap gap-2 md:gap-3 mb-5 md:mb-6">
+          {/* Trust badges - compact on mobile, cards on desktop */}
+          {/* Mobile: simple inline text */}
+          <div className="flex md:hidden flex-wrap items-center gap-x-3 gap-y-1 text-white/90 text-sm mb-4">
+            {trustBadges.map((badge, i) => (
+              <span key={badge.text} className="inline-flex items-center gap-1">
+                <span>{badge.icon}</span>
+                <span className="font-medium">{badge.text}</span>
+                {i < trustBadges.length - 1 && <span className="text-white/40 ml-2">•</span>}
+              </span>
+            ))}
+          </div>
+          {/* Desktop: interactive cards */}
+          <div className="hidden md:flex flex-nowrap gap-3 mb-6">
             {trustBadges.map((badge) => (
               <div
                 key={badge.text}
-                className="group inline-flex items-center gap-1.5 px-3 py-2 md:px-3.5 md:py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:border-white/40 hover:scale-105 transition-all duration-300 cursor-default"
+                className="group inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:border-white/40 hover:scale-105 transition-all duration-300 cursor-default"
               >
                 <span className="text-lg group-hover:scale-110 transition-transform duration-300">{badge.icon}</span>
                 <span className="text-white text-sm font-semibold whitespace-nowrap">{badge.text}</span>
@@ -78,14 +93,14 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* Service areas */}
-          <div className="inline-flex items-center gap-2 text-white/70 text-sm">
-            <svg className="w-4 h-4 text-amber-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+          {/* Value prop */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 backdrop-blur-sm border border-white/20">
+            <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
-            <span>Seattle, Bellevue, Redmond, Kirkland & nearby</span>
-            <span className="hidden sm:inline">•</span>
-            <span className="hidden sm:inline">{BUSINESS.hours}</span>
+            <span className="text-white font-semibold text-sm md:text-base">
+              Don&apos;t Replace It — Refinish It! Save 80%
+            </span>
           </div>
         </div>
       </div>

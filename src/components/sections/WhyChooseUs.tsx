@@ -129,10 +129,9 @@ export default function WhyChooseUs() {
           </div>
         </div>
 
-        {/* Team Section */}
+        {/* Team Section - HIDDEN until photos ready
         <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 md:p-12">
           <div className="grid md:grid-cols-2 gap-8 items-center">
-            {/* Team Info */}
             <div className="text-white">
               <h3 className="text-2xl md:text-3xl font-bold mb-4">
                 Meet the Team Behind Your Project
@@ -158,27 +157,15 @@ export default function WhyChooseUs() {
                 ))}
               </ul>
             </div>
-
-            {/* Team Photos */}
             <div className="grid grid-cols-3 gap-4">
               {team.map((member) => (
                 <div key={member.name} className="text-center">
-                  {/* Photo placeholder */}
                   <div className="relative aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-[#0b66b3] to-[#084c8a] mb-3">
-                    {/* Placeholder icon - replace with Image when photos ready */}
                     <div className="absolute inset-0 flex items-center justify-center">
                       <svg className="w-12 h-12 text-white/30" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
                       </svg>
                     </div>
-                    {/* Uncomment when photos added:
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      fill
-                      className="object-cover"
-                    />
-                    */}
                   </div>
                   <h4 className="font-bold text-white text-sm">{member.name}</h4>
                   <p className="text-white/50 text-xs">{member.role}</p>
@@ -187,6 +174,7 @@ export default function WhyChooseUs() {
             </div>
           </div>
         </div>
+        */}
 
         {/* CTA */}
         <div className="mt-12 text-center">

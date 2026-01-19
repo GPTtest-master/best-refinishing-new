@@ -76,10 +76,10 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="font-bold text-lg mb-6 flex items-center gap-2">
+            <Link href="/services" className="font-bold text-lg mb-6 flex items-center gap-2 hover:text-amber-400 transition">
               <span className="w-8 h-0.5 bg-amber-500" />
               Our Services
-            </h3>
+            </Link>
             <ul className="space-y-3">
               {SERVICES.map((service) => (
                 <li key={service.id}>
@@ -99,10 +99,10 @@ export default function Footer() {
 
           {/* Service Areas */}
           <div>
-            <h3 className="font-bold text-lg mb-6 flex items-center gap-2">
+            <Link href="/locations" className="font-bold text-lg mb-6 flex items-center gap-2 hover:text-amber-400 transition">
               <span className="w-8 h-0.5 bg-amber-500" />
               Service Areas
-            </h3>
+            </Link>
             <div className="grid grid-cols-2 gap-2">
               {LOCATIONS.map((location) => (
                 <Link
@@ -177,6 +177,9 @@ export default function Footer() {
             <Link href="/cost-calculator" className="text-gray-500 hover:text-white transition">Cost Calculator</Link>
             <Link href="/blog" className="text-gray-500 hover:text-white transition">Blog</Link>
             <Link href="/contact" className="text-gray-500 hover:text-white transition">Contact</Link>
+            <span className="text-gray-700">|</span>
+            <Link href="/privacy" className="text-gray-500 hover:text-white transition">Privacy Policy</Link>
+            <Link href="/terms" className="text-gray-500 hover:text-white transition">Terms of Service</Link>
           </div>
         </div>
       </div>

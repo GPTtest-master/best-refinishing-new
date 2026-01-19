@@ -45,20 +45,18 @@ export default function Services() {
 
           {/* Active Service Card */}
           <div className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-            <div className="relative h-48">
-              <Image
-                src={SERVICES[activeTab].image}
-                alt={SERVICES[activeTab].title}
-                fill
-                className="object-cover"
-              />
-              {SERVICES[activeTab].popular && (
-                <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-amber-500 text-white text-xs font-bold">
-                  MOST POPULAR
-                </div>
-              )}
-              <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-green-500 text-white text-xs font-bold">
-                {SERVICES[activeTab].savings}
+            <div className="relative h-56 overflow-hidden">
+              <div
+                className="absolute inset-0"
+                style={{ transform: SERVICES[activeTab].imageScale ? `scale(${SERVICES[activeTab].imageScale})` : undefined }}
+              >
+                <Image
+                  src={SERVICES[activeTab].image}
+                  alt={SERVICES[activeTab].title}
+                  fill
+                  className="object-cover"
+                  style={{ objectPosition: SERVICES[activeTab].imagePosition || 'center' }}
+                />
               </div>
             </div>
             <div className="p-5">
@@ -120,20 +118,18 @@ export default function Services() {
               className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100"
             >
               {/* Image */}
-              <div className="relative h-44 overflow-hidden">
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                {service.popular && (
-                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-amber-500 text-white text-xs font-bold">
-                    MOST POPULAR
-                  </div>
-                )}
-                <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-green-500 text-white text-xs font-bold">
-                  {service.savings}
+              <div className="relative h-52 overflow-hidden">
+                <div
+                  className="absolute inset-0 group-hover:scale-105 transition-transform duration-500"
+                  style={{ transform: service.imageScale ? `scale(${service.imageScale})` : undefined }}
+                >
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover"
+                    style={{ objectPosition: service.imagePosition || 'center' }}
+                  />
                 </div>
               </div>
 
@@ -162,19 +158,13 @@ export default function Services() {
                   ))}
                 </div>
 
-                {/* Price & CTA */}
-                <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                  <span className="text-xl font-black text-gray-900">{service.price}</span>
-                  <Link
-                    href={service.href}
-                    className="inline-flex items-center gap-1 text-[#0b66b3] font-semibold text-sm hover:gap-2 transition-all"
-                  >
-                    Learn More
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </Link>
-                </div>
+                {/* CTA Button - Learn More */}
+                <Link
+                  href={service.href}
+                  className="block w-full py-3 rounded-xl bg-[#0b66b3] text-white font-semibold text-center hover:bg-[#084c8a] transition"
+                >
+                  Learn More
+                </Link>
               </div>
             </div>
           ))}

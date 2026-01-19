@@ -29,6 +29,7 @@ export default function QuickForm({ variant = 'light', title, compact = false }:
     phone: '',
     service: '',
     message: '',
+    smsConsent: false,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -167,6 +168,28 @@ export default function QuickForm({ variant = 'light', title, compact = false }:
             />
           </div>
         )}
+
+        {/* SMS Consent Checkbox - Required for TCPA Compliance */}
+        <div className={`flex items-start gap-3 p-3 rounded-lg ${variant === 'light' ? 'bg-slate-50' : 'bg-white/5'}`}>
+          <input
+            type="checkbox"
+            id={`smsConsent-${variant}`}
+            required
+            checked={formData.smsConsent}
+            onChange={(e) => setFormData({ ...formData, smsConsent: e.target.checked })}
+            className="mt-0.5 w-5 h-5 rounded border-2 border-gray-300 text-[#0b66b3] focus:ring-[#0b66b3] cursor-pointer flex-shrink-0"
+          />
+          <label
+            htmlFor={`smsConsent-${variant}`}
+            className={`text-xs leading-relaxed cursor-pointer ${variant === 'light' ? 'text-gray-600' : 'text-gray-300'}`}
+          >
+            I agree to receive SMS/text messages from Best Refinishing regarding my quote request.
+            Message frequency varies. Msg & data rates may apply. Reply STOP to opt-out.{' '}
+            <a href="/privacy" className={`underline ${variant === 'light' ? 'text-[#0b66b3]' : 'text-amber-400'}`}>Privacy</a>
+            {' '}&{' '}
+            <a href="/terms" className={`underline ${variant === 'light' ? 'text-[#0b66b3]' : 'text-amber-400'}`}>Terms</a>.
+          </label>
+        </div>
 
         <button
           type="submit"

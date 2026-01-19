@@ -2,7 +2,8 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { BLOG_POSTS, BUSINESS } from '@/lib/constants';
+import { BLOG_POSTS, BUSINESS, SERVICES, LOCATIONS } from '@/lib/constants';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 // Blog content stored separately for SEO optimization
 const blogContent: Record<string, { sections: { heading?: string; content?: string; list?: string[]; image?: { src: string; alt: string; caption?: string } }[] }> = {
@@ -34,9 +35,9 @@ const blogContent: Record<string, { sections: { heading?: string; content?: stri
       },
       {
         image: {
-          src: '/images/bathtub-3-before.webp',
-          alt: 'Worn bathtub before professional refinishing in Seattle',
-          caption: 'A typical worn bathtub before refinishing - stains, chips, and discoloration are common issues we fix daily.'
+          src: '/images/optimized/baztub-after.webp',
+          alt: 'Professional bathtub refinishing result in Seattle',
+          caption: 'Professional refinishing result - a bathtub restored to like-new condition in just one day.'
         }
       },
       {
@@ -112,7 +113,7 @@ const blogContent: Record<string, { sections: { heading?: string; content?: stri
       },
       {
         heading: 'Get Your Free Quote Today',
-        content: `Ready to transform your bathtub and save thousands? Contact Best Refinishing for a free, no-obligation inspection and quote. We serve Seattle, Bellevue, Redmond, Kirkland, and all surrounding areas.\n\n**Call us at (206) 786-9915** or fill out our quick quote form. We respond within 30 minutes during business hours.`
+        content: `Ready to transform your bathtub and save thousands? Contact Best Refinishing for a free, no-obligation inspection and quote. We serve Seattle, Bellevue, Redmond, Kirkland, and all surrounding areas.\n\n**Call us at (206) 786-9915** or fill out our quick quote form. We respond instantly!`
       }
     ]
   },
@@ -247,7 +248,7 @@ const blogContent: Record<string, { sections: { heading?: string; content?: stri
       },
       {
         heading: 'Ready to Get Started?',
-        content: `If your bathtub needs refinishing, don't wait until damage gets worse. Contact Best Refinishing today for a free inspection and quote. We serve Seattle, Bellevue, Redmond, Kirkland, and all surrounding areas.\n\n**Call (206) 786-9915** or request your free quote online. We respond within 30 minutes!`
+        content: `If your bathtub needs refinishing, don't wait until damage gets worse. Contact Best Refinishing today for a free inspection and quote. We serve Seattle, Bellevue, Redmond, Kirkland, and all surrounding areas.\n\n**Call (206) 786-9915** or request your free quote online. We respond instantly!`
       }
     ]
   }
@@ -390,20 +391,16 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
 
           <div className="max-w-4xl mx-auto px-4 relative z-10">
-            {/* Breadcrumb */}
-            <nav className="mb-8">
-              <ol className="flex items-center gap-2 text-sm text-gray-400">
-                <li>
-                  <Link href="/" className="hover:text-white transition">Home</Link>
-                </li>
-                <li>/</li>
-                <li>
-                  <Link href="/blog" className="hover:text-white transition">Blog</Link>
-                </li>
-                <li>/</li>
-                <li className="text-amber-400 truncate max-w-[200px]">{post.title}</li>
-              </ol>
-            </nav>
+            {/* Breadcrumb with schema */}
+            <div className="mb-8">
+              <Breadcrumbs
+                variant="dark"
+                items={[
+                  { label: 'Blog', href: '/blog' },
+                  { label: post.title },
+                ]}
+              />
+            </div>
 
             <div className="flex items-center gap-3 mb-6">
               <span className="px-3 py-1 rounded-full bg-amber-500 text-white text-sm font-semibold">
@@ -515,7 +512,7 @@ export default async function BlogPostPage({ params }: Props) {
             </h3>
             <p className="text-white/80 text-lg mb-6">
               Get a free, no-obligation quote from Seattle&apos;s top-rated refinishing experts.
-              We respond within 30 minutes.
+              We respond instantly!
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
@@ -539,6 +536,64 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
           </div>
         </div>
+
+        {/* Related Services & Locations for SEO */}
+        <section className="py-16 bg-white border-t border-gray-100">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-12">
+              {/* Services */}
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-6">Our Refinishing Services</h3>
+                <div className="grid gap-3">
+                  {SERVICES.slice(0, 4).map((service) => (
+                    <Link
+                      key={service.id}
+                      href={service.href}
+                      className="flex items-center justify-between p-3 bg-slate-50 rounded-lg hover:bg-[#0b66b3]/10 transition group"
+                    >
+                      <span className="font-medium text-gray-900 group-hover:text-[#0b66b3]">{service.title}</span>
+                      <span className="text-sm text-gray-500">{service.price}</span>
+                    </Link>
+                  ))}
+                </div>
+                <Link
+                  href="/services"
+                  className="inline-flex items-center gap-2 mt-4 text-[#0b66b3] font-semibold hover:underline"
+                >
+                  View all services
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
+
+              {/* Service Areas */}
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-6">Service Areas</h3>
+                <div className="flex flex-wrap gap-2">
+                  {LOCATIONS.slice(0, 12).map((location) => (
+                    <Link
+                      key={location.id}
+                      href={location.href}
+                      className="px-3 py-1.5 bg-slate-50 rounded-full text-gray-700 hover:bg-[#0b66b3] hover:text-white transition text-sm font-medium"
+                    >
+                      {location.name}
+                    </Link>
+                  ))}
+                </div>
+                <Link
+                  href="/locations"
+                  className="inline-flex items-center gap-2 mt-4 text-[#0b66b3] font-semibold hover:underline"
+                >
+                  View all 50+ locations
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Related Posts */}
         {otherPosts.length > 0 && (
