@@ -48,7 +48,7 @@ export default function Hero() {
           </h1>
 
           <p className="text-base md:text-xl text-white/90 mb-4 md:mb-5">
-            Professional bathtub, tile & countertop refinishing.
+            Professional bathtub, tile & countertop refinishing.<br />
             Get a brand new look without the renovation hassle.
           </p>
 

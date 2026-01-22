@@ -60,13 +60,26 @@ export default function Header() {
         <nav className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center h-20 md:h-24">
             {/* Logo */}
-            <Link href="/" className="flex items-center flex-shrink-0 h-full py-1">
+            <Link href="/" className="flex items-center flex-shrink-0 h-full py-1 gap-2">
+              {/* Mobile logo */}
               <Image
-                src="/images/logo-new.svg"
+                src="/images/optimized/logo1.svg"
+                alt="Best Refinishing"
+                width={50}
+                height={50}
+                className="h-[50px] w-auto object-contain md:hidden"
+                priority
+              />
+              <span className="md:hidden font-bold text-[#0b66b3] text-lg leading-tight">
+                Best Refinishing<br />Company
+              </span>
+              {/* Desktop logo */}
+              <Image
+                src="/images/optimized/logo-new.svg"
                 alt="Best Refinishing"
                 width={320}
                 height={275}
-                className="h-[72px] md:h-[88px] w-auto object-contain"
+                className="hidden md:block h-[88px] w-auto object-contain"
                 priority
               />
             </Link>

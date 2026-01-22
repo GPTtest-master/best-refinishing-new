@@ -29,7 +29,7 @@ Modern conversion-focused website for Best Refinishing — professional bathtub,
 ## Business Info
 - **Phone:** (206) 786-9915
 - **Website:** https://www.best-refinishing.com
-- **Email:** info@best-refinishing.com
+- **Email:** office@best-refinishing.com
 - **Hours:** Open 24/7
 - **Rating:** 4.98 (87 reviews)
 

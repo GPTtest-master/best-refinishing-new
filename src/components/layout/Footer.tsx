@@ -51,12 +51,11 @@ export default function Footer() {
           <div>
             <div className="mb-6">
               <Image
-                src="/images/logo-new.svg"
+                src="/images/optimized/logo1.svg"
                 alt={BUSINESS.name}
-                width={180}
+                width={50}
                 height={50}
                 className="h-12 w-auto"
-                style={{ filter: 'brightness(0) invert(1)' }}
               />
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
@@ -174,7 +173,6 @@ export default function Footer() {
             <Link href="/faq" className="text-gray-500 hover:text-white transition">FAQ</Link>
             <Link href="/process" className="text-gray-500 hover:text-white transition">Process</Link>
             <Link href="/common-problems" className="text-gray-500 hover:text-white transition">Common Problems</Link>
-            <Link href="/cost-calculator" className="text-gray-500 hover:text-white transition">Cost Calculator</Link>
             <Link href="/blog" className="text-gray-500 hover:text-white transition">Blog</Link>
             <Link href="/contact" className="text-gray-500 hover:text-white transition">Contact</Link>
             <span className="text-gray-700">|</span>

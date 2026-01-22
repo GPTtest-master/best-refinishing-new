@@ -29,9 +29,9 @@ function getOrganizationSchema() {
     url: getUrl('/'),
     logo: {
       '@type': 'ImageObject',
-      url: getUrl('/images/logo-new.svg'),
+      url: getUrl('/images/optimized/logo1.svg'),
       width: 300,
-      height: 60,
+      height: 300,
     },
     contactPoint: {
       '@type': 'ContactPoint',
@@ -87,7 +87,7 @@ function getLocalBusinessSchema() {
     telephone: BUSINESS.phone,
     email: BUSINESS.email,
     priceRange: '$$',
-    image: getUrl('/images/logo-new.svg'),
+    image: getUrl('/images/optimized/logo1.svg'),
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Seattle',

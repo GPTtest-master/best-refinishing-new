@@ -6,7 +6,7 @@ import { BLOG_POSTS, BUSINESS, SERVICES, LOCATIONS } from '@/lib/constants';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 // Blog content stored separately for SEO optimization
-const blogContent: Record<string, { sections: { heading?: string; content?: string; list?: string[]; image?: { src: string; alt: string; caption?: string } }[] }> = {
+const blogContent: Record<string, { sections: { heading?: string; content?: string; list?: string[]; image?: { src: string; alt: string; caption?: string; position?: string } }[] }> = {
   'bathtub-refinishing-vs-replacement-cost-seattle': {
     sections: [
       {
@@ -68,9 +68,10 @@ const blogContent: Record<string, { sections: { heading?: string; content?: stri
       },
       {
         image: {
-          src: '/images/bathtub-3-after.webp',
+          src: '/images/optimized/IMG_5644.webp',
           alt: 'Beautifully refinished bathtub by Best Refinishing Seattle',
-          caption: 'The same bathtub after professional refinishing - restored to factory-fresh condition with a 5-year warranty.'
+          caption: 'The same bathtub after professional refinishing - restored to factory-fresh condition with a 5-year warranty.',
+          position: 'center 35%'
         }
       },
       {
@@ -477,6 +478,7 @@ export default async function BlogPostPage({ params }: Props) {
                         alt={section.image.alt}
                         fill
                         className="object-cover"
+                        style={section.image.position ? { objectPosition: section.image.position } : undefined}
                       />
                     </div>
                     {section.image.caption && (

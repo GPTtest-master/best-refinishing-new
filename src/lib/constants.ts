@@ -5,7 +5,7 @@ export const BUSINESS = {
   phone: '(206) 786-9915',
   phoneLink: 'tel:+12067869915',
   smsLink: 'sms:+12067869915',
-  email: 'info@best-refinishing.com',
+  email: 'office@best-refinishing.com',
   website: 'https://www.best-refinishing.com',
   hours: 'Open 24/7',
   responseTime: 'Instantly',
@@ -273,7 +273,7 @@ export const BLOG_POSTS = [
     readTime: '8 min read',
     category: 'Cost Guide',
     tags: ['bathtub refinishing cost', 'seattle bathroom renovation', 'tub replacement vs refinishing', 'save money bathroom'],
-    image: '/images/optimized/bathtub-3-after.webp',
+    image: '/images/optimized/IMG_5644.webp',
     featured: true,
   },
   {
