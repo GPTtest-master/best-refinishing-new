@@ -5,6 +5,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { BUSINESS } from '@/lib/constants';
 
+// Category to service mapping
+const categoryServiceMap: Record<string, { href: string; label: string }> = {
+  bathtub: { href: '/services/bathtub-refinishing', label: 'Bathtub Refinishing' },
+  sink: { href: '/services/sink-refinishing', label: 'Sink Refinishing' },
+  shower: { href: '/services/shower-refinishing', label: 'Shower Refinishing' },
+  tile: { href: '/services/tile-grout-refinishing', label: 'Tile Refinishing' },
+  countertop: { href: '/services/countertop-refinishing', label: 'Countertop Refinishing' },
+};
+
 // Gallery photos
 const galleryPhotos = [
   { id: 1, src: '/images/optimized/entire-bath-before.webp', alt: 'Complete bathroom - before refinishing', category: 'bathtub' },
@@ -89,29 +98,51 @@ export default function GalleryPage() {
 
           {/* Photo Grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {filteredPhotos.map((photo) => (
-              <button
-                key={photo.id}
-                onClick={() => setLightboxImage(photo.src)}
-                className="group relative aspect-square rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
-              >
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-0 left-0 right-0 p-3 text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
-                  {photo.alt}
+            {filteredPhotos.map((photo) => {
+              const service = categoryServiceMap[photo.category];
+              return (
+                <div
+                  key={photo.id}
+                  className="group relative aspect-square rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
+                >
+                  <button
+                    onClick={() => setLightboxImage(photo.src)}
+                    className="absolute inset-0 w-full h-full"
+                  >
+                    <Image
+                      src={photo.src}
+                      alt={photo.alt}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </button>
+                  <div className="absolute bottom-0 left-0 right-0 p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
+                    <p className="text-white text-sm font-medium mb-2">{photo.alt}</p>
+                    {service && (
+                      <Link
+                        href={service.href}
+                        className="inline-flex items-center gap-1 text-amber-400 hover:text-amber-300 text-xs font-semibold"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        {service.label}
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </Link>
+                    )}
+                  </div>
+                  <button
+                    onClick={() => setLightboxImage(photo.src)}
+                    className="absolute top-3 right-3 w-8 h-8 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  >
+                    <svg className="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                    </svg>
+                  </button>
                 </div>
-                <div className="absolute top-3 right-3 w-8 h-8 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <svg className="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-                  </svg>
-                </div>
-              </button>
-            ))}
+              );
+            })}
           </div>
 
           {filteredPhotos.length === 0 && (

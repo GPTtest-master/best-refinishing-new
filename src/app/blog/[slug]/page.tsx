@@ -6,7 +6,10 @@ import { BLOG_POSTS, BUSINESS, SERVICES, LOCATIONS } from '@/lib/constants';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 // Blog content stored separately for SEO optimization
-const blogContent: Record<string, { sections: { heading?: string; content?: string; list?: string[]; image?: { src: string; alt: string; caption?: string; position?: string } }[] }> = {
+const blogContent: Record<string, {
+  sections: { heading?: string; content?: string; list?: string[]; image?: { src: string; alt: string; caption?: string; position?: string } }[];
+  relatedServices?: string[]; // service IDs from SERVICES array
+}> = {
   'bathtub-refinishing-vs-replacement-cost-seattle': {
     sections: [
       {
@@ -116,7 +119,8 @@ const blogContent: Record<string, { sections: { heading?: string; content?: stri
         heading: 'Get Your Free Quote Today',
         content: `Ready to transform your bathtub and save thousands? Contact Best Refinishing for a free, no-obligation inspection and quote. We serve Seattle, Bellevue, Redmond, Kirkland, and all surrounding areas.\n\n**Call us at (206) 786-9915** or fill out our quick quote form. We respond instantly!`
       }
-    ]
+    ],
+    relatedServices: ['bathtub', 'chip-repair', 'shower']
   },
   'how-long-does-bathtub-refinishing-last': {
     sections: [
@@ -251,7 +255,8 @@ const blogContent: Record<string, { sections: { heading?: string; content?: stri
         heading: 'Ready to Get Started?',
         content: `If your bathtub needs refinishing, don't wait until damage gets worse. Contact Best Refinishing today for a free inspection and quote. We serve Seattle, Bellevue, Redmond, Kirkland, and all surrounding areas.\n\n**Call (206) 786-9915** or request your free quote online. We respond instantly!`
       }
-    ]
+    ],
+    relatedServices: ['bathtub', 'chip-repair', 'tile']
   }
 };
 
@@ -506,6 +511,36 @@ export default async function BlogPostPage({ params }: Props) {
               ))}
             </div>
           </div>
+
+          {/* Related Services */}
+          {content.relatedServices && content.relatedServices.length > 0 && (
+            <div className="mt-12 pt-8 border-t border-gray-200">
+              <h3 className="text-xl font-bold text-gray-900 mb-6">Related Services</h3>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {content.relatedServices.map((serviceId) => {
+                  const service = SERVICES.find(s => s.id === serviceId);
+                  if (!service) return null;
+                  return (
+                    <Link
+                      key={service.id}
+                      href={service.href}
+                      className="group p-5 bg-slate-50 rounded-xl hover:bg-[#0b66b3] transition-all duration-300"
+                    >
+                      <h4 className="font-bold text-gray-900 group-hover:text-white mb-2">
+                        {service.title}
+                      </h4>
+                      <p className="text-sm text-gray-600 group-hover:text-white/80 mb-3">
+                        {service.description.slice(0, 80)}...
+                      </p>
+                      <span className="text-[#0b66b3] group-hover:text-amber-400 font-semibold text-sm">
+                        {service.price} →
+                      </span>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          )}
 
           {/* CTA Box */}
           <div className="mt-12 p-8 md:p-12 rounded-3xl bg-gradient-to-br from-[#0b66b3] to-[#084c8a] text-white">
