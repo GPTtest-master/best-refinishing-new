@@ -1,18 +1,44 @@
-import { Metadata } from 'next';
+'use client';
+
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { BUSINESS } from '@/lib/constants';
 import Script from 'next/script';
 
-export const metadata: Metadata = {
-  title: `Thank You | ${BUSINESS.name}`,
-  description: 'Thank you for contacting Best Refinishing. We will get back to you very soon.',
-  robots: {
-    index: false,
-    follow: false,
-  },
+// Service prices mapping
+const servicePrices: Record<string, { label: string; price: number }> = {
+  bathtub: { label: 'Bathtub Refinishing', price: 700 },
+  shower: { label: 'Shower Refinishing', price: 900 },
+  tile: { label: 'Tub + Tile', price: 900 },
+  sink: { label: 'Sink Refinishing', price: 450 },
+  countertop: { label: 'Countertop Refinishing', price: 600 },
+  other: { label: 'Other Service', price: 0 },
 };
 
 export default function ThankYouPage() {
+  const [selectedServices, setSelectedServices] = useState<string[]>([]);
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  useEffect(() => {
+    // Read selected services from localStorage
+    const stored = localStorage.getItem('selectedServices');
+    if (stored) {
+      try {
+        const services = JSON.parse(stored) as string[];
+        setSelectedServices(services);
+        // Calculate total price
+        const total = services.reduce((sum, serviceId) => {
+          return sum + (servicePrices[serviceId]?.price || 0);
+        }, 0);
+        setTotalPrice(total);
+        // Clear localStorage after reading
+        localStorage.removeItem('selectedServices');
+      } catch (e) {
+        console.error('Error parsing services:', e);
+      }
+    }
+  }, []);
+
   return (
     <>
       {/* Google Ads Conversion Tracking - Thank You Page View */}
@@ -44,6 +70,25 @@ export default function ThankYouPage() {
             <span className="font-bold text-[#0b66b3]">{BUSINESS.responseTime}</span>!
           </p>
 
+          {/* Price Display */}
+          {totalPrice > 0 && (
+            <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-6 shadow-lg border border-green-200 mb-8">
+              <div className="text-center">
+                <p className="text-sm font-semibold text-green-700 mb-1">Your Estimated Price</p>
+                <p className="text-4xl md:text-5xl font-black text-green-600 mb-2">
+                  From ${totalPrice.toLocaleString()}
+                </p>
+                <div className="text-sm text-green-700 mb-4">
+                  {selectedServices.filter(s => s !== 'other').map(s => servicePrices[s]?.label).join(' + ')}
+                  {selectedServices.includes('other') && ' + Other (quote pending)'}
+                </div>
+                <p className="text-xs text-green-600">
+                  Our manager will contact you to confirm the final price based on your specific project
+                </p>
+              </div>
+            </div>
+          )}
+
           {/* What happens next */}
           <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 mb-8 text-left">
             <h2 className="text-xl font-bold text-gray-900 mb-6">What Happens Next?</h2>
@@ -51,12 +96,12 @@ export default function ThankYouPage() {
               <li className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
                   <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
                 <div>
-                  <div className="font-bold text-gray-900 text-lg">Instant Quote</div>
-                  <div className="text-gray-600">You will receive the price for your service instantly via SMS</div>
+                  <div className="font-bold text-gray-900 text-lg">Quote Received!</div>
+                  <div className="text-gray-600">Your estimated price is shown above. Final price may vary based on project details.</div>
                 </div>
               </li>
               <li className="flex items-start gap-4">

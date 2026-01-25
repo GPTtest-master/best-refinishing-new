@@ -21,6 +21,16 @@ interface ServiceImage {
 }
 
 // Before/After image pairs for each service type
+// Service options with prices for the form
+const formServices = [
+  { id: 'bathtub', label: 'Bathtub', price: 700 },
+  { id: 'shower', label: 'Shower', price: 900 },
+  { id: 'tile', label: 'Tub+Tile', price: 900 },
+  { id: 'sink', label: 'Sink', price: 450 },
+  { id: 'countertop', label: 'Counter', price: 600 },
+  { id: 'other', label: 'Other', price: 0 },
+];
+
 const serviceImages: ServiceImage[] = [
   {
     id: 'bathtub',
@@ -164,6 +174,9 @@ function QuoteSectionContent() {
           service: formData.services.join(', '),
         });
       }
+
+      // Store selected services for thank-you page price display
+      localStorage.setItem('selectedServices', JSON.stringify(formData.services));
 
       router.push('/thank-you');
     } catch (error) {
@@ -381,12 +394,12 @@ function QuoteSectionContent() {
                     <p className="text-xs text-gray-500 mb-2">Select one or more</p>
                     <div className="grid grid-cols-3 gap-2">
                       {[
-                        { id: 'bathtub', label: 'Bathtub', icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M4 16V8a4 4 0 014-4h1m11 12V8a4 4 0 00-4-4h-1m-4 0v4m0-4a2 2 0 10-4 0" /></svg> },
-                        { id: 'shower', label: 'Shower', icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 12h12M6 12V6a2 2 0 012-2h1m9 8v6a2 2 0 01-2 2H8a2 2 0 01-2-2v-6m0 0a3 3 0 013-3h6a3 3 0 013 3" /><circle cx="12" cy="8" r="1" fill="currentColor" /><path strokeLinecap="round" strokeWidth={1.5} d="M10 14v3M12 14v4M14 14v3" /></svg> },
-                        { id: 'tile', label: 'Tub+Tile', icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 5h6v6H4zM14 5h6v6h-6zM4 15h6v6H4zM14 15h6v6h-6z" /></svg> },
-                        { id: 'sink', label: 'Sink', icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><ellipse cx="12" cy="8" rx="8" ry="3" strokeWidth={1.5} /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 8v4c0 1.66 3.58 3 8 3s8-1.34 8-3V8M12 15v4M9 19h6" /></svg> },
-                        { id: 'countertop', label: 'Counter', icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 10h16v2H4zM6 12v6M18 12v6M4 10V8a2 2 0 012-2h12a2 2 0 012 2v2" /></svg> },
-                        { id: 'other', label: 'Other', icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg> },
+                        { id: 'bathtub', label: 'Bathtub', price: 700, icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M4 16V8a4 4 0 014-4h1m11 12V8a4 4 0 00-4-4h-1m-4 0v4m0-4a2 2 0 10-4 0" /></svg> },
+                        { id: 'shower', label: 'Shower', price: 900, icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 12h12M6 12V6a2 2 0 012-2h1m9 8v6a2 2 0 01-2 2H8a2 2 0 01-2-2v-6m0 0a3 3 0 013-3h6a3 3 0 013 3" /><circle cx="12" cy="8" r="1" fill="currentColor" /><path strokeLinecap="round" strokeWidth={1.5} d="M10 14v3M12 14v4M14 14v3" /></svg> },
+                        { id: 'tile', label: 'Tub+Tile', price: 900, icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 5h6v6H4zM14 5h6v6h-6zM4 15h6v6H4zM14 15h6v6h-6z" /></svg> },
+                        { id: 'sink', label: 'Sink', price: 450, icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><ellipse cx="12" cy="8" rx="8" ry="3" strokeWidth={1.5} /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 8v4c0 1.66 3.58 3 8 3s8-1.34 8-3V8M12 15v4M9 19h6" /></svg> },
+                        { id: 'countertop', label: 'Counter', price: 600, icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 10h16v2H4zM6 12v6M18 12v6M4 10V8a2 2 0 012-2h12a2 2 0 012 2v2" /></svg> },
+                        { id: 'other', label: 'Other', price: 0, icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg> },
                       ].map((service) => {
                         const isSelected = formData.services.includes(service.id);
                         return (
