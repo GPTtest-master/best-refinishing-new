@@ -21,8 +21,8 @@ export default function Hero() {
           className="object-cover hidden md:block"
           priority
           fetchPriority="high"
-          sizes="100vw"
-          quality={75}
+          sizes="(min-width: 768px) 100vw, 0px"
+          quality={70}
         />
         {/* Mobile image */}
         <Image
@@ -32,8 +32,8 @@ export default function Hero() {
           className="object-cover md:hidden"
           priority
           fetchPriority="high"
-          sizes="100vw"
-          quality={75}
+          sizes="(max-width: 768px) 100vw, 0px"
+          quality={70}
         />
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/40 via-slate-900/20 to-transparent" />
