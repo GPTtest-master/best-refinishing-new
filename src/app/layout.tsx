@@ -1,14 +1,20 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
+import dynamic from "next/dynamic";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingCTA from "@/components/ui/FloatingCTA";
-import ExitIntentPopup from "@/components/ui/ExitIntentPopup";
 import { BUSINESS } from "@/lib/constants";
 import { generateHomePageSchema } from "@/lib/schema";
 import { SchemaScript } from "@/components/SchemaScript";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+
+// Lazy load non-critical components
+const ExitIntentPopup = dynamic(() => import("@/components/ui/ExitIntentPopup"), {
+  ssr: false,
+});
 
 const inter = Inter({
   subsets: ["latin"],
@@ -107,22 +113,7 @@ export default function RootLayout({
           media="(max-width: 767px)"
           fetchPriority="high"
         />
-        {/* Google Ads & GA4 - defer to not block rendering */}
-        <script async defer src="https://www.googletagmanager.com/gtag/js?id=AW-17663809026" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'AW-17663809026');
-              gtag('config', 'G-TGTB5S47RN');
-              gtag('config', 'AW-17663809026/FtVGCJjCjtIbEIKs4eZB', {
-                'phone_conversion_number': '+1 (206) 786-9915'
-              });
-            `,
-          }}
-        />
+{/* Google Ads & GA4 scripts moved to body with lazyOnload */}
         {/* Schema.org JSON-LD - Enhanced @graph structure */}
         <SchemaScript schema={generateHomePageSchema()} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -137,6 +128,24 @@ export default function RootLayout({
         <FloatingCTA />
         <ExitIntentPopup />
         <SpeedInsights />
+
+        {/* Google Ads & GA4 - lazyOnload for better performance */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17663809026"
+          strategy="lazyOnload"
+        />
+        <Script id="gtag-init" strategy="lazyOnload">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17663809026');
+            gtag('config', 'G-TGTB5S47RN');
+            gtag('config', 'AW-17663809026/FtVGCJjCjtIbEIKs4eZB', {
+              'phone_conversion_number': '+1 (206) 786-9915'
+            });
+          `}
+        </Script>
       </body>
     </html>
   );
