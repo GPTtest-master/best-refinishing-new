@@ -1,5 +1,3 @@
-'use client';
-
 import { BUSINESS } from '@/lib/constants';
 
 const reasons = [
