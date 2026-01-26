@@ -98,10 +98,11 @@ export default function Services() {
 
           {/* Dots indicator */}
           <div className="flex justify-center gap-2 mt-4">
-            {SERVICES.map((_, index) => (
+            {SERVICES.map((service, index) => (
               <button
                 key={index}
                 onClick={() => setActiveTab(index)}
+                aria-label={`View ${service.shortTitle} service`}
                 className={`w-2 h-2 rounded-full transition ${
                   activeTab === index ? 'bg-[#0b66b3] w-6' : 'bg-gray-300'
                 }`}

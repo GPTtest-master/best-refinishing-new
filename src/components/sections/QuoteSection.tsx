@@ -433,7 +433,7 @@ function QuoteSectionContent() {
                       })}
                     </div>
                     {formData.services.length === 0 && (
-                      <input type="text" required value="" onChange={() => {}} className="sr-only" tabIndex={-1} />
+                      <input type="text" required value="" onChange={() => {}} className="sr-only" tabIndex={-1} aria-label="Please select at least one service" />
                     )}
                   </div>
 

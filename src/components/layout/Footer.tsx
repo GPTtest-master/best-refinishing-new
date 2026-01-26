@@ -69,7 +69,7 @@ export default function Footer() {
                 </svg>
               ))}
               <span className="text-white font-bold ml-2">{BUSINESS.rating}</span>
-              <span className="text-gray-500">({BUSINESS.reviewCount} reviews)</span>
+              <span className="text-gray-400">({BUSINESS.reviewCount} reviews)</span>
             </div>
           </div>
 
@@ -132,7 +132,7 @@ export default function Footer() {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-sm text-gray-500">Call or Text</div>
+                  <div className="text-sm text-gray-400">Call or Text</div>
                   <div className="font-semibold text-white">{BUSINESS.phone}</div>
                 </div>
               </a>
@@ -143,7 +143,7 @@ export default function Footer() {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-sm text-gray-500">Hours</div>
+                  <div className="text-sm text-gray-400">Hours</div>
                   <div className="font-semibold text-white">{BUSINESS.hours}</div>
                 </div>
               </div>
@@ -154,7 +154,7 @@ export default function Footer() {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-sm text-gray-500">Response Time</div>
+                  <div className="text-sm text-gray-400">Response Time</div>
                   <div className="font-semibold text-white">{BUSINESS.responseTime}</div>
                 </div>
               </div>
@@ -166,18 +166,18 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-400 text-sm">
             © {new Date().getFullYear()} {BUSINESS.name}. All rights reserved.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm">
-            <Link href="/faq" className="text-gray-500 hover:text-white transition">FAQ</Link>
-            <Link href="/process" className="text-gray-500 hover:text-white transition">Process</Link>
-            <Link href="/common-problems" className="text-gray-500 hover:text-white transition">Common Problems</Link>
-            <Link href="/blog" className="text-gray-500 hover:text-white transition">Blog</Link>
-            <Link href="/contact" className="text-gray-500 hover:text-white transition">Contact</Link>
+            <Link href="/faq" className="text-gray-400 hover:text-white transition">FAQ</Link>
+            <Link href="/process" className="text-gray-400 hover:text-white transition">Process</Link>
+            <Link href="/common-problems" className="text-gray-400 hover:text-white transition">Common Problems</Link>
+            <Link href="/blog" className="text-gray-400 hover:text-white transition">Blog</Link>
+            <Link href="/contact" className="text-gray-400 hover:text-white transition">Contact</Link>
             <span className="text-gray-700">|</span>
-            <Link href="/privacy" className="text-gray-500 hover:text-white transition">Privacy Policy</Link>
-            <Link href="/terms" className="text-gray-500 hover:text-white transition">Terms of Service</Link>
+            <Link href="/privacy" className="text-gray-400 hover:text-white transition">Privacy Policy</Link>
+            <Link href="/terms" className="text-gray-400 hover:text-white transition">Terms of Service</Link>
           </div>
         </div>
       </div>

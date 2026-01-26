@@ -22,8 +22,9 @@ export default function Hero() {
           fill
           className="object-cover hidden md:block"
           priority
+          fetchPriority="high"
           sizes="100vw"
-          quality={85}
+          quality={75}
         />
         {/* Mobile image */}
         <Image
@@ -32,8 +33,9 @@ export default function Hero() {
           fill
           className="object-cover md:hidden"
           priority
+          fetchPriority="high"
           sizes="100vw"
-          quality={85}
+          quality={75}
         />
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/40 via-slate-900/20 to-transparent" />

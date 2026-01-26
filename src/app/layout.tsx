@@ -97,6 +97,7 @@ export default function RootLayout({
           href="/images/hero-bathroom.webp"
           type="image/webp"
           media="(min-width: 768px)"
+          fetchPriority="high"
         />
         <link
           rel="preload"
@@ -104,6 +105,7 @@ export default function RootLayout({
           href="/images/hero-bathroom-mob.webp"
           type="image/webp"
           media="(max-width: 767px)"
+          fetchPriority="high"
         />
         {/* Google Ads & GA4 - defer to not block rendering */}
         <script async defer src="https://www.googletagmanager.com/gtag/js?id=AW-17663809026" />
