@@ -126,7 +126,7 @@ export default function LocationPageClient({ location, content, reviews }: Props
                       <span className="text-[#0b66b3] font-bold text-lg">{service.price}</span>
                     </div>
                     <span className="text-[#0b66b3] font-medium group-hover:translate-x-1 transition-transform">
-                      Learn More →
+                      View Details →
                     </span>
                   </div>
                 </div>

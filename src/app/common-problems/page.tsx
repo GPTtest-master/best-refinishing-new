@@ -327,7 +327,7 @@ export default function CommonProblemsPage() {
                             href={problem.serviceLink}
                             className="text-[#0b66b3] font-semibold hover:underline"
                           >
-                            Learn More →
+                            View Service →
                           </Link>
                         </div>
                       </div>

@@ -159,12 +159,12 @@ export default function Services() {
                   ))}
                 </div>
 
-                {/* CTA Button - Learn More */}
+                {/* CTA Button */}
                 <Link
                   href={service.href}
                   className="block w-full py-3 rounded-xl bg-[#0b66b3] text-white font-semibold text-center hover:bg-[#084c8a] transition"
                 >
-                  Learn More
+                  {service.title} Details
                 </Link>
               </div>
             </div>

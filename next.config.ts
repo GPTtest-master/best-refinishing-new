@@ -1,6 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Experimental optimizations
+  experimental: {
+    optimizeCss: true, // Inline critical CSS
+  },
+
   // Image optimization
   images: {
     formats: ['image/avif', 'image/webp'],

@@ -457,7 +457,7 @@ export default function ServicePageClient({ service }: { service: Service }) {
                   <div className="flex items-center justify-between">
                     <span className="text-[#0b66b3] font-bold">{otherService.price}</span>
                     <span className="text-[#0b66b3] font-medium group-hover:translate-x-1 transition-transform">
-                      Learn More →
+                      View Details →
                     </span>
                   </div>
                 </div>
