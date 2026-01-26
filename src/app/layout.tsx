@@ -1,20 +1,15 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
-import dynamic from "next/dynamic";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingCTA from "@/components/ui/FloatingCTA";
+import ExitIntentPopup from "@/components/ui/ExitIntentPopup";
 import { BUSINESS } from "@/lib/constants";
 import { generateHomePageSchema } from "@/lib/schema";
 import { SchemaScript } from "@/components/SchemaScript";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-
-// Lazy load non-critical components
-const ExitIntentPopup = dynamic(() => import("@/components/ui/ExitIntentPopup"), {
-  ssr: false,
-});
 
 const inter = Inter({
   subsets: ["latin"],
