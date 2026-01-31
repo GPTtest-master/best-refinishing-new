@@ -5,6 +5,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { BUSINESS, NAV_ITEMS } from '@/lib/constants';
 
+// Track phone clicks for Google Ads conversion
+const trackPhoneClick = () => {
+  if (typeof window !== 'undefined' && (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag) {
+    (window as unknown as { gtag: (...args: unknown[]) => void }).gtag('event', 'conversion', {
+      'send_to': 'AW-17663809026/FtVGCJjCjtIbEIKs4eZB',
+      'value': 30.0,
+      'currency': 'USD',
+    });
+  }
+};
+
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -103,6 +114,7 @@ export default function Header() {
               {/* Phone - desktop only, simplified */}
               <a
                 href={BUSINESS.phoneLink}
+                onClick={trackPhoneClick}
                 className="hidden xl:flex items-center gap-2 text-gray-700 font-semibold hover:text-[#0b66b3] transition"
               >
                 <svg className="w-5 h-5 text-[#0b66b3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -10,6 +10,7 @@ import { BUSINESS } from "@/lib/constants";
 import { generateHomePageSchema } from "@/lib/schema";
 import { SchemaScript } from "@/components/SchemaScript";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import HashScrollHandler from "@/components/ui/HashScrollHandler";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -117,6 +118,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://www.googletagmanager.com" />
       </head>
       <body className={`${inter.className} antialiased`}>
+        <HashScrollHandler />
         <Header />
         <main>{children}</main>
         <Footer />

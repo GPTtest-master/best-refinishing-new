@@ -9,14 +9,15 @@ interface QuickFormProps {
   compact?: boolean;
 }
 
-const services = [
-  'Bathtub Refinishing',
-  'Shower Refinishing',
-  'Tile Refinishing',
-  'Sink Refinishing',
-  'Countertop Refinishing',
-  'Chip & Crack Repair',
-  'Other',
+// Service options with IDs and prices for tracking
+const serviceOptions = [
+  { id: 'bathtub', label: 'Bathtub Refinishing', price: 700 },
+  { id: 'shower', label: 'Shower Refinishing', price: 900 },
+  { id: 'tile', label: 'Tile Refinishing', price: 400 },
+  { id: 'sink', label: 'Sink Refinishing', price: 450 },
+  { id: 'countertop', label: 'Countertop Refinishing', price: 600 },
+  { id: 'repair', label: 'Chip & Crack Repair', price: 350 },
+  { id: 'other', label: 'Other', price: 0 },
 ];
 
 // Google Sheets webhook URL - replace with your actual webhook
@@ -38,6 +39,21 @@ export default function QuickForm({ variant = 'light', title, compact = false }:
     e.preventDefault();
     setIsSubmitting(true);
 
+    // Get selected service details
+    const selectedService = serviceOptions.find(s => s.label === formData.service);
+    const serviceId = selectedService?.id || 'other';
+    const estimatedPrice = selectedService?.price || 0;
+
+    // Save to localStorage for thank-you page
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('selectedServices', JSON.stringify([serviceId]));
+      localStorage.setItem('leadData', JSON.stringify({
+        name: formData.name,
+        service: formData.service,
+        price: estimatedPrice,
+      }));
+    }
+
     try {
       // Send to webhook/Google Sheets if configured
       if (WEBHOOK_URL) {
@@ -46,24 +62,38 @@ export default function QuickForm({ variant = 'light', title, compact = false }:
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             ...formData,
+            estimatedPrice,
+            serviceId,
             timestamp: new Date().toISOString(),
             source: window.location.href,
           }),
         });
       }
 
-      // Also send to our API route
+      // Also send to our API route with price info
       await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          estimatedPrice,
+          serviceId,
+        }),
       });
 
-      // Fire GA4 event
+      // Fire Google Ads conversion
       if (typeof window !== 'undefined' && (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag) {
+        // Google Ads conversion
+        (window as unknown as { gtag: (...args: unknown[]) => void }).gtag('event', 'conversion', {
+          'send_to': 'AW-17663809026/dC2_COaQtMQbEIKs4eZB',
+          'value': estimatedPrice > 0 ? estimatedPrice : 50.0,
+          'currency': 'USD',
+        });
+
+        // GA4 generate_lead event
         (window as unknown as { gtag: (...args: unknown[]) => void }).gtag('event', 'generate_lead', {
           currency: 'USD',
-          value: 50,
+          value: estimatedPrice > 0 ? estimatedPrice : 50,
           service: formData.service,
         });
       }
@@ -149,9 +179,9 @@ export default function QuickForm({ variant = 'light', title, compact = false }:
             className={`w-full px-4 py-3 rounded-xl border transition ${inputClasses[variant]}`}
           >
             <option value="">Select Service *</option>
-            {services.map((service) => (
-              <option key={service} value={service}>
-                {service}
+            {serviceOptions.map((service) => (
+              <option key={service.id} value={service.label}>
+                {service.label}
               </option>
             ))}
           </select>

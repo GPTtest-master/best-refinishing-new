@@ -7,10 +7,15 @@ export const metadata: Metadata = {
   title: 'Bathtub Refinishing Blog | Tips, Guides & Cost Savings',
   description: 'Expert tips on bathtub refinishing, cost comparisons, maintenance guides, and bathroom renovation advice from Seattle\'s top refinishing professionals.',
   keywords: 'bathtub refinishing tips, reglazing guide, bathroom renovation blog, tub refinishing cost, seattle bathroom tips',
+  alternates: {
+    canonical: `${BUSINESS.website}/blog`,
+  },
   openGraph: {
     title: 'Bathtub Refinishing Blog | Best Refinishing Seattle',
     description: 'Expert tips and guides on bathtub refinishing from Seattle\'s #1 rated professionals.',
     type: 'website',
+    locale: 'en_US',
+    siteName: BUSINESS.name,
   },
 };
 

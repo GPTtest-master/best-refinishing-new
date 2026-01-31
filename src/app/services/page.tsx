@@ -10,6 +10,16 @@ export const metadata: Metadata = {
   title: `Refinishing Services - Bathtub, Shower, Tile & More | ${BUSINESS.name}`,
   description: `Professional bathtub, shower, tile, sink, and countertop refinishing in Seattle & 50+ cities. Save 80% vs replacement. ${BUSINESS.warranty} warranty. Call ${BUSINESS.phone}.`,
   keywords: 'bathtub refinishing, shower refinishing, tile refinishing, sink refinishing, countertop refinishing, reglazing services seattle',
+  alternates: {
+    canonical: `${BUSINESS.website}/services`,
+  },
+  openGraph: {
+    title: `All Refinishing Services | ${BUSINESS.name}`,
+    description: `Professional bathtub, shower, tile, sink, and countertop refinishing in Seattle & 50+ cities.`,
+    type: 'website',
+    locale: 'en_US',
+    siteName: BUSINESS.name,
+  },
 };
 
 export default function ServicesPage() {

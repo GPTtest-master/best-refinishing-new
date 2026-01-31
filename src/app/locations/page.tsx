@@ -9,6 +9,16 @@ export const metadata: Metadata = {
   title: `Service Areas - 50+ Cities | ${BUSINESS.name}`,
   description: `Professional bathtub, shower, tile, and sink refinishing in Seattle, Bellevue, Redmond, Kirkland, Tacoma and 50+ cities across the Puget Sound. ${BUSINESS.warranty} warranty. Call ${BUSINESS.phone}.`,
   keywords: 'refinishing near me, bathtub refinishing seattle, bathroom refinishing bellevue, reglazing service areas',
+  alternates: {
+    canonical: `${BUSINESS.website}/locations`,
+  },
+  openGraph: {
+    title: `Service Areas - 50+ Cities | ${BUSINESS.name}`,
+    description: `Professional refinishing in Seattle, Bellevue, Redmond, Kirkland, Tacoma and 50+ cities.`,
+    type: 'website',
+    locale: 'en_US',
+    siteName: BUSINESS.name,
+  },
 };
 
 export default function LocationsPage() {

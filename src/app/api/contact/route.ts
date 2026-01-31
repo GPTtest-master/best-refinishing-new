@@ -6,6 +6,8 @@ interface ContactFormData {
   phone: string;
   zip?: string;
   service: string;
+  serviceId?: string;
+  estimatedPrice?: number;
   location?: string;
   message?: string;
   gclid?: string;
@@ -21,7 +23,7 @@ const TWILIO_PHONE_NUMBER = process.env.TWILIO_PHONE_NUMBER;
 const BUSINESS_PHONE = process.env.BUSINESS_PHONE || '+12067869915';
 
 // Send data to Google Sheets
-async function sendToGoogleSheets(data: ContactFormData & { timestamp: string; source: string; page: string; transaction_id: string }): Promise<boolean> {
+async function sendToGoogleSheets(data: ContactFormData & { timestamp: string; source: string; page: string; transaction_id: string; estimatedPrice?: number }): Promise<boolean> {
   try {
     const response = await fetch(GOOGLE_SHEETS_WEBHOOK, {
       method: 'POST',
@@ -34,6 +36,7 @@ async function sendToGoogleSheets(data: ContactFormData & { timestamp: string; s
         zip: data.zip || '',
         email: data.email || '',
         services: data.service,
+        estimatedPrice: data.estimatedPrice || 0,
         gclid: data.gclid || '',
         transaction_id: data.transaction_id,
         timestamp: data.timestamp,
@@ -143,6 +146,7 @@ export async function POST(request: NextRequest) {
       transaction_id,
       source: 'website',
       page: 'contact-form',
+      estimatedPrice: data.estimatedPrice || 0,
     });
 
     // Format phone for Twilio (ensure +1 prefix for US numbers)
@@ -153,8 +157,11 @@ export async function POST(request: NextRequest) {
       formattedPhone = '+' + formattedPhone;
     }
 
-    // 1. Send SMS notification to business owner
-    const businessMessage = `🔔 NEW LEAD!\n\n👤 ${data.name}\n📞 ${data.phone}\n🔧 ${data.service}${data.message ? `\n💬 ${data.message}` : ''}\n\n⏰ ${new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' })}`;
+    // 1. Send SMS notification to business owner with price
+    const priceInfo = data.estimatedPrice && data.estimatedPrice > 0
+      ? `\n💰 Quote: from $${data.estimatedPrice}`
+      : '';
+    const businessMessage = `🔔 NEW LEAD!\n\n👤 ${data.name}\n📞 ${data.phone}\n🔧 ${data.service}${priceInfo}${data.message ? `\n💬 ${data.message}` : ''}\n\n⏰ ${new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' })}`;
 
     await sendTwilioSMS(BUSINESS_PHONE, businessMessage);
 

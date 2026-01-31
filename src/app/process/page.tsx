@@ -6,6 +6,16 @@ export const metadata: Metadata = {
   title: 'Our Refinishing Process | 6 Simple Steps to a New Bathroom',
   description: `Professional 6-step bathtub refinishing process. From free inspection to ready-to-use in 24 hours. ${BUSINESS.warranty} warranty. Seattle & surrounding areas.`,
   keywords: 'bathtub refinishing process, reglazing steps, how bathtub refinishing works, resurfacing process seattle',
+  alternates: {
+    canonical: `${BUSINESS.website}/process`,
+  },
+  openGraph: {
+    title: 'Our Refinishing Process | 6 Simple Steps',
+    description: `Professional 6-step bathtub refinishing process. Ready in 24 hours with ${BUSINESS.warranty} warranty.`,
+    type: 'website',
+    locale: 'en_US',
+    siteName: BUSINESS.name,
+  },
 };
 
 const processSteps = [

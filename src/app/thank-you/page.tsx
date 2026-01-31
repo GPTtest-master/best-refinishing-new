@@ -3,15 +3,15 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { BUSINESS } from '@/lib/constants';
-import Script from 'next/script';
 
-// Service prices mapping
+// Service prices mapping - must match QuickForm.tsx
 const servicePrices: Record<string, { label: string; price: number }> = {
   bathtub: { label: 'Bathtub Refinishing', price: 700 },
   shower: { label: 'Shower Refinishing', price: 900 },
-  tile: { label: 'Tub + Tile', price: 900 },
+  tile: { label: 'Tile Refinishing', price: 400 },
   sink: { label: 'Sink Refinishing', price: 450 },
   countertop: { label: 'Countertop Refinishing', price: 600 },
+  repair: { label: 'Chip & Crack Repair', price: 350 },
   other: { label: 'Other Service', price: 0 },
 };
 
@@ -37,21 +37,49 @@ export default function ThankYouPage() {
         console.error('Error parsing services:', e);
       }
     }
+
+    // Also try to read leadData for backup
+    const leadData = localStorage.getItem('leadData');
+    if (leadData) {
+      try {
+        const data = JSON.parse(leadData);
+        if (data.price && !stored) {
+          setTotalPrice(data.price);
+        }
+        localStorage.removeItem('leadData');
+      } catch (e) {
+        console.error('Error parsing leadData:', e);
+      }
+    }
+
+    // Fire conversion with retry for gtag availability
+    const fireConversion = () => {
+      if (typeof window !== 'undefined' && (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag) {
+        (window as unknown as { gtag: (...args: unknown[]) => void }).gtag('event', 'conversion', {
+          'send_to': 'AW-17663809026/dC2_COaQtMQbEIKs4eZB',
+          'value': 50.0,
+          'currency': 'USD'
+        });
+        return true;
+      }
+      return false;
+    };
+
+    // Try immediately, then retry a few times
+    if (!fireConversion()) {
+      let attempts = 0;
+      const interval = setInterval(() => {
+        attempts++;
+        if (fireConversion() || attempts >= 10) {
+          clearInterval(interval);
+        }
+      }, 500);
+    }
   }, []);
 
   return (
     <>
-      {/* Google Ads Conversion Tracking - Thank You Page View */}
-      <Script id="gtag-conversion" strategy="afterInteractive">
-        {`
-          gtag('event', 'conversion', {
-            'send_to': 'AW-17663809026/dC2_COaQtMQbEIKs4eZB',
-            'value': 50.0,
-            'currency': 'USD'
-          });
-        `}
-      </Script>
-
+      {/* Google Ads Conversion is fired via useEffect with retry logic */}
       <section className="min-h-[70vh] flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-blue-50">
         <div className="max-w-2xl mx-auto px-4 text-center">
           {/* Success Icon */}

@@ -189,7 +189,9 @@ function QuoteSectionContent() {
   };
 
   return (
-    <section className="py-20 bg-slate-50 overflow-hidden" id="quote">
+    <section className="py-20 bg-slate-50 overflow-hidden relative" id="quote">
+      {/* Additional anchor for #estimate links - offset for fixed header */}
+      <span id="estimate" className="absolute -top-24" />
       <div className="max-w-7xl mx-auto px-4 overflow-hidden">
         {/* Section Header */}
         <div className="text-center mb-12">
