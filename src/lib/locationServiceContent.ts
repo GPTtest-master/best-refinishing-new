@@ -267,6 +267,268 @@ const serviceData: Record<string, {
     ],
   },
 
+  'bathroom-remodeling': {
+    name: 'Bathroom Remodeling',
+    shortName: 'Bathroom Remodel',
+    heroVariations: [
+      (city) => `Your ${city} bathroom deserves better than a quick fix. We do complete remodels — ripping out the old, rebuilding with quality materials, and handing you a bathroom that actually makes you want to get ready in the morning. Tile, vanity, shower, fixtures — the whole thing.`,
+      (city) => `Most ${city} homes have bathrooms that haven't been touched since the '90s. We change that. Our team handles every part of your bathroom remodel — from the first sledgehammer swing to the final grout line. No subcontractors, no runaround.`,
+      (city) => `Thinking about a bathroom remodel in ${city}? We've done hundreds of them across the Seattle metro. Walk-in showers, floating vanities, heated floors, custom tile — we build bathrooms that feel like they belong in a magazine, but are built to handle real life.`,
+      (city) => `${city} homeowners keep calling us back because we do bathroom remodels right the first time. Licensed plumbing, waterproof shower systems, level tile work, and finishes that hold up to Pacific Northwest humidity. Not just pretty — built to last.`,
+      (city) => `Stop living with that cramped, outdated bathroom. Our ${city} remodeling team transforms small spaces into functional retreats. Smart storage, modern fixtures, and tile work that makes the room feel twice its size.`,
+    ],
+    descriptionVariations: [
+      (city) => `We handle ${city} bathroom remodels from start to finish — no middlemen, no finger-pointing between contractors. Our crew does the demo, plumbing, electrical, waterproofing, tile, vanity installation, and all the finishing work. You get one team, one warranty, and a bathroom you'll actually love. Every project starts with a detailed walkthrough where we figure out exactly what you want and what your space needs.`,
+      (city) => `Bathroom remodeling in ${city} means dealing with older plumbing, tight spaces, and homes that have their own quirks. We've seen it all. Our team knows how to work with what your home gives us — from pre-war Craftsmans to modern condos. We handle permits, protect your floors, and clean up every day. The result? A bathroom that looks custom because it is.`,
+      (city) => `A bathroom remodel is the second-best ROI in home improvement (kitchens are first). For ${city} homeowners, that means your investment pays for itself. We use quality materials — Schluter waterproofing, porcelain and natural stone tile, soft-close hardware, and fixtures from brands that actually last. No builder-grade shortcuts.`,
+      (city) => `Our ${city} bathroom remodels cover everything: tub-to-shower conversions, double vanity upgrades, custom tile showers with niches and benches, new flooring, updated lighting, and modern fixtures. We work with your budget — whether that's a smart refresh or a luxury master bath. Free estimates, honest pricing, no surprises.`,
+    ],
+    benefitsVariations: [
+      ['One team handles everything', 'Licensed plumbing & electrical', 'Waterproof shower systems', `${BUSINESS.warranty} workmanship warranty`, 'Free detailed estimates'],
+      ['No subcontractor runaround', 'Premium material options', 'On-time completion', 'Daily cleanup', 'Transparent pricing — no surprises'],
+      ['Custom design for your space', 'Expert tile & stone installation', 'ADA/accessibility options', 'Permit handling included', 'Dedicated project manager'],
+      ['Increase your home value', 'Modern fixtures & hardware', 'Energy-efficient upgrades', 'Code-compliant work', 'Financing available'],
+    ],
+    problemsVariations: [
+      ['Outdated tile from the \'80s or \'90s', 'Cramped shower that needs an upgrade', 'Water damage behind walls', 'Mold issues from poor ventilation', 'Fixtures that waste water'],
+      ['Vanity falling apart', 'Grout that won\'t come clean', 'No storage space', 'Dated lighting', 'Leaking plumbing'],
+      ['Tub nobody uses anymore', 'Cracked or chipped surfaces', 'Poor layout and flow', 'Single sink when you need double', 'Exhaust fan that doesn\'t work'],
+    ],
+    processVariations: [
+      ['Free in-home consultation', 'Design & material selection', 'Careful demolition', 'Plumbing & electrical rough-in', 'Tile, vanity & fixture install', 'Final walkthrough & warranty'],
+      ['Walkthrough & detailed estimate', 'Pick your finishes', 'Tear-out & haul-away', 'Infrastructure upgrades', 'Installation & detail work', 'Punch list & handoff'],
+      ['Vision & budget planning', 'Material ordering & scheduling', 'Demo with floor protection', 'Licensed trade work', 'Beautiful finish work', 'Your approval & our warranty'],
+    ],
+    faqVariations: [
+      [
+        { q: 'How long will my bathroom be out of commission?', a: (city) => `Most ${city} bathroom remodels take 2-3 weeks. We plan the work so you have access to another bathroom if possible. We'll give you a realistic timeline before we start — and stick to it.` },
+        { q: 'What does a bathroom remodel actually cost?', a: (city) => `In ${city}, bathroom remodels start around $7,900 for a basic refresh. Most mid-range projects run $15,000-$25,000. High-end master baths can be $30,000+. We give you a detailed line-item estimate — no guesswork.` },
+        { q: 'Do I really need permits?', a: (city) => `If we're moving plumbing or doing electrical work — yes, ${city} requires permits. We handle all of that. It protects you when you sell your home and ensures the work is inspected and safe.` },
+      ],
+      [
+        { q: 'Can I pick my own tile and fixtures?', a: () => `Absolutely. We can take you to our supplier showrooms or work with materials you've already chosen. We'll make sure everything works together and fits your budget.` },
+        { q: 'What if you find problems behind the walls?', a: (city) => `It happens — especially in older ${city} homes. We document everything, explain your options, and get your approval before any additional work. No surprise bills.` },
+        { q: 'Do you do tub-to-shower conversions?', a: () => `Yes — it's one of our most popular requests. We remove the tub, rework the plumbing, install a waterproof shower system, tile it, and add glass doors. Completely changes the bathroom.` },
+      ],
+    ],
+  },
+
+  'kitchen-remodeling': {
+    name: 'Kitchen Remodeling',
+    shortName: 'Kitchen Remodel',
+    heroVariations: [
+      (city) => `Your kitchen is the heart of your ${city} home — it should work as hard as you do. We do complete kitchen remodels: cabinets, countertops, backsplash, flooring, plumbing, electrical, and everything in between.`,
+      (city) => `${city} kitchen remodeling that actually delivers. No endless timelines, no vanishing contractors. We show up, we build, and we hand you a kitchen that makes cooking feel good again.`,
+      (city) => `Planning a kitchen remodel in ${city}? Whether it's new quartz countertops and a tile backsplash, or a full gut renovation with custom cabinets — we've got the team and the experience to make it happen.`,
+      (city) => `We've remodeled kitchens all over ${city} — from cozy galley kitchens in Capitol Hill condos to sprawling layouts in Bellevue. Every project gets the same attention to detail and quality craftsmanship.`,
+      (city) => `A great kitchen remodel in ${city} means hiring people who know what they're doing. Our team handles design, demo, plumbing, electrical, cabinets, countertops, tile, and finishing. One crew, one warranty.`,
+    ],
+    descriptionVariations: [
+      (city) => `Kitchen remodeling in ${city} is our bread and butter. We handle the full scope — tear out old cabinets, upgrade plumbing and electrical, install new cabinetry, template and install countertops, lay backsplash tile, and finish every detail. We work with granite, quartz, marble, and quartzite. Semi-custom and custom cabinet options available.`,
+      (city) => `A kitchen remodel is the #1 home improvement for ROI in ${city}. We make sure your investment counts with quality materials, precise installation, and finishes that look great years from now. Our team coordinates all trades in-house — no scheduling headaches or finger-pointing.`,
+      (city) => `From the first design meeting to the final walkthrough, our ${city} kitchen remodels are managed by experienced project leads. We keep you in the loop daily, protect your home during construction, and clean up every evening. You'll be cooking in your new kitchen before you know it.`,
+      (city) => `Whether you're updating a few surfaces or doing a complete kitchen renovation in ${city}, we scale our service to fit. Countertop-only installs, backsplash refreshes, or full gut remodels — same quality, same warranty, same team.`,
+    ],
+    benefitsVariations: [
+      ['Custom & semi-custom cabinets', 'Granite, quartz & marble tops', 'Professional tile backsplash', 'Licensed plumbing & electrical', `${BUSINESS.warranty} warranty`],
+      ['#1 ROI home improvement', 'Modern layout optimization', 'Premium material selection', 'Experienced project management', 'On-budget completion'],
+      ['Design-build convenience', 'One team, one warranty', 'Quality you can see and feel', 'Energy-efficient options', 'Code-compliant in every detail'],
+    ],
+    problemsVariations: [
+      ['Cabinets from the Clinton era', 'Laminate countertops past their prime', 'Backsplash that makes you cringe', 'Not enough counter space', 'Poor kitchen workflow'],
+      ['Dark, cramped layout', 'Outdated appliance openings', 'Damaged or sagging cabinets', 'Stained or peeling surfaces', 'Plumbing that acts up'],
+      ['Tile floor with cracked grout', 'Bad lighting over work areas', 'No pantry or storage', 'Dated fixtures and hardware', 'Wear and tear everywhere'],
+    ],
+    processVariations: [
+      ['Design consultation & estimate', 'Material & finish selection', 'Demolition & haul-away', 'Plumbing & electrical rough-in', 'Cabinet, countertop & tile install', 'Final details & walkthrough'],
+      ['In-home assessment', 'Budget & design planning', 'Ordering & scheduling', 'Construction phase', 'Installation & finishing', 'Punch list & warranty handoff'],
+    ],
+    faqVariations: [
+      [
+        { q: 'How long is my kitchen going to be torn up?', a: (city) => `Most ${city} kitchen remodels take 4-6 weeks. A cosmetic refresh (new countertops, backsplash, paint) can be done in 2-3 weeks. We recommend setting up a temporary kitchen — microwave, coffee maker, and patience.` },
+        { q: 'What\'s a realistic budget for a kitchen remodel?', a: (city) => `In ${city}, basic kitchen remodels start around $25,000. Mid-range renovations run $35,000-$55,000. High-end projects with custom cabinets and premium stone can be $75,000+. We give you a detailed estimate — no bait and switch.` },
+        { q: 'Should I do countertops first or cabinets?', a: () => `Cabinets go in first, then we template for countertops. If you're just replacing countertops on existing cabinets, that's a quicker project — typically 1-2 weeks from template to installation.` },
+      ],
+      [
+        { q: 'Do you install appliances?', a: () => `We coordinate appliance installation — making sure electrical, gas, and plumbing connections are right. We recommend purchasing appliances during the design phase so everything fits perfectly.` },
+        { q: 'Granite or quartz — what do you recommend?', a: () => `Both are great. Granite has natural beauty with unique veining. Quartz is engineered for consistency and zero maintenance. We'll show you samples and help you decide based on your kitchen use and style.` },
+        { q: 'Can you open up my kitchen to the living room?', a: (city) => `Possibly — it depends on whether the wall is load-bearing. We assess this during the consultation. Many ${city} homes can benefit from opening up the kitchen, and we handle the structural engineering if needed.` },
+      ],
+    ],
+  },
+
+  'tile-installation': {
+    name: 'Tile Installation',
+    shortName: 'Tile Install',
+    heroVariations: [
+      (city) => `Professional tile installation in ${city} that you can feel underfoot and see in every straight grout line. Floors, walls, showers, backsplashes — ceramic, porcelain, marble, and natural stone. We do it right.`,
+      (city) => `Tile makes or breaks a room. In ${city}, you need installers who understand substrate prep, waterproofing, and the difference between a tile job that lasts 20 years and one that cracks in 2. That's us.`,
+      (city) => `${city} tile installation from a team that's laid more square footage than we can count. Bathroom floors, shower walls, kitchen backsplashes, entryways — every tile level, every grout line clean.`,
+      (city) => `Looking for tile installation in ${city}? We handle everything from simple subway backsplashes to complex natural stone shower builds. Proper prep, quality materials, and craftsmanship you can trust.`,
+      (city) => `Great tile work starts with great preparation. Our ${city} installers prep surfaces properly, use the right thin-set for each material, and take the time to get layouts perfect before a single tile goes down.`,
+    ],
+    descriptionVariations: [
+      (city) => `Tile installation in ${city} requires attention to detail and knowledge of materials. We work with ceramic, porcelain, marble, travertine, slate, and glass tile. Every installation starts with proper substrate assessment and preparation — because beautiful tile on a bad surface doesn't last.`,
+      (city) => `${BUSINESS.name} handles tile installation across ${city} for bathrooms, kitchens, and living spaces. Shower surrounds with waterproof membrane systems, kitchen backsplashes with precise cuts around outlets, bathroom floors with proper slope to drains — we handle the details that matter.`,
+      (city) => `Whether it's a 200 sq ft bathroom or a full home flooring project, our ${city} tile team delivers consistent quality. We use leveling systems for large-format tiles, waterproof membranes in wet areas, and seal natural stone properly for the Pacific Northwest climate.`,
+      (city) => `Our ${city} tile installation covers the full spectrum: floor tile, wall tile, custom shower tile, backsplash, accent walls, and outdoor tile. We help with layout planning, material selection, and provide detailed estimates with no hidden costs.`,
+    ],
+    benefitsVariations: [
+      ['All tile types and sizes', 'Waterproof shower systems', 'Proper substrate preparation', 'Leveling systems for large format', `${BUSINESS.warranty} warranty on install`],
+      ['Clean, consistent grout lines', 'Natural stone expertise', 'Custom layout and patterns', 'Heated floor compatible', 'Free estimates'],
+      ['Bathroom, kitchen & beyond', 'Precision cuts around fixtures', 'Appropriate thin-set for each tile', 'Sealed and protected finish', 'Experienced installers'],
+    ],
+    problemsVariations: [
+      ['Cracked tiles from settling', 'Loose tiles popping up', 'Water getting behind shower tile', 'Grout that\'s moldy and crumbling', 'DIY tile job that went wrong'],
+      ['Uneven tiles (lippage)', 'Efflorescence on natural stone', 'Tile not adhering to surface', 'Poor cuts around fixtures', 'Tiles cracking from wrong substrate'],
+    ],
+    processVariations: [
+      ['Assess surface condition', 'Prep & level substrate', 'Layout & dry-fit', 'Waterproofing where needed', 'Set tile with proper thin-set', 'Grout, seal & clean'],
+      ['Consultation & measurement', 'Material delivery', 'Surface preparation', 'Precise tile installation', 'Grouting & sealing', 'Final walkthrough'],
+    ],
+    faqVariations: [
+      [
+        { q: 'What does tile installation cost per square foot?', a: (city) => `In ${city}, labor for tile installation runs $7-$15/sq ft for ceramic, $10-$20/sq ft for porcelain, and $15-$30/sq ft for natural stone. Total cost depends on tile material, pattern complexity, and surface prep needed.` },
+        { q: 'How long does a tile job take?', a: () => `A shower surround takes 3-4 days. A bathroom floor is usually 1-2 days. Kitchen backsplash is 1-2 days. Add 24 hours for grout to cure before use. We give you exact timelines before we start.` },
+        { q: 'Can you tile over existing tile?', a: (city) => `Sometimes, but it depends on the condition of the existing tile and the height it adds. In most ${city} bathrooms, we recommend removing old tile for the best result. We'll assess during the consultation.` },
+      ],
+      [
+        { q: 'Do I need to buy the tile or do you provide it?', a: () => `Either way works. We can source tile from our supplier network at contractor pricing, or install tile you've already purchased. We'll confirm quantities and suggest extra for cuts and future repairs.` },
+        { q: 'What about heated floors under tile?', a: (city) => `We install tile over radiant floor heating systems — very popular in ${city} given our cool, wet winters. The heating mat goes in during prep, and we tile directly over it.` },
+        { q: 'Natural stone vs porcelain — which is better for bathrooms?', a: () => `Porcelain is lower maintenance and more resistant to moisture. Natural stone (marble, travertine) looks stunning but needs sealing and more careful cleaning. We'll help you choose based on your lifestyle.` },
+      ],
+    ],
+  },
+
+  'countertop-installation': {
+    name: 'Countertop Installation',
+    shortName: 'Countertop Install',
+    heroVariations: [
+      (city) => `New countertops change everything. Our ${city} installation team handles granite, quartz, marble, and quartzite — from precise digital templating to flawless installation with undermount sink cutouts and custom edge profiles.`,
+      (city) => `Professional countertop installation in ${city}. We measure with lasers, fabricate with precision, and install with care. Your new granite or quartz countertops will be the centerpiece of your kitchen.`,
+      (city) => `${city} homeowners trust us for countertop installation because we get the details right. Tight seams, level surfaces, perfect sink cutouts, and clean backsplash returns. Granite, quartz, marble — we know stone.`,
+      (city) => `Upgrading your ${city} countertops? We handle the full process: in-home consultation, slab selection at the yard, precision templating, fabrication, old top removal, and expert installation. One team, start to finish.`,
+      (city) => `From budget-friendly quartz to exotic marble, our ${city} countertop installation delivers quality at every price point. We work with top fabricators to ensure your countertops fit perfectly and look stunning.`,
+    ],
+    descriptionVariations: [
+      (city) => `Countertop installation in ${city} is more than just dropping a slab on cabinets. We template digitally for perfect fit, coordinate fabrication with top shops, remove your old countertops, set the new stone with proper support, cut and finish sink openings, and connect your plumbing. One service, completely handled.`,
+      (city) => `${BUSINESS.name} installs countertops across ${city} — granite, quartz, marble, quartzite, and solid surface. We take you to slab yards to hand-pick your stone, ensuring you love what goes in your home. Our templating uses laser measurement for precision that hand-measuring can't match.`,
+      (city) => `A countertop upgrade is one of the fastest ways to transform a ${city} kitchen. Most installations are completed in one day after fabrication. We handle old countertop removal, sink disconnection and reconnection, and leave your kitchen ready to use.`,
+      (city) => `Quality countertop installation in ${city} requires experience with different stone materials. Quartz is forgiving; marble needs careful handling; granite varies by slab. Our installers know how each material behaves and install accordingly.`,
+    ],
+    benefitsVariations: [
+      ['Granite, quartz, marble & quartzite', 'Laser-precise digital templating', 'Undermount sink cutouts', 'Custom edge profiles', `${BUSINESS.warranty} warranty`],
+      ['Slab yard visits to hand-pick stone', 'Expert fabrication coordination', 'Old countertop removal included', 'Plumbing disconnect & reconnect', 'One-day installation'],
+      ['Kitchen & bathroom countertops', 'Seam matching for natural stone', 'Backsplash coordination', 'Multiple edge options', 'Competitive pricing'],
+    ],
+    problemsVariations: [
+      ['Laminate countertops that look dated', 'Chipped or burned surfaces', 'Stains that won\'t come out', 'Visible seams on old tops', 'Worn-out edges'],
+      ['Countertops separating from wall', 'Water damage around sink', 'Outdated color or pattern', 'Surface too damaged for repair', 'Ready for a real upgrade'],
+    ],
+    processVariations: [
+      ['Free in-home consultation', 'Slab selection at the yard', 'Digital laser templating', 'Fabrication (5-7 business days)', 'Old top removal & new installation', 'Sink hookup & final inspection'],
+      ['Discuss options & budget', 'Material selection & approval', 'Precise measurement', 'Expert fabrication', 'Professional installation', 'Cleanup & warranty'],
+    ],
+    faqVariations: [
+      [
+        { q: 'How much do new countertops cost?', a: (city) => `In ${city}, granite starts around $40/sq ft installed. Quartz runs $50-$150/sq ft. Marble and quartzite are $60-$250/sq ft. A typical kitchen (30-40 sq ft) runs $2,000-$6,000+ depending on material. We provide exact quotes.` },
+        { q: 'How long from order to installation?', a: () => `After you approve the slab and we template, fabrication takes 5-7 business days. Installation is usually done in one day. Total process from first visit to cooking on new countertops: about 2-3 weeks.` },
+        { q: 'Do you remove and dispose of old countertops?', a: (city) => `Yes — old countertop removal and haul-away is included in our ${city} installation service. We also disconnect and reconnect your sink and faucet.` },
+      ],
+      [
+        { q: 'Quartz or granite — which should I pick?', a: () => `Granite gives you natural uniqueness — no two slabs are alike. Quartz gives you consistency, zero maintenance, and more color options. Both are durable. Come to the slab yard with us and see what speaks to you.` },
+        { q: 'Can you install a farmhouse sink with new countertops?', a: () => `Yes — we coordinate undermount and farmhouse sink cutouts during fabrication. If you're getting a new sink, choose it before templating so we can ensure a perfect fit.` },
+        { q: 'Do you do just countertops or full kitchen remodels?', a: (city) => `Both. Many ${city} clients start with countertops and add a backsplash. Others go for the full kitchen remodel. We scale our service to what you need — from countertop-only installs to complete renovations.` },
+      ],
+    ],
+  },
+
+  'shower-installation': {
+    name: 'Shower Installation',
+    shortName: 'Shower Install',
+    heroVariations: [
+      (city) => `A custom shower changes your daily routine. Our ${city} team builds walk-in showers, does tub-to-shower conversions, installs frameless glass, and creates showers that look amazing and stay leak-free for decades.`,
+      (city) => `Professional shower installation in ${city} means proper waterproofing. Period. We use Schluter, Laticrete, or equivalent systems because a beautiful shower that leaks is a disaster. Our builds are tested before tile goes up.`,
+      (city) => `${city} homeowners are converting tubs to showers in record numbers. We handle the plumbing, build the waterproof pan, install tile, and fit glass enclosures. Modern showers for modern living.`,
+      (city) => `Looking for shower installation in ${city}? From a simple shower swap to a custom walk-in with a rain head, bench, and niche — we build showers that you'll look forward to using every morning.`,
+      (city) => `Your ${city} shower should be more than a box with a curtain. We build custom tile showers with frameless glass, built-in storage niches, bench seating, and fixtures that actually work properly. Designed for your space, built to last.`,
+    ],
+    descriptionVariations: [
+      (city) => `Shower installation in ${city} demands serious waterproofing — our wet climate doesn't forgive shortcuts. We install complete shower systems: waterproof membrane, mortar bed or foam pan, tile, glass enclosures, and premium fixtures. Every build is flood-tested before we lay a single tile.`,
+      (city) => `${BUSINESS.name} builds custom showers across ${city}. Our specialties include tub-to-shower conversions, curbless showers for accessibility, walk-in showers with frameless glass, and shower/tub combos. We handle plumbing, tile, glass, and fixtures — one team from demo to first shower.`,
+      (city) => `A new shower is one of the best bathroom upgrades for ${city} homes. We design around your space — built-in niches for shampoo, bench seating if you want it, rain showerheads, hand-held fixtures, and body sprays. Function and beauty in every detail.`,
+      (city) => `From basic prefab shower installs to fully custom tile showers, our ${city} team handles it all. We assess your plumbing, recommend the best approach, and deliver a shower that works perfectly and looks incredible. Licensed, insured, and warranted.`,
+    ],
+    benefitsVariations: [
+      ['Custom walk-in shower builds', 'Tub-to-shower conversions', 'Tested waterproof systems', 'Frameless glass enclosures', `${BUSINESS.warranty} warranty`],
+      ['Curbless & ADA options', 'Built-in niches & bench seating', 'Premium fixture installation', 'Heated floor compatible', 'Licensed plumbing work'],
+      ['Complete shower systems', 'Expert tile work', 'Linear & center drains', 'Rain heads & body sprays', 'Code-compliant in every detail'],
+    ],
+    problemsVariations: [
+      ['Shower leaking behind walls', 'Mold growing in grout and caulk', 'Tub that nobody uses anymore', 'Fiberglass insert that\'s stained and cracked', 'Shower too small to move in'],
+      ['Outdated glass doors', 'No storage niches', 'Slippery floor surface', 'Water pressure issues', 'Shower curtain rod life'],
+    ],
+    processVariations: [
+      ['Design & material planning', 'Demo & plumbing rough-in', 'Waterproof membrane install', 'Flood test (24 hours)', 'Tile installation', 'Glass, fixtures & final test'],
+      ['Free consultation', 'Material selection', 'Tear-out & prep', 'Build waterproof base', 'Tile & grout', 'Glass door & fixture install'],
+    ],
+    faqVariations: [
+      [
+        { q: 'How much does a walk-in shower cost?', a: (city) => `Walk-in shower installation in ${city} starts around $4,000 for basic setups. Custom tile walk-ins with frameless glass typically run $6,000-$15,000 depending on size, tile choice, and fixtures. We provide detailed estimates.` },
+        { q: 'Can you convert my tub into a walk-in shower?', a: (city) => `Yes — it's one of our most popular projects in ${city}. We remove the tub, modify plumbing, build a waterproof shower base, tile everything, and install glass. Completely transforms the bathroom.` },
+        { q: 'How long does shower installation take?', a: () => `Most shower builds take 4-6 days including waterproofing cure time. Tub-to-shower conversions may take 5-7 days. We give you exact timelines during the estimate.` },
+      ],
+      [
+        { q: 'Do you flood-test the waterproofing?', a: () => `Always. Before any tile goes up, we flood-test the waterproof membrane for 24 hours. No exceptions. This is how you prevent leaks that cause thousands in damage down the road.` },
+        { q: 'What about a curbless (zero-entry) shower?', a: (city) => `We build curbless showers with linear drains for ${city} homeowners. They're great for accessibility and create a sleek, spa-like look. Requires proper floor slope — which we calculate precisely.` },
+        { q: 'Frameless glass or framed — which is better?', a: () => `Frameless glass looks cleaner and more modern. Framed is more affordable and comes in more styles. Semi-frameless is a solid middle ground. We install all three and can show you samples.` },
+      ],
+    ],
+  },
+
+  'bathtub-installation': {
+    name: 'Bathtub Installation',
+    shortName: 'Tub Install',
+    heroVariations: [
+      (city) => `New bathtub installation in ${city} — done right. We remove your old tub, handle plumbing modifications, install the new tub, and finish the surround. Freestanding, alcove, drop-in, and soaking tubs.`,
+      (city) => `That old ${city} bathtub has served its time. We swap it out for something you actually want to soak in. Professional removal, plumbing, installation, and surround work — handled by one experienced crew.`,
+      (city) => `${city} bathtub installation from the team that's replaced hundreds of tubs. We know the plumbing quirks of older homes and the installation requirements for every tub style. Freestanding clawfoots to built-in alcoves — we've done them all.`,
+      (city) => `Professional bathtub replacement throughout ${city}. Old tub out, new tub in, plumbing connected, surround installed, everything sealed and caulked. We handle the heavy lifting — literally and figuratively.`,
+      (city) => `Upgrade your ${city} bathroom with a new bathtub. Deep soaking tubs, modern freestanding designs, or classic alcove replacements — we install all styles from major manufacturers with full warranty.`,
+    ],
+    descriptionVariations: [
+      (city) => `Bathtub installation in ${city} starts with careful removal of the old tub — protecting your floors and walls. We modify plumbing as needed, set the new tub level and secure, install the surround or tile, waterproof everything, and connect fixtures. Old tub disposal is included.`,
+      (city) => `${BUSINESS.name} installs bathtubs across ${city} — from standard alcove replacements to custom freestanding setups. Our licensed plumbers handle all water supply and drain connections. We know the plumbing in Seattle-area homes and work with what your house gives us.`,
+      (city) => `Whether you want a deep soaking tub for relaxation or a practical replacement for your worn-out alcove tub, our ${city} team delivers. We handle everything from removal through installation, including surround work and plumbing connections.`,
+      (city) => `A new tub can transform your ${city} bathroom without a full remodel. We offer quick replacements (same-size alcove swaps) and custom installations (freestanding, drop-in, corner). Every installation includes proper waterproofing and our workmanship warranty.`,
+    ],
+    benefitsVariations: [
+      ['All tub styles & major brands', 'Old tub removal & disposal', 'Licensed plumbing connections', 'Surround installation', `${BUSINESS.warranty} warranty`],
+      ['Freestanding & alcove installs', 'Plumbing modifications included', 'Waterproof installation', 'Fixture install & connection', 'One-day service for simple swaps'],
+      ['Complete removal & install service', 'Floor & wall protection', 'Level, secure installation', 'Caulking & finishing', 'Clean job site every day'],
+    ],
+    problemsVariations: [
+      ['Tub that\'s cracked beyond repair', 'Rust and corrosion eating through', 'Stains that no amount of cleaning fixes', 'Tub style from another decade', 'Drain that\'s slow or leaking'],
+      ['Uncomfortable tub dimensions', 'Surround that\'s falling apart', 'Plumbing that needs updating', 'Water damage under the tub', 'Safety grab bar needs'],
+    ],
+    processVariations: [
+      ['Consultation & measurement', 'Help you choose the right tub', 'Careful old tub removal', 'Plumbing prep & modifications', 'New tub set, level & secure', 'Surround, fixtures & final check'],
+      ['In-home assessment', 'Tub selection & ordering', 'Floor protection & demo', 'Plumbing rough-in', 'Tub installation & waterproofing', 'Cleanup & walkthrough'],
+    ],
+    faqVariations: [
+      [
+        { q: 'How much does it cost to replace a bathtub?', a: (city) => `Standard alcove tub replacement in ${city} starts from $2,400 including removal and installation. Freestanding tub installs run $3,500-$6,000+ depending on the tub and plumbing needs. We provide exact quotes.` },
+        { q: 'Can you install a freestanding tub where I have an alcove?', a: () => `Yes — we remove the alcove tub, cap or relocate the plumbing, finish the walls where the surround was, and install the freestanding tub with new supply lines and floor drain. It's a great upgrade.` },
+        { q: 'How long does tub replacement take?', a: () => `A same-size alcove swap can be done in 1 day. Freestanding installs or different-size tubs may take 2-3 days. We give you exact timelines in the estimate.` },
+      ],
+      [
+        { q: 'What tub brands do you recommend?', a: (city) => `Kohler, American Standard, and Delta are solid mid-range brands. For luxury, we install Bain Ultra, Victoria & Albert, and Signature Hardware. We help ${city} homeowners pick based on budget, style, and bathroom size.` },
+        { q: 'Do you handle the plumbing?', a: () => `Yes — all plumbing work is done by our licensed plumber. We handle drain connections, supply lines, overflow, and any modifications needed for the new tub.` },
+        { q: 'Can I keep using my bathroom during installation?', a: () => `The bathroom will be out of commission during installation. For a 1-day job, you'll have it back by evening. For longer installs, we work as efficiently as possible to minimize downtime.` },
+      ],
+    ],
+  },
+
   'repair': {
     name: 'Chip & Crack Repair',
     shortName: 'Repair',
@@ -466,3 +728,14 @@ export const SERVICE_SLUGS = [
   'countertop-refinishing',
   'repair',
 ] as const;
+
+export const REMODELING_SERVICE_SLUGS = [
+  'bathroom-remodeling',
+  'kitchen-remodeling',
+  'tile-installation',
+  'countertop-installation',
+  'shower-installation',
+  'bathtub-installation',
+] as const;
+
+export const ALL_SERVICE_SLUGS = [...SERVICE_SLUGS, ...REMODELING_SERVICE_SLUGS] as const;

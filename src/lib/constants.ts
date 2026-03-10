@@ -1,7 +1,7 @@
 // Business Information
 export const BUSINESS = {
-  name: 'Best Refinishing',
-  tagline: 'Seattle Reglazing Experts',
+  name: 'Best Remodeling & Refinishing',
+  tagline: 'Seattle Kitchen & Bath Remodeling Experts',
   phone: '(206) 786-9915',
   phoneLink: 'tel:+12067869915',
   smsLink: 'sms:+12067869915',
@@ -117,6 +117,112 @@ export const SERVICES = [
   },
 ] as const;
 
+// Remodeling Services (PRIMARY business)
+export const REMODELING_SERVICES = [
+  {
+    id: 'bathroom-remodeling',
+    title: 'Bathroom Remodeling',
+    shortTitle: 'Bathroom',
+    subtitle: 'Full Remodel',
+    description: 'Complete bathroom transformations — from design to installation. New tile, vanity, shower, fixtures, and more. Turn your outdated bathroom into a modern retreat.',
+    longDescription: 'Our full-service bathroom remodeling covers everything: demolition, plumbing, electrical, tile installation, vanity and countertop installation, shower/tub replacement, fixtures, and finishing. We handle permits and coordinate all trades for a stress-free renovation experience.',
+    features: ['Full design & build', 'Licensed & permitted', 'All trades in-house', 'Porcelain, Marble, Quartz'],
+    price: 'From $7,900',
+    savings: 'Complete Transform',
+    popular: true,
+    image: '/images/hero-bathroom.webp',
+    imagePosition: 'center',
+    imageScale: 1,
+    href: '/services/bathroom-remodeling',
+  },
+  {
+    id: 'kitchen-remodeling',
+    title: 'Kitchen Remodeling',
+    shortTitle: 'Kitchen',
+    subtitle: 'Full Remodel',
+    description: 'Transform your kitchen with new cabinets, countertops, tile, fixtures, and layout updates. From minor refreshes to complete gut renovations.',
+    longDescription: 'Our kitchen remodeling services include cabinet installation, countertop fabrication and installation, tile backsplash, flooring, plumbing, electrical upgrades, and custom storage solutions. We work with you on design and material selection to create your dream kitchen.',
+    features: ['Custom cabinetry options', 'Countertop installation', 'Backsplash & flooring', 'Plumbing & electrical'],
+    price: 'From $25,000',
+    savings: 'Dream Kitchen',
+    popular: true,
+    image: '/images/hero-bathroom.webp',
+    imagePosition: 'center',
+    imageScale: 1,
+    href: '/services/kitchen-remodeling',
+  },
+  {
+    id: 'tile-installation',
+    title: 'Tile Installation',
+    shortTitle: 'Tile',
+    subtitle: 'Professional Install',
+    description: 'Expert tile installation for floors, walls, showers, and backsplashes. Ceramic, porcelain, marble, and natural stone — precision installation that lasts.',
+    longDescription: 'Professional tile installation for kitchens, bathrooms, and living areas. We work with ceramic, porcelain, marble, travertine, and all natural stone. Our services include floor tile, wall tile, shower tile, backsplash installation, and custom mosaic work.',
+    features: ['All tile types', 'Floor & wall installation', 'Shower & backsplash', 'Custom patterns'],
+    price: 'From $7/sq ft',
+    savings: 'Expert Install',
+    popular: false,
+    image: '/images/optimized/tiles-bg.webp',
+    imagePosition: 'center',
+    imageScale: 1,
+    href: '/services/tile-installation',
+  },
+  {
+    id: 'countertop-installation',
+    title: 'Countertop Installation',
+    shortTitle: 'Countertop',
+    subtitle: 'Premium Surfaces',
+    description: 'Professional countertop installation — granite, quartz, marble, and solid surface. Precision measurement, fabrication, and seamless installation.',
+    longDescription: 'We install kitchen and bathroom countertops in granite, quartz, marble, quartzite, and solid surface materials. Our service includes template measurement, fabrication coordination, old countertop removal, and professional installation with undermount sink cutouts.',
+    features: ['Granite & quartz', 'Marble & quartzite', 'Precision templating', 'Sink cutouts included'],
+    price: 'From $2,000',
+    savings: 'Premium Quality',
+    popular: false,
+    image: '/images/optimized/axmnd_httpss.mj.runGBOjqX76P3k______--ar_7758_--profile_klaqj_95c0c2cf-9d33-480a-98c4-a1e1b24e1c38_3.webp',
+    imagePosition: 'center',
+    imageScale: 1,
+    href: '/services/countertop-installation',
+  },
+  {
+    id: 'shower-installation',
+    title: 'Shower Installation',
+    shortTitle: 'Shower',
+    subtitle: 'Custom Showers',
+    description: 'Custom shower installation and replacement. Walk-in showers, tub-to-shower conversions, glass enclosures, and complete shower remodels.',
+    longDescription: 'From basic shower replacements to custom walk-in showers, we handle every aspect: demolition, waterproofing, tile installation, glass door fitting, fixtures, and finishing. We also do tub-to-shower conversions and curbless shower installations for accessibility.',
+    features: ['Walk-in showers', 'Tub-to-shower conversion', 'Glass enclosures', 'Waterproof systems'],
+    price: 'From $2,000',
+    savings: 'Custom Design',
+    popular: false,
+    image: '/images/optimized/shower-bg.webp',
+    imagePosition: 'center',
+    imageScale: 1,
+    href: '/services/shower-installation',
+  },
+  {
+    id: 'bathtub-installation',
+    title: 'Bathtub Installation',
+    shortTitle: 'Bathtub',
+    subtitle: 'New Tub Install',
+    description: 'Professional bathtub installation and replacement. Freestanding, alcove, drop-in, and soaking tubs. Includes plumbing, surround, and finishing.',
+    longDescription: 'Complete bathtub installation services including removal of old tub, plumbing modifications, new tub installation, surround installation, waterproofing, and finishing. We install freestanding, alcove, drop-in, corner, and soaking tubs from all major manufacturers.',
+    features: ['All tub styles', 'Plumbing included', 'Surround installation', 'Waterproofing'],
+    price: 'From $2,400',
+    savings: 'Fresh Start',
+    popular: false,
+    image: '/images/optimized/baztub-after.webp',
+    imagePosition: 'center 70%',
+    imageScale: 1,
+    href: '/services/bathtub-installation',
+  },
+] as const;
+
+// Keep original refinishing services accessible
+export const REFINISHING_SERVICES = SERVICES;
+
+// All services combined — remodeling first for UI components
+export const ALL_SERVICES = [...REMODELING_SERVICES, ...REFINISHING_SERVICES] as const;
+
 // Locations for Local SEO
 export const LOCATIONS = [
   { id: 'seattle', name: 'Seattle', href: '/locations/seattle', primary: true },
@@ -218,6 +324,45 @@ export const PROCESS_STEPS = [
   },
 ] as const;
 
+export const REMODELING_PROCESS_STEPS = [
+  {
+    number: 1,
+    title: 'Free Consultation & Estimate',
+    description: 'We visit your home, discuss your vision, take measurements, and provide a detailed written estimate with material options.',
+    color: '#0b66b3',
+  },
+  {
+    number: 2,
+    title: 'Design & Material Selection',
+    description: 'Choose your materials, colors, and finishes. We help you select the best options for your budget and style preferences.',
+    color: '#f59e0b',
+  },
+  {
+    number: 3,
+    title: 'Demolition & Preparation',
+    description: 'We carefully remove old fixtures, protect your home, and prepare the space for new installations. Permits handled as needed.',
+    color: '#10b981',
+  },
+  {
+    number: 4,
+    title: 'Plumbing & Electrical',
+    description: 'Licensed professionals handle all plumbing and electrical work, including any layout changes or upgrades required.',
+    color: '#8b5cf6',
+  },
+  {
+    number: 5,
+    title: 'Installation & Finishing',
+    description: 'Expert installation of tile, countertops, fixtures, cabinetry, and all finishing details. Quality craftsmanship guaranteed.',
+    color: '#ec4899',
+  },
+  {
+    number: 6,
+    title: 'Final Walkthrough & Warranty',
+    description: 'We do a detailed walkthrough with you, address any concerns, and provide warranty documentation for all work completed.',
+    color: '#06b6d4',
+  },
+] as const;
+
 // FAQ Data
 export const FAQ_ITEMS = [
   {
@@ -250,13 +395,87 @@ export const FAQ_ITEMS = [
   },
 ] as const;
 
+export const REMODELING_FAQ_ITEMS = [
+  {
+    question: 'How long does a bathroom remodel take?',
+    answer: 'A typical bathroom remodel takes 2-4 weeks depending on scope. Simple updates like new tile and vanity can be done in 1-2 weeks. Full gut renovations with layout changes may take 3-4 weeks.',
+  },
+  {
+    question: 'How long does a kitchen remodel take?',
+    answer: 'Kitchen remodels typically take 4-8 weeks. A cosmetic refresh (countertops, backsplash, paint) can be done in 2-3 weeks. Full renovations with new cabinets, plumbing, and electrical take 6-8 weeks.',
+  },
+  {
+    question: 'Do you handle permits?',
+    answer: 'Yes, we handle all necessary permits for your project. Building permits are required for most plumbing, electrical, and structural work in Seattle and surrounding areas.',
+  },
+  {
+    question: 'Do you offer financing?',
+    answer: 'We work with several financing partners to offer flexible payment options. Ask about our financing plans during your free consultation.',
+  },
+  {
+    question: 'Are you licensed and insured?',
+    answer: 'Yes, we are fully licensed, bonded, and insured in Washington State. We carry general liability insurance and workers compensation for your protection.',
+  },
+  {
+    question: 'Can I stay in my home during remodeling?',
+    answer: 'In most cases, yes. We work to minimize disruption and keep work areas contained. For kitchen remodels, we recommend setting up a temporary kitchen area.',
+  },
+  {
+    question: 'What warranty do you provide?',
+    answer: 'We provide a 5-year warranty on all workmanship. Manufacturer warranties on materials and fixtures are passed through to you. We stand behind every project.',
+  },
+] as const;
+
+export const REMODELING_REVIEWS = [
+  {
+    name: 'Mark P.',
+    location: 'Seattle, WA',
+    rating: 5,
+    text: 'Complete bathroom remodel done in under 2 weeks. New tile, vanity, shower — everything looks incredible. The team was professional and kept us informed throughout. Highly recommend for any remodeling project!',
+    date: '1 week ago',
+    service: 'Bathroom Remodeling',
+  },
+  {
+    name: 'Karen W.',
+    location: 'Bellevue, WA',
+    rating: 5,
+    text: 'They transformed our dated kitchen into a modern showpiece. New countertops, backsplash, and cabinet refresh. The attention to detail was outstanding and the price was very competitive.',
+    date: '2 weeks ago',
+    service: 'Kitchen Remodeling',
+  },
+  {
+    name: 'Tom H.',
+    location: 'Kirkland, WA',
+    rating: 5,
+    text: 'Had them install a walk-in shower to replace our old tub. The tile work is flawless and the glass enclosure looks amazing. Best home investment we\'ve made!',
+    date: '3 weeks ago',
+    service: 'Shower Installation',
+  },
+  {
+    name: 'Rachel S.',
+    location: 'Redmond, WA',
+    rating: 5,
+    text: 'New quartz countertops in our kitchen look absolutely stunning. Precise cuts, perfect seams, and they cleaned up everything after. Will definitely use them for our bathroom remodel next.',
+    date: '1 month ago',
+    service: 'Countertop Installation',
+  },
+  {
+    name: 'Chris D.',
+    location: 'Renton, WA',
+    rating: 5,
+    text: 'Tile installation in both bathrooms — floor and shower walls. Incredible craftsmanship, perfectly level, grout lines are immaculate. These guys know what they\'re doing.',
+    date: '1 month ago',
+    service: 'Tile Installation',
+  },
+] as const;
+
 // Navigation
 export const NAV_ITEMS = [
   { name: 'Services', href: '/services' },
   { name: 'Gallery', href: '/gallery' },
   { name: 'Process', href: '/process' },
   { name: 'Blog', href: '/blog' },
-  { name: 'Commercial', href: '/commercial' },
+  { name: 'Locations', href: '/locations' },
   { name: 'Contact', href: '/contact' },
 ] as const;
 
