@@ -199,7 +199,7 @@ export function generateLocationPageSchema(location: { id: string; name: string 
         '@id': `${pageUrl}#webpage`,
         url: pageUrl,
         name: `Kitchen & Bathroom Remodeling in ${location.name}, WA | ${BUSINESS.name}`,
-        description: `Professional bathtub, tile, and shower refinishing services in ${location.name}, WA. Same-day service, ${BUSINESS.warranty} warranty. Serving the entire Seattle metro area.`,
+        description: `Professional kitchen & bathroom remodeling, tile installation, countertop installation, and refinishing services in ${location.name}, WA. ${BUSINESS.warranty} warranty. Serving the entire Seattle metro area.`,
         isPartOf: {
           '@id': getUrl('/#website'),
         },
@@ -226,7 +226,7 @@ export function generateLocationPageSchema(location: { id: string; name: string 
             name: 'Washington State',
           },
         },
-        description: `Professional bathtub, tile, shower, sink, and countertop refinishing in ${location.name}. We restore your surfaces to like-new condition in just one day. ${BUSINESS.warranty} warranty included.`,
+        description: `Professional kitchen & bathroom remodeling, tile installation, countertop installation, and refinishing in ${location.name}. ${BUSINESS.warranty} warranty included.`,
         url: pageUrl,
         offers: {
           '@type': 'Offer',
@@ -242,7 +242,7 @@ export function generateLocationPageSchema(location: { id: string; name: string 
         '@type': 'Product',
         '@id': `${pageUrl}#product`,
         name: `Kitchen & Bathroom Remodeling in ${location.name}`,
-        description: `Expert bathtub, tile, and shower refinishing in ${location.name}, WA. Same-day service, ${BUSINESS.warranty} warranty, all surfaces.`,
+        description: `Expert kitchen & bathroom remodeling, tile installation, and refinishing in ${location.name}, WA. ${BUSINESS.warranty} warranty.`,
         brand: {
           '@type': 'Brand',
           name: BUSINESS.name,
@@ -258,8 +258,8 @@ export function generateLocationPageSchema(location: { id: string; name: string 
           '@type': 'AggregateOffer',
           priceCurrency: 'USD',
           lowPrice: '350',
-          highPrice: '900',
-          offerCount: String(SERVICES.length),
+          highPrice: '75000',
+          offerCount: String([...ALL_SERVICES].length),
         },
       },
       // Review

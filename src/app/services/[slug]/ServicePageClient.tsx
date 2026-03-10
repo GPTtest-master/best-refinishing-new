@@ -2,37 +2,14 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { SERVICES, ALL_SERVICES, BUSINESS, PROCESS_STEPS, FAQ_ITEMS } from '@/lib/constants';
+import { SERVICES, REMODELING_SERVICES, ALL_SERVICES, BUSINESS, PROCESS_STEPS, REMODELING_PROCESS_STEPS, FAQ_ITEMS, REMODELING_FAQ_ITEMS, REVIEWS, REMODELING_REVIEWS } from '@/lib/constants';
 import BeforeAfterSlider from '@/components/ui/BeforeAfterSlider';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 // Service type definition
 type Service = (typeof ALL_SERVICES)[number];
 
-// Reviews data
-const reviews = [
-  {
-    name: 'Sarah M.',
-    location: 'Seattle, WA',
-    rating: 5,
-    text: 'Absolutely incredible transformation! My 30-year-old bathtub looks brand new. The team was professional, on time, and the quality is outstanding. Saved us thousands compared to replacement.',
-    service: 'Bathtub Refinishing',
-  },
-  {
-    name: 'David K.',
-    location: 'Bellevue, WA',
-    rating: 5,
-    text: 'Best decision we made for our bathroom remodel. The refinishing looks perfect and has held up beautifully for over a year now. Highly recommend!',
-    service: 'Tub & Tile Refinishing',
-  },
-  {
-    name: 'Jennifer L.',
-    location: 'Redmond, WA',
-    rating: 5,
-    text: 'From quote to completion, everything was seamless. They explained the 6-layer coating process and it really shows in the durability. Worth every penny!',
-    service: 'Shower Refinishing',
-  },
-];
+// No longer needed — reviews come from constants
 
 // Service to slider index mapping
 // Slider tabs: 0=Bathtub, 1=Tub&Tiles, 2=Sink, 3=Cast Iron, 4=Local
@@ -46,8 +23,12 @@ const serviceToSliderIndex: Record<string, number> = {
 };
 
 export default function ServicePageClient({ service }: { service: Service }) {
+  const isRemodeling = REMODELING_SERVICES.some(s => s.id === service.id);
+  const processSteps = isRemodeling ? REMODELING_PROCESS_STEPS : PROCESS_STEPS;
+  const faqItems = isRemodeling ? REMODELING_FAQ_ITEMS : FAQ_ITEMS;
+  const reviews = isRemodeling ? REMODELING_REVIEWS : REVIEWS;
   const otherServices = [...ALL_SERVICES].filter((s) => s.id !== service.id).slice(0, 3);
-  const serviceFaqs = FAQ_ITEMS.slice(0, 4);
+  const serviceFaqs = faqItems.slice(0, 4);
   const defaultSliderIndex = serviceToSliderIndex[service.id] || 0;
 
   return (
@@ -166,7 +147,7 @@ export default function ServicePageClient({ service }: { service: Service }) {
               Our Process
             </span>
             <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
-              Professional {service.shortTitle} Refinishing Process
+              Professional {service.shortTitle} {isRemodeling ? 'Remodeling' : 'Refinishing'} Process
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               From inspection to completion in just one day. Here&apos;s how we transform your {service.shortTitle.toLowerCase()}.
@@ -174,7 +155,7 @@ export default function ServicePageClient({ service }: { service: Service }) {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {PROCESS_STEPS.map((step) => (
+            {processSteps.map((step) => (
               <div key={step.number} className="bg-slate-50 rounded-2xl p-6 hover:shadow-lg transition">
                 <div
                   className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mb-4"
@@ -332,7 +313,7 @@ export default function ServicePageClient({ service }: { service: Service }) {
               FAQ
             </span>
             <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
-              Common Questions About {service.shortTitle} Refinishing
+              Common Questions About {service.shortTitle} {isRemodeling ? 'Remodeling' : 'Refinishing'}
             </h2>
           </div>
 
@@ -365,7 +346,7 @@ export default function ServicePageClient({ service }: { service: Service }) {
       <section id="quote" className="py-20 bg-gradient-to-br from-[#0b66b3] to-[#084c8a]">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
-            Get Your Free {service.shortTitle} Refinishing Quote
+            Get Your Free {service.shortTitle} {isRemodeling ? 'Remodeling' : 'Refinishing'} Quote
           </h2>
           <p className="text-xl text-white/90 mb-4">
             Serving Seattle, Bellevue, Redmond, Kirkland, Tacoma and 50+ cities across the Puget Sound
@@ -401,7 +382,7 @@ export default function ServicePageClient({ service }: { service: Service }) {
               {service.title} Service Areas
             </h2>
             <p className="text-gray-600">
-              Professional {service.shortTitle.toLowerCase()} refinishing available throughout the greater Seattle area
+              Professional {service.shortTitle.toLowerCase()} {isRemodeling ? 'remodeling' : 'refinishing'} available throughout the greater Seattle area
             </p>
           </div>
           <div className="flex flex-wrap justify-center gap-2 text-sm">

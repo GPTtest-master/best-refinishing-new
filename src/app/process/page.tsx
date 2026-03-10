@@ -30,14 +30,14 @@ const processSteps = [
     number: 2,
     title: 'Surface Preparation',
     description: 'We thoroughly clean and prepare the surface, removing all contaminants and repairing any chips, cracks, or damage.',
-    image: '/images/img-7041-rotated.jpg',
+    image: '/images/optimized/bathtub-4-before.webp',
     details: ['Deep cleaning & decontamination', 'Chip & crack repair', 'Surface etching for adhesion'],
   },
   {
     number: 3,
     title: 'Professional Masking',
     description: 'We carefully mask and protect all surrounding areas including walls, floors, fixtures, and drains.',
-    image: '/images/optimized/bathtub-3-before.webp',
+    image: '/images/img-7041-rotated.jpg',
     details: ['Complete area protection', 'Precise tape application', 'Hardware protection'],
   },
   {
