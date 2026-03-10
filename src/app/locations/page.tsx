@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ALL_LOCATIONS, LOCATIONS, ADDITIONAL_LOCATIONS, BUSINESS, SERVICES } from '@/lib/constants';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
@@ -6,15 +7,15 @@ import { generateLocationsIndexSchema } from '@/lib/schema';
 import { SchemaScript } from '@/components/SchemaScript';
 
 export const metadata: Metadata = {
-  title: `Service Areas - 50+ Cities | ${BUSINESS.name}`,
-  description: `Professional bathtub, shower, tile, and sink refinishing in Seattle, Bellevue, Redmond, Kirkland, Tacoma and 50+ cities across the Puget Sound. ${BUSINESS.warranty} warranty. Call ${BUSINESS.phone}.`,
-  keywords: 'refinishing near me, bathtub refinishing seattle, bathroom refinishing bellevue, reglazing service areas',
+  title: `Kitchen & Bathroom Remodeling Service Areas - 50+ Cities | ${BUSINESS.name}`,
+  description: `Professional kitchen and bathroom remodeling in Seattle, Bellevue, Redmond, Kirkland, Tacoma and 50+ cities across the Puget Sound. ${BUSINESS.warranty} warranty. Call ${BUSINESS.phone}.`,
+  keywords: 'kitchen remodeling near me, bathroom remodeling seattle, kitchen renovation bellevue, remodeling service areas seattle',
   alternates: {
     canonical: `${BUSINESS.website}/locations`,
   },
   openGraph: {
-    title: `Service Areas - 50+ Cities | ${BUSINESS.name}`,
-    description: `Professional refinishing in Seattle, Bellevue, Redmond, Kirkland, Tacoma and 50+ cities.`,
+    title: `Kitchen & Bathroom Remodeling - 50+ Cities | ${BUSINESS.name}`,
+    description: `Professional kitchen and bathroom remodeling in Seattle, Bellevue, Redmond, Kirkland, Tacoma and 50+ cities.`,
     type: 'website',
     locale: 'en_US',
     siteName: BUSINESS.name,
@@ -28,8 +29,11 @@ export default function LocationsPage() {
     <>
       <SchemaScript schema={schema} />
       {/* Hero */}
-      <section className="relative pt-20 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-        <div className="absolute inset-0 bg-[url('/images/optimized/hero-bg.webp')] bg-cover bg-center opacity-10" />
+      <section className="relative pt-20 pb-16 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src="/images/remodeling/herolocations.jpg" alt="Kitchen and bathroom remodeling service areas" fill className="object-cover" priority quality={70} />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-slate-900/70 to-slate-900/50" />
+        </div>
         <div className="relative max-w-7xl mx-auto px-4">
           {/* Breadcrumbs */}
           <div className="mb-6">
@@ -46,7 +50,7 @@ export default function LocationsPage() {
             We Serve 50+ Cities
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
-            Professional refinishing services throughout the greater Seattle area and Puget Sound region
+            Professional kitchen and bathroom remodeling throughout the greater Seattle area and Puget Sound region
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
@@ -59,7 +63,7 @@ export default function LocationsPage() {
               {BUSINESS.phone}
             </a>
             <Link
-              href="/contact"
+              href="https://nexfield.pro/crm/book?u=137"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 backdrop-blur border-2 border-white/30 text-white font-bold text-lg hover:bg-white/20 transition"
             >
               Get Free Quote
@@ -80,7 +84,7 @@ export default function LocationsPage() {
               Major Cities We Serve
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Full refinishing services with same-day availability in these areas
+              Full kitchen and bathroom remodeling services in these areas
             </p>
           </div>
 
@@ -107,7 +111,7 @@ export default function LocationsPage() {
                   {location.name}
                 </h3>
                 <p className="text-gray-500 text-sm mb-4">
-                  Bathtub, Shower, Tile & Sink Refinishing
+                  Kitchen & Bathroom Remodeling
                 </p>
                 <span className="inline-flex items-center gap-1 text-[#0b66b3] font-semibold text-sm group-hover:gap-2 transition-all">
                   View Services
@@ -132,7 +136,7 @@ export default function LocationsPage() {
               Additional Areas We Serve
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              We also provide refinishing services to these neighborhoods and cities
+              We also provide remodeling services to these neighborhoods and cities
             </p>
           </div>
 
@@ -160,7 +164,7 @@ export default function LocationsPage() {
               Services Available in All Locations
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Professional refinishing for every surface in your home
+              Professional remodeling and refinishing for every surface in your home
             </p>
           </div>
 
@@ -191,6 +195,86 @@ export default function LocationsPage() {
         </div>
       </section>
 
+      {/* Our Location Map */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <span className="inline-block text-[#0b66b3] font-semibold text-sm uppercase tracking-wider mb-3">
+              Our Office
+            </span>
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+              Visit Us in Downtown Seattle
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Located in the iconic Columbia Tower — serving the entire Puget Sound region
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8 items-start">
+            {/* Map */}
+            <div className="lg:col-span-2 rounded-2xl overflow-hidden shadow-xl border border-gray-200">
+              <iframe
+                src={BUSINESS.mapEmbedUrl}
+                width="100%"
+                height="450"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Kitchen and Bathroom Remodeling Pros - Columbia Tower, Seattle"
+              />
+            </div>
+
+            {/* Address Card */}
+            <div className="bg-slate-50 rounded-2xl p-8 border border-gray-100">
+              <h3 className="text-xl font-bold text-gray-900 mb-6">Contact Information</h3>
+              <div className="space-y-5">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-[#0b66b3]/10 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-5 h-5 text-[#0b66b3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-gray-900">Address</div>
+                    <div className="text-gray-600 text-sm">701 5th Ave, 42nd Floor<br />Suite 4272, Columbia Tower<br />Seattle, WA 98104</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-[#0b66b3]/10 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-5 h-5 text-[#0b66b3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-gray-900">Phone</div>
+                    <a href={BUSINESS.phoneLink} className="text-[#0b66b3] font-semibold hover:underline">{BUSINESS.phone}</a>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-[#0b66b3]/10 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-5 h-5 text-[#0b66b3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-gray-900">Hours</div>
+                    <div className="text-gray-600 text-sm">{BUSINESS.hours}</div>
+                  </div>
+                </div>
+              </div>
+              <a
+                href="https://nexfield.pro/crm/book?u=137"
+                className="mt-6 w-full inline-flex items-center justify-center px-6 py-3 rounded-xl bg-amber-500 text-white font-bold hover:bg-amber-600 transition"
+              >
+                Free Estimate
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 bg-gradient-to-r from-[#0b66b3] to-[#084c8a]">
         <div className="max-w-4xl mx-auto px-4 text-center">
@@ -211,7 +295,7 @@ export default function LocationsPage() {
               Call {BUSINESS.phone}
             </a>
             <Link
-              href="/contact"
+              href="https://nexfield.pro/crm/book?u=137"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-[#0b66b3] font-bold text-lg hover:bg-gray-100 transition"
             >
               Request Quote

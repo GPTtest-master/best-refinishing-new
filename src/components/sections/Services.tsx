@@ -56,6 +56,8 @@ export default function Services() {
                   fill
                   className="object-cover"
                   style={{ objectPosition: REMODELING_SERVICES[activeTab].imagePosition || 'center' }}
+                  sizes="100vw"
+                  quality={75}
                 />
               </div>
             </div>
@@ -81,7 +83,7 @@ export default function Services() {
               </div>
               <div className="flex gap-3">
                 <a
-                  href="#quote"
+                  href="https://nexfield.pro/crm/book?u=137"
                   className="flex-1 py-3 rounded-xl bg-[#0b66b3] text-white font-bold text-center hover:bg-[#084c8a] transition"
                 >
                   Get Quote
@@ -130,6 +132,8 @@ export default function Services() {
                     fill
                     className="object-cover"
                     style={{ objectPosition: service.imagePosition || 'center' }}
+                    sizes="(max-width: 768px) 0px, (max-width: 1024px) 50vw, 33vw"
+                    quality={75}
                   />
                 </div>
               </div>
@@ -175,7 +179,7 @@ export default function Services() {
         <div className="mt-10 md:mt-16 text-center">
           <p className="text-gray-600 mb-4">Need a custom remodeling solution?</p>
           <a
-            href="#quote"
+            href="https://nexfield.pro/crm/book?u=137"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#0b66b3] text-white font-bold text-lg hover:bg-[#084c8a] transition"
           >
             Get Free Assessment

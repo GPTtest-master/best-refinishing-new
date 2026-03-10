@@ -35,10 +35,10 @@ export default function Footer() {
               {BUSINESS.phone}
             </a>
             <Link
-              href="/contact"
+              href="https://nexfield.pro/crm/book?u=137"
               className="inline-flex items-center justify-center px-10 py-5 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold text-xl hover:from-amber-600 hover:to-amber-700 transition shadow-2xl shadow-amber-500/30"
             >
-              Get Instant Quote
+              Free Estimate
             </Link>
           </div>
         </div>
@@ -49,14 +49,18 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div>
-            <div className="mb-6">
+            <div className="flex items-center gap-3 mb-6">
               <Image
-                src="/images/optimized/logo1.svg"
+                src="/images/logo.png"
                 alt={BUSINESS.name}
-                width={50}
-                height={50}
-                className="h-12 w-auto"
+                width={60}
+                height={60}
+                className="h-14 w-auto"
               />
+              <div className="leading-tight">
+                <span className="text-amber-500 font-black text-lg block">Kitchen & Bathroom</span>
+                <span className="text-gray-300 font-bold text-base block">Remodeling Pros</span>
+              </div>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
               Professional kitchen & bathroom remodeling serving
@@ -172,6 +176,25 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Map Strip */}
+      <div className="max-w-7xl mx-auto px-4 pb-12">
+        <div className="rounded-2xl overflow-hidden border border-gray-700">
+          <iframe
+            src={BUSINESS.mapEmbedUrl}
+            width="100%"
+            height="250"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Our location — Columbia Tower, Seattle"
+          />
+        </div>
+        <p className="text-gray-500 text-sm mt-3 text-center">
+          {BUSINESS.addressFull}
+        </p>
+      </div>
+
       {/* Bottom Bar */}
       <div className="border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
@@ -179,11 +202,12 @@ export default function Footer() {
             © {new Date().getFullYear()} {BUSINESS.name}. All rights reserved.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm">
+            <Link href="/projects" className="text-gray-400 hover:text-white transition">Projects</Link>
             <Link href="/faq" className="text-gray-400 hover:text-white transition">FAQ</Link>
             <Link href="/process" className="text-gray-400 hover:text-white transition">Process</Link>
             <Link href="/common-problems" className="text-gray-400 hover:text-white transition">Common Problems</Link>
             <Link href="/blog" className="text-gray-400 hover:text-white transition">Blog</Link>
-            <Link href="/contact" className="text-gray-400 hover:text-white transition">Contact</Link>
+            <Link href="https://nexfield.pro/crm/book?u=137" className="text-gray-400 hover:text-white transition">Contact</Link>
             <span className="text-gray-700">|</span>
             <Link href="/privacy" className="text-gray-400 hover:text-white transition">Privacy Policy</Link>
             <Link href="/terms" className="text-gray-400 hover:text-white transition">Terms of Service</Link>

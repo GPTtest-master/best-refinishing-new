@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
       type: 'website',
       locale: 'en_US',
       siteName: BUSINESS.name,
-      images: ['/images/optimized/bathtub-3-after.webp'],
+      images: ['/images/remodeling/kitchen-showcase-2.jpg'],
     },
     twitter: {
       card: 'summary_large_image',

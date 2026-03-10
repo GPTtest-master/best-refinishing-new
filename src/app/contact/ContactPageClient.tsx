@@ -105,7 +105,7 @@ export default function ContactPageClient() {
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight mb-6">
               Get Your Free
-              <span className="block text-[#0b66b3]">Refinishing Quote</span>
+              <span className="block text-[#0b66b3]">Remodeling Estimate</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
               Ready to transform your bathroom? Fill out the form below or give us a call.
@@ -234,7 +234,7 @@ export default function ContactPageClient() {
                         className="mt-0.5 w-5 h-5 rounded border-2 border-gray-300 text-[#0b66b3] focus:ring-[#0b66b3] cursor-pointer flex-shrink-0"
                       />
                       <label htmlFor="smsConsent-contact" className="text-sm text-gray-600 leading-relaxed cursor-pointer">
-                        I agree to receive SMS/text messages from Best Refinishing regarding my quote request.
+                        I agree to receive SMS/text messages from Kitchen and Bathroom Remodeling Pros regarding my quote request.
                         Message frequency varies. Msg & data rates may apply. Reply STOP to opt-out.{' '}
                         <a href="/privacy" className="text-[#0b66b3] underline">Privacy Policy</a> &{' '}
                         <a href="/terms" className="text-[#0b66b3] underline">Terms of Service</a>.

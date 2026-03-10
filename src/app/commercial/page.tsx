@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { BUSINESS, SERVICES } from '@/lib/constants';
 
@@ -102,7 +103,11 @@ export default function CommercialPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative pt-24 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-[#0b66b3]">
+      <section className="relative pt-24 pb-16 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src="/images/remodeling/kitchen-showcase-4.jpg" alt="Commercial remodeling services" fill className="object-cover" priority quality={70} />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-slate-900/70 to-slate-900/50" />
+        </div>
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/20 text-amber-400 font-semibold text-sm mb-6">
@@ -128,7 +133,7 @@ export default function CommercialPage() {
                 Call for Volume Pricing
               </a>
               <Link
-                href="/contact"
+                href="https://nexfield.pro/crm/book?u=137"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-gray-900 font-bold text-lg hover:bg-gray-100 transition"
               >
                 Request Commercial Quote
@@ -282,7 +287,7 @@ export default function CommercialPage() {
               Call {BUSINESS.phone}
             </a>
             <Link
-              href="/contact"
+              href="https://nexfield.pro/crm/book?u=137"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-[#0b66b3] font-bold text-lg hover:bg-gray-100 transition"
             >
               Request Volume Quote

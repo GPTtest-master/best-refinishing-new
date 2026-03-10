@@ -1,10 +1,12 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import { BUSINESS } from '@/lib/constants';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Custom Finishes & Designer Coatings | Marble, Stone & More',
-  description: 'Custom refinishing finishes including marble effects, stone textures, and designer colors. Transform your bathroom with unique, artistic coatings in Seattle.',
-  keywords: 'custom bathtub finish, marble effect refinishing, designer bathroom coating, artistic refinishing seattle',
+  title: 'Custom Finishes & Designer Coatings for Kitchen & Bathroom Remodeling',
+  description: 'Custom designer finishes for your kitchen & bathroom remodel. Marble effects, stone textures, and unique coatings. Also available as refinishing option in Seattle.',
+  keywords: 'custom bathroom finishes, designer kitchen coatings, marble effect seattle, custom remodeling finishes, artistic bathroom design',
 };
 
 const finishTypes = [
@@ -61,15 +63,22 @@ export default function CustomFinishesPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-[#0b66b3]">
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="relative pt-24 pb-16 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src="/images/remodeling/kitchen-showcase-3.jpg" alt="Custom kitchen and bathroom finishes" fill className="object-cover" priority quality={70} />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-slate-900/70 to-slate-900/50" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4">
+          <div className="mb-6">
+            <Breadcrumbs variant="dark" items={[{ label: 'Custom Finishes' }]} />
+          </div>
           <div className="max-w-3xl">
             <span className="inline-block text-amber-400 font-semibold text-sm uppercase tracking-wider mb-4">
               Design Studio
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
-              Custom Designer
-              <span className="block text-amber-400">Finishes</span>
+              Custom Designer Finishes
+              <span className="block text-amber-400">for Kitchen &amp; Bathroom Remodeling</span>
             </h1>
             <p className="text-xl text-white/80 leading-relaxed mb-8">
               Go beyond basic white. Our design studio creates stunning marble effects,
@@ -242,7 +251,7 @@ export default function CustomFinishesPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="/#quote"
+              href="https://nexfield.pro/crm/book?u=137"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-amber-500 text-white font-bold text-lg hover:bg-amber-600 transition"
             >
               Book Design Consultation

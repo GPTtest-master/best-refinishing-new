@@ -54,10 +54,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: '/images/bathtub-3-after.webp',
+        url: '/images/remodeling/kitchen-showcase-1.jpg',
         width: 1200,
         height: 630,
-        alt: 'Professional bathtub refinishing in Seattle - Before and After',
+        alt: 'Professional kitchen & bathroom remodeling in Seattle',
       },
     ],
   },
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: `Kitchen & Bathroom Remodeling Seattle | ${BUSINESS.name}`,
     description: "Seattle's #1 kitchen & bathroom remodeling company. Free estimates!",
-    images: ['/images/bathtub-3-after.webp'],
+    images: ['/images/remodeling/kitchen-showcase-1.jpg'],
   },
   alternates: {
     canonical: BUSINESS.website,
@@ -96,7 +96,7 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/images/remodeling/hero-remodeling.png"
+          href="/images/remodeling/hero.png"
           type="image/png"
           media="(min-width: 768px)"
           fetchPriority="high"
@@ -104,7 +104,7 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/images/remodeling/hero-remodeling.png"
+          href="/images/remodeling/hero.png"
           type="image/png"
           media="(max-width: 767px)"
           fetchPriority="high"
@@ -123,7 +123,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <FloatingCTA />
-        <ExitIntentPopup />
+        {/* <ExitIntentPopup /> */}
         <SpeedInsights />
 
         {/* Google Ads & GA4 - lazyOnload for better performance */}
@@ -139,7 +139,7 @@ export default function RootLayout({
             gtag('config', 'AW-17663809026');
             gtag('config', 'G-TGTB5S47RN');
             gtag('config', 'AW-17663809026/FtVGCJjCjtIbEIKs4eZB', {
-              'phone_conversion_number': '+1 (206) 786-9915'
+              'phone_conversion_number': '+1 (206) 222-5159'
             });
           `}
         </Script>

@@ -71,7 +71,7 @@ export default function FloatingCTA() {
 
             {/* Quote button */}
             <a
-              href="#quote"
+              href="https://nexfield.pro/crm/book?u=137"
               className="flex-1 flex items-center justify-center py-2.5 rounded-full bg-amber-500/90 text-white font-semibold text-sm"
             >
               Get Quote

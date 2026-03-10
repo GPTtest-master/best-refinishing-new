@@ -4,14 +4,14 @@ import ContactPageClient from './ContactPageClient';
 
 export const metadata: Metadata = {
   title: `Contact Us - Get Free Quote | ${BUSINESS.name}`,
-  description: `Contact ${BUSINESS.name} for free bathtub, shower, tile, and countertop refinishing quotes in Seattle & 50+ cities. Call ${BUSINESS.phone} or fill out our form. We respond ${BUSINESS.responseTime.toLowerCase()}!`,
-  keywords: 'contact best refinishing, free refinishing quote seattle, bathtub refinishing quote, bathroom refinishing estimate',
+  description: `Contact ${BUSINESS.name} for free kitchen & bathroom remodeling estimates in Seattle & 50+ cities. Call ${BUSINESS.phone} or fill out our form. Licensed contractors, ${BUSINESS.warranty} warranty. We respond ${BUSINESS.responseTime.toLowerCase()}!`,
+  keywords: 'contact remodeling pros seattle, free remodeling estimate, kitchen remodeling quote seattle, bathroom remodeling estimate, seattle contractor',
   alternates: {
     canonical: `${BUSINESS.website}/contact`,
   },
   openGraph: {
     title: `Contact Us - Get Free Quote | ${BUSINESS.name}`,
-    description: `Get a free refinishing quote. We respond ${BUSINESS.responseTime.toLowerCase()}!`,
+    description: `Get a free remodeling estimate. We respond ${BUSINESS.responseTime.toLowerCase()}!`,
     type: 'website',
     locale: 'en_US',
     siteName: BUSINESS.name,
@@ -30,5 +30,33 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  return <ContactPageClient />;
+  return (
+    <>
+      <ContactPageClient />
+      {/* BreadcrumbList Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: BUSINESS.website,
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Contact',
+                item: `${BUSINESS.website}/contact`,
+              },
+            ],
+          }),
+        }}
+      />
+    </>
+  );
 }

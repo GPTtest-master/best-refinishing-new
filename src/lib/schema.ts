@@ -29,7 +29,7 @@ function getOrganizationSchema() {
     url: getUrl('/'),
     logo: {
       '@type': 'ImageObject',
-      url: getUrl('/images/optimized/logo1.svg'),
+      url: getUrl('/images/logo.png'),
       width: 300,
       height: 300,
     },
@@ -87,7 +87,7 @@ function getLocalBusinessSchema() {
     telephone: BUSINESS.phone,
     email: BUSINESS.email,
     priceRange: '$$',
-    image: getUrl('/images/optimized/logo1.svg'),
+    image: getUrl('/images/logo.png'),
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Seattle',
@@ -174,7 +174,7 @@ export function generateHomePageSchema() {
         offers: {
           '@type': 'AggregateOffer',
           priceCurrency: 'USD',
-          lowPrice: '2000',
+          lowPrice: '5000',
           highPrice: '75000',
           offerCount: String([...ALL_SERVICES].length),
         },
@@ -257,7 +257,7 @@ export function generateLocationPageSchema(location: { id: string; name: string 
         offers: {
           '@type': 'AggregateOffer',
           priceCurrency: 'USD',
-          lowPrice: '350',
+          lowPrice: '5000',
           highPrice: '75000',
           offerCount: String([...ALL_SERVICES].length),
         },

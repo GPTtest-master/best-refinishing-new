@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { SERVICES, REMODELING_SERVICES, ALL_SERVICES, ALL_LOCATIONS, LOCATIONS, BUSINESS, BLOG_POSTS } from '@/lib/constants';
+import { SERVICES, REMODELING_SERVICES, ALL_SERVICES, ALL_LOCATIONS, LOCATIONS, BUSINESS, BLOG_POSTS, PROJECTS } from '@/lib/constants';
 import { SERVICE_SLUGS, REMODELING_SERVICE_SLUGS } from '@/lib/locationServiceContent';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -57,7 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/blog`,
       lastModified: currentDate,
       changeFrequency: 'daily',
-      priority: 0.88,
+      priority: 0.92,
     },
     {
       url: `${baseUrl}/process`,
@@ -78,10 +78,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.80,
     },
     {
+      url: `${baseUrl}/projects`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.92,
+    },
+    {
       url: `${baseUrl}/remodeling`,
       lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.80,
+      changeFrequency: 'weekly',
+      priority: 0.90,
     },
     {
       url: `${baseUrl}/shower-doors`,
@@ -200,7 +206,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(post.date).toISOString(),
     changeFrequency: 'weekly' as const,
-    priority: post.featured ? 0.87 : 0.82,
+    priority: post.featured ? 0.88 : 0.84,
+  }));
+
+  // Project case study pages
+  const projectPages: MetadataRoute.Sitemap = PROJECTS.map((project) => ({
+    url: `${baseUrl}/projects/${project.id}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly' as const,
+    priority: 0.85,
   }));
 
   // Return in priority order for crawlers
@@ -214,5 +228,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...locationServicePages,
     ...staticPages.slice(1),
     ...blogPages,
+    ...projectPages,
   ];
 }

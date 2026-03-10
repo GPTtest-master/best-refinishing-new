@@ -147,7 +147,7 @@ export default async function LocationServicePage({ params }: { params: Promise<
                   Call {BUSINESS.phone}
                 </a>
                 <Link
-                  href="/contact"
+                  href="https://nexfield.pro/crm/book?u=137"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white/10 border border-white/30 text-white font-bold text-lg hover:bg-white/20 transition"
                 >
                   Get Free Quote
@@ -245,7 +245,7 @@ export default async function LocationServicePage({ params }: { params: Promise<
               </div>
 
               <Link
-                href="/contact"
+                href="https://nexfield.pro/crm/book?u=137"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0b66b3] text-white font-bold hover:bg-[#084c8a] transition"
               >
                 Get Your Free Quote
@@ -355,7 +355,7 @@ export default async function LocationServicePage({ params }: { params: Promise<
               Call {BUSINESS.phone}
             </a>
             <Link
-              href="/contact"
+              href="https://nexfield.pro/crm/book?u=137"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-[#0b66b3] font-bold text-lg hover:bg-gray-100 transition"
             >
               Get Free Quote
@@ -387,6 +387,29 @@ export default async function LocationServicePage({ params }: { params: Promise<
           </div>
         </div>
       </section>
+
+      {/* Cross-link: Remodeling Services */}
+      {(SERVICE_SLUGS as readonly string[]).includes(service) && (
+        <section className="py-12 bg-white">
+          <div className="max-w-4xl mx-auto px-4">
+            <div className="bg-gradient-to-r from-[#0b66b3] to-[#084c8a] rounded-2xl p-8 text-center">
+              <h3 className="text-2xl font-bold text-white mb-3">Looking for a Full Remodel in {location.name}?</h3>
+              <p className="text-white/80 mb-6 max-w-xl mx-auto">Refinishing is great for quick updates, but if you want a complete transformation — new tile, countertops, fixtures, and more — explore our remodeling services.</p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <Link href="/services/bathroom-remodeling" className="px-6 py-3 bg-amber-500 text-white rounded-xl font-bold hover:bg-amber-600 transition">
+                  Bathroom Remodeling
+                </Link>
+                <Link href="/services/kitchen-remodeling" className="px-6 py-3 bg-white text-[#0b66b3] rounded-xl font-bold hover:bg-gray-100 transition">
+                  Kitchen Remodeling
+                </Link>
+                <Link href="/projects" className="px-6 py-3 bg-white/10 border border-white/30 text-white rounded-xl font-bold hover:bg-white/20 transition">
+                  View Projects
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Same Service in Other Cities */}
       <section className="py-16 bg-slate-50">

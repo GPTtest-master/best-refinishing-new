@@ -18,7 +18,7 @@ export default function BlogPreview() {
             Tips & Expert Advice
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Learn about refinishing, costs, and how to get the best results for your bathroom
+            Expert remodeling guides, cost breakdowns, and tips for your kitchen or bathroom project
           </p>
         </div>
 

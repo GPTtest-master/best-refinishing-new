@@ -131,10 +131,10 @@ export default function QuickForm({ variant = 'light', title, compact = false }:
           We&apos;ve received your request and will call you within 1 hour.
         </p>
         <a
-          href="tel:+12067869915"
+          href="tel:+12062225159"
           className="inline-flex items-center gap-2 text-amber-500 font-semibold hover:underline"
         >
-          📞 Or call us now: +1 (206) 786-9915
+          📞 Or call us now: +1 (206) 222-5159
         </a>
       </div>
     );
@@ -213,7 +213,7 @@ export default function QuickForm({ variant = 'light', title, compact = false }:
             htmlFor={`smsConsent-${variant}`}
             className={`text-xs leading-relaxed cursor-pointer ${variant === 'light' ? 'text-gray-600' : 'text-gray-300'}`}
           >
-            I agree to receive SMS/text messages from Best Refinishing regarding my quote request.
+            I agree to receive SMS/text messages from Kitchen and Bathroom Remodeling Pros regarding my quote request.
             Message frequency varies. Msg & data rates may apply. Reply STOP to opt-out.{' '}
             <a href="/privacy" className={`underline ${variant === 'light' ? 'text-[#0b66b3]' : 'text-amber-400'}`}>Privacy</a>
             {' '}&{' '}
@@ -235,7 +235,7 @@ export default function QuickForm({ variant = 'light', title, compact = false }:
               Sending...
             </span>
           ) : (
-            '🚀 Get Instant Quote'
+            '🚀 Free Estimate'
           )}
         </button>
 

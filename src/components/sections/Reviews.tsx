@@ -1,7 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { REVIEWS, BUSINESS } from '@/lib/constants';
+import { REMODELING_REVIEWS, REVIEWS, BUSINESS } from '@/lib/constants';
+
+const ALL_REVIEWS = [...REMODELING_REVIEWS, ...REVIEWS];
 
 export default function Reviews() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -10,19 +12,19 @@ export default function Reviews() {
   useEffect(() => {
     if (!isAutoPlaying) return;
     const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % REVIEWS.length);
+      setActiveIndex((prev) => (prev + 1) % ALL_REVIEWS.length);
     }, 5000);
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
 
   const nextReview = () => {
     setIsAutoPlaying(false);
-    setActiveIndex((prev) => (prev + 1) % REVIEWS.length);
+    setActiveIndex((prev) => (prev + 1) % ALL_REVIEWS.length);
   };
 
   const prevReview = () => {
     setIsAutoPlaying(false);
-    setActiveIndex((prev) => (prev - 1 + REVIEWS.length) % REVIEWS.length);
+    setActiveIndex((prev) => (prev - 1 + ALL_REVIEWS.length) % ALL_REVIEWS.length);
   };
 
   return (
@@ -102,7 +104,7 @@ export default function Reviews() {
 
               {/* Stars */}
               <div className="flex justify-center gap-1 mb-8">
-                {[...Array(REVIEWS[activeIndex].rating)].map((_, i) => (
+                {[...Array(ALL_REVIEWS[activeIndex].rating)].map((_, i) => (
                   <svg key={i} className="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
@@ -111,18 +113,18 @@ export default function Reviews() {
 
               {/* Quote */}
               <blockquote className="text-xl md:text-2xl text-center mb-10 leading-relaxed font-light">
-                &ldquo;{REVIEWS[activeIndex].text}&rdquo;
+                &ldquo;{ALL_REVIEWS[activeIndex].text}&rdquo;
               </blockquote>
 
               {/* Author */}
               <div className="flex items-center justify-center gap-4">
                 <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#0b66b3] to-[#084c8a] flex items-center justify-center text-xl font-bold">
-                  {REVIEWS[activeIndex].name.charAt(0)}
+                  {ALL_REVIEWS[activeIndex].name.charAt(0)}
                 </div>
                 <div className="text-left">
-                  <div className="font-bold text-lg">{REVIEWS[activeIndex].name}</div>
-                  <div className="text-gray-400 text-sm">{REVIEWS[activeIndex].location}</div>
-                  <div className="text-amber-400 text-sm font-medium">{REVIEWS[activeIndex].service}</div>
+                  <div className="font-bold text-lg">{ALL_REVIEWS[activeIndex].name}</div>
+                  <div className="text-gray-400 text-sm">{ALL_REVIEWS[activeIndex].location}</div>
+                  <div className="text-amber-400 text-sm font-medium">{ALL_REVIEWS[activeIndex].service}</div>
                 </div>
               </div>
             </div>
@@ -130,7 +132,7 @@ export default function Reviews() {
 
           {/* Dots */}
           <div className="flex justify-center gap-2 mt-8">
-            {REVIEWS.map((_, index) => (
+            {ALL_REVIEWS.map((_, index) => (
               <button
                 key={index}
                 onClick={() => {
@@ -168,7 +170,7 @@ export default function Reviews() {
         {/* CTA */}
         <div className="mt-16 text-center">
           <a
-            href="#quote"
+            href="https://nexfield.pro/crm/book?u=137"
             className="inline-flex items-center gap-3 px-10 py-5 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold text-xl hover:from-amber-600 hover:to-amber-700 transition shadow-2xl shadow-amber-500/30 hover:scale-105 transform"
           >
             Get Your Free Quote Today

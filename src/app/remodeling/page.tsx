@@ -1,10 +1,15 @@
 import { Metadata } from 'next';
-import { BUSINESS } from '@/lib/constants';
+import Image from 'next/image';
+import Link from 'next/link';
+import { BUSINESS, REMODELING_SERVICES } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Bathroom Remodeling Savings | Save on Your Renovation Project',
-  description: 'Planning a bathroom remodel? Learn how refinishing can save thousands while achieving custom designer results. Seattle renovation tips and cost-saving strategies.',
-  keywords: 'bathroom remodel savings seattle, renovation cost tips, bathroom makeover budget, remodeling alternatives',
+  title: 'Kitchen & Bathroom Remodeling Seattle | Save Smart, Remodel Right',
+  description: 'Full-service kitchen and bathroom remodeling in Seattle. Compare refinishing vs remodeling costs, explore our 6 remodeling services, and get a free consultation. 500+ projects completed, 4.98 rating.',
+  keywords: 'kitchen remodeling seattle, bathroom remodeling seattle, renovation cost tips, remodeling services, bathroom makeover budget, remodeling alternatives',
+  alternates: {
+    canonical: `${BUSINESS.website}/remodeling`,
+  },
 };
 
 const savingsExamples = [
@@ -61,12 +66,23 @@ const tips = [
   },
 ];
 
+const stats = [
+  { value: '500+', label: 'Projects Completed' },
+  { value: '4.98', label: 'Google Rating' },
+  { value: '15+', label: 'Years Experience' },
+  { value: '$7,900', label: 'Starting Price' },
+];
+
 export default function RemodelingPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-[#0b66b3]">
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="relative pt-24 pb-16 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src="/images/remodeling/kitchen-showcase-2.jpg" alt="Kitchen and bathroom remodeling Seattle" fill className="object-cover" priority quality={70} />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-slate-900/70 to-slate-900/50" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4">
           <div className="max-w-3xl">
             <span className="inline-block text-amber-400 font-semibold text-sm uppercase tracking-wider mb-4">
               Smart Renovation
@@ -88,6 +104,21 @@ export default function RemodelingPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Seattle Remodeling by the Numbers */}
+      <section className="py-10 bg-slate-900 border-t border-white/10">
+        <div className="max-w-5xl mx-auto px-4">
+          <h2 className="text-center text-white text-lg font-semibold mb-6">Seattle Remodeling by the Numbers</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            {stats.map((stat) => (
+              <div key={stat.label}>
+                <div className="text-2xl md:text-3xl font-black text-amber-400">{stat.value}</div>
+                <div className="text-white/60 text-sm">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -198,8 +229,57 @@ export default function RemodelingPage() {
         </div>
       </section>
 
-      {/* Custom Design */}
+      {/* Our Remodeling Services */}
       <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <span className="inline-block text-[#0b66b3] font-semibold text-sm uppercase tracking-wider mb-4">
+              Full-Service Remodeling
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Our Remodeling Services
+            </h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              From single-room refreshes to complete renovations, we handle every aspect of your remodel
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {REMODELING_SERVICES.map((service) => (
+              <Link
+                key={service.id}
+                href={service.href}
+                className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  <span className="absolute bottom-4 left-4 inline-block px-3 py-1 rounded-full bg-amber-500 text-white font-bold text-sm">
+                    {service.price}
+                  </span>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#0b66b3] transition-colors mb-2">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm mb-4">{service.description}</p>
+                  <span className="text-[#0b66b3] font-semibold text-sm">
+                    Learn more →
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Custom Design */}
+      <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -230,15 +310,66 @@ export default function RemodelingPage() {
                 ))}
               </ul>
             </div>
-            <div className="relative aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-[#0b66b3] to-[#084c8a]">
-              <div className="absolute inset-0 flex items-center justify-center text-white text-center p-8">
-                <div>
-                  <div className="text-6xl mb-4">🎨</div>
-                  <p className="text-xl font-semibold">Custom Design Examples</p>
-                  <p className="text-white/60 mt-2">Photo gallery coming soon</p>
+            <div className="grid grid-cols-3 gap-3">
+              {[
+                { src: '/images/remodeling/bathroom-showcase-1.jpg', alt: 'Bathroom remodel showcase 1' },
+                { src: '/images/remodeling/bathroom-showcase-2.jpg', alt: 'Bathroom remodel showcase 2' },
+                { src: '/images/remodeling/bathroom-showcase-3.jpg', alt: 'Bathroom remodel showcase 3' },
+                { src: '/images/remodeling/bathroom-showcase-4.jpg', alt: 'Bathroom remodel showcase 4' },
+                { src: '/images/remodeling/kitchen-showcase-1.jpg', alt: 'Kitchen remodel showcase 1' },
+                { src: '/images/remodeling/kitchen-showcase-2.jpg', alt: 'Kitchen remodel showcase 2' },
+                { src: '/images/remodeling/kitchen-showcase-3.jpg', alt: 'Kitchen remodel showcase 3' },
+                { src: '/images/remodeling/kitchen-showcase-4.jpg', alt: 'Kitchen remodel showcase 4' },
+                { src: '/images/remodeling/kitchen-detail-1.jpg', alt: 'Kitchen detail - countertops and finishes' },
+                { src: '/images/remodeling/kitchen-detail-2.jpg', alt: 'Kitchen detail - fixtures and hardware' },
+              ].map((img) => (
+                <div
+                  key={img.src}
+                  className="relative aspect-square rounded-xl overflow-hidden group"
+                >
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
                 </div>
-              </div>
+              ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Internal Links: Blog & Projects */}
+      <section className="py-16">
+        <div className="max-w-5xl mx-auto px-4">
+          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Explore More</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <Link
+              href="/blog"
+              className="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg hover:border-[#0b66b3]/20 transition group"
+            >
+              <h3 className="font-bold text-gray-900 group-hover:text-[#0b66b3] mb-2">Remodeling Tips Blog</h3>
+              <p className="text-gray-600 text-sm mb-3">Read expert advice on renovations, refinishing, and maximizing your home improvement budget.</p>
+              <span className="text-[#0b66b3] font-semibold text-sm">Read articles →</span>
+            </Link>
+            <Link
+              href="/projects"
+              className="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg hover:border-[#0b66b3]/20 transition group"
+            >
+              <h3 className="font-bold text-gray-900 group-hover:text-[#0b66b3] mb-2">Our Projects</h3>
+              <p className="text-gray-600 text-sm mb-3">Browse before-and-after photos from 500+ completed kitchen and bathroom projects in Seattle.</p>
+              <span className="text-[#0b66b3] font-semibold text-sm">View projects →</span>
+            </Link>
+            <Link
+              href="/common-problems"
+              className="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg hover:border-[#0b66b3]/20 transition group"
+            >
+              <h3 className="font-bold text-gray-900 group-hover:text-[#0b66b3] mb-2">Common Problems We Fix</h3>
+              <p className="text-gray-600 text-sm mb-3">Stains, chips, cracks, peeling — see how we solve common bathroom issues without full replacement.</p>
+              <span className="text-[#0b66b3] font-semibold text-sm">See solutions →</span>
+            </Link>
           </div>
         </div>
       </section>
@@ -255,7 +386,7 @@ export default function RemodelingPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="/#quote"
+              href="https://nexfield.pro/crm/book?u=137"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-amber-500 text-white font-bold text-lg hover:bg-amber-600 transition"
             >
               Get Free Consultation

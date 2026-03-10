@@ -29,8 +29,18 @@ export default function ServicesPage() {
     <>
       <SchemaScript schema={schema} />
       {/* Hero */}
-      <section className="relative pt-20 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-        <div className="absolute inset-0 bg-[url('/images/remodeling/kitchen-showcase-1.jpg')] bg-cover bg-center opacity-10" />
+      <section className="relative pt-20 pb-16 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/remodeling/kitchen-showcase-1.jpg"
+            alt="Kitchen and bathroom remodeling services in Seattle"
+            fill
+            className="object-cover"
+            priority
+            quality={70}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-slate-900/70 to-slate-900/50" />
+        </div>
         <div className="relative max-w-7xl mx-auto px-4">
           {/* Breadcrumbs */}
           <div className="mb-6">
@@ -60,7 +70,7 @@ export default function ServicesPage() {
               {BUSINESS.phone}
             </a>
             <Link
-              href="/contact"
+              href="https://nexfield.pro/crm/book?u=137"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 backdrop-blur border-2 border-white/30 text-white font-bold text-lg hover:bg-white/20 transition"
             >
               Get Free Quote
@@ -207,6 +217,100 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* Remodel vs Refinish Comparison */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <span className="inline-block text-[#0b66b3] font-semibold text-sm uppercase tracking-wider mb-3">
+              Compare Your Options
+            </span>
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+              Remodel vs. Refinish: Which Is Right for You?
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Both options can transform your space — here&apos;s how to decide
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* When to Refinish */}
+            <div className="rounded-2xl border-2 border-[#0b66b3]/20 bg-blue-50/50 p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-[#0b66b3] flex items-center justify-center">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">When to Refinish</h3>
+              </div>
+              <ul className="space-y-4">
+                {[
+                  'Surface damage only (chips, stains, discoloration)',
+                  'Budget under $1,000',
+                  'Need it done in 1 day',
+                  'Existing layout works fine',
+                  'Tub/sink is structurally sound',
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-[#0b66b3] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* When to Remodel */}
+            <div className="rounded-2xl border-2 border-amber-500/20 bg-amber-50/50 p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-amber-500 flex items-center justify-center">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">When to Remodel</h3>
+              </div>
+              <ul className="space-y-4">
+                {[
+                  'Outdated layout or design',
+                  'Water damage behind walls',
+                  'Want new fixtures and features',
+                  'Planning to sell (higher ROI)',
+                  'Need accessibility updates',
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Bottom Note */}
+          <div className="mt-10 max-w-3xl mx-auto text-center">
+            <div className="rounded-2xl bg-slate-50 border border-slate-200 p-6">
+              <p className="text-gray-700">
+                <strong className="text-gray-900">Not sure which option is right?</strong>{' '}
+                Call us for a free consultation — we&apos;ll assess your space and recommend the best approach for your budget and goals.
+              </p>
+              <a
+                href={BUSINESS.phoneLink}
+                className="inline-flex items-center gap-2 mt-4 px-6 py-3 rounded-full bg-[#0b66b3] text-white font-bold hover:bg-[#084c8a] transition"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                Call {BUSINESS.phone}
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose Us */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4">
@@ -329,7 +433,7 @@ export default function ServicesPage() {
               Call {BUSINESS.phone}
             </a>
             <Link
-              href="/contact"
+              href="https://nexfield.pro/crm/book?u=137"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-[#0b66b3] font-bold text-lg hover:bg-gray-100 transition"
             >
               Request Free Quote

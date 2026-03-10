@@ -2,17 +2,18 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { BLOG_POSTS, BUSINESS } from '@/lib/constants';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Bathtub Refinishing Blog | Tips, Guides & Cost Savings',
-  description: 'Expert tips on bathtub refinishing, cost comparisons, maintenance guides, and bathroom renovation advice from Seattle\'s top refinishing professionals.',
-  keywords: 'bathtub refinishing tips, reglazing guide, bathroom renovation blog, tub refinishing cost, seattle bathroom tips',
+  title: 'Kitchen & Bathroom Remodeling Blog | Tips, Costs & Guides',
+  description: 'Expert guides on kitchen and bathroom remodeling costs, timelines, tile installation, and renovation tips for Seattle homeowners.',
+  keywords: 'kitchen remodeling blog, bathroom remodeling guide, remodeling costs seattle, tile installation tips, kitchen renovation blog, bathroom renovation seattle',
   alternates: {
     canonical: `${BUSINESS.website}/blog`,
   },
   openGraph: {
-    title: 'Bathtub Refinishing Blog | Best Refinishing Seattle',
-    description: 'Expert tips and guides on bathtub refinishing from Seattle\'s #1 rated professionals.',
+    title: 'Kitchen & Bathroom Remodeling Blog | Kitchen and Bathroom Remodeling Pros',
+    description: 'Expert remodeling guides and tips from Seattle\'s top-rated kitchen & bathroom contractors.',
     type: 'website',
     locale: 'en_US',
     siteName: BUSINESS.name,
@@ -30,15 +31,18 @@ export default function BlogPage() {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 relative z-10">
+          <div className="mb-6">
+            <Breadcrumbs variant="dark" items={[{ label: 'Blog' }]} />
+          </div>
           <div className="text-center">
             <span className="inline-block px-4 py-2 rounded-full bg-white/10 text-white font-semibold text-sm mb-4 border border-white/20">
-              REFINISHING INSIGHTS
+              REMODELING INSIGHTS
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6">
               Expert Tips & Guides
             </h1>
             <p className="text-xl text-white/80 max-w-2xl mx-auto">
-              Learn everything about bathtub refinishing, costs, maintenance, and how to transform your bathroom on a budget.
+              Expert guides on kitchen and bathroom remodeling costs, timelines, materials, and tips for Seattle homeowners.
             </p>
           </div>
         </div>
@@ -142,18 +146,47 @@ export default function BlogPage() {
         </div>
       </section>
 
+      {/* Browse by Topic */}
+      <section className="py-16 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Browse by Topic</h2>
+          <div className="flex flex-wrap justify-center gap-3">
+            {[
+              { label: 'Bathroom Remodeling', href: '/services/bathroom-remodeling' },
+              { label: 'Kitchen Remodeling', href: '/services/kitchen-remodeling' },
+              { label: 'Tile Installation', href: '/services/tile-installation' },
+              { label: 'Countertop Installation', href: '/services/countertop-installation' },
+              { label: 'Shower Installation', href: '/services/shower-installation' },
+              { label: 'Cost Guides', href: '/blog/bathroom-remodeling-cost-seattle-2026' },
+              { label: 'Before & After Projects', href: '/projects' },
+              { label: 'Our Process', href: '/process' },
+              { label: 'Common Problems', href: '/common-problems' },
+              { label: 'FAQ', href: '/faq' },
+            ].map((topic) => (
+              <Link
+                key={topic.href}
+                href={topic.href}
+                className="px-4 py-2 bg-slate-100 rounded-full text-sm font-medium text-gray-700 hover:bg-[#0b66b3] hover:text-white transition"
+              >
+                {topic.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-slate-900 to-slate-800">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Ready to Transform Your Bathroom?
+            Ready to Transform Your Home?
           </h2>
           <p className="text-gray-300 text-lg mb-8">
-            Get a free quote and see how much you can save with professional refinishing.
+            Get a free estimate for your kitchen or bathroom remodeling project.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="/#quote"
+              href="https://nexfield.pro/crm/book?u=137"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-amber-500 text-white font-bold text-lg hover:bg-amber-600 transition"
             >
               Get Free Estimate
@@ -173,6 +206,33 @@ export default function BlogPage() {
           </div>
         </div>
       </section>
+      {/* Blog Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Blog',
+            name: 'Kitchen & Bathroom Remodeling Blog',
+            description: 'Expert guides on kitchen and bathroom remodeling costs, timelines, and tips for Seattle homeowners.',
+            url: `${BUSINESS.website}/blog`,
+            publisher: {
+              '@type': 'Organization',
+              name: BUSINESS.name,
+              url: BUSINESS.website,
+            },
+            blogPost: BLOG_POSTS.map((post) => ({
+              '@type': 'BlogPosting',
+              headline: post.title,
+              description: post.excerpt,
+              url: `${BUSINESS.website}/blog/${post.slug}`,
+              datePublished: post.date,
+              author: { '@type': 'Organization', name: BUSINESS.name },
+              image: `${BUSINESS.website}${post.image}`,
+            })),
+          }),
+        }}
+      />
     </div>
   );
 }

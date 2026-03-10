@@ -20,7 +20,7 @@ const GOOGLE_SHEETS_WEBHOOK = 'https://script.google.com/macros/s/AKfycbyhsIpQy3
 const TWILIO_ACCOUNT_SID = process.env.TWILIO_ACCOUNT_SID;
 const TWILIO_AUTH_TOKEN = process.env.TWILIO_AUTH_TOKEN;
 const TWILIO_PHONE_NUMBER = process.env.TWILIO_PHONE_NUMBER;
-const BUSINESS_PHONE = process.env.BUSINESS_PHONE || '+12067869915';
+const BUSINESS_PHONE = process.env.BUSINESS_PHONE || '+12062225159';
 
 // Send data to Google Sheets
 async function sendToGoogleSheets(data: ContactFormData & { timestamp: string; source: string; page: string; transaction_id: string; estimatedPrice?: number }): Promise<boolean> {
@@ -166,7 +166,7 @@ export async function POST(request: NextRequest) {
     await sendTwilioSMS(BUSINESS_PHONE, businessMessage);
 
     // 2. Send confirmation SMS to customer with pricing info
-    const customerMessage = `Hi ${data.name}! 👋\n\nThank you for contacting Best Refinishing!\n\nHere are our starting prices:\n🛁 Bathtub: from $700\n🚿 Shower: from $900\n🪨 Countertop: from $550\n🚰 Sink: from $400\n\nWe'll call you very soon!\n\n📞 (206) 786-9915\n🌐 best-refinishing.com`;
+    const customerMessage = `Hi ${data.name}! 👋\n\nThank you for contacting Kitchen and Bathroom Remodeling Pros!\n\nHere are our starting prices:\n🛁 Bathtub: from $700\n🚿 Shower: from $900\n🪨 Countertop: from $550\n🚰 Sink: from $400\n\nWe'll call you very soon!\n\n📞 (206) 222-5159\n🌐 best-refinishing.com`;
 
     await sendTwilioSMS(formattedPhone, customerMessage);
 

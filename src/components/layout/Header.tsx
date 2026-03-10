@@ -34,7 +34,7 @@ export default function Header() {
       <div className="hidden md:block bg-gradient-to-r from-slate-100 to-blue-50 text-gray-700 text-sm border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 py-2 flex justify-between items-center">
           {/* Left - 24/7 Quote */}
-          <a href="#quote" className="flex items-center gap-2 font-semibold text-[#0b66b3] hover:text-[#084c8a] transition">
+          <a href="https://nexfield.pro/crm/book?u=137" className="flex items-center gap-2 font-semibold text-[#0b66b3] hover:text-[#084c8a] transition">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
@@ -71,28 +71,33 @@ export default function Header() {
         <nav className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center h-20 md:h-24">
             {/* Logo */}
-            <Link href="/" className="flex items-center flex-shrink-0 h-full py-1 gap-2">
+            <Link href="/" className="flex items-center flex-shrink-0 h-full py-1 gap-3">
               {/* Mobile logo */}
               <Image
-                src="/images/optimized/logo1.svg"
-                alt="Best Refinishing"
-                width={50}
-                height={50}
-                className="h-[50px] w-auto object-contain md:hidden"
+                src="/images/logo.png"
+                alt="Kitchen and Bathroom Remodeling Pros"
+                width={80}
+                height={80}
+                className="h-[110px] w-auto object-contain md:hidden"
                 priority
               />
-              <span className="md:hidden font-bold text-[#0b66b3] text-lg leading-tight">
-                Best Remodeling<br />& Refinishing
+              <span className="md:hidden font-bold text-xs leading-tight">
+                <span className="text-amber-500">Kitchen &amp; Bathroom</span><br />
+                <span className="text-gray-800">Remodeling Pros</span>
               </span>
-              {/* Desktop logo */}
+              {/* Desktop logo + name */}
               <Image
-                src="/images/optimized/logo-new.svg"
-                alt="Best Refinishing"
-                width={320}
-                height={275}
-                className="hidden md:block h-[88px] w-auto object-contain"
+                src="/images/logo.png"
+                alt="Kitchen and Bathroom Remodeling Pros"
+                width={140}
+                height={140}
+                className="hidden md:block h-[150px] w-auto object-contain"
                 priority
               />
+              <div className="hidden md:flex flex-col leading-tight">
+                <span className="text-amber-500 font-black text-base tracking-tight">Kitchen & Bathroom</span>
+                <span className="text-gray-800 font-bold text-sm tracking-tight">Remodeling Pros</span>
+              </div>
             </Link>
 
             {/* Desktop Navigation */}
@@ -125,10 +130,10 @@ export default function Header() {
 
               {/* Get Quote button */}
               <a
-                href="#quote"
+                href="https://nexfield.pro/crm/book?u=137"
                 className="hidden sm:inline-flex px-6 py-3 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold hover:from-amber-600 hover:to-amber-700 transition shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 hover:scale-105 transform"
               >
-                Get Instant Quote
+                Free Estimate
               </a>
 
               {/* Mobile menu button */}

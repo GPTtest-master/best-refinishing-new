@@ -469,7 +469,7 @@ function QuoteSectionContent() {
                         Processing...
                       </span>
                     ) : (
-                      'Get Instant Quote →'
+                      'Free Estimate →'
                     )}
                   </button>
 
@@ -489,7 +489,7 @@ function QuoteSectionContent() {
                 <Link href="/process" className="flex items-center justify-between group">
                   <div>
                     <p className="font-semibold text-gray-900 group-hover:text-[#0b66b3] transition">How does it work?</p>
-                    <p className="text-sm text-gray-500">See our 6-step refinishing process</p>
+                    <p className="text-sm text-gray-500">See our step-by-step process</p>
                   </div>
                   <svg className="w-5 h-5 text-gray-400 group-hover:text-[#0b66b3] group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

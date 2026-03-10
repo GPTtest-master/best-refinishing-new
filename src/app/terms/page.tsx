@@ -4,7 +4,10 @@ import { BUSINESS } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: `Terms of Service | ${BUSINESS.name}`,
-  description: `Terms of Service for ${BUSINESS.name}. Read our terms and conditions for using our refinishing services.`,
+  description: `Terms of Service for ${BUSINESS.name}. Read our terms and conditions for using our remodeling services.`,
+  alternates: {
+    canonical: BUSINESS.website + '/terms',
+  },
   robots: {
     index: true,
     follow: true,

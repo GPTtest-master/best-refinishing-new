@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { FAQ_ITEMS, BUSINESS, SERVICES, LOCATIONS } from '@/lib/constants';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
@@ -37,8 +38,12 @@ export default function FAQPageClient() {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-[#0b66b3]">
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="relative pt-20 pb-16 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src="/images/remodeling/bathroom-showcase-4.jpg" alt="FAQ about remodeling services" fill className="object-cover" priority quality={70} />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-slate-900/70 to-slate-900/50" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4">
           {/* Breadcrumbs */}
           <div className="mb-6">
             <Breadcrumbs
@@ -51,8 +56,8 @@ export default function FAQPageClient() {
               FAQ
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
-              Got Questions?
-              <span className="block text-amber-400">We Have Answers</span>
+              Kitchen &amp; Bathroom Remodeling FAQ
+              <span className="block text-amber-400">&mdash; Seattle</span>
             </h1>
             <p className="text-xl text-white/80 leading-relaxed">
               Everything you need to know about our professional refinishing services.
@@ -208,6 +213,22 @@ export default function FAQPageClient() {
         </div>
       </section>
 
+      {/* Remodeling Link */}
+      <section className="py-12 bg-white border-t border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <p className="text-lg text-gray-600 mb-4">
+            Have questions about our remodeling services?
+          </p>
+          <a href="/services/bathroom-remodeling" className="text-[#0b66b3] font-semibold hover:underline">
+            Learn about Bathroom Remodeling →
+          </a>
+          <span className="mx-3 text-gray-300">|</span>
+          <a href="/services/kitchen-remodeling" className="text-[#0b66b3] font-semibold hover:underline">
+            Learn about Kitchen Remodeling →
+          </a>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-[#0b66b3] to-[#084c8a]">
         <div className="max-w-4xl mx-auto px-4 text-center">
@@ -229,7 +250,7 @@ export default function FAQPageClient() {
               Call {BUSINESS.phone}
             </a>
             <Link
-              href="/contact"
+              href="https://nexfield.pro/crm/book?u=137"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-[#0b66b3] font-bold text-lg hover:bg-gray-100 transition"
             >
               Contact Us
@@ -237,6 +258,99 @@ export default function FAQPageClient() {
           </div>
         </div>
       </section>
+      {/* FAQPage Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              ...FAQ_ITEMS.map((item) => ({
+                '@type': 'Question',
+                name: item.question,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: item.answer,
+                },
+              })),
+              {
+                '@type': 'Question',
+                name: 'What surfaces can you refinish?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'We refinish bathtubs, showers, tiles, sinks, and countertops. We work with porcelain, cast iron, fiberglass, acrylic, ceramic, and cultured marble surfaces.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Do you offer color matching?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Yes! We can match virtually any color. We offer a wide range of standard colors and can create custom matches to coordinate with your bathroom design.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Is refinishing a DIY project?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: "We strongly recommend professional refinishing. DIY kits don't provide the durability, finish quality, or safety measures that professional equipment offers.",
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'How do I maintain my refinished surface?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Use non-abrasive cleaners like dish soap or bathroom cleaners without grit. Avoid bleach-based products and abrasive scrubbers. Regular gentle cleaning keeps your surface looking new.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Do you work with property managers?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Yes! We offer special pricing for property managers and landlords with multiple units. We can handle high-volume projects efficiently.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'What areas do you serve?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'We serve Seattle and all surrounding areas including Bellevue, Redmond, Kirkland, Bothell, Renton, Kent, Tacoma, and more. Contact us to confirm service in your area.',
+                },
+              },
+            ],
+          }),
+        }}
+      />
+
+      {/* BreadcrumbList Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://www.best-refinishing.com',
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'FAQ',
+                item: 'https://www.best-refinishing.com/faq',
+              },
+            ],
+          }),
+        }}
+      />
     </>
   );
 }

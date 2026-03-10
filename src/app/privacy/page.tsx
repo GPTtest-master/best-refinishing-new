@@ -4,7 +4,10 @@ import { BUSINESS } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: `Privacy Policy | ${BUSINESS.name}`,
-  description: `Privacy Policy for ${BUSINESS.name}. Learn how we collect, use, and protect your personal information.`,
+  description: `Privacy Policy for ${BUSINESS.name}. Learn how we collect, use, and protect your personal information when using our remodeling services.`,
+  alternates: {
+    canonical: BUSINESS.website + '/privacy',
+  },
   robots: {
     index: true,
     follow: true,
@@ -50,7 +53,7 @@ export default function PrivacyPolicyPage() {
               <li>Phone number</li>
               <li>Email address</li>
               <li>Service address</li>
-              <li>Information about your refinishing project</li>
+              <li>Information about your remodeling project</li>
             </ul>
 
             <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">Automatically Collected Information</h3>

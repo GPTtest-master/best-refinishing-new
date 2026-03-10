@@ -1,13 +1,18 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { BUSINESS } from '@/lib/constants';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Common Bathtub & Tile Problems We Fix | Seattle Refinishing Experts',
-  description: 'Stained bathtub? Cracked tile? Peeling finish? See the most common bathroom problems we fix daily in Seattle. Professional solutions that save you thousands vs replacement.',
-  keywords: 'bathtub stains, cracked bathtub, peeling tub finish, yellow bathtub, rust stains bathtub, chipped tub, scratched bathtub, discolored grout, mold bathroom tile, bathtub repair seattle',
+  title: 'Common Kitchen & Bathroom Problems We Fix | Seattle Remodeling & Refinishing',
+  description: 'Stained bathtub? Cracked tile? Outdated kitchen? See the most common bathroom and kitchen problems we fix in Seattle. Professional remodeling and refinishing solutions.',
+  keywords: 'bathroom problems seattle, kitchen problems fix, cracked tile repair, outdated bathroom remodel, bathtub repair seattle, kitchen remodeling solutions',
+  alternates: {
+    canonical: `${BUSINESS.website}/common-problems`,
+  },
   openGraph: {
-    title: 'Common Bathtub & Tile Problems We Fix | Best Refinishing Seattle',
+    title: 'Common Bathtub & Tile Problems We Fix | Kitchen and Bathroom Remodeling Pros Seattle',
     description: 'Expert solutions for stained, cracked, chipped, and discolored bathtubs, tiles, and countertops. See before/after photos and learn how we fix each problem.',
     type: 'website',
   },
@@ -200,8 +205,15 @@ export default function CommonProblemsPage() {
 
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="pt-24 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-[#0b66b3]">
-          <div className="max-w-7xl mx-auto px-4">
+        <section className="relative pt-24 pb-16 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src="/images/remodeling/bathroom-showcase-3.jpg" alt="Common bathroom problems" fill className="object-cover" priority quality={70} />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-slate-900/70 to-slate-900/50" />
+        </div>
+          <div className="relative max-w-7xl mx-auto px-4">
+            <div className="mb-6">
+              <Breadcrumbs variant="dark" items={[{ label: 'Common Problems' }]} />
+            </div>
             <div className="max-w-3xl">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/20 text-red-300 font-semibold text-sm mb-6 border border-red-500/30">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -228,10 +240,10 @@ export default function CommonProblemsPage() {
                   </svg>
                 </a>
                 <a
-                  href="/#quote"
+                  href="https://nexfield.pro/crm/book?u=137"
                   className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-white text-gray-900 font-bold text-lg hover:bg-gray-100 transition"
                 >
-                  Get Instant Quote
+                  Free Estimate
                 </a>
               </div>
             </div>
@@ -333,7 +345,7 @@ export default function CommonProblemsPage() {
                       </div>
 
                       <a
-                        href="/#quote"
+                        href="https://nexfield.pro/crm/book?u=137"
                         className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-green-600 text-white font-bold hover:bg-green-700 transition w-full justify-center"
                       >
                         Get Quote for This Problem
@@ -428,6 +440,101 @@ export default function CommonProblemsPage() {
           </div>
         </section>
 
+        {/* When Refinishing Isn't Enough */}
+        <section className="py-20 bg-white">
+          <div className="max-w-5xl mx-auto px-4">
+            <div className="text-center mb-12">
+              <span className="inline-block text-amber-600 font-semibold text-sm uppercase tracking-wider mb-4">
+                Beyond Refinishing
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                When Refinishing Isn&apos;t Enough
+              </h2>
+              <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+                Some problems go deeper than the surface. Here&apos;s when a full remodel is the smarter investment.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl p-8 border border-red-100">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-1">Structural Water Damage Behind Walls</h3>
+                    <p className="text-gray-600 text-sm mb-3">
+                      When moisture has penetrated behind tile and into wall studs, framing, or subfloor, surface refinishing won&apos;t address the root cause. Mold and rot require demolition to properly remediate.
+                    </p>
+                    <Link href="/services/bathroom-remodeling" className="inline-flex items-center gap-1 text-[#0b66b3] font-semibold text-sm hover:underline">
+                      Full Bathroom Remodel →
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl p-8 border border-red-100">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-1">Outdated Layout That Wastes Space</h3>
+                    <p className="text-gray-600 text-sm mb-3">
+                      If your kitchen or bathroom layout is inefficient — poor traffic flow, wasted corners, or fixtures in awkward positions — refinishing the surfaces won&apos;t solve the functional problems.
+                    </p>
+                    <Link href="/services/kitchen-remodeling" className="inline-flex items-center gap-1 text-[#0b66b3] font-semibold text-sm hover:underline">
+                      Kitchen or Bathroom Remodel →
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl p-8 border border-red-100">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-1">Multiple Surfaces Failing at Once</h3>
+                    <p className="text-gray-600 text-sm mb-3">
+                      When the tub, tile, vanity, and flooring are all deteriorating simultaneously, a complete renovation is often more cost-effective than refinishing each piece individually.
+                    </p>
+                    <Link href="/remodeling" className="inline-flex items-center gap-1 text-[#0b66b3] font-semibold text-sm hover:underline">
+                      Complete Renovation Options →
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl p-8 border border-red-100">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-1">Accessibility Needs</h3>
+                    <p className="text-gray-600 text-sm mb-3">
+                      Aging in place or mobility challenges require structural changes — grab bars, curbless showers, wider doorways, and ADA-compliant fixtures that go beyond cosmetic refinishing.
+                    </p>
+                    <Link href="/services/shower-installation" className="inline-flex items-center gap-1 text-[#0b66b3] font-semibold text-sm hover:underline">
+                      ADA-Compliant Remodel →
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="py-20 bg-gradient-to-r from-[#0b66b3] to-[#084c8a]">
           <div className="max-w-4xl mx-auto px-4 text-center">
@@ -440,7 +547,7 @@ export default function CommonProblemsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="/#quote"
+                href="https://nexfield.pro/crm/book?u=137"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-amber-500 text-white font-bold text-lg hover:bg-amber-600 transition"
               >
                 Get Free Assessment

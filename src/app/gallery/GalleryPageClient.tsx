@@ -4,9 +4,12 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { BUSINESS } from '@/lib/constants';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 // Category to service mapping
 const categoryServiceMap: Record<string, { href: string; label: string }> = {
+  'bathroom-remodeling': { href: '/services/bathroom-remodeling', label: 'Bathroom Remodeling' },
+  'kitchen-remodeling': { href: '/services/kitchen-remodeling', label: 'Kitchen Remodeling' },
   bathtub: { href: '/services/bathtub-refinishing', label: 'Bathtub Refinishing' },
   sink: { href: '/services/sink-refinishing', label: 'Sink Refinishing' },
   shower: { href: '/services/shower-refinishing', label: 'Shower Refinishing' },
@@ -14,8 +17,27 @@ const categoryServiceMap: Record<string, { href: string; label: string }> = {
   countertop: { href: '/services/countertop-refinishing', label: 'Countertop Refinishing' },
 };
 
-// Gallery photos
+// Gallery photos — remodeling first
 const galleryPhotos = [
+  // Remodeling - Bathroom
+  { id: 101, src: '/images/remodeling/before-after/bathroom1-before.jpg', alt: 'Bathroom before remodeling', category: 'bathroom-remodeling' },
+  { id: 102, src: '/images/remodeling/before-after/bathroom1-after.jpg', alt: 'Bathroom after complete remodel', category: 'bathroom-remodeling' },
+  { id: 103, src: '/images/remodeling/bathroom-showcase-1.jpg', alt: 'Modern bathroom remodel — Seattle', category: 'bathroom-remodeling' },
+  { id: 104, src: '/images/remodeling/bathroom-showcase-2.jpg', alt: 'Custom bathroom renovation', category: 'bathroom-remodeling' },
+  { id: 105, src: '/images/remodeling/before-after/bathroom2-before.jpg', alt: 'Guest bathroom before renovation', category: 'bathroom-remodeling' },
+  { id: 106, src: '/images/remodeling/before-after/bathroom2-after.jpg', alt: 'Guest bathroom after remodel', category: 'bathroom-remodeling' },
+  { id: 107, src: '/images/remodeling/bathroom-showcase-3.jpg', alt: 'Walk-in shower installation', category: 'bathroom-remodeling' },
+  { id: 108, src: '/images/remodeling/bathroom-showcase-4.jpg', alt: 'Bathroom tile and fixture upgrade', category: 'bathroom-remodeling' },
+  // Remodeling - Kitchen
+  { id: 201, src: '/images/remodeling/before-after/kitchen1-before.jpg', alt: 'Kitchen before remodeling', category: 'kitchen-remodeling' },
+  { id: 202, src: '/images/remodeling/before-after/kitchen1-after.jpg', alt: 'Kitchen after complete remodel', category: 'kitchen-remodeling' },
+  { id: 203, src: '/images/remodeling/kitchen-showcase-1.jpg', alt: 'Modern kitchen remodel — Seattle', category: 'kitchen-remodeling' },
+  { id: 204, src: '/images/remodeling/kitchen-showcase-2.jpg', alt: 'Kitchen renovation with island', category: 'kitchen-remodeling' },
+  { id: 205, src: '/images/remodeling/before-after/kitchen2-before.jpg', alt: 'Kitchen before countertop upgrade', category: 'kitchen-remodeling' },
+  { id: 206, src: '/images/remodeling/before-after/kitchen2-after.jpg', alt: 'Kitchen after countertop installation', category: 'kitchen-remodeling' },
+  { id: 207, src: '/images/remodeling/kitchen-showcase-3.jpg', alt: 'Custom kitchen cabinetry', category: 'kitchen-remodeling' },
+  { id: 208, src: '/images/remodeling/kitchen-detail-1.jpg', alt: 'Kitchen countertop detail', category: 'kitchen-remodeling' },
+  // Refinishing
   { id: 1, src: '/images/optimized/entire-bath-before.webp', alt: 'Complete bathroom - before refinishing', category: 'bathtub' },
   { id: 2, src: '/images/optimized/entirebath.webp', alt: 'Complete bathroom refinishing - after', category: 'bathtub' },
   { id: 3, src: '/images/optimized/IMG_5026.webp', alt: 'Professional bathtub refinishing', category: 'bathtub' },
@@ -35,6 +57,9 @@ const galleryPhotos = [
 
 const categories = [
   { id: 'all', label: 'All Projects' },
+  { id: 'bathroom-remodeling', label: 'Bathroom Remodeling' },
+  { id: 'kitchen-remodeling', label: 'Kitchen Remodeling' },
+  { id: 'bathtub', label: 'Refinishing' },
 ];
 
 export default function GalleryPageClient() {
@@ -48,18 +73,24 @@ export default function GalleryPageClient() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20 md:py-28">
-        <div className="absolute inset-0 bg-[url('/images/optimized/hero-bg.webp')] bg-cover bg-center opacity-10" />
+      <section className="relative py-20 md:py-28 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src="/images/remodeling/bathroom-showcase-1.jpg" alt="Remodeling project gallery" fill className="object-cover" priority quality={70} sizes="100vw" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-slate-900/70 to-slate-900/50" />
+        </div>
         <div className="relative max-w-7xl mx-auto px-4 text-center">
+          <div className="mb-6">
+            <Breadcrumbs variant="dark" items={[{ label: 'Gallery' }]} />
+          </div>
           <span className="inline-block text-amber-400 font-semibold text-sm uppercase tracking-wider mb-4">
             Our Work
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
-            Project Gallery
+            Kitchen &amp; Bathroom Remodeling Gallery &mdash; Before &amp; After
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Explore our portfolio of stunning transformations. See the quality and craftsmanship
-            that makes Best Refinishing the top choice in Seattle.
+            Explore our portfolio of stunning remodeling and refinishing transformations.
+            See the quality and craftsmanship that makes us the top choice in Seattle.
           </p>
         </div>
       </section>
@@ -75,7 +106,7 @@ export default function GalleryPageClient() {
               Our Completed Projects
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Browse through our collection of refinishing projects across the Seattle area
+              Browse through our collection of remodeling and refinishing projects across the Seattle area
             </p>
           </div>
 
@@ -114,6 +145,8 @@ export default function GalleryPageClient() {
                       alt={photo.alt}
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                      quality={75}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </button>
@@ -171,7 +204,7 @@ export default function GalleryPageClient() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/#quote"
+              href="https://nexfield.pro/crm/book?u=137"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold text-lg hover:from-amber-600 hover:to-amber-700 transition shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 hover:scale-105 transform"
             >
               Get Free Quote

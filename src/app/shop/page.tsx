@@ -1,11 +1,15 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import { BUSINESS } from '@/lib/constants';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Professional Care Products | Refinished Surface Cleaners',
-  description: 'Professional cleaning products designed for refinished bathtubs, tiles, and countertops. Safe formulas that protect your investment and extend surface life.',
-  keywords: 'refinished bathtub cleaner, safe tub cleaner, reglazing aftercare, refinished surface care',
+  title: 'Remodeling Care Products — Protect Your Investment',
+  description: 'Professional cleaning products for remodeled and refinished surfaces. Safe formulas for quartz, granite, tile, and refinished bathtubs. Protect your remodeling investment.',
+  keywords: 'quartz countertop cleaner, tile surface care, remodeling aftercare products, granite sealer, refinished surface care',
+  alternates: {
+    canonical: `${BUSINESS.website}/shop`,
+  },
 };
 
 const products = [
@@ -55,15 +59,22 @@ export default function ShopPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-[#0b66b3]">
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="relative pt-24 pb-16 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src="/images/remodeling/kitchen-detail-1.jpg" alt="Shop remodeling products" fill className="object-cover" priority quality={70} />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-slate-900/70 to-slate-900/50" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4">
+          <div className="mb-6">
+            <Breadcrumbs variant="dark" items={[{ label: 'Shop' }]} />
+          </div>
           <div className="max-w-3xl">
             <span className="inline-block text-amber-400 font-semibold text-sm uppercase tracking-wider mb-4">
               Care Products
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
-              Protect Your
-              <span className="block text-amber-400">Investment</span>
+              Remodeling Care Products
+              <span className="block text-amber-400">&mdash; Protect Your Investment</span>
             </h1>
             <p className="text-xl text-white/80 leading-relaxed">
               Professional-grade cleaning products designed specifically for refinished surfaces.
@@ -163,7 +174,7 @@ export default function ShopPage() {
               Online ordering launching soon!
             </p>
             <a
-              href="/#quote"
+              href="https://nexfield.pro/crm/book?u=137"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#0b66b3] text-white font-bold hover:bg-[#084c8a] transition"
             >
               Schedule Service & Get Products
@@ -223,13 +234,37 @@ export default function ShopPage() {
             Our products are included with care instructions after every refinishing job.
           </p>
           <a
-            href="/#quote"
+            href="https://nexfield.pro/crm/book?u=137"
             className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-amber-500 text-white font-bold text-lg hover:bg-amber-600 transition"
           >
-            Get Instant Quote
+            Free Estimate
           </a>
         </div>
       </section>
+      {/* BreadcrumbList Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: BUSINESS.website,
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Shop',
+                item: `${BUSINESS.website}/shop`,
+              },
+            ],
+          }),
+        }}
+      />
     </div>
   );
 }

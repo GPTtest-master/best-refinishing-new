@@ -72,6 +72,8 @@ export default function Gallery() {
                 alt={item.title}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
+                sizes="(max-width: 768px) 50vw, 33vw"
+                quality={75}
               />
               {/* Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
@@ -94,7 +96,7 @@ export default function Gallery() {
           <p className="text-gray-600 mb-4">Ready for your transformation?</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="#quote"
+              href="https://nexfield.pro/crm/book?u=137"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-[#0b66b3] text-white font-bold text-lg hover:bg-[#084c8a] transition"
             >
               Get Free Quote

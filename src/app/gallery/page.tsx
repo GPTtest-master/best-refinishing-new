@@ -4,14 +4,14 @@ import GalleryPageClient from './GalleryPageClient';
 
 export const metadata: Metadata = {
   title: `Project Gallery - Before & After Photos | ${BUSINESS.name}`,
-  description: `View stunning before and after photos of our bathtub, shower, tile, and sink refinishing projects in Seattle. ${BUSINESS.projectsCompleted} completed projects. ${BUSINESS.rating} star rating.`,
-  keywords: 'bathtub refinishing photos, before after refinishing, reglazing gallery seattle, bathroom renovation photos',
+  description: `View stunning before and after photos of our kitchen & bathroom remodeling and refinishing projects in Seattle. ${BUSINESS.projectsCompleted} completed projects. ${BUSINESS.rating} star rating.`,
+  keywords: 'kitchen remodeling photos seattle, bathroom remodel before after, remodeling gallery seattle, bathroom renovation photos, tile installation gallery',
   alternates: {
     canonical: `${BUSINESS.website}/gallery`,
   },
   openGraph: {
     title: `Project Gallery - Before & After | ${BUSINESS.name}`,
-    description: `View stunning before and after photos of our refinishing projects.`,
+    description: `View stunning before and after photos of our remodeling & refinishing projects.`,
     type: 'website',
     locale: 'en_US',
     siteName: BUSINESS.name,
@@ -31,5 +31,33 @@ export const metadata: Metadata = {
 };
 
 export default function GalleryPage() {
-  return <GalleryPageClient />;
+  return (
+    <>
+      <GalleryPageClient />
+      {/* BreadcrumbList Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: BUSINESS.website,
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Gallery',
+                item: `${BUSINESS.website}/gallery`,
+              },
+            ],
+          }),
+        }}
+      />
+    </>
+  );
 }

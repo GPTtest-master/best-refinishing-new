@@ -1,10 +1,15 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import { BUSINESS } from '@/lib/constants';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Custom Shower Door Installation | Frameless & Semi-Frameless',
-  description: 'Professional shower door installation in Seattle. Frameless, semi-frameless, and sliding options. Custom glass, modern designs, free measurements.',
-  keywords: 'shower door installation seattle, frameless shower doors, custom shower enclosure, glass shower doors seattle',
+  title: 'Custom Shower Door Installation Seattle | Frameless Glass Enclosures',
+  description: 'Professional shower door installation as part of your bathroom remodel. Frameless, semi-frameless, and sliding options. Custom glass enclosures in Seattle & 50+ cities.',
+  keywords: 'shower door installation seattle, frameless shower doors, custom shower enclosure, glass shower doors seattle, bathroom remodel shower glass',
+  alternates: {
+    canonical: `${BUSINESS.website}/shower-doors`,
+  },
 };
 
 const doorTypes = [
@@ -49,8 +54,15 @@ export default function ShowerDoorsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-[#0b66b3]">
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="relative pt-24 pb-16 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src="/images/remodeling/shower-hero.png" alt="Shower door installation and remodeling" fill className="object-cover" priority quality={70} />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-slate-900/70 to-slate-900/50" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4">
+          <div className="mb-6">
+            <Breadcrumbs variant="dark" items={[{ label: 'Shower Doors' }]} />
+          </div>
           <div className="max-w-3xl">
             <span className="inline-block text-amber-400 font-semibold text-sm uppercase tracking-wider mb-4">
               Shower Doors
@@ -65,7 +77,7 @@ export default function ShowerDoorsPage() {
             </p>
             <div className="flex flex-wrap gap-4">
               <a
-                href="#quote"
+                href="https://nexfield.pro/crm/book?u=137"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-amber-500 text-white font-bold text-lg hover:bg-amber-600 transition"
               >
                 Get Free Measurement
@@ -218,7 +230,7 @@ export default function ShowerDoorsPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="/#quote"
+              href="https://nexfield.pro/crm/book?u=137"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-amber-500 text-white font-bold text-lg hover:bg-amber-600 transition"
             >
               Request Free Measurement
@@ -238,6 +250,53 @@ export default function ShowerDoorsPage() {
           </div>
         </div>
       </section>
+      {/* BreadcrumbList Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: BUSINESS.website,
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Shower Doors',
+                item: `${BUSINESS.website}/shower-doors`,
+              },
+            ],
+          }),
+        }}
+      />
+
+      {/* Service Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Service',
+            serviceType: 'Shower Door Installation',
+            provider: {
+              '@type': 'Organization',
+              name: BUSINESS.name,
+              url: BUSINESS.website,
+            },
+            areaServed: {
+              '@type': 'State',
+              name: 'Washington',
+            },
+            description: 'Professional shower door installation as part of your bathroom remodel. Frameless, semi-frameless, and sliding options. Custom glass enclosures in Seattle & 50+ cities.',
+            url: `${BUSINESS.website}/shower-doors`,
+          }),
+        }}
+      />
     </div>
   );
 }
