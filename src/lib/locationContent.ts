@@ -2,19 +2,19 @@ import { BUSINESS } from './constants';
 
 // Unique content variations for SEO
 const heroVariations = [
-  (city: string) => `Transform your ${city} bathroom without the hassle and expense of a full renovation. Our certified refinishing experts restore bathtubs, showers, tiles, and sinks to pristine condition in just one day.`,
-  (city: string) => `${city} homeowners trust ${BUSINESS.name} for professional bathtub and tile refinishing. We bring new life to worn, damaged, or outdated bathroom surfaces at a fraction of replacement cost.`,
-  (city: string) => `Looking for quality bathroom refinishing in ${city}? Our experienced technicians use advanced coating technology to deliver stunning, durable results that last 10-15 years.`,
-  (city: string) => `Serving ${city} families with premium refinishing services since 2009. From cast iron tubs to fiberglass showers, we restore every surface to like-new condition.`,
-  (city: string) => `${city}'s trusted source for bathtub reglazing and tile resurfacing. Skip the expensive replacement — our professional refinishing saves you up to 80% while delivering beautiful results.`,
+  (city: string) => `Transform your ${city} kitchen or bathroom with professional remodeling and refinishing services. From full remodels to surface restoration, our certified experts deliver stunning results.`,
+  (city: string) => `${city} homeowners trust ${BUSINESS.name} for kitchen & bathroom remodeling, tile installation, countertop installation, and professional refinishing. Complete transformations or budget-friendly updates.`,
+  (city: string) => `Looking for quality kitchen or bathroom remodeling in ${city}? Our experienced team handles everything — design, demolition, plumbing, tile, countertops, and finishing.`,
+  (city: string) => `Serving ${city} families with premium remodeling and refinishing services since 2009. From complete kitchen renovations to bathtub refinishing, we do it all.`,
+  (city: string) => `${city}'s trusted source for kitchen & bathroom remodeling. Full-service renovations, tile installation, countertop installation, and professional refinishing — all from one team.`,
 ];
 
 const aboutVariations = [
-  (city: string) => `As ${city}'s leading refinishing specialists, we've transformed thousands of bathrooms throughout the community. Our commitment to quality workmanship and customer satisfaction has made us the go-to choice for homeowners seeking affordable bathroom updates.`,
-  (city: string) => `${BUSINESS.name} has proudly served ${city} residents for over ${BUSINESS.experience} years. We understand the unique needs of local homeowners and deliver customized solutions that enhance both beauty and functionality.`,
-  (city: string) => `From historic homes in ${city} to modern apartments, our refinishing services adapt to any bathroom style. We take pride in preserving the character of your space while giving surfaces a fresh, updated look.`,
-  (city: string) => `${city} homeowners choose us for our attention to detail and professional approach. Every project receives our signature 6-layer coating system for maximum durability and a flawless finish.`,
-  (city: string) => `Our ${city} refinishing team brings expertise, precision, and care to every job. We treat your home with respect and leave your bathroom looking better than new.`,
+  (city: string) => `As ${city}'s leading remodeling and refinishing specialists, we've transformed thousands of kitchens and bathrooms throughout the community. Our commitment to quality workmanship and customer satisfaction has made us the go-to choice for homeowners seeking complete renovations or affordable updates.`,
+  (city: string) => `${BUSINESS.name} has proudly served ${city} residents for over ${BUSINESS.experience} years. We understand the unique needs of local homeowners and deliver customized remodeling and refinishing solutions that enhance both beauty and functionality.`,
+  (city: string) => `From historic homes in ${city} to modern apartments, our remodeling and refinishing services adapt to any kitchen or bathroom style. We handle everything from full gut renovations to surface restoration.`,
+  (city: string) => `${city} homeowners choose us for our attention to detail and professional approach. Every remodeling project is fully permitted and code-compliant, and every refinishing job receives our signature coating system.`,
+  (city: string) => `Our ${city} remodeling and refinishing team brings expertise, precision, and care to every job. We treat your home with respect and deliver results that exceed expectations.`,
 ];
 
 const whyChooseVariations = [
@@ -26,9 +26,9 @@ const whyChooseVariations = [
 
 // Unique service descriptions per location type
 const serviceIntros: Record<string, (city: string) => string> = {
-  primary: (city: string) => `${city} is one of our primary service areas, meaning you get priority scheduling, same-day estimates, and our fastest response times. Our dedicated ${city} team knows the local area inside and out.`,
-  secondary: (city: string) => `We proudly extend our professional refinishing services to ${city} and surrounding neighborhoods. ${city} customers enjoy the same quality workmanship and warranty coverage as all our service areas.`,
-  neighborhood: (city: string) => `${city} residents have access to our full range of refinishing services. As a Seattle-area neighborhood we serve regularly, your project benefits from our local expertise and quick turnaround times.`,
+  primary: (city: string) => `${city} is one of our primary service areas for remodeling and refinishing, meaning you get priority scheduling, same-day estimates, and our fastest response times. Our dedicated ${city} team knows the local area inside and out.`,
+  secondary: (city: string) => `We proudly extend our professional remodeling and refinishing services to ${city} and surrounding neighborhoods. ${city} customers enjoy the same quality workmanship and warranty coverage as all our service areas.`,
+  neighborhood: (city: string) => `${city} residents have access to our full range of remodeling and refinishing services. As a Seattle-area neighborhood we serve regularly, your project benefits from our local expertise and quick turnaround times.`,
 };
 
 // Generate unique content based on city name hash
@@ -86,7 +86,7 @@ export function getLocationContent(cityName: string, cityId: string): LocationCo
   ];
 
   return {
-    metaDescription: `Professional bathtub, shower & tile refinishing in ${cityName}, WA. Save 80% vs replacement. ${BUSINESS.warranty} warranty, ${BUSINESS.experience}+ years experience. Free estimates. Call ${BUSINESS.phone}`,
+    metaDescription: `Professional kitchen & bathroom remodeling and refinishing services in ${cityName}, WA. Tile installation, countertop installation, and more. ${BUSINESS.warranty} warranty. Call ${BUSINESS.phone}`,
     heroText: heroVariations[heroIndex](cityName),
     aboutText: aboutVariations[aboutIndex](cityName),
     whyChooseText: whyChooseVariations[whyIndex](cityName),

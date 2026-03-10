@@ -25,11 +25,11 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
   const content = getLocationContent(location.name, location.id);
 
   return {
-    title: `Bathtub & Tile Refinishing ${location.name} WA | ${BUSINESS.name} - Local Experts`,
+    title: `Kitchen & Bathroom Remodeling ${location.name} WA | ${BUSINESS.name}`,
     description: content.metaDescription,
-    keywords: `bathtub refinishing ${location.name.toLowerCase()}, tub reglazing ${location.name.toLowerCase()} wa, shower refinishing ${location.name.toLowerCase()}, tile resurfacing ${location.name.toLowerCase()}, bathroom refinishing near me, ${location.name.toLowerCase()} bathroom renovation`,
+    keywords: `kitchen remodeling ${location.name.toLowerCase()}, bathroom remodeling ${location.name.toLowerCase()}, bathroom remodel ${location.name.toLowerCase()} wa, kitchen remodel ${location.name.toLowerCase()}, tile installation ${location.name.toLowerCase()}, countertop installation ${location.name.toLowerCase()}, bathtub refinishing ${location.name.toLowerCase()}, shower refinishing ${location.name.toLowerCase()}, bathroom renovation ${location.name.toLowerCase()}`,
     openGraph: {
-      title: `Professional Refinishing Services in ${location.name}, WA | ${BUSINESS.name}`,
+      title: `Kitchen & Bathroom Remodeling in ${location.name}, WA | ${BUSINESS.name}`,
       description: content.metaDescription,
       type: 'website',
       locale: 'en_US',
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
     },
     twitter: {
       card: 'summary_large_image',
-      title: `Bathtub Refinishing ${location.name} WA`,
+      title: `Kitchen & Bathroom Remodeling ${location.name} WA`,
       description: content.metaDescription,
     },
     alternates: {

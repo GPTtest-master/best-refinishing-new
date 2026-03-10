@@ -1,21 +1,21 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { SERVICES, BUSINESS, ALL_LOCATIONS } from '@/lib/constants';
+import { SERVICES, REMODELING_SERVICES, ALL_SERVICES, BUSINESS, ALL_LOCATIONS } from '@/lib/constants';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import { generateServicesIndexSchema } from '@/lib/schema';
 import { SchemaScript } from '@/components/SchemaScript';
 
 export const metadata: Metadata = {
-  title: `Refinishing Services - Bathtub, Shower, Tile & More | ${BUSINESS.name}`,
-  description: `Professional bathtub, shower, tile, sink, and countertop refinishing in Seattle & 50+ cities. Save 80% vs replacement. ${BUSINESS.warranty} warranty. Call ${BUSINESS.phone}.`,
-  keywords: 'bathtub refinishing, shower refinishing, tile refinishing, sink refinishing, countertop refinishing, reglazing services seattle',
+  title: `Remodeling & Refinishing Services | ${BUSINESS.name}`,
+  description: `Professional kitchen & bathroom remodeling, tile installation, countertop installation, and refinishing in Seattle & 50+ cities. ${BUSINESS.warranty} warranty. Call ${BUSINESS.phone}.`,
+  keywords: 'kitchen remodeling seattle, bathroom remodeling seattle, tile installation, countertop installation, shower installation, bathtub refinishing, refinishing services seattle',
   alternates: {
     canonical: `${BUSINESS.website}/services`,
   },
   openGraph: {
-    title: `All Refinishing Services | ${BUSINESS.name}`,
-    description: `Professional bathtub, shower, tile, sink, and countertop refinishing in Seattle & 50+ cities.`,
+    title: `Remodeling & Refinishing Services | ${BUSINESS.name}`,
+    description: `Professional kitchen & bathroom remodeling and refinishing in Seattle & 50+ cities.`,
     type: 'website',
     locale: 'en_US',
     siteName: BUSINESS.name,
@@ -44,10 +44,10 @@ export default function ServicesPage() {
               Our Services
             </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
-            Professional Refinishing Services
+            Remodeling & Refinishing Services
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
-            Transform your bathroom and kitchen surfaces without the cost and hassle of replacement
+            Complete kitchen & bathroom remodeling plus professional refinishing services
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
@@ -70,23 +70,23 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* All Services */}
+      {/* Remodeling Services — PRIMARY */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <span className="inline-block text-[#0b66b3] font-semibold text-sm uppercase tracking-wider mb-3">
-              What We Do
+              Remodeling Services
             </span>
             <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
-              Complete Refinishing Solutions
+              Full-Service Kitchen & Bathroom Remodeling
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              From bathtubs to countertops, we restore every surface to like-new condition
+              From design to installation — we handle every detail of your remodel
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {SERVICES.map((service) => (
+            {REMODELING_SERVICES.map((service) => (
               <Link
                 key={service.id}
                 href={service.href}
@@ -140,18 +140,85 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
+      {/* Refinishing Services — SECONDARY */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <span className="inline-block text-[#0b66b3] font-semibold text-sm uppercase tracking-wider mb-3">
-              Why Refinishing?
+              Also Available
             </span>
             <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
-              Smart Alternative to Replacement
+              Professional Refinishing Services
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Save thousands and get stunning results without demolition
+              Budget-friendly surface restoration — perfect when you don&apos;t need a full remodel
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {SERVICES.map((service) => (
+              <Link
+                key={service.id}
+                href={service.href}
+                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl border border-gray-100 transition-all duration-300"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute bottom-4 right-4 px-4 py-2 rounded-full bg-white/95 backdrop-blur shadow-lg">
+                    <span className="text-[#0b66b3] font-bold">{service.price}</span>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-[#0b66b3] transition mb-2">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+                    {service.description}
+                  </p>
+                  <span className="inline-flex items-center gap-2 text-[#0b66b3] font-semibold text-sm group-hover:gap-3 transition-all">
+                    Learn More
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Cross-link to remodeling */}
+          <div className="mt-12 text-center">
+            <div className="inline-block bg-gradient-to-r from-[#0b66b3] to-[#084c8a] rounded-2xl p-8 max-w-2xl">
+              <h3 className="text-2xl font-bold text-white mb-3">Looking for a Full Remodel Instead?</h3>
+              <p className="text-white/80 mb-6">Refinishing is great for budget updates, but if you want a complete transformation, check out our remodeling services.</p>
+              <Link href="/services/bathroom-remodeling" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-amber-500 text-white font-bold hover:bg-amber-600 transition">
+                Explore Remodeling Services
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <span className="inline-block text-[#0b66b3] font-semibold text-sm uppercase tracking-wider mb-3">
+              Why Choose Us?
+            </span>
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+              Your Trusted Remodeling & Refinishing Partner
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Quality craftsmanship and reliable service on every project
             </p>
           </div>
 
@@ -159,36 +226,36 @@ export default function ServicesPage() {
             <div className="bg-gradient-to-br from-[#0b66b3] to-[#084c8a] rounded-2xl p-6 text-white">
               <div className="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center mb-4">
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold mb-2">Save 80%</h3>
+              <h3 className="text-xl font-bold mb-2">Full-Service</h3>
               <p className="text-white/80 text-sm">
-                Refinishing costs a fraction of full replacement
+                One team handles design, demo, plumbing, electrical, tile, and finishing
               </p>
             </div>
 
             <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition">
               <div className="w-14 h-14 rounded-xl bg-green-100 flex items-center justify-center mb-4">
                 <svg className="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Done in 1 Day</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Licensed & Insured</h3>
               <p className="text-gray-600 text-sm">
-                No weeks of renovation - just one day
+                All work permitted and code-compliant
               </p>
             </div>
 
             <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition">
               <div className="w-14 h-14 rounded-xl bg-amber-100 flex items-center justify-center mb-4">
                 <svg className="w-7 h-7 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">6-Layer Coating</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Quality Materials</h3>
               <p className="text-gray-600 text-sm">
-                3 primer + 3 topcoat for maximum durability
+                Premium tile, countertops, and fixtures from trusted brands
               </p>
             </div>
 
