@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { BUSINESS, SERVICES, LOCATIONS } from '@/lib/constants';
+import { BUSINESS, REMODELING_SERVICES, SERVICES, LOCATIONS } from '@/lib/constants';
 
 export default function Footer() {
   return (
@@ -17,10 +17,10 @@ export default function Footer() {
             FREE ESTIMATES AVAILABLE
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4">
-            Ready to Transform Your Bathroom?
+            Ready to Remodel Your Space?
           </h2>
           <p className="text-xl mb-10 opacity-90 max-w-2xl mx-auto">
-            Get your FREE quote today — Save up to $5,000 vs. replacement!
+            Get your FREE estimate today — Expert remodeling from design to installation!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -59,8 +59,9 @@ export default function Footer() {
               />
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
-              Professional bathtub, tile, and countertop refinishing serving
+              Professional kitchen & bathroom remodeling serving
               Seattle and surrounding areas. Licensed, insured, and guaranteed.
+              Also offering refinishing services.
             </p>
             <div className="flex items-center gap-2">
               {[...Array(5)].map((_, i) => (
@@ -80,7 +81,7 @@ export default function Footer() {
               Our Services
             </Link>
             <ul className="space-y-3">
-              {SERVICES.map((service) => (
+              {REMODELING_SERVICES.map((service) => (
                 <li key={service.id}>
                   <Link
                     href={service.href}
@@ -93,6 +94,14 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  href="/services"
+                  className="text-gray-500 hover:text-white transition flex items-center gap-2 group text-sm"
+                >
+                  + Refinishing Services
+                </Link>
+              </li>
             </ul>
           </div>
 

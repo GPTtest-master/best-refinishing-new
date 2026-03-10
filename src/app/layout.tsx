@@ -26,11 +26,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(BUSINESS.website),
   title: {
-    default: `Bathtub Refinishing Seattle | ${BUSINESS.name} | #1 Reglazing Experts`,
+    default: `Kitchen & Bathroom Remodeling Seattle | ${BUSINESS.name}`,
     template: `%s | ${BUSINESS.name} Seattle`,
   },
-  description: `Seattle's #1 rated bathtub & tile refinishing. Save $5,000+ vs replacement. Done in 1 day, ${BUSINESS.warranty} warranty. Licensed & insured. Free quotes: ${BUSINESS.phone}`,
-  keywords: "bathtub refinishing seattle, bathtub reglazing seattle, tub resurfacing seattle, tile refinishing, shower refinishing, countertop refinishing, bathroom renovation seattle, reglazing near me, bathtub repair seattle, seattle tub refinishing cost",
+  description: `Seattle's #1 kitchen & bathroom remodeling company. Full remodels, tile installation, countertops, showers, and refinishing. ${BUSINESS.warranty} warranty. Licensed & insured. Free estimates: ${BUSINESS.phone}`,
+  keywords: "kitchen remodeling seattle, bathroom remodeling seattle, bathroom remodel seattle wa, kitchen remodel seattle, tile installation seattle, countertop installation seattle, shower installation seattle, bathtub installation seattle, bathroom renovation seattle, kitchen renovation seattle, bathroom contractor seattle, kitchen contractor seattle, home remodeling seattle, bathtub refinishing seattle",
   authors: [{ name: BUSINESS.name }],
   creator: BUSINESS.name,
   publisher: BUSINESS.name,
@@ -46,8 +46,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: `Bathtub Refinishing Seattle | ${BUSINESS.name}`,
-    description: "Transform your bathroom in 1 day. Save $5,000+ vs replacement. Professional refinishing with 5-year warranty. Free quotes!",
+    title: `Kitchen & Bathroom Remodeling Seattle | ${BUSINESS.name}`,
+    description: "Seattle's #1 kitchen & bathroom remodeling. Full remodels, tile, countertops, showers. Licensed & insured. Free estimates!",
     url: BUSINESS.website,
     siteName: BUSINESS.name,
     locale: "en_US",
@@ -63,8 +63,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `Bathtub Refinishing Seattle | ${BUSINESS.name}`,
-    description: "Seattle's #1 rated bathtub & tile refinishing. Save $5,000+ vs replacement. Free quotes!",
+    title: `Kitchen & Bathroom Remodeling Seattle | ${BUSINESS.name}`,
+    description: "Seattle's #1 kitchen & bathroom remodeling company. Free estimates!",
     images: ['/images/bathtub-3-after.webp'],
   },
   alternates: {

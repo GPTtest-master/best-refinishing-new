@@ -2,10 +2,10 @@ import Image from 'next/image';
 import { BUSINESS } from '@/lib/constants';
 
 const trustBadges = [
-  { icon: '💰', text: 'Save $5,000+' },
+  { icon: '🏠', text: 'Full-Service Remodeling' },
   { icon: '🛡️', text: 'Licensed & Insured' },
   { icon: '✅', text: '5-Year Warranty' },
-  { icon: '⚡', text: 'Done in 1 Day' },
+  { icon: '⭐', text: '4.98 Rating' },
 ];
 
 export default function Hero() {
@@ -16,7 +16,7 @@ export default function Hero() {
         {/* Desktop image */}
         <Image
           src="/images/hero-bathroom.webp"
-          alt="Modern luxury bathroom refinishing in Seattle"
+          alt="Modern kitchen and bathroom remodeling in Seattle"
           fill
           className="object-cover hidden md:block"
           priority
@@ -27,7 +27,7 @@ export default function Hero() {
         {/* Mobile image */}
         <Image
           src="/images/hero-bathroom-mob.webp"
-          alt="Modern luxury bathroom refinishing in Seattle"
+          alt="Modern kitchen and bathroom remodeling in Seattle"
           fill
           className="object-cover md:hidden"
           priority
@@ -43,13 +43,13 @@ export default function Hero() {
         <div className="max-w-2xl">
           {/* Main headline */}
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-3 md:mb-4">
-            Transform Your Bathroom
-            <span className="block text-amber-400">In Just One Day</span>
+            Kitchen & Bathroom
+            <span className="block text-amber-400">Remodeling in Seattle</span>
           </h1>
 
           <p className="text-base md:text-xl text-white/90 mb-4 md:mb-5">
-            Professional bathtub, tile & countertop refinishing.<br />
-            Get a brand new look without the renovation hassle.
+            Full-service kitchen & bath remodeling. Tile, countertops, showers & more.<br />
+            Transform your home with expert craftsmanship.
           </p>
 
           {/* Trust badges - compact on mobile, cards on desktop */}
@@ -99,7 +99,7 @@ export default function Hero() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
             <span className="text-white font-semibold text-sm md:text-base">
-              Don&apos;t Replace It — Refinish It! Save 80%
+              From Design to Installation — Your Complete Remodeling Team
             </span>
           </div>
         </div>

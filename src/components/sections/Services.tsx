@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { SERVICES } from '@/lib/constants';
+import { REMODELING_SERVICES } from '@/lib/constants';
 
 export default function Services() {
   const [activeTab, setActiveTab] = useState(0);
@@ -17,10 +17,10 @@ export default function Services() {
             Our Services
           </span>
           <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
-            Professional Refinishing Services
+            Professional Remodeling Services
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Transform your surfaces without the cost and hassle of replacement
+            Complete kitchen & bathroom remodeling with expert craftsmanship
           </p>
         </div>
 
@@ -28,7 +28,7 @@ export default function Services() {
         <div className="md:hidden">
           {/* Scrollable Tabs */}
           <div className="flex gap-2 overflow-x-auto pb-4 mb-6 scrollbar-hide -mx-4 px-4">
-            {SERVICES.map((service, index) => (
+            {REMODELING_SERVICES.map((service, index) => (
               <button
                 key={service.id}
                 onClick={() => setActiveTab(index)}
@@ -48,26 +48,26 @@ export default function Services() {
             <div className="relative h-56 overflow-hidden">
               <div
                 className="absolute inset-0"
-                style={{ transform: SERVICES[activeTab].imageScale ? `scale(${SERVICES[activeTab].imageScale})` : undefined }}
+                style={{ transform: REMODELING_SERVICES[activeTab].imageScale ? `scale(${REMODELING_SERVICES[activeTab].imageScale})` : undefined }}
               >
                 <Image
-                  src={SERVICES[activeTab].image}
-                  alt={SERVICES[activeTab].title}
+                  src={REMODELING_SERVICES[activeTab].image}
+                  alt={REMODELING_SERVICES[activeTab].title}
                   fill
                   className="object-cover"
-                  style={{ objectPosition: SERVICES[activeTab].imagePosition || 'center' }}
+                  style={{ objectPosition: REMODELING_SERVICES[activeTab].imagePosition || 'center' }}
                 />
               </div>
             </div>
             <div className="p-5">
               <h3 className="text-xl font-bold text-gray-900 mb-2">
-                {SERVICES[activeTab].title}
+                {REMODELING_SERVICES[activeTab].title}
               </h3>
               <p className="text-gray-600 text-sm mb-4">
-                {SERVICES[activeTab].description}
+                {REMODELING_SERVICES[activeTab].description}
               </p>
               <div className="flex flex-wrap gap-2 mb-4">
-                {SERVICES[activeTab].features.slice(0, 3).map((feature) => (
+                {REMODELING_SERVICES[activeTab].features.slice(0, 3).map((feature) => (
                   <span
                     key={feature}
                     className="inline-flex items-center gap-1 text-xs text-gray-600 bg-gray-100 px-2 py-1 rounded-full"
@@ -87,7 +87,7 @@ export default function Services() {
                   Get Quote
                 </a>
                 <Link
-                  href={SERVICES[activeTab].href}
+                  href={REMODELING_SERVICES[activeTab].href}
                   className="px-4 py-3 rounded-xl border-2 border-gray-200 text-gray-700 font-bold hover:border-[#0b66b3] transition"
                 >
                   Details
@@ -98,7 +98,7 @@ export default function Services() {
 
           {/* Dots indicator */}
           <div className="flex justify-center gap-2 mt-4">
-            {SERVICES.map((service, index) => (
+            {REMODELING_SERVICES.map((service, index) => (
               <button
                 key={index}
                 onClick={() => setActiveTab(index)}
@@ -113,7 +113,7 @@ export default function Services() {
 
         {/* Desktop: Grid */}
         <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {SERVICES.map((service) => (
+          {REMODELING_SERVICES.map((service) => (
             <div
               key={service.id}
               className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100"
@@ -173,7 +173,7 @@ export default function Services() {
 
         {/* Bottom CTA */}
         <div className="mt-10 md:mt-16 text-center">
-          <p className="text-gray-600 mb-4">Not sure which service you need?</p>
+          <p className="text-gray-600 mb-4">Need a custom remodeling solution?</p>
           <a
             href="#quote"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#0b66b3] text-white font-bold text-lg hover:bg-[#084c8a] transition"
