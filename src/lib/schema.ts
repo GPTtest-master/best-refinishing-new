@@ -4,10 +4,10 @@
 // Enables star ratings, reviews, and rich cards in Google
 // ============================================
 
-import { BUSINESS, SERVICES, ALL_SERVICES, ALL_LOCATIONS, FAQ_ITEMS } from '@/lib/constants';
+import { BUSINESS, SERVICES, REMODELING_SERVICES, ALL_SERVICES, ALL_LOCATIONS, FAQ_ITEMS, REMODELING_FAQ_ITEMS } from '@/lib/constants';
 
 // Get current date for schema (static to avoid hydration mismatch)
-const SCHEMA_DATE_MODIFIED = '2025-01-15';
+const SCHEMA_DATE_MODIFIED = '2026-03-09';
 
 function getCurrentDate(): string {
   return SCHEMA_DATE_MODIFIED;
@@ -66,7 +66,7 @@ function getWebsiteSchema() {
     '@id': getUrl('/#website'),
     url: getUrl('/'),
     name: BUSINESS.name,
-    description: `Seattle's #1 rated bathtub, tile, shower, and countertop refinishing company. Professional reglazing services with ${BUSINESS.warranty} warranty.`,
+    description: `Seattle's #1 kitchen & bathroom remodeling company. Full-service remodeling and refinishing with ${BUSINESS.warranty} warranty.`,
     publisher: {
       '@id': getUrl('/#organization'),
     },
@@ -79,10 +79,10 @@ function getWebsiteSchema() {
 // ============================================
 function getLocalBusinessSchema() {
   return {
-    '@type': 'LocalBusiness',
+    '@type': ['HomeImprovement', 'GeneralContractor'],
     '@id': getUrl('/#localbusiness'),
     name: BUSINESS.name,
-    description: `Seattle's #1 rated bathtub, tile, shower, and countertop refinishing company. Professional reglazing services with ${BUSINESS.warranty} warranty. Save $5,000+ vs replacement.`,
+    description: `Seattle's #1 kitchen & bathroom remodeling company. Full-service remodeling, tile installation, countertop installation, and refinishing with ${BUSINESS.warranty} warranty.`,
     url: getUrl('/'),
     telephone: BUSINESS.phone,
     email: BUSINESS.email,
@@ -141,8 +141,8 @@ export function generateHomePageSchema() {
         '@type': 'WebPage',
         '@id': getUrl('/#webpage'),
         url: getUrl('/'),
-        name: `${BUSINESS.name} | Professional Bathtub & Tile Refinishing Seattle`,
-        description: `Seattle's #1 rated bathtub, tile, shower, and countertop refinishing company. Professional reglazing services with ${BUSINESS.warranty} warranty.`,
+        name: `${BUSINESS.name} | Kitchen & Bathroom Remodeling Seattle`,
+        description: `Seattle's #1 kitchen & bathroom remodeling company. Full-service remodeling and refinishing with ${BUSINESS.warranty} warranty.`,
         isPartOf: {
           '@id': getUrl('/#website'),
         },
@@ -158,8 +158,8 @@ export function generateHomePageSchema() {
       {
         '@type': 'Product',
         '@id': getUrl('/#product'),
-        name: 'Bathtub & Tile Refinishing Services',
-        description: `Professional bathtub, tile, shower, and countertop refinishing in Seattle. ${BUSINESS.warranty} warranty, same-day service available.`,
+        name: 'Kitchen & Bathroom Remodeling Services',
+        description: `Professional kitchen remodeling, bathroom remodeling, tile installation, countertop installation, and refinishing in Seattle. ${BUSINESS.warranty} warranty on all work.`,
         brand: {
           '@type': 'Brand',
           name: BUSINESS.name,
@@ -174,9 +174,9 @@ export function generateHomePageSchema() {
         offers: {
           '@type': 'AggregateOffer',
           priceCurrency: 'USD',
-          lowPrice: '350',
-          highPrice: '900',
-          offerCount: String(SERVICES.length),
+          lowPrice: '2000',
+          highPrice: '75000',
+          offerCount: String([...ALL_SERVICES].length),
         },
       },
     ],
@@ -198,7 +198,7 @@ export function generateLocationPageSchema(location: { id: string; name: string 
         '@type': 'WebPage',
         '@id': `${pageUrl}#webpage`,
         url: pageUrl,
-        name: `Bathtub & Tile Refinishing in ${location.name}, WA | ${BUSINESS.name}`,
+        name: `Kitchen & Bathroom Remodeling in ${location.name}, WA | ${BUSINESS.name}`,
         description: `Professional bathtub, tile, and shower refinishing services in ${location.name}, WA. Same-day service, ${BUSINESS.warranty} warranty. Serving the entire Seattle metro area.`,
         isPartOf: {
           '@id': getUrl('/#website'),
@@ -214,7 +214,7 @@ export function generateLocationPageSchema(location: { id: string; name: string 
       {
         '@type': 'Service',
         '@id': `${pageUrl}#service`,
-        serviceType: 'Bathtub & Tile Refinishing',
+        serviceType: 'Kitchen & Bathroom Remodeling',
         provider: {
           '@id': getUrl('/#organization'),
         },
@@ -241,7 +241,7 @@ export function generateLocationPageSchema(location: { id: string; name: string 
       {
         '@type': 'Product',
         '@id': `${pageUrl}#product`,
-        name: `Bathtub & Tile Refinishing in ${location.name}`,
+        name: `Kitchen & Bathroom Remodeling in ${location.name}`,
         description: `Expert bathtub, tile, and shower refinishing in ${location.name}, WA. Same-day service, ${BUSINESS.warranty} warranty, all surfaces.`,
         brand: {
           '@type': 'Brand',
@@ -266,7 +266,7 @@ export function generateLocationPageSchema(location: { id: string; name: string 
       {
         '@type': 'Review',
         '@id': `${pageUrl}#review`,
-        reviewBody: `Excellent refinishing service in ${location.name}! The technician arrived on time, did amazing work on our bathtub, and it looks brand new. Highly recommend for anyone in the ${location.name} area.`,
+        reviewBody: `Excellent remodeling service in ${location.name}! The team arrived on time, did amazing work on our kitchen and bathroom, and everything looks brand new. Highly recommend for anyone in the ${location.name} area.`,
         reviewRating: {
           '@type': 'Rating',
           ratingValue: '5',
@@ -581,8 +581,8 @@ export function generateServicesIndexSchema() {
         '@type': 'WebPage',
         '@id': `${pageUrl}#webpage`,
         url: pageUrl,
-        name: `Refinishing Services | ${BUSINESS.name}`,
-        description: 'Professional bathtub, tile, shower, sink, and countertop refinishing services. Same-day service, 5-year warranty. Serving Seattle and 50+ cities.',
+        name: `Remodeling & Refinishing Services | ${BUSINESS.name}`,
+        description: 'Professional kitchen & bathroom remodeling, tile installation, countertop installation, and refinishing services. Serving Seattle and 50+ cities.',
         isPartOf: {
           '@id': getUrl('/#website'),
         },
@@ -615,7 +615,7 @@ export function generateServicesIndexSchema() {
       {
         '@type': 'ItemList',
         '@id': `${pageUrl}#itemlist`,
-        itemListElement: SERVICES.map((service, index) => ({
+        itemListElement: [...ALL_SERVICES].map((service, index) => ({
           '@type': 'ListItem',
           position: index + 1,
           item: {
@@ -650,7 +650,7 @@ export function generateLocationsIndexSchema() {
         '@id': `${pageUrl}#webpage`,
         url: pageUrl,
         name: `Service Areas | ${BUSINESS.name}`,
-        description: 'Professional refinishing services in Seattle, Bellevue, Redmond, Kirkland, and 50+ cities across Washington State.',
+        description: 'Professional remodeling and refinishing services in Seattle, Bellevue, Redmond, Kirkland, and 50+ cities across Washington State.',
         isPartOf: {
           '@id': getUrl('/#website'),
         },

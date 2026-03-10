@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
-import { SERVICES, ALL_LOCATIONS, LOCATIONS, BUSINESS, BLOG_POSTS } from '@/lib/constants';
-import { SERVICE_SLUGS } from '@/lib/locationServiceContent';
+import { SERVICES, REMODELING_SERVICES, ALL_SERVICES, ALL_LOCATIONS, LOCATIONS, BUSINESS, BLOG_POSTS } from '@/lib/constants';
+import { SERVICE_SLUGS, REMODELING_SERVICE_SLUGS } from '@/lib/locationServiceContent';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = BUSINESS.website;
@@ -121,7 +121,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: currentDate,
     changeFrequency: 'daily' as const,
     // Bathtub is most popular, then gradually decrease
-    priority: service.popular ? 0.96 : (0.94 - index * 0.01),
+    priority: service.popular ? 0.75 : (0.72 - index * 0.01),
+  }));
+
+  // Remodeling service pages — PRIMARY business, highest priority
+  const remodelingServicePages: MetadataRoute.Sitemap = REMODELING_SERVICES.map((service, index) => ({
+    url: `${baseUrl}${service.href}`,
+    lastModified: currentDate,
+    changeFrequency: 'daily' as const,
+    priority: index < 2 ? 0.98 : 0.96,
   }));
 
   // All location pages (50 total) - CRITICAL for local SEO
@@ -151,15 +159,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
       const isSeattle = location.id === 'seattle';
       const isBathtub = serviceSlug === 'bathtub-refinishing';
       // Seattle + bathtub combo gets highest priority
-      let priority = 0.88;
-      if (isSeattle && isBathtub) priority = 0.93;
-      else if (isSeattle) priority = 0.91;
-      else if (isBathtub) priority = 0.90;
+      let priority = 0.65;
+      if (isSeattle && isBathtub) priority = 0.70;
+      else if (isSeattle) priority = 0.68;
+      else if (isBathtub) priority = 0.67;
 
       locationServicePages.push({
         url: `${baseUrl}/locations/${location.id}/${serviceSlug}`,
         lastModified: currentDate,
         changeFrequency: 'weekly' as const,
+        priority,
+      });
+    }
+  }
+
+  // Remodeling location+service combo pages — 12 cities × 6 services = 72 pages
+  const remodelingLocationServicePages: MetadataRoute.Sitemap = [];
+  for (const location of LOCATIONS.filter(l => l.primary)) {
+    for (const serviceSlug of REMODELING_SERVICE_SLUGS) {
+      const isSeattle = location.id === 'seattle';
+      const isBathroom = serviceSlug === 'bathroom-remodeling';
+      const isKitchen = serviceSlug === 'kitchen-remodeling';
+      let priority = 0.90;
+      if (isSeattle && (isBathroom || isKitchen)) priority = 0.97;
+      else if (isSeattle) priority = 0.94;
+      else if (isBathroom || isKitchen) priority = 0.93;
+      else priority = 0.91;
+
+      remodelingLocationServicePages.push({
+        url: `${baseUrl}/locations/${location.id}/${serviceSlug}`,
+        lastModified: currentDate,
+        changeFrequency: 'daily' as const,
         priority,
       });
     }
@@ -177,15 +207,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     // Homepage first
     staticPages[0],
-    // Then service pages (money pages)
-    ...servicePages,
-    // Then location pages (local SEO gold)
+    ...remodelingServicePages,
+    ...remodelingLocationServicePages,
     ...locationPages,
-    // Then location+service combo pages (hyper-local targeting)
+    ...servicePages,
     ...locationServicePages,
-    // Then remaining static pages
     ...staticPages.slice(1),
-    // Then blog posts (content freshness)
     ...blogPages,
   ];
 }
