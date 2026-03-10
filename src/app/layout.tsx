@@ -96,16 +96,16 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/images/hero-bathroom.webp"
-          type="image/webp"
+          href="/images/remodeling/hero-remodeling.png"
+          type="image/png"
           media="(min-width: 768px)"
           fetchPriority="high"
         />
         <link
           rel="preload"
           as="image"
-          href="/images/hero-bathroom-mob.webp"
-          type="image/webp"
+          href="/images/remodeling/hero-remodeling.png"
+          type="image/png"
           media="(max-width: 767px)"
           fetchPriority="high"
         />

@@ -30,7 +30,7 @@ export default function ServicesPage() {
       <SchemaScript schema={schema} />
       {/* Hero */}
       <section className="relative pt-20 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-        <div className="absolute inset-0 bg-[url('/images/optimized/bathtub-3-after.webp')] bg-cover bg-center opacity-10" />
+        <div className="absolute inset-0 bg-[url('/images/remodeling/kitchen-showcase-1.jpg')] bg-cover bg-center opacity-10" />
         <div className="relative max-w-7xl mx-auto px-4">
           {/* Breadcrumbs */}
           <div className="mb-6">

@@ -15,7 +15,7 @@ export default function Hero() {
       <div className="absolute inset-0">
         {/* Desktop image */}
         <Image
-          src="/images/hero-bathroom.webp"
+          src="/images/remodeling/hero-remodeling.png"
           alt="Modern kitchen and bathroom remodeling in Seattle"
           fill
           className="object-cover hidden md:block"
@@ -26,7 +26,7 @@ export default function Hero() {
         />
         {/* Mobile image */}
         <Image
-          src="/images/hero-bathroom-mob.webp"
+          src="/images/remodeling/hero-remodeling.png"
           alt="Modern kitchen and bathroom remodeling in Seattle"
           fill
           className="object-cover md:hidden"
