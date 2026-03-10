@@ -2,12 +2,12 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { SERVICES, BUSINESS, PROCESS_STEPS, FAQ_ITEMS } from '@/lib/constants';
+import { SERVICES, ALL_SERVICES, BUSINESS, PROCESS_STEPS, FAQ_ITEMS } from '@/lib/constants';
 import BeforeAfterSlider from '@/components/ui/BeforeAfterSlider';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 // Service type definition
-type Service = typeof SERVICES[number];
+type Service = (typeof ALL_SERVICES)[number];
 
 // Reviews data
 const reviews = [
@@ -46,7 +46,7 @@ const serviceToSliderIndex: Record<string, number> = {
 };
 
 export default function ServicePageClient({ service }: { service: Service }) {
-  const otherServices = SERVICES.filter((s) => s.id !== service.id).slice(0, 3);
+  const otherServices = [...ALL_SERVICES].filter((s) => s.id !== service.id).slice(0, 3);
   const serviceFaqs = FAQ_ITEMS.slice(0, 4);
   const defaultSliderIndex = serviceToSliderIndex[service.id] || 0;
 

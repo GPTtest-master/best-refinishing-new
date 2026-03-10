@@ -1,15 +1,19 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { SERVICES, BUSINESS } from '@/lib/constants';
+import { SERVICES, REMODELING_SERVICES, ALL_SERVICES, BUSINESS } from '@/lib/constants';
 import ServicePageClient from './ServicePageClient';
 import { generateServicePageSchema } from '@/lib/schema';
 import { SchemaScript } from '@/components/SchemaScript';
 
 // Generate static params for all services
 export async function generateStaticParams() {
-  return SERVICES.map((service) => ({
+  const refinishingParams = SERVICES.map((service) => ({
     slug: service.href.replace('/services/', ''),
   }));
+  const remodelingParams = REMODELING_SERVICES.map((service) => ({
+    slug: service.href.replace('/services/', ''),
+  }));
+  return [...refinishingParams, ...remodelingParams];
 }
 
 // Map slug to actual service ID
@@ -22,6 +26,12 @@ function getServiceId(slug: string): string {
     'countertop-refinishing': 'countertop',
     'repair': 'repair',
     'chip-crack-repair': 'repair',
+    'bathroom-remodeling': 'bathroom-remodeling',
+    'kitchen-remodeling': 'kitchen-remodeling',
+    'tile-installation': 'tile-installation',
+    'countertop-installation': 'countertop-installation',
+    'shower-installation': 'shower-installation',
+    'bathtub-installation': 'bathtub-installation',
     'bathtub': 'bathtub',
     'shower': 'shower',
     'tile': 'tile',
@@ -35,7 +45,7 @@ function getServiceId(slug: string): string {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const serviceId = getServiceId(slug);
-  const service = SERVICES.find((s) => s.id === serviceId);
+  const service = [...ALL_SERVICES].find((s) => s.id === serviceId);
 
   if (!service) {
     return { title: 'Service Not Found' };
@@ -61,7 +71,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const serviceId = getServiceId(slug);
-  const service = SERVICES.find((s) => s.id === serviceId);
+  const service = [...ALL_SERVICES].find((s) => s.id === serviceId);
 
   if (!service) {
     notFound();

@@ -4,7 +4,7 @@
 // Enables star ratings, reviews, and rich cards in Google
 // ============================================
 
-import { BUSINESS, SERVICES, ALL_LOCATIONS, FAQ_ITEMS } from '@/lib/constants';
+import { BUSINESS, SERVICES, ALL_SERVICES, ALL_LOCATIONS, FAQ_ITEMS } from '@/lib/constants';
 
 // Get current date for schema (static to avoid hydration mismatch)
 const SCHEMA_DATE_MODIFIED = '2025-01-15';
@@ -312,7 +312,7 @@ export function generateLocationPageSchema(location: { id: string; name: string 
 // ============================================
 // SERVICE PAGE SCHEMA
 // ============================================
-export function generateServicePageSchema(service: typeof SERVICES[number]) {
+export function generateServicePageSchema(service: (typeof ALL_SERVICES)[number]) {
   const pageUrl = getUrl(service.href);
 
   return {
@@ -436,7 +436,7 @@ export function generateServicePageSchema(service: typeof SERVICES[number]) {
 // ============================================
 export function generateLocationServicePageSchema(
   location: { id: string; name: string },
-  service: typeof SERVICES[number],
+  service: (typeof ALL_SERVICES)[number],
   content: { serviceName: string; metaDescription: string; reviews: Array<{ name: string; rating: number; text: string; date: string }> }
 ) {
   const pageUrl = getUrl(`/locations/${location.id}/${service.href.replace('/services/', '')}`);

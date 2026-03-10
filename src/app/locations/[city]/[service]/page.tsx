@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { LOCATIONS, SERVICES, BUSINESS, PROCESS_STEPS } from '@/lib/constants';
-import { getLocationServiceContent, SERVICE_SLUGS } from '@/lib/locationServiceContent';
+import { LOCATIONS, SERVICES, REMODELING_SERVICES, ALL_SERVICES, BUSINESS, PROCESS_STEPS } from '@/lib/constants';
+import { getLocationServiceContent, SERVICE_SLUGS, REMODELING_SERVICE_SLUGS, ALL_SERVICE_SLUGS } from '@/lib/locationServiceContent';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import { generateLocationServicePageSchema } from '@/lib/schema';
 import { SchemaScript } from '@/components/SchemaScript';
@@ -16,7 +16,7 @@ export async function generateStaticParams() {
   const params: { city: string; service: string }[] = [];
 
   for (const city of TOP_CITIES) {
-    for (const serviceSlug of SERVICE_SLUGS) {
+    for (const serviceSlug of ALL_SERVICE_SLUGS) {
       params.push({
         city: city.id,
         service: serviceSlug,
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
   const { city, service } = await params;
 
   const location = TOP_CITIES.find(l => l.id === city);
-  const serviceData = SERVICES.find(s => s.href === `/services/${service}`);
+  const serviceData = [...ALL_SERVICES].find(s => s.href === `/services/${service}`);
 
   if (!location || !serviceData) {
     return { title: 'Not Found' };
@@ -65,7 +65,7 @@ export default async function LocationServicePage({ params }: { params: Promise<
   const { city, service } = await params;
 
   const location = TOP_CITIES.find(l => l.id === city);
-  const serviceData = SERVICES.find(s => s.href === `/services/${service}`);
+  const serviceData = [...ALL_SERVICES].find(s => s.href === `/services/${service}`);
 
   if (!location || !serviceData) {
     notFound();
@@ -74,7 +74,7 @@ export default async function LocationServicePage({ params }: { params: Promise<
   const content = getLocationServiceContent(location.name, location.id, service, serviceData.price);
 
   // Get related services (other services in same city)
-  const otherServices = SERVICES.filter(s => s.href !== `/services/${service}`).slice(0, 4);
+  const otherServices = [...ALL_SERVICES].filter(s => s.href !== `/services/${service}`).slice(0, 4);
 
   // Get nearby cities with same service
   const nearbyCities = TOP_CITIES.filter(l => l.id !== city).slice(0, 6);
