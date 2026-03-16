@@ -5,9 +5,9 @@ import { BUSINESS } from '@/lib/constants';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Common Kitchen & Bathroom Problems We Fix | Seattle Remodeling & Refinishing',
-  description: 'Stained bathtub? Cracked tile? Outdated kitchen? See the most common bathroom and kitchen problems we fix in Seattle. Professional remodeling solutions.',
-  keywords: 'bathroom problems seattle, kitchen problems fix, cracked tile repair, outdated bathroom remodel, bathtub repair seattle, kitchen remodeling solutions',
+  title: 'Common Kitchen & Bathroom Problems We Fix | Seattle Remodeling Experts',
+  description: 'Outdated bathroom? Ugly kitchen? Cracked tile? See the most common bathroom and kitchen problems we solve with professional remodeling in Seattle.',
+  keywords: 'bathroom problems seattle, kitchen problems fix, outdated bathroom remodel, kitchen remodeling solutions, bathroom renovation seattle, shower replacement seattle',
   alternates: {
     canonical: `${BUSINESS.website}/common-problems`,
   },
@@ -20,164 +20,164 @@ export const metadata: Metadata = {
 
 const problems = [
   {
-    id: 'stains',
-    title: 'Stubborn Stains & Discoloration',
-    description: 'Yellow, brown, or rust stains that won\'t come off no matter how much you scrub. Hard water deposits, mineral buildup, and years of use leave permanent marks.',
+    id: 'outdated-bathroom',
+    title: 'Outdated Bathroom Design',
+    description: 'Pink, green, or harvest gold fixtures from the 70s-90s. Cramped layout, old tile, and worn vanity that make your bathroom feel dated and hurt home value.',
     symptoms: [
-      'Yellow or brown discoloration',
-      'Rust-colored stains around drain',
-      'Hard water spots and rings',
-      'Bleach or chemical damage marks',
-      'Uneven color across surface',
+      'Dated colors and fixtures',
+      'Inefficient layout wastes space',
+      'Old vanity falling apart',
+      'Mismatched tile and hardware',
+      'Embarrassing to show guests',
     ],
-    solution: 'Our professional refinishing completely covers all stains with a fresh, bright coating. No amount of staining can show through our multi-layer finish.',
-    serviceLink: '/services/bathtub-refinishing',
-    serviceName: 'Bathtub Refinishing',
-    icon: '🟡',
+    solution: 'Our full bathroom remodel transforms everything — new tile, vanity, fixtures, shower, and flooring. Modern design, efficient layout, all done by one team.',
+    serviceLink: '/services/bathroom-remodeling',
+    serviceName: 'Bathroom Remodeling',
+    icon: '🛁',
   },
   {
-    id: 'chips-cracks',
-    title: 'Chips, Cracks & Scratches',
-    description: 'Dropped items, wear and tear, or age cause chips and cracks that expose the underlying material to water damage and look unsightly.',
+    id: 'outdated-kitchen',
+    title: 'Outdated Kitchen',
+    description: 'Old cabinets, worn countertops, and a layout that doesn\'t work. Your kitchen is the heart of your home — it deserves an upgrade.',
     symptoms: [
-      'Visible chips in porcelain or fiberglass',
-      'Hairline cracks spreading across surface',
-      'Deep scratches from abrasive cleaners',
-      'Exposed metal or base material',
-      'Rough, uneven texture',
+      'Cabinets falling apart or peeling',
+      'Laminate countertops worn and stained',
+      'Not enough counter or storage space',
+      'Old appliances wasting energy',
+      'Poor lighting and ventilation',
     ],
-    solution: 'We repair all chips and cracks with professional-grade filler, then apply seamless coating. The repair is invisible — your tub looks factory-new.',
-    serviceLink: '/services/repair',
-    serviceName: 'Chip & Crack Repair',
-    icon: '💔',
+    solution: 'Complete kitchen renovation — new cabinets, quartz or granite countertops, modern backsplash, updated lighting, and a layout that works for your family.',
+    serviceLink: '/services/kitchen-remodeling',
+    serviceName: 'Kitchen Remodeling',
+    icon: '🍳',
   },
   {
-    id: 'peeling',
-    title: 'Peeling or Flaking Finish',
-    description: 'Previous DIY refinishing jobs or old factory coatings start peeling, creating an ugly, rough surface that traps dirt and bacteria.',
+    id: 'damaged-tile',
+    title: 'Cracked, Broken, or Ugly Tile',
+    description: 'Cracked tiles, crumbling grout, and water getting behind walls. Damaged tile isn\'t just ugly — it causes hidden water damage and mold.',
     symptoms: [
-      'Paint or coating peeling off',
-      'Flaking pieces in tub or sink',
-      'Bubbling or blistering surface',
-      'Rough, sandpaper-like texture',
-      'Previous refinish job failing',
+      'Cracked or broken tiles',
+      'Crumbling grout letting water through',
+      'Mold growing in grout lines',
+      'Loose tiles popping off',
+      'Outdated tile pattern or color',
     ],
-    solution: 'We strip the old failing finish completely, prepare the surface properly, and apply our commercial-grade coating with proper adhesion.',
-    serviceLink: '/services/bathtub-refinishing',
-    serviceName: 'Bathtub Refinishing',
-    icon: '📜',
-  },
-  {
-    id: 'rust',
-    title: 'Rust & Corrosion',
-    description: 'Cast iron and steel tubs develop rust when the protective finish wears through. Rust spreads quickly and weakens the tub structure.',
-    symptoms: [
-      'Orange/red rust spots',
-      'Rust bleeding from chips',
-      'Corroded areas around fixtures',
-      'Rust stains from metal bath caddy',
-      'Pitting in metal surface',
-    ],
-    solution: 'We treat rust with specialized primers that neutralize corrosion and prevent spreading, then seal with protective coating.',
-    serviceLink: '/services/bathtub-refinishing',
-    serviceName: 'Bathtub Refinishing',
-    icon: '🔶',
-  },
-  {
-    id: 'mold-mildew',
-    title: 'Mold & Mildew Buildup',
-    description: 'Black mold in grout lines, pink mildew on shower walls, and stubborn fungus that keeps coming back despite cleaning.',
-    symptoms: [
-      'Black spots in grout lines',
-      'Pink/orange mildew on surfaces',
-      'Musty smell in bathroom',
-      'Mold behind caulk lines',
-      'Recurring mold after cleaning',
-    ],
-    solution: 'Our refinishing includes anti-microbial treatment and creates a non-porous surface that resists mold growth. Fresh grout coating seals problem areas.',
-    serviceLink: '/services/tile-refinishing',
-    serviceName: 'Tile & Grout Refinishing',
-    icon: '🦠',
-  },
-  {
-    id: 'outdated-color',
-    title: 'Outdated Colors',
-    description: 'Pink, green, blue, or harvest gold fixtures from the 70s, 80s, or 90s that make your bathroom feel dated and hurt home value.',
-    symptoms: [
-      'Pink, mint green, or blue tub',
-      'Harvest gold or avocado fixtures',
-      'Mismatched bathroom colors',
-      'Dated tile patterns',
-      'Want modern white or gray',
-    ],
-    solution: 'We refinish any color to modern white, almond, gray, or your custom color choice. Transform your bathroom\'s look in one day.',
-    serviceLink: '/services/bathtub-refinishing',
-    serviceName: 'Bathtub Refinishing',
-    icon: '🎨',
-  },
-  {
-    id: 'worn-dull',
-    title: 'Worn & Dull Surface',
-    description: 'Years of use leave surfaces looking tired, faded, and impossible to get truly clean. The original shine is gone.',
-    symptoms: [
-      'Matte, dull appearance',
-      'Lost original shine/gloss',
-      'Surface feels rough',
-      'Cleaning doesn\'t restore shine',
-      'Looks dirty even when clean',
-    ],
-    solution: 'Our high-gloss professional finish restores that "just installed" shine. The smooth surface is easier to clean and stays bright for years.',
-    serviceLink: '/services/bathtub-refinishing',
-    serviceName: 'Bathtub Refinishing',
-    icon: '✨',
-  },
-  {
-    id: 'grout-problems',
-    title: 'Damaged or Dirty Grout',
-    description: 'Cracked, crumbling, or permanently stained grout lines make even clean tiles look dirty and allow water damage.',
-    symptoms: [
-      'Crumbling grout falling out',
-      'Permanently stained grout lines',
-      'Cracked grout letting water through',
-      'Mismatched grout repairs',
-      'Mold growing in grout',
-    ],
-    solution: 'We clean, repair, and seal grout lines, or apply grout-color coating for a uniform, fresh appearance that resists future staining.',
-    serviceLink: '/services/tile-refinishing',
-    serviceName: 'Tile & Grout Refinishing',
+    solution: 'Professional tile removal and installation with modern porcelain, ceramic, or natural stone. Proper waterproofing, fresh grout, and a look that lasts 20+ years.',
+    serviceLink: '/services/tile-installation',
+    serviceName: 'Tile Installation',
     icon: '🧱',
   },
   {
-    id: 'fiberglass-damage',
-    title: 'Fiberglass Shower Damage',
-    description: 'Fiberglass showers and tub surrounds crack, fade, and develop stress fractures over time, especially in older units.',
+    id: 'shower-problems',
+    title: 'Leaking or Damaged Shower',
+    description: 'Water leaks, mold, cracked fiberglass, and an uncomfortable shower experience. Old showers waste water and create hidden damage.',
     symptoms: [
-      'Spider web cracks in fiberglass',
-      'Faded, chalky surface',
-      'Flexing or soft spots',
-      'Cracks around fixtures',
-      'Dull, yellowed appearance',
+      'Water leaking through walls or floor',
+      'Mold and mildew that won\'t go away',
+      'Cracked fiberglass or acrylic pan',
+      'Poor water pressure or old fixtures',
+      'No glass door — just a curtain',
     ],
-    solution: 'We repair structural cracks and reinforce weak areas, then apply durable coating that restores rigidity and appearance.',
-    serviceLink: '/services/shower-refinishing',
-    serviceName: 'Shower Refinishing',
+    solution: 'Full shower remodel — new custom tile, glass enclosure, modern fixtures, proper waterproofing membrane, and a rain or handheld showerhead upgrade.',
+    serviceLink: '/services/shower-installation',
+    serviceName: 'Shower Installation',
     icon: '🚿',
   },
   {
-    id: 'countertop-damage',
-    title: 'Countertop Wear & Damage',
-    description: 'Kitchen and bathroom countertops showing burns, stains, chips, or outdated patterns that bring down your space.',
+    id: 'worn-countertops',
+    title: 'Damaged or Ugly Countertops',
+    description: 'Burns, stains, chips, and outdated laminate that makes your kitchen or bathroom look cheap. Countertops take the most abuse in your home.',
     symptoms: [
-      'Burn marks or heat damage',
-      'Permanent stains',
-      'Chips along edges',
-      'Outdated laminate pattern',
-      'Worn cultured marble',
+      'Burn marks and heat damage',
+      'Permanent stains won\'t come out',
+      'Chips and cracks along edges',
+      'Peeling or bubbling laminate',
+      'Outdated pattern or color',
     ],
-    solution: 'Countertop refinishing restores or completely transforms your surfaces with modern colors, granite looks, or solid finishes.',
-    serviceLink: '/services/countertop-refinishing',
-    serviceName: 'Countertop Refinishing',
+    solution: 'Upgrade to beautiful quartz, granite, or marble countertops. Professional measurement, fabrication, and installation with seamless results.',
+    serviceLink: '/services/countertop-installation',
+    serviceName: 'Countertop Installation',
     icon: '🪨',
+  },
+  {
+    id: 'old-bathtub',
+    title: 'Old, Damaged, or Ugly Bathtub',
+    description: 'Stained, chipped, rusted, or impossibly outdated tub that\'s the eyesore of your bathroom. Sometimes replacing is the right move.',
+    symptoms: [
+      'Deep rust and corrosion',
+      'Severe chips exposing metal',
+      'Cast iron tub too heavy for floor',
+      'Want to convert tub to walk-in shower',
+      'Tub doesn\'t fit your lifestyle',
+    ],
+    solution: 'Professional bathtub replacement — removal of old tub, plumbing updates, new tub or tub-to-shower conversion, tile surround, and modern fixtures.',
+    serviceLink: '/services/bathtub-installation',
+    serviceName: 'Bathtub Installation',
+    icon: '🛁',
+  },
+  {
+    id: 'mold-water-damage',
+    title: 'Mold & Hidden Water Damage',
+    description: 'Musty smells, black spots, and soft walls or floors. Water damage behind tiles and under floors causes structural rot and health hazards.',
+    symptoms: [
+      'Black mold on walls or ceiling',
+      'Musty smell in bathroom',
+      'Soft or spongy flooring',
+      'Paint bubbling on walls',
+      'Stains on ceiling below bathroom',
+    ],
+    solution: 'Full demolition, mold remediation, structural repair, new waterproofing, and complete rebuild. We fix the root cause, not just the surface.',
+    serviceLink: '/services/bathroom-remodeling',
+    serviceName: 'Bathroom Remodeling',
+    icon: '🦠',
+  },
+  {
+    id: 'no-storage',
+    title: 'Not Enough Storage Space',
+    description: 'Cluttered countertops, overflowing cabinets, and no place to put anything. Poor storage makes even a clean bathroom feel messy.',
+    symptoms: [
+      'Bottles and products everywhere',
+      'Not enough cabinet space',
+      'No medicine cabinet or shelving',
+      'Vanity too small for the space',
+      'Closets overflowing with towels',
+    ],
+    solution: 'Smart remodel with custom vanity, built-in niches, recessed medicine cabinet, floating shelves, and optimized layout that maximizes every inch.',
+    serviceLink: '/services/bathroom-remodeling',
+    serviceName: 'Bathroom Remodeling',
+    icon: '📦',
+  },
+  {
+    id: 'accessibility',
+    title: 'Accessibility & Safety Issues',
+    description: 'High tub walls, slippery floors, and no grab bars make bathrooms dangerous for seniors and anyone with mobility challenges.',
+    symptoms: [
+      'Hard to step over tub wall',
+      'Slippery tile floor',
+      'No grab bars or handrails',
+      'Shower too narrow to move in',
+      'Toilet too low to sit/stand easily',
+    ],
+    solution: 'ADA-compliant remodel — curbless shower, grab bars, non-slip tile, comfort-height toilet, wider doorways, and handheld showerhead. Safe and stylish.',
+    serviceLink: '/services/shower-installation',
+    serviceName: 'Shower Installation',
+    icon: '♿',
+  },
+  {
+    id: 'low-home-value',
+    title: 'Bathroom Hurting Home Value',
+    description: 'Planning to sell? An outdated bathroom is the #1 deal-breaker for buyers. Kitchen and bath remodels have the highest ROI of any home improvement.',
+    symptoms: [
+      'Realtor says bathroom needs updating',
+      'Buyers making low offers',
+      'Competing homes have modern baths',
+      'Kitchen looks like it\'s from the 90s',
+      'Want to increase home value fast',
+    ],
+    solution: 'Strategic kitchen or bathroom remodel focused on maximum ROI. We know what Seattle buyers want — modern finishes, clean lines, and quality materials.',
+    serviceLink: '/services/kitchen-remodeling',
+    serviceName: 'Kitchen Remodeling',
+    icon: '📈',
   },
 ];
 
@@ -226,8 +226,8 @@ export default function CommonProblemsPage() {
                 <span className="block text-amber-400">Have These Problems?</span>
               </h1>
               <p className="text-xl text-white/80 leading-relaxed mb-8">
-                Stains, chips, cracks, peeling, rust, mold — we&apos;ve seen it all and fixed it all.
-                See exactly how we solve each problem <strong>without expensive replacement</strong>.
+                Outdated design, cracked tile, mold, water damage — we&apos;ve seen it all and fixed it all.
+                See exactly how we solve each problem with <strong>professional remodeling</strong>.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
@@ -274,7 +274,7 @@ export default function CommonProblemsPage() {
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                10 Most Common Bathroom Problems
+                10 Most Common Kitchen & Bathroom Problems
               </h2>
               <p className="text-gray-600 text-lg max-w-2xl mx-auto">
                 Click on any problem to see how we fix it — and how much you&apos;ll save vs. replacement
@@ -361,20 +361,20 @@ export default function CommonProblemsPage() {
           </div>
         </section>
 
-        {/* Why Refinish vs Replace */}
+        {/* Why Remodel */}
         <section className="py-20 bg-slate-50">
           <div className="max-w-5xl mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Why Fix Instead of Replace?
+                Why Remodel Instead of Patch?
               </h2>
               <p className="text-gray-600 text-lg">
-                Smart homeowners choose refinishing for these reasons
+                Smart homeowners invest in a proper remodel for lasting results
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
-              {/* Replace Column */}
+              {/* DIY / Patch Column */}
               <div className="bg-white rounded-2xl p-8 border-2 border-red-200">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
@@ -382,17 +382,17 @@ export default function CommonProblemsPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-red-700">Full Replacement</h3>
+                  <h3 className="text-xl font-bold text-red-700">DIY Fixes & Patches</h3>
                 </div>
                 <ul className="space-y-4">
                   {[
-                    'Cost: $3,000 - $8,000+',
-                    'Timeline: 3-5 days minimum',
-                    'Demolition mess and dust',
-                    'Plumbing modifications needed',
-                    'Tile and wall damage',
-                    'Multiple contractors required',
-                    'Hidden costs common',
+                    'Temporary — problems come back',
+                    'Doesn\'t fix root cause',
+                    'Looks patchy and inconsistent',
+                    'Hidden water damage continues',
+                    'Lowers home value',
+                    'Time wasted on repeated repairs',
+                    'No warranty or guarantees',
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 text-gray-700">
                       <svg className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -404,10 +404,10 @@ export default function CommonProblemsPage() {
                 </ul>
               </div>
 
-              {/* Refinish Column */}
+              {/* Professional Remodel Column */}
               <div className="bg-white rounded-2xl p-8 border-2 border-green-400 relative">
                 <div className="absolute -top-3 right-4 px-3 py-1 bg-green-500 text-white text-sm font-bold rounded-full">
-                  BETTER CHOICE
+                  SMART INVESTMENT
                 </div>
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
@@ -415,17 +415,17 @@ export default function CommonProblemsPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-green-700">Professional Refinishing</h3>
+                  <h3 className="text-xl font-bold text-green-700">Professional Remodel</h3>
                 </div>
                 <ul className="space-y-4">
                   {[
-                    'Cost: $350 - $600',
-                    'Timeline: 4-6 hours, ready in 24hrs',
-                    'Zero demolition or mess',
-                    'No plumbing changes needed',
-                    'Existing tile stays intact',
-                    'One professional technician',
-                    'Fixed quote, no surprises',
+                    'Permanent solution — done right once',
+                    'Fixes structural & cosmetic issues',
+                    'Modern design increases home value',
+                    'Proper waterproofing prevents damage',
+                    '60-70% ROI at resale',
+                    'One team handles everything',
+                    '5-year warranty on all work',
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 text-gray-700">
                       <svg className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -435,101 +435,6 @@ export default function CommonProblemsPage() {
                     </li>
                   ))}
                 </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* When Refinishing Isn't Enough */}
-        <section className="py-20 bg-white">
-          <div className="max-w-5xl mx-auto px-4">
-            <div className="text-center mb-12">
-              <span className="inline-block text-amber-600 font-semibold text-sm uppercase tracking-wider mb-4">
-                Beyond Refinishing
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                When Refinishing Isn&apos;t Enough
-              </h2>
-              <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                Some problems go deeper than the surface. Here&apos;s when a full remodel is the smarter investment.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl p-8 border border-red-100">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
-                    <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-1">Structural Water Damage Behind Walls</h3>
-                    <p className="text-gray-600 text-sm mb-3">
-                      When moisture has penetrated behind tile and into wall studs, framing, or subfloor, surface refinishing won&apos;t address the root cause. Mold and rot require demolition to properly remediate.
-                    </p>
-                    <Link href="/services/bathroom-remodeling" className="inline-flex items-center gap-1 text-[#0b66b3] font-semibold text-sm hover:underline">
-                      Full Bathroom Remodel →
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl p-8 border border-red-100">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
-                    <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-1">Outdated Layout That Wastes Space</h3>
-                    <p className="text-gray-600 text-sm mb-3">
-                      If your kitchen or bathroom layout is inefficient — poor traffic flow, wasted corners, or fixtures in awkward positions — refinishing the surfaces won&apos;t solve the functional problems.
-                    </p>
-                    <Link href="/services/kitchen-remodeling" className="inline-flex items-center gap-1 text-[#0b66b3] font-semibold text-sm hover:underline">
-                      Kitchen or Bathroom Remodel →
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl p-8 border border-red-100">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
-                    <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-1">Multiple Surfaces Failing at Once</h3>
-                    <p className="text-gray-600 text-sm mb-3">
-                      When the tub, tile, vanity, and flooring are all deteriorating simultaneously, a complete renovation is often more cost-effective than refinishing each piece individually.
-                    </p>
-                    <Link href="/remodeling" className="inline-flex items-center gap-1 text-[#0b66b3] font-semibold text-sm hover:underline">
-                      Complete Renovation Options →
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl p-8 border border-red-100">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
-                    <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-1">Accessibility Needs</h3>
-                    <p className="text-gray-600 text-sm mb-3">
-                      Aging in place or mobility challenges require structural changes — grab bars, curbless showers, wider doorways, and ADA-compliant fixtures that go beyond cosmetic refinishing.
-                    </p>
-                    <Link href="/services/shower-installation" className="inline-flex items-center gap-1 text-[#0b66b3] font-semibold text-sm hover:underline">
-                      ADA-Compliant Remodel →
-                    </Link>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -574,9 +479,9 @@ export default function CommonProblemsPage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Related Services</h2>
             <div className="grid md:grid-cols-3 gap-6">
               {[
-                { title: 'Bathtub Refinishing', href: '/services/bathtub-refinishing', desc: 'Restore any tub to like-new' },
-                { title: 'Tile & Grout', href: '/services/tile-refinishing', desc: 'Fix stained tiles and grout' },
-                { title: 'Chip Repair', href: '/services/repair', desc: 'Quick fixes for damage' },
+                { title: 'Bathroom Remodeling', href: '/services/bathroom-remodeling', desc: 'Complete bathroom transformation' },
+                { title: 'Kitchen Remodeling', href: '/services/kitchen-remodeling', desc: 'Dream kitchen renovation' },
+                { title: 'Tile Installation', href: '/services/tile-installation', desc: 'Professional tile & flooring' },
               ].map((service) => (
                 <Link
                   key={service.title}
