@@ -4,11 +4,11 @@ import Link from 'next/link';
 import { BUSINESS, SERVICES } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: `Commercial Refinishing & Property Managers | ${BUSINESS.name}`,
+  title: `Commercial Remodeling & Property Managers | ${BUSINESS.name}`,
   description: `Volume discounts for property managers and commercial clients. Apartment turnovers, hotel renovations, and multi-unit projects. Fast turnaround, minimal disruption. Call ${BUSINESS.phone}`,
-  keywords: 'commercial bathtub refinishing seattle, property manager refinishing, apartment turnover refinishing, hotel bathroom reglazing, multi-unit refinishing',
+  keywords: 'commercial bathroom remodeling seattle, property manager remodeling, apartment turnover remodeling, hotel bathroom renovation, multi-unit remodeling',
   openGraph: {
-    title: `Commercial Refinishing & Property Managers | ${BUSINESS.name}`,
+    title: `Commercial Remodeling & Property Managers | ${BUSINESS.name}`,
     description: 'Volume discounts for property managers and commercial clients.',
     type: 'website',
     locale: 'en_US',

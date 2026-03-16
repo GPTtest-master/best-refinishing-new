@@ -4,14 +4,14 @@ import GalleryPageClient from './GalleryPageClient';
 
 export const metadata: Metadata = {
   title: `Project Gallery - Before & After Photos | ${BUSINESS.name}`,
-  description: `View stunning before and after photos of our kitchen & bathroom remodeling and refinishing projects in Seattle. ${BUSINESS.projectsCompleted} completed projects. ${BUSINESS.rating} star rating.`,
+  description: `View stunning before and after photos of our kitchen & bathroom remodeling projects in Seattle. ${BUSINESS.projectsCompleted} completed projects. ${BUSINESS.rating} star rating.`,
   keywords: 'kitchen remodeling photos seattle, bathroom remodel before after, remodeling gallery seattle, bathroom renovation photos, tile installation gallery',
   alternates: {
     canonical: `${BUSINESS.website}/gallery`,
   },
   openGraph: {
     title: `Project Gallery - Before & After | ${BUSINESS.name}`,
-    description: `View stunning before and after photos of our remodeling & refinishing projects.`,
+    description: `View stunning before and after photos of our remodeling projects.`,
     type: 'website',
     locale: 'en_US',
     siteName: BUSINESS.name,

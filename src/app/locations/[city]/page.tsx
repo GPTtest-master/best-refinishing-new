@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
   return {
     title: `Kitchen & Bathroom Remodeling ${location.name} WA | ${BUSINESS.name}`,
     description: content.metaDescription,
-    keywords: `kitchen remodeling ${location.name.toLowerCase()}, bathroom remodeling ${location.name.toLowerCase()}, bathroom remodel ${location.name.toLowerCase()} wa, kitchen remodel ${location.name.toLowerCase()}, tile installation ${location.name.toLowerCase()}, countertop installation ${location.name.toLowerCase()}, bathtub refinishing ${location.name.toLowerCase()}, shower refinishing ${location.name.toLowerCase()}, bathroom renovation ${location.name.toLowerCase()}`,
+    keywords: `kitchen remodeling ${location.name.toLowerCase()}, bathroom remodeling ${location.name.toLowerCase()}, bathroom remodel ${location.name.toLowerCase()} wa, kitchen remodel ${location.name.toLowerCase()}, tile installation ${location.name.toLowerCase()}, countertop installation ${location.name.toLowerCase()}, bathtub installation ${location.name.toLowerCase()}, shower installation ${location.name.toLowerCase()}, bathroom renovation ${location.name.toLowerCase()}`,
     openGraph: {
       title: `Kitchen & Bathroom Remodeling in ${location.name}, WA | ${BUSINESS.name}`,
       description: content.metaDescription,

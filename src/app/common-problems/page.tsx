@@ -6,7 +6,7 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'Common Kitchen & Bathroom Problems We Fix | Seattle Remodeling & Refinishing',
-  description: 'Stained bathtub? Cracked tile? Outdated kitchen? See the most common bathroom and kitchen problems we fix in Seattle. Professional remodeling and refinishing solutions.',
+  description: 'Stained bathtub? Cracked tile? Outdated kitchen? See the most common bathroom and kitchen problems we fix in Seattle. Professional remodeling solutions.',
   keywords: 'bathroom problems seattle, kitchen problems fix, cracked tile repair, outdated bathroom remodel, bathtub repair seattle, kitchen remodeling solutions',
   alternates: {
     canonical: `${BUSINESS.website}/common-problems`,

@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${service.title} Seattle & 50+ Cities | ${BUSINESS.name} - ${service.price}`,
     description: `Professional ${service.title.toLowerCase()} in Seattle, Bellevue, Redmond & 50+ cities. ${service.description} ${BUSINESS.warranty} warranty. Call ${BUSINESS.phone} for free estimate.`,
-    keywords: `${service.title.toLowerCase()}, ${service.shortTitle.toLowerCase()} reglazing seattle, ${service.shortTitle.toLowerCase()} resurfacing bellevue, bathroom refinishing seattle, ${service.shortTitle.toLowerCase()} refinishing near me`,
+    keywords: `${service.title.toLowerCase()}, ${service.shortTitle.toLowerCase()} remodeling seattle, ${service.shortTitle.toLowerCase()} installation bellevue, bathroom remodeling seattle, ${service.shortTitle.toLowerCase()} remodeling near me`,
     openGraph: {
       title: `${service.title} Seattle & 50+ Cities | ${BUSINESS.name}`,
       description: service.description,

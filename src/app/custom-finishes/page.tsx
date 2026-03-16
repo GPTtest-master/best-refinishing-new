@@ -5,7 +5,7 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'Custom Finishes & Designer Coatings for Kitchen & Bathroom Remodeling',
-  description: 'Custom designer finishes for your kitchen & bathroom remodel. Marble effects, stone textures, and unique coatings. Also available as refinishing option in Seattle.',
+  description: 'Custom designer finishes for your kitchen & bathroom remodel. Marble effects, stone textures, and unique coatings. Also available as a remodeling upgrade in Seattle.',
   keywords: 'custom bathroom finishes, designer kitchen coatings, marble effect seattle, custom remodeling finishes, artistic bathroom design',
 };
 

@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
   return {
     title: content.title,
     description: content.metaDescription,
-    keywords: `${content.serviceName.toLowerCase()} ${location.name.toLowerCase()}, ${content.serviceShortName.toLowerCase()} reglazing ${location.name.toLowerCase()} wa, ${content.serviceShortName.toLowerCase()} restoration ${location.name.toLowerCase()}, bathroom refinishing ${location.name.toLowerCase()}`,
+    keywords: `${content.serviceName.toLowerCase()} ${location.name.toLowerCase()}, ${content.serviceShortName.toLowerCase()} remodeling ${location.name.toLowerCase()} wa, ${content.serviceShortName.toLowerCase()} renovation ${location.name.toLowerCase()}, bathroom remodeling ${location.name.toLowerCase()}`,
     openGraph: {
       title: content.title,
       description: content.metaDescription,
