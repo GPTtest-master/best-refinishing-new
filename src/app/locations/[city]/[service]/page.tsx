@@ -16,7 +16,7 @@ export async function generateStaticParams() {
   const params: { city: string; service: string }[] = [];
 
   for (const city of TOP_CITIES) {
-    for (const serviceSlug of ALL_SERVICE_SLUGS) {
+    for (const serviceSlug of REMODELING_SERVICE_SLUGS) {
       params.push({
         city: city.id,
         service: serviceSlug,

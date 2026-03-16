@@ -5,15 +5,11 @@ import ServicePageClient from './ServicePageClient';
 import { generateServicePageSchema } from '@/lib/schema';
 import { SchemaScript } from '@/components/SchemaScript';
 
-// Generate static params for all services
+// Generate static params for remodeling services only (refinishing handled by 301 redirects)
 export async function generateStaticParams() {
-  const refinishingParams = SERVICES.map((service) => ({
+  return REMODELING_SERVICES.map((service) => ({
     slug: service.href.replace('/services/', ''),
   }));
-  const remodelingParams = REMODELING_SERVICES.map((service) => ({
-    slug: service.href.replace('/services/', ''),
-  }));
-  return [...refinishingParams, ...remodelingParams];
 }
 
 // Map slug to actual service ID

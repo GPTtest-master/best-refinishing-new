@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
-import { SERVICES, REMODELING_SERVICES, ALL_SERVICES, ALL_LOCATIONS, LOCATIONS, BUSINESS, BLOG_POSTS, PROJECTS } from '@/lib/constants';
-import { SERVICE_SLUGS, REMODELING_SERVICE_SLUGS } from '@/lib/locationServiceContent';
+import { REMODELING_SERVICES, ALL_LOCATIONS, LOCATIONS, BUSINESS, BLOG_POSTS, PROJECTS } from '@/lib/constants';
+import { REMODELING_SERVICE_SLUGS } from '@/lib/locationServiceContent';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = BUSINESS.website;
@@ -121,15 +121,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // Service pages - highest priority after homepage (core money pages)
-  const servicePages: MetadataRoute.Sitemap = SERVICES.map((service, index) => ({
-    url: `${baseUrl}${service.href}`,
-    lastModified: currentDate,
-    changeFrequency: 'daily' as const,
-    // Bathtub is most popular, then gradually decrease
-    priority: service.popular ? 0.75 : (0.72 - index * 0.01),
-  }));
-
   // Remodeling service pages — PRIMARY business, highest priority
   const remodelingServicePages: MetadataRoute.Sitemap = REMODELING_SERVICES.map((service, index) => ({
     url: `${baseUrl}${service.href}`,
@@ -156,28 +147,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority,
     };
   });
-
-  // Location + Service combo pages (72 total: 12 cities × 6 services)
-  // Critical for hyper-local SEO targeting
-  const locationServicePages: MetadataRoute.Sitemap = [];
-  for (const location of LOCATIONS.filter(l => l.primary)) {
-    for (const serviceSlug of SERVICE_SLUGS) {
-      const isSeattle = location.id === 'seattle';
-      const isBathtub = serviceSlug === 'bathtub-refinishing';
-      // Seattle + bathtub combo gets highest priority
-      let priority = 0.65;
-      if (isSeattle && isBathtub) priority = 0.70;
-      else if (isSeattle) priority = 0.68;
-      else if (isBathtub) priority = 0.67;
-
-      locationServicePages.push({
-        url: `${baseUrl}/locations/${location.id}/${serviceSlug}`,
-        lastModified: currentDate,
-        changeFrequency: 'weekly' as const,
-        priority,
-      });
-    }
-  }
 
   // Remodeling location+service combo pages — 12 cities × 6 services = 72 pages
   const remodelingLocationServicePages: MetadataRoute.Sitemap = [];
@@ -224,8 +193,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...remodelingServicePages,
     ...remodelingLocationServicePages,
     ...locationPages,
-    ...servicePages,
-    ...locationServicePages,
     ...staticPages.slice(1),
     ...blogPages,
     ...projectPages,
