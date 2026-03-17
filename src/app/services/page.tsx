@@ -7,14 +7,14 @@ import { generateServicesIndexSchema } from '@/lib/schema';
 import { SchemaScript } from '@/components/SchemaScript';
 
 export const metadata: Metadata = {
-  title: `Remodeling & Refinishing Services | ${BUSINESS.name}`,
+  title: `Remodeling Services | ${BUSINESS.name}`,
   description: `Professional kitchen & bathroom remodeling, tile installation, countertop installation, and shower installation in Seattle & 50+ cities. ${BUSINESS.warranty} warranty. Call ${BUSINESS.phone}.`,
   keywords: 'kitchen remodeling seattle, bathroom remodeling seattle, tile installation, countertop installation, shower installation, bathtub installation, remodeling services seattle',
   alternates: {
     canonical: `${BUSINESS.website}/services`,
   },
   openGraph: {
-    title: `Remodeling & Refinishing Services | ${BUSINESS.name}`,
+    title: `Remodeling Services | ${BUSINESS.name}`,
     description: `Professional kitchen & bathroom remodeling in Seattle & 50+ cities.`,
     type: 'website',
     locale: 'en_US',
