@@ -26,6 +26,7 @@ const nextConfig: NextConfig = {
   // 301 Redirects: Refinishing → Remodeling
   async redirects() {
     const serviceRedirects = [
+      { source: '/cost-calculator', destination: '/remodeling' },
       { source: '/services/bathtub-refinishing', destination: '/services/bathtub-installation' },
       { source: '/services/shower-refinishing', destination: '/services/shower-installation' },
       { source: '/services/tile-refinishing', destination: '/services/tile-installation' },

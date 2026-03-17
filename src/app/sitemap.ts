@@ -42,12 +42,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.92,
     },
     {
-      url: `${baseUrl}/cost-calculator`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.92,
-    },
-    {
       url: `${baseUrl}/gallery`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
