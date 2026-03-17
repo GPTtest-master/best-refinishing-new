@@ -54,10 +54,10 @@ export default function ServicesPage() {
               Our Services
             </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
-            Remodeling & Refinishing Services
+            Kitchen & Bathroom Remodeling Services
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
-            Complete kitchen & bathroom remodeling plus professional refinishing services
+            Complete kitchen & bathroom remodeling — from design to installation
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
@@ -150,166 +150,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Refinishing Services — SECONDARY */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <span className="inline-block text-[#0b66b3] font-semibold text-sm uppercase tracking-wider mb-3">
-              Also Available
-            </span>
-            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
-              Professional Refinishing Services
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Budget-friendly surface restoration — perfect when you don&apos;t need a full remodel
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {SERVICES.map((service) => (
-              <Link
-                key={service.id}
-                href={service.href}
-                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl border border-gray-100 transition-all duration-300"
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute bottom-4 right-4 px-4 py-2 rounded-full bg-white/95 backdrop-blur shadow-lg">
-                    <span className="text-[#0b66b3] font-bold">{service.price}</span>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-[#0b66b3] transition mb-2">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-3 line-clamp-2">
-                    {service.description}
-                  </p>
-                  <span className="inline-flex items-center gap-2 text-[#0b66b3] font-semibold text-sm group-hover:gap-3 transition-all">
-                    Learn More
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          {/* Cross-link to remodeling */}
-          <div className="mt-12 text-center">
-            <div className="inline-block bg-gradient-to-r from-[#0b66b3] to-[#084c8a] rounded-2xl p-8 max-w-2xl">
-              <h3 className="text-2xl font-bold text-white mb-3">Looking for a Full Remodel Instead?</h3>
-              <p className="text-white/80 mb-6">Refinishing is great for budget updates, but if you want a complete transformation, check out our remodeling services.</p>
-              <Link href="/services/bathroom-remodeling" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-amber-500 text-white font-bold hover:bg-amber-600 transition">
-                Explore Remodeling Services
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Remodel vs Refinish Comparison */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <span className="inline-block text-[#0b66b3] font-semibold text-sm uppercase tracking-wider mb-3">
-              Compare Your Options
-            </span>
-            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
-              Remodel vs. Refinish: Which Is Right for You?
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Both options can transform your space — here&apos;s how to decide
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {/* When to Refinish */}
-            <div className="rounded-2xl border-2 border-[#0b66b3]/20 bg-blue-50/50 p-8">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-[#0b66b3] flex items-center justify-center">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900">When to Refinish</h3>
-              </div>
-              <ul className="space-y-4">
-                {[
-                  'Surface damage only (chips, stains, discoloration)',
-                  'Budget under $1,000',
-                  'Need it done in 1 day',
-                  'Existing layout works fine',
-                  'Tub/sink is structurally sound',
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-[#0b66b3] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* When to Remodel */}
-            <div className="rounded-2xl border-2 border-amber-500/20 bg-amber-50/50 p-8">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-amber-500 flex items-center justify-center">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900">When to Remodel</h3>
-              </div>
-              <ul className="space-y-4">
-                {[
-                  'Outdated layout or design',
-                  'Water damage behind walls',
-                  'Want new fixtures and features',
-                  'Planning to sell (higher ROI)',
-                  'Need accessibility updates',
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Bottom Note */}
-          <div className="mt-10 max-w-3xl mx-auto text-center">
-            <div className="rounded-2xl bg-slate-50 border border-slate-200 p-6">
-              <p className="text-gray-700">
-                <strong className="text-gray-900">Not sure which option is right?</strong>{' '}
-                Call us for a free consultation — we&apos;ll assess your space and recommend the best approach for your budget and goals.
-              </p>
-              <a
-                href={BUSINESS.phoneLink}
-                className="inline-flex items-center gap-2 mt-4 px-6 py-3 rounded-full bg-[#0b66b3] text-white font-bold hover:bg-[#084c8a] transition"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                Call {BUSINESS.phone}
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Why Choose Us */}
       <section className="py-20 bg-white">
@@ -319,7 +159,7 @@ export default function ServicesPage() {
               Why Choose Us?
             </span>
             <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
-              Your Trusted Remodeling & Refinishing Partner
+              Your Trusted Remodeling Partner
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Quality craftsmanship and reliable service on every project
@@ -371,7 +211,7 @@ export default function ServicesPage() {
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">{BUSINESS.warranty} Warranty</h3>
               <p className="text-gray-600 text-sm">
-                Full coverage on all refinishing work
+                Full coverage on all remodeling work
               </p>
             </div>
           </div>
