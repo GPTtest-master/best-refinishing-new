@@ -1,16 +1,23 @@
 import Image from 'next/image';
 import { BUSINESS } from '@/lib/constants';
 
+const trustBadgeIcons = {
+  home: <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1" /></svg>,
+  shield: <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>,
+  check: <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>,
+  star: <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>,
+};
+
 const trustBadges = [
-  { icon: '🏠', text: 'Full-Service Remodeling' },
-  { icon: '🛡️', text: 'Licensed & Insured' },
-  { icon: '✅', text: '5-Year Warranty' },
-  { icon: '⭐', text: '4.98 Rating' },
+  { icon: trustBadgeIcons.home, text: 'Full-Service Remodeling' },
+  { icon: trustBadgeIcons.shield, text: 'Licensed & Insured' },
+  { icon: trustBadgeIcons.check, text: '5-Year Warranty' },
+  { icon: trustBadgeIcons.star, text: '4.98 Rating' },
 ];
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden min-h-[550px] md:min-h-[620px]" id="hero">
+    <section className="relative overflow-hidden min-h-[480px] md:min-h-[520px]" id="hero">
       {/* Background Image */}
       <div className="absolute inset-0">
         {/* Desktop image */}
@@ -39,7 +46,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/50 via-slate-900/30 to-transparent" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 pt-10 md:pt-16 pb-10 md:pb-16 flex flex-col justify-center min-h-[550px] md:min-h-[620px]">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 pt-6 md:pt-8 pb-8 md:pb-12 flex flex-col justify-center min-h-[480px] md:min-h-[520px]">
         <div className="max-w-2xl">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6">
@@ -57,8 +64,8 @@ export default function Hero() {
             Transform your home with expert craftsmanship. We handle everything — design, demolition, plumbing, tile, countertops, and fixtures.
           </p>
 
-          <p className="text-sm md:text-lg text-white/70 mb-6 md:mb-8 leading-relaxed max-w-xl">
-            Serving Seattle, Bellevue, Redmond, Kirkland, Tacoma and 50+ cities across the Puget Sound. {BUSINESS.experience} years experience. {BUSINESS.projectsCompleted} projects completed. {BUSINESS.warranty} warranty on every job.
+          <p className="text-sm md:text-lg text-white/70 mb-6 md:mb-8 whitespace-nowrap">
+            Serving Seattle, Bellevue, Redmond, Kirkland, Tacoma and 50+ cities
           </p>
 
           {/* Trust badges - compact on mobile, cards on desktop */}
@@ -79,7 +86,7 @@ export default function Hero() {
                 key={badge.text}
                 className="group inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:border-white/40 hover:scale-105 transition-all duration-300 cursor-default"
               >
-                <span className="text-lg group-hover:scale-110 transition-transform duration-300">{badge.icon}</span>
+                <span className="group-hover:scale-110 transition-transform duration-300 text-white">{badge.icon}</span>
                 <span className="text-white text-sm font-semibold whitespace-nowrap">{badge.text}</span>
               </div>
             ))}

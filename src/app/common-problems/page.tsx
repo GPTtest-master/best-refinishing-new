@@ -4,6 +4,18 @@ import Link from 'next/link';
 import { BUSINESS } from '@/lib/constants';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
+const problemIcons: Record<string, React.ReactNode> = {
+  bath: <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 13h18v4a3 3 0 01-3 3H6a3 3 0 01-3-3v-4zm2-1V6a3 3 0 013-3h1a2 2 0 012 2v8" /></svg>,
+  kitchen: <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" /></svg>,
+  tile: <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4 5h16M4 12h16M4 19h16M12 5v14" /></svg>,
+  shower: <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2m0 0a4 4 0 014 4H8a4 4 0 014-4zm-6 6v10m12-10v10M8 21h8" /></svg>,
+  counter: <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4 10h16v2H4v-2zm2 2v6h12v-6M7 10V7a1 1 0 011-1h8a1 1 0 011 1v3" /></svg>,
+  mold: <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
+  storage: <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>,
+  accessible: <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M16 7a2 2 0 11-4 0 2 2 0 014 0zm-2 4l3 8m-3-8l-3 8m3-8v-1m-5 9h10" /></svg>,
+  value: <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>,
+};
+
 export const metadata: Metadata = {
   title: 'Common Kitchen & Bathroom Problems We Fix | Seattle Remodeling Experts',
   description: 'Outdated bathroom? Ugly kitchen? Cracked tile? See the most common bathroom and kitchen problems we solve with professional remodeling in Seattle.',
@@ -33,7 +45,7 @@ const problems = [
     solution: 'Our full bathroom remodel transforms everything — new tile, vanity, fixtures, shower, and flooring. Modern design, efficient layout, all done by one team.',
     serviceLink: '/services/bathroom-remodeling',
     serviceName: 'Bathroom Remodeling',
-    icon: '🛁',
+    icon: 'bath',
   },
   {
     id: 'outdated-kitchen',
@@ -49,7 +61,7 @@ const problems = [
     solution: 'Complete kitchen renovation — new cabinets, quartz or granite countertops, modern backsplash, updated lighting, and a layout that works for your family.',
     serviceLink: '/services/kitchen-remodeling',
     serviceName: 'Kitchen Remodeling',
-    icon: '🍳',
+    icon: 'kitchen',
   },
   {
     id: 'damaged-tile',
@@ -65,7 +77,7 @@ const problems = [
     solution: 'Professional tile removal and installation with modern porcelain, ceramic, or natural stone. Proper waterproofing, fresh grout, and a look that lasts 20+ years.',
     serviceLink: '/services/tile-installation',
     serviceName: 'Tile Installation',
-    icon: '🧱',
+    icon: 'tile',
   },
   {
     id: 'shower-problems',
@@ -81,7 +93,7 @@ const problems = [
     solution: 'Full shower remodel — new custom tile, glass enclosure, modern fixtures, proper waterproofing membrane, and a rain or handheld showerhead upgrade.',
     serviceLink: '/services/shower-installation',
     serviceName: 'Shower Installation',
-    icon: '🚿',
+    icon: 'shower',
   },
   {
     id: 'worn-countertops',
@@ -97,7 +109,7 @@ const problems = [
     solution: 'Upgrade to beautiful quartz, granite, or marble countertops. Professional measurement, fabrication, and installation with seamless results.',
     serviceLink: '/services/countertop-installation',
     serviceName: 'Countertop Installation',
-    icon: '🪨',
+    icon: 'counter',
   },
   {
     id: 'old-bathtub',
@@ -113,7 +125,7 @@ const problems = [
     solution: 'Professional bathtub replacement — removal of old tub, plumbing updates, new tub or tub-to-shower conversion, tile surround, and modern fixtures.',
     serviceLink: '/services/bathtub-installation',
     serviceName: 'Bathtub Installation',
-    icon: '🛁',
+    icon: 'bath',
   },
   {
     id: 'mold-water-damage',
@@ -129,7 +141,7 @@ const problems = [
     solution: 'Full demolition, mold remediation, structural repair, new waterproofing, and complete rebuild. We fix the root cause, not just the surface.',
     serviceLink: '/services/bathroom-remodeling',
     serviceName: 'Bathroom Remodeling',
-    icon: '🦠',
+    icon: 'mold',
   },
   {
     id: 'no-storage',
@@ -145,7 +157,7 @@ const problems = [
     solution: 'Smart remodel with custom vanity, built-in niches, recessed medicine cabinet, floating shelves, and optimized layout that maximizes every inch.',
     serviceLink: '/services/bathroom-remodeling',
     serviceName: 'Bathroom Remodeling',
-    icon: '📦',
+    icon: 'storage',
   },
   {
     id: 'accessibility',
@@ -161,7 +173,7 @@ const problems = [
     solution: 'ADA-compliant remodel — curbless shower, grab bars, non-slip tile, comfort-height toilet, wider doorways, and handheld showerhead. Safe and stylish.',
     serviceLink: '/services/shower-installation',
     serviceName: 'Shower Installation',
-    icon: '♿',
+    icon: 'accessible',
   },
   {
     id: 'low-home-value',
@@ -177,7 +189,7 @@ const problems = [
     solution: 'Strategic kitchen or bathroom remodel focused on maximum ROI. We know what Seattle buyers want — modern finishes, clean lines, and quality materials.',
     serviceLink: '/services/kitchen-remodeling',
     serviceName: 'Kitchen Remodeling',
-    icon: '📈',
+    icon: 'value',
   },
 ];
 
@@ -292,7 +304,7 @@ export default function CommonProblemsPage() {
                     {/* Problem Side */}
                     <div className="p-8 bg-gradient-to-br from-red-50 to-orange-50 border-b md:border-b-0 md:border-r border-gray-100">
                       <div className="flex items-start gap-4 mb-6">
-                        <span className="text-4xl">{problem.icon}</span>
+                        <span className="text-red-600">{problemIcons[problem.icon]}</span>
                         <div>
                           <span className="text-red-600 text-sm font-semibold">Problem #{index + 1}</span>
                           <h3 className="text-2xl font-bold text-gray-900">{problem.title}</h3>
