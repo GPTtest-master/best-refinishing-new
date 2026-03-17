@@ -10,7 +10,7 @@ const trustBadges = [
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden min-h-[650px] md:min-h-[800px]" id="hero">
+    <section className="relative overflow-hidden min-h-[550px] md:min-h-[620px]" id="hero">
       {/* Background Image */}
       <div className="absolute inset-0">
         {/* Desktop image */}
@@ -39,7 +39,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/50 via-slate-900/30 to-transparent" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 pt-16 md:pt-32 pb-10 md:pb-20 flex flex-col justify-center min-h-[650px] md:min-h-[800px]">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 pt-10 md:pt-16 pb-10 md:pb-16 flex flex-col justify-center min-h-[550px] md:min-h-[620px]">
         <div className="max-w-2xl">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6">
