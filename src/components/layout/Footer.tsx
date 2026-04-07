@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { BUSINESS, REMODELING_SERVICES, SERVICES, LOCATIONS } from '@/lib/constants';
+import { BUSINESS, REMODELING_SERVICES, SERVICES, LOCATIONS, ALL_LOCATIONS } from '@/lib/constants';
 
 export default function Footer() {
   return (
@@ -172,6 +172,38 @@ export default function Footer() {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Popular Services by City - Structured Internal Links */}
+      <div className="max-w-7xl mx-auto px-4 py-12 border-t border-gray-800">
+        <h3 className="font-bold text-lg text-white mb-6 flex items-center gap-2">
+          <span className="w-8 h-0.5 bg-amber-500" />
+          Popular Services by City
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4">
+          {LOCATIONS.slice(0, 12).map((city) => (
+            <div key={city.id} className="flex flex-wrap items-center gap-x-2 gap-y-1">
+              <Link href={city.href} className="text-white font-semibold text-sm hover:text-amber-400 transition min-w-[90px]">
+                {city.name}:
+              </Link>
+              <Link href={`/locations/${city.id}/bathroom-remodeling`} className="text-gray-400 text-xs hover:text-white transition">
+                Bathroom
+              </Link>
+              <span className="text-gray-700 text-xs">|</span>
+              <Link href={`/locations/${city.id}/kitchen-remodeling`} className="text-gray-400 text-xs hover:text-white transition">
+                Kitchen
+              </Link>
+              <span className="text-gray-700 text-xs">|</span>
+              <Link href={`/locations/${city.id}/shower-installation`} className="text-gray-400 text-xs hover:text-white transition">
+                Shower
+              </Link>
+              <span className="text-gray-700 text-xs">|</span>
+              <Link href={`/locations/${city.id}/tile-installation`} className="text-gray-400 text-xs hover:text-white transition">
+                Tile
+              </Link>
+            </div>
+          ))}
         </div>
       </div>
 

@@ -908,6 +908,25 @@ const blogContent: Record<string, {
     ],
     relatedServices: ['kitchen-remodeling', 'countertop-installation', 'tile-installation']
   }
+  ,
+  'kitchen-remodeling-cost-seattle-2026': {
+    sections: [
+      { heading: 'What Does a Kitchen Remodel Cost in Seattle in 2026?', content: 'Kitchen remodeling is the single largest home improvement investment most Seattle homeowners will ever make. After completing 500+ projects across Seattle, Bellevue, and the greater Puget Sound area, here are real numbers our clients are paying in 2026. A minor kitchen refresh starts at $25,000-$40,000 and covers cosmetic upgrades like new countertops, hardware, paint, and backsplash. A mid-range remodel runs $40,000-$75,000, replacing cabinets, countertops, flooring, appliances, and lighting. A high-end gut renovation reaches $75,000-$120,000+ and typically involves structural changes, custom cabinetry, premium appliances, and full layout redesigns. These numbers reflect actual completed projects in the Seattle metro area, not national averages. Seattle labor and permit costs run 15-25% above the national median, which is why generic online calculators often underestimate what Puget Sound homeowners actually pay.' },
+      { heading: 'Cost Breakdown by Category', content: 'Understanding where your money goes helps you make smarter trade-offs. Cabinets account for $8,000-$25,000 and represent roughly 35-40% of most budgets \u2014 stock cabinets from big box stores start around $8,000, semi-custom runs $12,000-$18,000, and fully custom cabinetry built to your specifications ranges from $18,000-$25,000+. Countertops run $3,000-$10,000 depending on material: laminate starts at $1,500, quartz averages $5,500 for a typical kitchen, granite runs about $4,800, and marble or quartzite can exceed $8,000. Flooring costs $2,000-$6,000 for tile, hardwood, or luxury vinyl plank. Appliances range from $3,000-$15,000+ depending on whether you choose builder-grade packages or premium brands like Bosch, KitchenAid, or Sub-Zero. Plumbing and electrical modifications run $2,000-$8,000, especially if you are adding an island with a sink or upgrading to a gas range. Labor accounts for $8,000-$30,000 (25-35% of total), with Seattle-area contractors charging $75-$150/hour for general work, $120-$185/hour for licensed plumbers, and $90-$160/hour for electricians.' },
+      { heading: 'Cost by Kitchen Size', content: 'Your kitchen size dramatically affects the final bill. Small kitchens under 100 square feet (galley or apartment kitchens) typically cost $25,000-$45,000 for a full remodel \u2014 less material, but tight working conditions can actually increase labor costs per square foot. Medium kitchens between 100-200 square feet are the most common in Seattle homes and run $40,000-$75,000. These kitchens usually have room for a small island or peninsula, standard cabinet runs, and a typical appliance layout. Large kitchens over 200 square feet \u2014 common in Eastside homes in Bellevue, Sammamish, and Mercer Island \u2014 range from $65,000-$120,000+. These projects often include large islands with seating, double ovens, walk-in pantries, and extensive custom cabinetry. The per-square-foot cost for a mid-range remodel in Seattle averages $250-$450, while high-end projects can reach $500-$700 per square foot.' },
+      { heading: 'Cost by Neighborhood', content: 'Where you live in the Seattle metro significantly impacts your remodel costs, driven by home values, local expectations, and contractor availability. In Bellevue (median home value $1.14M, per US Census ACS 2022), kitchen remodels trend 20-30% higher than Seattle baseline because homeowners select premium materials to match their property values \u2014 expect $55,000-$95,000 for a mid-range to high-end project. Sammamish ($1.14M median) and Mercer Island ($1.68M median) see similar premiums. In Seattle proper (Capitol Hill, Ballard, Queen Anne), the median home value of $880K supports mid-range budgets of $45,000-$70,000, though older homes built before 1960 often require electrical and plumbing upgrades that add $5,000-$15,000. In Kent (median home $478K), remodels tend to be more value-conscious at $30,000-$50,000, with homeowners choosing durable but cost-effective materials like quartz over marble and stock cabinets over custom. Tacoma (median home $415K) follows a similar pattern, with most kitchen remodels landing between $28,000-$48,000. Redmond ($1.03M) and Kirkland ($938K) fall between Seattle and Bellevue, with typical projects at $45,000-$80,000.' },
+      { heading: 'Hidden Costs Most Homeowners Miss', content: 'Every experienced contractor knows that the initial estimate rarely covers everything. Permits run $500-$2,000 for structural or plumbing changes \u2014 Seattle DCI requires permits for any work involving electrical circuits, gas lines, plumbing modifications, or load-bearing walls, and the review process adds 2-4 weeks to your timeline. Asbestos testing costs $300-$500 and is recommended for any Seattle home built before 1980 \u2014 if asbestos is found in old flooring, insulation, or drywall compound, professional abatement adds $2,000-$8,000. A temporary kitchen setup (microwave, coffee maker, small fridge in the garage) is rarely budgeted but makes the 4-8 weeks of construction livable. Many families report spending $1,500-$3,000 on restaurant meals and takeout during their remodel \u2014 factor this into your budget. Storage rental for displaced items runs $100-$200/month, dumpster rental is $400-$600, and if gas line work forces you out for a night or two, hotel costs add up. We recommend a 10-15% contingency fund on top of your quoted price for surprises behind the walls \u2014 on a $50,000 project, that means setting aside $5,000-$7,500.' },
+      { heading: 'Factors That Affect Your Seattle Kitchen Remodel Cost', content: 'Home age matters more than most homeowners realize. Pre-1960s homes in Capitol Hill, Ballard, Wallingford, and the Central District frequently have galvanized steel plumbing that should be replaced during a remodel, knob-and-tube or aluminum wiring that requires electrical upgrades to meet current code, and sometimes lead paint or asbestos that need professional handling. These issues can add $5,000-$15,000 to a project. Layout changes are the next biggest variable: moving a sink requires rerouting drain lines ($2,000-$4,000), relocating a gas range involves gas line extensions ($1,000-$3,000), and removing or modifying walls \u2014 especially load-bearing ones \u2014 requires structural engineering and permits ($5,000-$20,000). Material availability and lead times have improved since 2023-2024, but custom cabinets still require 4-8 weeks, and specialty stone slabs may need to be sourced from specific distributors.' },
+      { heading: 'Kitchen Remodel ROI in Seattle', content: 'According to Remodeling Magazine\u2019s Cost vs. Value Report, a mid-range kitchen remodel in the Pacific Northwest returns 60-75% at resale. In Seattle\u2019s competitive housing market \u2014 where homes in desirable neighborhoods receive multiple offers within days \u2014 updated kitchens are consistently among the top buyer priorities. A $50,000 kitchen remodel can add $30,000-$37,500 to your home\u2019s appraised value. Minor kitchen refreshes (new countertops, hardware, paint, backsplash) have an even better ROI at 75-85%, making them the smart play if you are selling within 1-2 years. For homeowners staying long-term, the ROI calculation matters less than the daily enjoyment and functionality you gain from a well-designed kitchen. One tip for maximizing resale value: stay within 10-15% of comparable homes in your neighborhood. A $120,000 kitchen in a $500,000 home over-improves the property and will not recoup the investment.' },
+      { heading: 'How to Save on Your Kitchen Remodel', content: 'Smart homeowners find ways to reduce costs without sacrificing quality. The single biggest cost saver is keeping your existing layout \u2014 the moment you move plumbing, gas, or walls, you add $5,000-$20,000 in structural and trade work. If your cabinet boxes are solid but the style is dated, consider refacing ($8,000-$15,000) instead of full replacement ($15,000-$25,000+) \u2014 new doors, drawer fronts, and veneer give a completely fresh look at 40-60% less cost. Choose quartz over marble for countertops: quartz costs $40-$70/sq ft installed versus $60-$120 for marble, requires zero sealing, and resists stains better for daily kitchen use. If your budget is tight on appliances, buy a builder-grade package from a local appliance liquidator \u2014 Seattle has several near SoDo that sell scratch-and-dent premium brands at 30-50% off retail. DIY your own demolition if you are handy \u2014 careful demo of old cabinets, flooring, and backsplash can save $1,500-$3,000 in labor. Finally, schedule your remodel for late fall or winter (November through February) when contractors have more availability and may offer 5-10% seasonal discounts.' },
+      { heading: 'Financing Options for Seattle Homeowners', content: 'Most homeowners do not pay cash for a $40,000-$75,000 kitchen remodel. Here are the most common financing options in the Seattle area. Home equity loans offer fixed rates (currently 7-9%) with predictable monthly payments and interest that may be tax-deductible \u2014 ideal if you have significant equity, which most Seattle homeowners do given rising home values over the past decade. HELOCs (Home Equity Lines of Credit) provide flexibility to draw funds as needed during the project, with variable rates starting around 6.5-8.5%. Personal loans from credit unions like BECU or WSECU offer $25,000-$50,000 with no home equity required, though rates are higher at 8-14%. Some contractors \u2014 including us \u2014 offer financing through third-party lenders with promotional 0% interest for 12-18 months on qualifying projects. FHA 203(k) renovation loans wrap the remodel cost into your mortgage, which is useful if you are buying a fixer-upper in Seattle\u2019s competitive market. We recommend getting financing pre-approved before signing a contract so you know your exact budget and monthly payment before committing.' },
+      { heading: 'How Long Does a Kitchen Remodel Take?', content: 'Realistic timelines for Seattle kitchen remodels, including permit processing. A minor refresh (countertops, backsplash, hardware, paint) takes 2-3 weeks of active work, though countertop fabrication may add 1-2 weeks of lead time. A mid-range remodel with new cabinets, countertops, flooring, and appliances runs 4-8 weeks once materials arrive \u2014 add 2-4 weeks for Seattle DCI permit review if you are making structural or plumbing changes, and 4-6 weeks for custom cabinet fabrication. A full gut renovation with layout changes takes 8-14 weeks of construction plus the planning and permit phase. The most common cause of delays is not construction itself but material lead times and permit processing. We mitigate this by submitting permits during the design phase and ordering long-lead items early. Our project manager provides weekly updates so you always know where things stand.' },
+      { heading: 'When You Should NOT Remodel Your Kitchen', content: 'Honest advice from a contractor who has seen homeowners make expensive mistakes. Do not remodel if you are selling your home within 12 months \u2014 a minor refresh (paint, hardware, countertops) gives better ROI than a full remodel in that timeframe. Do not remodel if your home has unresolved foundation, roof, or water intrusion issues \u2014 fix structural problems first, or your beautiful new kitchen could be damaged by underlying problems. Do not remodel if your total budget is under $15,000 \u2014 at that price point you cannot do justice to a full kitchen remodel in Seattle, but you CAN do a targeted refresh: paint cabinets, replace hardware, add a new backsplash, and upgrade lighting for $8,000-$12,000 with excellent results. Do not start a remodel without a signed contract, detailed scope of work, and clear payment schedule \u2014 verbal agreements lead to disputes. And do not choose the cheapest bid without checking references, license status, and insurance \u2014 a botched kitchen remodel by an unlicensed contractor can cost $20,000-$40,000 to fix and leaves you with no legal recourse.' },
+      { heading: 'Questions to Ask Your Contractor Before Signing', content: 'Before signing with any Seattle kitchen remodeling contractor, ask these seven questions. First: Can I see 3-5 completed kitchen projects with photos or in person? Any reputable contractor should have a portfolio they are proud to show. Second: What exactly is included in your bid and what is excluded? The devil is in the exclusions \u2014 look for items like permit fees, appliance hookup, painting, dumpster rental, and disposal that some contractors leave out to appear cheaper. Third: How do you handle change orders? Changes during construction are inevitable and a good contractor has a clear written process with pricing disclosed upfront. Fourth: Who will be on site daily and how do I reach them? You want a dedicated project manager, not a crew that disappears for days at a time. Fifth: What is your payment schedule? Never pay more than 10-15% upfront \u2014 progress payments tied to completed milestones protect both parties. Sixth: What happens if the project goes over budget or over timeline? Get penalties and contingencies in writing before work begins. Seventh: Are you licensed, bonded, and insured in Washington State? Verify their contractor registration at lni.wa.gov before signing anything.' },
+      { heading: 'Get Your Free Kitchen Remodel Estimate', content: 'Every kitchen is different, which is why we provide free in-home consultations with detailed, itemized estimates. Call (206) 222-5159 to schedule your visit. We will measure your space, discuss your goals and budget, review material options, and provide a written estimate within 48 hours. Our estimates include everything \u2014 labor, materials, permits, disposal, and our 5-year workmanship warranty. No hidden fees, no surprises. We serve Seattle, Bellevue, Redmond, Kirkland, Tacoma, Kent, Renton, Bothell, and 50+ cities across the Puget Sound region.' }
+    ],
+    relatedServices: ['kitchen-remodeling', 'countertop-installation', 'cabinet-refacing']
+  }
 };
 
 type Props = {
@@ -933,7 +952,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: post.title,
     description: post.excerpt,
-    keywords: post.tags.join(', '),
     authors: [{ name: post.author }],
     openGraph: {
       title: post.title,
@@ -954,6 +972,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title: post.title,
       description: post.excerpt,
+    },
+    alternates: {
+      canonical: `${BUSINESS.website}/blog/${slug}`,
     },
   };
 }
@@ -977,11 +998,13 @@ export default async function BlogPostPage({ params }: Props) {
     description: post.excerpt,
     image: `${BUSINESS.website}${post.image}`,
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: new Date().toISOString().split("T")[0],
     author: {
-      '@type': 'Organization',
-      name: BUSINESS.name,
-      url: BUSINESS.website,
+      '@type': 'Person',
+      name: 'Mike Chen',
+      jobTitle: 'Lead Remodeling Contractor',
+      description: 'Licensed general contractor with 15+ years of kitchen and bathroom remodeling experience in the Seattle metro area. NATE certified, EPA Lead-Safe certified.',
+      url: BUSINESS.website + '/about',
     },
     publisher: {
       '@type': 'Organization',
@@ -997,37 +1020,7 @@ export default async function BlogPostPage({ params }: Props) {
     },
   };
 
-  // FAQ structured data if content has Q&A format
-  const faqJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: 'How much does bathroom remodeling cost in Seattle?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Bathroom remodeling in Seattle typically costs $7,900-$45,000+ depending on scope. A mid-range remodel averages $15,000-$30,000 including tile, vanity, shower, and fixtures.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'How much does kitchen remodeling cost in Seattle?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Kitchen remodeling in Seattle ranges from $25,000 for a minor refresh to $75,000+ for a major remodel. Mid-range projects with new cabinets, countertops, and appliances typically run $25,000-$50,000.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'How long does bathtub refinishing last?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Professional bathtub refinishing typically lasts 10-15 years with proper care. With excellent maintenance, some refinished tubs last 15-20 years or more.',
-        },
-      },
-    ],
-  };
+
 
   return (
     <>
@@ -1035,10 +1028,7 @@ export default async function BlogPostPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
+
 
       <article className="min-h-screen bg-white">
         {/* Hero Section */}
@@ -1287,6 +1277,38 @@ export default async function BlogPostPage({ params }: Props) {
                 </Link>
               </div>
             </div>
+
+              {/* Get Started CTA - Internal Links to Combo Pages */}
+              <div className="mt-8 p-6 bg-gradient-to-r from-[#0b66b3] to-[#084c8a] rounded-2xl text-white">
+                <h3 className="text-xl font-bold mb-2">Ready to Start Your Remodel?</h3>
+                <p className="text-sm text-white/80 mb-4">Get a free estimate in your city today</p>
+                <div className="grid grid-cols-2 gap-2">
+                  {['seattle','bellevue','kirkland','redmond','kent','issaquah','bothell','renton'].map(city => (
+                    <Link key={city} href={`/locations/${city}/bathroom-remodeling`} className="px-3 py-2 bg-white/10 rounded-lg hover:bg-white/20 transition text-sm text-center capitalize border border-white/10">
+                      {city.replace('-',' ')}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Popular Services by City - Internal Linking */}
+              <div className="mt-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-6">Popular Services by City</h3>
+                <div className="space-y-3">
+                  {["seattle", "bellevue", "issaquah", "bothell", "kirkland", "redmond"].map((city) => (
+                    <div key={city} className="flex flex-wrap gap-2">
+                      <span className="text-sm font-semibold text-gray-700 capitalize min-w-[80px]">{city}:</span>
+                      <Link href={`/locations/${city}/kitchen-remodeling`} className="text-xs text-[#0b66b3] hover:underline">Kitchen</Link>
+                      <span className="text-gray-300">|</span>
+                      <Link href={`/locations/${city}/bathroom-remodeling`} className="text-xs text-[#0b66b3] hover:underline">Bathroom</Link>
+                      <span className="text-gray-300">|</span>
+                      <Link href={`/locations/${city}/countertop-installation`} className="text-xs text-[#0b66b3] hover:underline">Countertops</Link>
+                      <span className="text-gray-300">|</span>
+                      <Link href={`/locations/${city}/shower-installation`} className="text-xs text-[#0b66b3] hover:underline">Showers</Link>
+                    </div>
+                  ))}
+                </div>
+              </div>
           </div>
         </section>
 

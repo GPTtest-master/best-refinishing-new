@@ -25,11 +25,10 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
   const content = getLocationContent(location.name, location.id);
 
   return {
-    title: `Kitchen & Bathroom Remodeling ${location.name} WA | ${BUSINESS.name}`,
+    title: `Kitchen & Bathroom Remodeling ${location.name} WA ★${BUSINESS.rating} | Free Estimate | ${BUSINESS.phone}`,
     description: content.metaDescription,
-    keywords: `kitchen remodeling ${location.name.toLowerCase()}, bathroom remodeling ${location.name.toLowerCase()}, bathroom remodel ${location.name.toLowerCase()} wa, kitchen remodel ${location.name.toLowerCase()}, tile installation ${location.name.toLowerCase()}, countertop installation ${location.name.toLowerCase()}, bathtub installation ${location.name.toLowerCase()}, shower installation ${location.name.toLowerCase()}, bathroom renovation ${location.name.toLowerCase()}`,
     openGraph: {
-      title: `Kitchen & Bathroom Remodeling in ${location.name}, WA | ${BUSINESS.name}`,
+      title: `${location.name} Kitchen & Bath Remodeling | ${BUSINESS.projectsCompleted} Projects | Free Quote`,
       description: content.metaDescription,
       type: 'website',
       locale: 'en_US',

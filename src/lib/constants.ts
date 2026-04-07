@@ -220,6 +220,54 @@ export const REMODELING_SERVICES = [
     imageScale: 1,
     href: '/services/bathtub-installation',
   },
+  {
+    id: 'tub-to-shower',
+    title: 'Tub to Shower Conversion',
+    shortTitle: 'Tub to Shower',
+    subtitle: 'Popular Upgrade',
+    description: 'Convert your underused bathtub into a spacious, modern walk-in shower. Our complete tub-to-shower conversions include demolition, plumbing rework, waterproofing, custom tile, glass enclosure, and fixtures — done in 3-5 days.',
+    longDescription: 'Our tub-to-shower conversion service transforms your outdated or unused bathtub into a beautiful, functional walk-in shower. The process includes complete tub removal, plumbing modifications, waterproof membrane installation, backer board, custom tile work, glass door or enclosure installation, and all new fixtures. We handle everything from permits to final inspection, and most conversions are completed in 3-5 working days.',
+    features: ['Complete removal & rework', 'Custom tile options', 'Glass enclosure included', 'ADA/accessible options'],
+    price: 'From $5,000',
+    savings: 'Modern Upgrade',
+    popular: false,
+    image: '/images/remodeling/shower-hero.png',
+    imagePosition: 'center',
+    imageScale: 1,
+    href: '/services/tub-to-shower',
+  },
+  {
+    id: 'cabinet-refacing',
+    title: 'Cabinet Refacing',
+    shortTitle: 'Cabinets',
+    subtitle: 'Kitchen Update',
+    description: 'Give your kitchen a brand-new look without the cost and disruption of full cabinet replacement. We replace doors, drawer fronts, and veneer while keeping your existing cabinet boxes — saving 40-50% vs. new cabinets.',
+    longDescription: 'Cabinet refacing is the smart way to transform your kitchen without a full gut renovation. We keep your structurally sound cabinet boxes and replace all visible surfaces: doors, drawer fronts, side panels, and veneer. Add new hinges, pulls, and soft-close hardware for a completely modern feel. Choose from solid wood, thermofoil, laminate, or rigid thermofoil (RTF) door styles. Most kitchen cabinet refacing projects are completed in 3-5 days with minimal disruption to your daily routine.',
+    features: ['40-50% less than new', '3-5 day completion', 'All door styles', 'New hardware included'],
+    price: 'From $8,000',
+    savings: 'Save 40-50%',
+    popular: false,
+    image: '/images/remodeling/kitchen-hero.png',
+    imagePosition: 'center',
+    imageScale: 1,
+    href: '/services/cabinet-refacing',
+  },
+  {
+    id: 'walk-in-shower',
+    title: 'Walk-In Shower Installation',
+    shortTitle: 'Walk-In Shower',
+    subtitle: 'Accessible Design',
+    description: 'Professional walk-in shower installation for comfort, safety, and style. Curbless and low-threshold options available for aging-in-place and ADA compliance. Custom tile, bench seating, grab bars, and frameless glass.',
+    longDescription: 'Our walk-in shower installation service creates spacious, accessible showers designed for comfort and safety. We offer curbless (zero-threshold) designs, low-curb options, and standard walk-in configurations. Every installation includes proper waterproofing with Schluter or equivalent membrane systems, custom tile work, bench seating options, grab bar installation, recessed niches, and frameless glass enclosures. Ideal for aging-in-place modifications, ADA compliance, or simply upgrading to a more luxurious shower experience.',
+    features: ['Curbless/zero-threshold', 'ADA compliant options', 'Bench & grab bars', 'Frameless glass'],
+    price: 'From $6,000',
+    savings: 'Accessible Luxury',
+    popular: false,
+    image: '/images/remodeling/shower-hero.png',
+    imagePosition: 'center',
+    imageScale: 1,
+    href: '/services/walk-in-shower',
+  },
 ] as const;
 
 // Keep original refinishing services accessible
@@ -231,6 +279,7 @@ export const ALL_SERVICES = [...REMODELING_SERVICES, ...REFINISHING_SERVICES] as
 // Locations for Local SEO
 export const LOCATIONS = [
   { id: 'seattle', name: 'Seattle', href: '/locations/seattle', primary: true },
+
   { id: 'bellevue', name: 'Bellevue', href: '/locations/bellevue', primary: true },
   { id: 'redmond', name: 'Redmond', href: '/locations/redmond', primary: true },
   { id: 'kirkland', name: 'Kirkland', href: '/locations/kirkland', primary: true },
@@ -2256,6 +2305,207 @@ Call (206) 222-5159 or book a free consultation online. We will visit your home,
     tags: ['kitchen remodel timeline', 'how long kitchen remodel', 'seattle kitchen renovation'],
     image: '/images/remodeling/kitchen-showcase-2.jpg',
     featured: false,
+  },
+  {
+    id: 'kitchen-remodeling-cost-seattle-2026',
+    slug: 'kitchen-remodeling-cost-seattle-2026',
+    title: 'Kitchen Remodeling Cost in Seattle (2026) \u2014 Real Prices & Budget Guide',
+    excerpt: 'What does a kitchen remodel actually cost in Seattle in 2026? We break down real prices by project scope, materials, and labor \u2014 from $25,000 refreshes to $120,000+ gut renovations \u2014 so you can budget with confidence.',
+    content: `Kitchen remodeling is the single largest home improvement investment most Seattle homeowners will ever make. And the number one question we hear at every initial consultation is simple: how much is this going to cost me?
+
+The honest answer is that it depends \u2014 on the scope of work, the materials you choose, the age and condition of your home, and the specific layout changes you want. But after completing hundreds of kitchen projects across Seattle, Bellevue, Kirkland, Redmond, and the greater Puget Sound area, we can give you real numbers based on what our clients are actually paying in 2026.
+
+This guide covers everything: average costs by project tier, detailed breakdowns by category, what drives costs up or down, ways to save money without sacrificing quality, and expected ROI when you sell.
+
+## Average Kitchen Remodeling Costs in Seattle (2026)
+
+Seattle kitchen remodeling costs run 18-28% above the national average. Higher labor rates, stricter building codes, longer permit timelines, and elevated material costs in the Pacific Northwest all contribute. Here is what homeowners in the Seattle metro are paying right now:
+
+- **Minor kitchen remodel (cosmetic refresh):** $15,000 - $25,000
+- **Mid-range full kitchen remodel:** $25,000 - $50,000
+- **Major upscale kitchen remodel:** $50,000 - $75,000
+- **Complete gut renovation with layout changes:** $75,000 - $120,000+
+- **Kitchen addition (expanding footprint):** $100,000 - $175,000+
+
+These figures assume a standard 150-200 square foot kitchen. Larger kitchens, structural modifications, or relocating gas and plumbing lines push costs toward the higher end.
+
+## Detailed Cost Breakdown by Category
+
+### Cabinets: $8,000 - $25,000 (30-35% of Budget)
+
+Cabinets are the single largest line item in most kitchen remodels. Your options range widely:
+
+- **Stock cabinets (Home Depot, Lowes):** $75 - $150 per linear foot installed. Ready to ship, limited sizes and styles. Good for budget projects.
+- **Semi-custom cabinets:** $150 - $350 per linear foot installed. More size options, better materials, 4-6 week lead time. This is what most of our Seattle clients choose.
+- **Custom cabinets (local shop):** $350 - $800+ per linear foot installed. Built to exact specifications, unlimited options, 8-14 week lead time.
+- **Cabinet refacing (alternative):** $8,000 - $15,000 total. Keep existing boxes, replace doors and veneer. Saves 40-50% vs. new cabinets.
+
+A typical Seattle kitchen has 20-30 linear feet of cabinetry. At mid-range semi-custom pricing, that puts cabinets at $4,000 - $10,500 for materials plus $3,000 - $6,000 for installation.
+
+### Countertops: $3,000 - $10,000 (10-15% of Budget)
+
+Countertop costs vary dramatically based on material choice:
+
+- **Laminate:** $15 - $40 per sq ft installed. Budget-friendly, improved designs, but lower perceived value.
+- **Butcher block:** $40 - $65 per sq ft installed. Warm and natural, requires maintenance.
+- **Quartz (engineered stone):** $55 - $120 per sq ft installed. Most popular choice in Seattle. Durable, non-porous, huge style range.
+- **Granite:** $50 - $100 per sq ft installed. Natural stone, unique patterns, requires periodic sealing.
+- **Marble:** $75 - $150 per sq ft installed. Luxury look, softer and more porous than quartz or granite.
+- **Quartzite:** $80 - $150 per sq ft installed. Natural stone with quartz-like durability.
+
+A typical 40-50 square foot countertop in quartz runs $2,200 - $6,000 installed in the Seattle area, including edge profiles and sink cutouts.
+
+### Flooring: $2,000 - $6,000 (5-10% of Budget)
+
+Kitchen flooring needs to be durable, water-resistant, and easy to clean:
+
+- **Luxury vinyl plank (LVP):** $6 - $12 per sq ft installed. Waterproof, comfortable underfoot, realistic wood looks. Top seller for kitchen remodels.
+- **Porcelain or ceramic tile:** $8 - $18 per sq ft installed. Extremely durable, water-resistant, wide style range.
+- **Hardwood:** $10 - $20 per sq ft installed. Beautiful but requires protection from water around sinks and dishwashers.
+- **Natural stone tile:** $15 - $35 per sq ft installed. Premium look, requires sealing.
+
+### Appliances: $3,000 - $15,000+ (10-20% of Budget)
+
+Appliance packages for Seattle kitchen remodels typically fall into three tiers:
+
+- **Builder grade (GE, Frigidaire, Whirlpool):** $3,000 - $5,000 for a full suite (range, refrigerator, dishwasher, microwave).
+- **Mid-range (KitchenAid, Bosch, Samsung):** $5,000 - $10,000 for a full suite.
+- **Premium (Sub-Zero, Wolf, Thermador, Miele):** $15,000 - $40,000+ for a full suite.
+
+Most of our clients land in the mid-range tier. Bosch dishwashers and KitchenAid ranges are the most frequently specified appliances in our Seattle kitchen projects.
+
+### Backsplash: $1,500 - $4,000 (3-5% of Budget)
+
+- **Ceramic or porcelain subway tile:** $8 - $15 per sq ft installed. Classic, timeless, affordable.
+- **Glass tile:** $15 - $30 per sq ft installed. Modern look, reflective quality.
+- **Natural stone mosaic:** $20 - $40 per sq ft installed. Unique patterns, premium feel.
+- **Large-format porcelain slab:** $25 - $50 per sq ft installed. Seamless, modern, easy to clean.
+
+### Labor: $8,000 - $30,000 (35-45% of Budget)
+
+Seattle-area labor rates for kitchen remodeling trades in 2026:
+
+- **General contractor oversight:** 15-25% of total project cost
+- **Plumber:** $130 - $195 per hour
+- **Electrician:** $100 - $170 per hour
+- **Tile installer:** $75 - $130 per hour
+- **Cabinet installer:** $65 - $110 per hour
+- **Painter:** $55 - $90 per hour
+- **Demolition crew:** $1,500 - $4,000 depending on scope
+
+### Permits, Design, and Miscellaneous: $2,000 - $6,000
+
+- **Seattle building permit:** $400 - $1,500 (required for plumbing, electrical, structural changes)
+- **Design services:** $1,000 - $5,000 (3D renderings, material selection, space planning)
+- **Dumpster rental:** $400 - $800 for a 10-20 yard container
+- **Contingency (10-15%):** Always budget this. Hidden problems behind walls \u2014 outdated wiring, water damage, asbestos \u2014 are common in Seattle homes built before 1980.
+
+## What Drives Kitchen Remodeling Costs in Seattle?
+
+### Scope of Work
+
+A cosmetic refresh \u2014 paint cabinets, new countertops, updated hardware and fixtures \u2014 costs a fraction of a gut renovation where you are tearing out walls, moving gas lines, and rerouting plumbing. The single biggest cost driver is whether you are keeping or changing the kitchen layout.
+
+### Age of Your Home
+
+Seattle has thousands of homes built in the 1920s-1960s. These older homes frequently have:
+
+- Galvanized steel pipes that need replacement ($3,000 - $8,000)
+- Electrical panels that do not meet current code ($2,000 - $4,000 to upgrade)
+- Asbestos in flooring, insulation, or joint compound ($1,500 - $5,000 for abatement)
+- Lead paint on walls and trim ($500 - $2,000 for safe removal)
+- Non-standard framing that complicates cabinet installation
+
+### Material Selections
+
+The gap between builder-grade and luxury-grade materials can triple your budget. A kitchen with stock cabinets, laminate counters, and LVP flooring might cost $25,000. The same kitchen with custom cabinets, quartzite counters, and hardwood floors could easily exceed $75,000.
+
+### Structural Changes
+
+Moving or removing walls, especially load-bearing walls, requires engineering, permits, and structural steel. Budget an additional $5,000 - $15,000 for wall removal projects. Adding a kitchen island where none existed may require new electrical, plumbing, and HVAC modifications.
+
+### Location Within the Home
+
+A second-floor kitchen remodel (common in multi-level homes and condos) can be more expensive due to the logistics of material transport, plumbing access, and noise restrictions in multi-family buildings.
+
+## How to Save Money on Your Seattle Kitchen Remodel
+
+### Reface Instead of Replace Cabinets
+
+If your cabinet boxes are structurally sound, cabinet refacing saves 40-50% vs. new cabinets. At Kitchen and Bathroom Remodeling Pros, we offer cabinet refacing from $8,000 \u2014 compared to $15,000-$25,000 for new semi-custom cabinets.
+
+### Keep the Existing Layout
+
+Moving the sink, stove, or refrigerator means rerouting plumbing, gas, and electrical \u2014 adding $5,000 - $12,000 to your project. Working within the existing footprint dramatically reduces costs.
+
+### Choose Quartz Over Natural Stone
+
+Quartz costs 10-20% less than granite or marble, requires zero maintenance, and comes in hundreds of patterns including convincing marble and stone looks. It is the best value in countertops for most Seattle homeowners.
+
+### Time Your Project for Off-Season
+
+Seattle contractors are busiest May through September. Scheduling your kitchen remodel for October through February can yield better pricing and faster timelines. Some contractors offer 5-10% off-season discounts.
+
+### Prioritize Impact Over Completeness
+
+If budget is tight, focus spending on the items that have the highest visual and functional impact: cabinet fronts, countertops, and one statement appliance. Leave lower-impact items like under-cabinet lighting or a pot filler for a later phase.
+
+## Return on Investment (ROI)
+
+Kitchen remodeling delivers the strongest ROI of any major home improvement project in the Seattle market:
+
+- **Minor kitchen remodel:** 75-82% ROI at resale
+- **Mid-range kitchen remodel:** 65-75% ROI at resale
+- **Major upscale kitchen remodel:** 55-65% ROI at resale
+
+According to the 2025-2026 Cost vs. Value Report for the Pacific Northwest, a mid-range kitchen remodel recovers approximately 71% of its cost at resale. In Seattle's competitive housing market, an updated kitchen also reduces average days on market by 18-25% and can be the deciding factor for buyers choosing between comparable listings.
+
+## Typical Kitchen Remodel Timeline in Seattle
+
+- **Planning, design, and material selection:** 3-6 weeks
+- **Permit application and approval (Seattle DCI):** 3-8 weeks
+- **Material ordering and lead times:** 2-10 weeks (custom cabinets take longest)
+- **Demolition:** 2-4 days
+- **Rough plumbing, electrical, gas:** 3-7 days
+- **Inspection:** 1-3 days
+- **Drywall, patching, prep:** 2-4 days
+- **Cabinet installation:** 2-5 days
+- **Countertop template, fabrication, install:** 2-3 weeks
+- **Backsplash and tile:** 2-4 days
+- **Flooring:** 2-3 days
+- **Appliance installation:** 1 day
+- **Fixtures, hardware, finishing:** 2-3 days
+- **Final inspection and punch list:** 1-3 days
+
+Total construction time for a full kitchen remodel is typically 5-8 weeks, but planning, permits, and material lead times can add 2-4 months before construction even starts. Begin planning at least 4-6 months before your desired completion date.
+
+## Questions to Ask Before Hiring a Kitchen Remodeling Contractor
+
+1. Are you licensed, bonded, and insured in Washington State?
+2. Do you carry general liability and workers compensation insurance?
+3. Will you handle all permits and inspections?
+4. What is your written warranty on labor?
+5. Can I see three recent kitchen projects you have completed in Seattle?
+6. How do you handle change orders and cost overruns?
+7. What is included in your contract, and what is specifically excluded?
+8. Who will be on-site daily managing the project?
+9. What is your payment schedule?
+10. Do you offer financing options?
+
+## Get Your Free Kitchen Remodel Estimate
+
+Every kitchen is different. The best way to get accurate pricing for your specific project is to have an experienced contractor assess your space, discuss your goals, and provide a detailed line-item estimate.
+
+At Kitchen and Bathroom Remodeling Pros, we have completed hundreds of kitchen remodeling projects across Seattle, Bellevue, Kirkland, Redmond, Renton, and the greater Puget Sound area. We provide detailed written estimates within 48 hours of your consultation, with transparent pricing and no hidden fees. Our work is backed by a 5-year warranty and our 4.98-star rating from 87 verified reviews.
+
+Call (206) 222-5159 or book a free in-home consultation to discuss your kitchen remodeling project today.`,
+    author: 'Remodeling Pros Team',
+    date: '2026-04-01',
+    readTime: '12 min read',
+    category: 'Cost Guides',
+    tags: ['kitchen remodeling cost seattle', 'kitchen renovation price', 'kitchen remodel budget 2026', 'seattle kitchen contractor', 'cabinet cost seattle', 'countertop cost seattle'],
+    image: '/images/remodeling/kitchen-hero.png',
+    featured: true,
   },
 ] as const;
 

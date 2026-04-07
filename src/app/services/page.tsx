@@ -7,7 +7,7 @@ import { generateServicesIndexSchema } from '@/lib/schema';
 import { SchemaScript } from '@/components/SchemaScript';
 
 export const metadata: Metadata = {
-  title: `Remodeling Services | ${BUSINESS.name}`,
+  title: `Kitchen & Bath Remodeling Services Seattle | From $5,000 | ${BUSINESS.phone}`,
   description: `Professional kitchen & bathroom remodeling, tile installation, countertop installation, and shower installation in Seattle & 50+ cities. ${BUSINESS.warranty} warranty. Call ${BUSINESS.phone}.`,
   keywords: 'kitchen remodeling seattle, bathroom remodeling seattle, tile installation, countertop installation, shower installation, bathtub installation, remodeling services seattle',
   alternates: {

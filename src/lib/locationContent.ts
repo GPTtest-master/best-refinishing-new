@@ -81,6 +81,16 @@ function getVariationIndex(cityName: string, variations: unknown[]): number {
   return Math.abs(hash) % variations.length;
 }
 
+export interface CityDataPoints {
+  population: string;
+  medianHomeValue: string;
+  avgHomeAge: string;
+  commonHousingTypes: string[];
+  remodelingPermitInfo: string;
+  neighborhoods: string[];
+  localContext: string;
+}
+
 export interface LocationContent {
   metaDescription: string;
   heroText: string;
@@ -88,6 +98,7 @@ export interface LocationContent {
   whyChooseText: string;
   serviceIntro: string;
   uniqueFeatures: string[];
+  cityDataPoints: CityDataPoints;
 }
 
 export function getLocationContent(cityName: string, cityId: string): LocationContent {
@@ -125,13 +136,41 @@ export function getLocationContent(cityName: string, cityId: string): LocationCo
     allFeatures[(featureStartIndex + 7) % allFeatures.length],
   ];
 
+  // Get city-specific data if available, otherwise generate reasonable fallback
+  const cityData = CITY_SPECIFIC_CONTENT[cityId];
+  const cityDataPoints: CityDataPoints = cityData
+    ? {
+        population: cityData.population,
+        medianHomeValue: cityData.medianHomeValue,
+        avgHomeAge: cityData.avgHomeAge,
+        commonHousingTypes: cityData.commonHousingTypes,
+        remodelingPermitInfo: cityData.remodelingPermitInfo,
+        neighborhoods: cityData.neighborhoods,
+        localContext: cityData.localContext,
+      }
+    : {
+        population: 'Part of the greater Seattle metro (4M+)',
+        medianHomeValue: 'Varies by neighborhood',
+        avgHomeAge: '30-50 years',
+        commonHousingTypes: ['Single-family homes', 'Townhomes', 'Condos'],
+        remodelingPermitInfo: `Building permits typically required for structural, plumbing, and electrical changes. Contact ${cityName} city hall or the local county building department for specific requirements.`,
+        neighborhoods: [],
+        localContext: `${cityName} is part of the greater Seattle-Tacoma metro area, where many homes built between the 1970s and 2000s are now reaching the age where kitchen and bathroom updates add significant value and comfort.`,
+      };
+
+  // Build city-specific meta description using real data when available
+  const metaDescription = cityData
+    ? `Kitchen & bathroom remodeling in ${cityName}, WA (pop. ${cityData.population}). Serving ${cityData.neighborhoods.slice(0, 3).join(', ')} and nearby areas. Homes avg ${cityData.avgHomeAge} old — we specialize in ${cityData.popularServices[0].toLowerCase()} and ${cityData.popularServices[1].toLowerCase()}. ${BUSINESS.warranty} warranty. ${BUSINESS.phone}`
+    : `Professional kitchen & bathroom remodeling and refinishing services in ${cityName}, WA. Tile installation, countertop installation, and more. ${BUSINESS.warranty} warranty. Call ${BUSINESS.phone}`;
+
   return {
-    metaDescription: `Professional kitchen & bathroom remodeling and refinishing services in ${cityName}, WA. Tile installation, countertop installation, and more. ${BUSINESS.warranty} warranty. Call ${BUSINESS.phone}`,
+    metaDescription,
     heroText: heroVariations[heroIndex](cityName),
     aboutText: aboutVariations[aboutIndex](cityName),
     whyChooseText: whyChooseVariations[whyIndex](cityName),
     serviceIntro: serviceIntros[locationType](cityName),
     uniqueFeatures,
+    cityDataPoints,
   };
 }
 
@@ -141,92 +180,209 @@ export const CITY_SPECIFIC_CONTENT: Record<string, {
   avgHomeAge: string;
   climateNote: string;
   popularServices: string[];
+  population: string;
+  medianHomeValue: string;
+  commonHousingTypes: string[];
+  remodelingPermitInfo: string;
+  neighborhoods: string[];
+  localContext: string;
 }> = {
   'seattle': {
     localInsight: 'Seattle homes range from early 1900s Craftsman bungalows in Capitol Hill to modern downtown condos. Many bathrooms in older neighborhoods like Ballard, Fremont, and Wallingford still have original tilework and cast iron fixtures from the 1920s-1950s.',
     homeTypes: 'Craftsman, Mid-century, Modern condos, Townhomes',
-    avgHomeAge: '1940s-1960s in most neighborhoods',
-    climateNote: 'Seattle\'s year-round humidity (75-85% average) makes proper bathroom ventilation and waterproofing critical. Without adequate exhaust fans and moisture barriers, mold develops faster here than in drier climates.',
+    avgHomeAge: '50-80 years',
+    climateNote: "Seattle's year-round humidity (75-85% average) makes proper bathroom ventilation and waterproofing critical. Without adequate exhaust fans and moisture barriers, mold develops faster here than in drier climates.",
     popularServices: ['Bathroom Remodeling', 'Kitchen Remodeling', 'Tile Installation'],
+    population: '737,015',
+    medianHomeValue: '$880,000',
+    commonHousingTypes: ['Craftsman bungalows', 'Mid-century ranches', 'Modern condos', 'Townhomes', 'Victorian homes'],
+    remodelingPermitInfo: 'Permits required for structural, plumbing, and electrical changes through Seattle Department of Construction & Inspections (SDCI). Online applications available at cosaccela.seattle.gov.',
+    neighborhoods: ['Ballard', 'Capitol Hill', 'Fremont', 'Wallingford', 'Green Lake'],
+    localContext: "With a median home age exceeding 50 years, Seattle has one of the oldest housing stocks on the West Coast. Many original kitchens and bathrooms from the 1940s-1960s are now being updated by a new generation of homeowners seeking modern function while preserving Craftsman character.",
   },
   'bellevue': {
-    localInsight: 'Bellevue\'s housing market features newer construction and higher-end finishes. Many homeowners in neighborhoods like West Bellevue, Bridle Trails, and Somerset upgrade to luxury materials — quartz countertops, frameless glass showers, and heated bathroom floors are standard requests.',
+    localInsight: "Bellevue's housing market features newer construction and higher-end finishes. Many homeowners in neighborhoods like West Bellevue, Bridle Trails, and Somerset upgrade to luxury materials \u2014 quartz countertops, frameless glass showers, and heated bathroom floors are standard requests.",
     homeTypes: 'Luxury single-family, New construction, High-rise condos',
-    avgHomeAge: '1980s-2010s, many recent builds',
+    avgHomeAge: '25-40 years',
     climateNote: 'Bellevue gets slightly less rain than Seattle but shares the same humidity challenges. Homes near Lake Washington and Lake Sammamish need extra attention to moisture management in bathrooms.',
     popularServices: ['Kitchen Remodeling', 'Countertop Installation', 'Shower Installation'],
+    population: '151,854',
+    medianHomeValue: '$1,550,000',
+    commonHousingTypes: ['Luxury single-family', 'High-rise condos', 'Executive estates', 'New construction townhomes'],
+    remodelingPermitInfo: 'City of Bellevue Development Services requires permits for all structural modifications, plumbing rerouting, and electrical panel upgrades. Apply online at bellevuewa.gov.',
+    neighborhoods: ['West Bellevue', 'Bridle Trails', 'Somerset', 'Crossroads', 'Factoria'],
+    localContext: "Bellevue's tech-driven economy brings high-income homeowners who expect premium finishes. With Amazon's Bellevue campus and a booming downtown skyline, property values have surged, making high-end kitchen and bathroom remodels a strong return on investment.",
   },
-  'redmond': {
-    localInsight: 'Redmond\'s tech-industry workforce drives demand for modern, functional kitchens and bathrooms. Education Hill and Bear Creek homeowners frequently request smart home integration, USB outlets, and contemporary design. Many homes were built during the tech boom of the 1990s-2000s and are now due for updates.',
-    homeTypes: 'Suburban single-family, Townhomes, Newer developments',
-    avgHomeAge: '1990s-2000s',
-    climateNote: 'Redmond\'s eastern Puget Sound location means slightly more temperature variation. Homes here benefit from radiant floor heating in bathrooms during cold snaps.',
-    popularServices: ['Bathroom Remodeling', 'Tile Installation', 'Countertop Installation'],
-  },
-  'kirkland': {
-    localInsight: 'Kirkland\'s charming waterfront neighborhoods like Juanita, Houghton, and Moss Bay feature a mix of mid-century homes and newer construction. Many homeowners are updating dated 1970s-1980s bathrooms with modern walk-in showers and floating vanities while preserving their homes\' character.',
-    homeTypes: 'Waterfront, Mid-century, Newer single-family',
-    avgHomeAge: '1970s-1990s',
-    climateNote: 'Lakeside homes in Kirkland face higher moisture exposure. We pay special attention to waterproofing and ventilation in bathrooms of homes near Lake Washington.',
-    popularServices: ['Shower Installation', 'Bathroom Remodeling', 'Kitchen Remodeling'],
+  'issaquah': {
+    localInsight: 'Issaquah blends mountain-town charm with suburban convenience. Homes in Issaquah Highlands, Gilman Village area, and Squak Mountain neighborhoods range from newer construction to established 1990s builds. Many homeowners want nature-inspired designs.',
+    homeTypes: 'Newer single-family, Townhomes, Mountain-view homes',
+    avgHomeAge: '20-30 years',
+    climateNote: "Issaquah's foothill location brings more snow and temperature swings than Seattle. Bathroom tile choices should account for thermal movement.",
+    popularServices: ['Tile Installation', 'Bathroom Remodeling', 'Kitchen Remodeling'],
+    population: '41,926',
+    medianHomeValue: '$1,100,000',
+    commonHousingTypes: ['Single-family homes', 'Townhomes', 'Mountain-view estates', 'Planned community homes'],
+    remodelingPermitInfo: "City of Issaquah requires building permits for structural changes, new plumbing fixtures, and electrical work. Permits can be submitted through the city's online portal at issaquahwa.gov.",
+    neighborhoods: ['Issaquah Highlands', 'Gilman Village area', 'Squak Mountain', 'Talus', 'Providence Point'],
+    localContext: 'Many homes in Issaquah were built during the 1990s-2000s housing expansion and are now reaching the age where kitchen and bathroom updates are needed. The nature-oriented community favors organic materials and earth-toned designs that complement the Cascade foothill setting.',
   },
   'bothell': {
     localInsight: 'Bothell straddles King and Snohomish counties with a growing inventory of family homes. The Canyon Park and North Creek areas have seen rapid development. Many homeowners are upgrading builder-grade finishes to more personalized kitchens and bathrooms.',
     homeTypes: 'Family homes, New subdivisions, Townhomes',
-    avgHomeAge: '2000s-2010s',
-    climateNote: 'Bothell\'s suburban setting means homes often have larger bathrooms than Seattle — more space for soaking tubs, double vanities, and walk-in showers.',
+    avgHomeAge: '15-25 years',
+    climateNote: "Bothell's suburban setting means homes often have larger bathrooms than Seattle, with more space for soaking tubs, double vanities, and walk-in showers.",
     popularServices: ['Bathroom Remodeling', 'Bathtub Installation', 'Tile Installation'],
+    population: '51,268',
+    medianHomeValue: '$860,000',
+    commonHousingTypes: ['Single-family homes', 'Townhomes', 'New subdivisions', 'Garden-style condos'],
+    remodelingPermitInfo: 'Bothell permits are handled through King County or Snohomish County depending on property location. Building permits required for structural changes, plumbing, and electrical modifications.',
+    neighborhoods: ['Canyon Park', 'North Creek', 'Bothell Landing', 'Country Village', 'Queensborough'],
+    localContext: "Bothell's rapid growth along the I-405 corridor has brought thousands of new families. Homes built in the 2000s with builder-grade finishes are now prime candidates for kitchen and bathroom upgrades as homeowners personalize their spaces.",
+  },
+  'lynnwood': {
+    localInsight: "Lynnwood is experiencing a building boom with the light rail extension. Property values are climbing, and homeowners in established neighborhoods are upgrading to match the area's trajectory. Kitchen and bathroom remodels here offer strong ROI.",
+    homeTypes: 'Ranch-style, Split-level, New apartments/condos',
+    avgHomeAge: '45-60 years',
+    climateNote: 'Lynnwood homes from the 1960s-70s frequently have original bathroom fans that are undersized. We upgrade ventilation as part of every bathroom remodel.',
+    popularServices: ['Kitchen Remodeling', 'Bathroom Remodeling', 'Countertop Installation'],
+    population: '41,426',
+    medianHomeValue: '$680,000',
+    commonHousingTypes: ['Ranch-style homes', 'Split-level homes', 'New transit-oriented apartments', 'Condos'],
+    remodelingPermitInfo: 'City of Lynnwood requires permits for structural modifications and plumbing/electrical work. The Link light rail expansion has accelerated permit processing for home improvements.',
+    neighborhoods: ['Alderwood', 'Martha Lake', 'North Lynnwood', 'Meadowdale', 'Lakeview'],
+    localContext: 'The Lynnwood Link light rail opening is driving a surge in home values and renovation activity. Homeowners in established 1960s-1970s neighborhoods are investing in kitchen and bathroom remodels to capitalize on rising property values near transit stations.',
+  },
+  'kent': {
+    localInsight: "Kent's affordable housing stock makes it an ideal market for remodeling. Homeowners can significantly increase property value with strategic kitchen and bathroom updates. The East Hill and West Hill neighborhoods have many homes ripe for renovation.",
+    homeTypes: 'Single-family, Manufactured homes, Newer developments',
+    avgHomeAge: '35-50 years',
+    climateNote: "Kent's valley location can mean more moisture in basements and lower-level bathrooms. Proper ventilation and waterproofing are especially important here.",
+    popularServices: ['Bathroom Remodeling', 'Tile Installation', 'Bathtub Installation'],
+    population: '136,588',
+    medianHomeValue: '$540,000',
+    commonHousingTypes: ['Single-family homes', 'Manufactured homes', 'Newer subdivision homes', 'Townhomes'],
+    remodelingPermitInfo: 'City of Kent requires building permits for remodeling involving structural changes, plumbing, or electrical. Apply at kentwa.gov or the Kent Permit Center.',
+    neighborhoods: ['East Hill', 'West Hill', 'Kent Station area', 'Meridian', 'Panther Lake'],
+    localContext: 'Kent offers some of the most affordable homes in the Seattle metro, making remodeling a high-ROI investment. Many homes from the 1970s-1990s on East Hill and West Hill have original kitchens and bathrooms that benefit greatly from modernization.',
+  },
+  'redmond': {
+    localInsight: "Redmond's tech-industry workforce drives demand for modern, functional kitchens and bathrooms. Education Hill and Bear Creek homeowners frequently request smart home integration, USB outlets, and contemporary design. Many homes were built during the tech boom of the 1990s-2000s and are now due for updates.",
+    homeTypes: 'Suburban single-family, Townhomes, Newer developments',
+    avgHomeAge: '25-35 years',
+    climateNote: "Redmond's eastern Puget Sound location means slightly more temperature variation. Homes here benefit from radiant floor heating in bathrooms during cold snaps.",
+    popularServices: ['Bathroom Remodeling', 'Tile Installation', 'Countertop Installation'],
+    population: '73,256',
+    medianHomeValue: '$1,200,000',
+    commonHousingTypes: ['Single-family homes', 'Townhomes', 'Tech-corridor condos', 'Newer planned communities'],
+    remodelingPermitInfo: 'City of Redmond requires permits for structural, plumbing, and electrical changes. Applications accepted online through the MyBuildingPermit portal at mygovernmentonline.org.',
+    neighborhoods: ['Education Hill', 'Bear Creek', 'Overlake', 'Downtown Redmond', 'Idylwood'],
+    localContext: "Home to Microsoft and Nintendo of America, Redmond's tech workforce demands modern kitchens with smart features and sleek bathrooms. Many 1990s-era homes are reaching the point where original finishes feel dated, driving strong remodeling demand.",
+  },
+  'tacoma': {
+    localInsight: "Tacoma's historic homes in Stadium District, North End, and Proctor offer character but often need significant bathroom and kitchen updates. The city's revitalization has made remodeling a strong investment.",
+    homeTypes: 'Victorian, Craftsman, Historic, New construction',
+    avgHomeAge: '70-100 years in historic areas',
+    climateNote: "Tacoma's older homes often have original plumbing that needs updating during remodels. We frequently upgrade galvanized pipes to PEX during bathroom renovations.",
+    popularServices: ['Bathroom Remodeling', 'Kitchen Remodeling', 'Tile Installation'],
+    population: '219,346',
+    medianHomeValue: '$460,000',
+    commonHousingTypes: ['Victorian homes', 'Craftsman bungalows', 'Ranch-style homes', 'New infill construction'],
+    remodelingPermitInfo: 'City of Tacoma Planning & Development Services requires permits for structural, plumbing, and electrical work. Historic district homes may require additional design review through the Landmarks Preservation Commission.',
+    neighborhoods: ['Stadium District', 'North End', 'Proctor', 'Old Town', '6th Avenue'],
+    localContext: "Tacoma's urban renaissance has transformed neighborhoods like Stadium District and Proctor into sought-after addresses. With median home prices well below Seattle, buyers are purchasing older homes and investing in kitchen and bathroom remodels to build instant equity.",
+  },
+  'ballard': {
+    localInsight: "Ballard's transformation from a Scandinavian fishing village to one of Seattle's hottest neighborhoods has created a unique mix of original 1920s bungalows and new construction. Many longtime homeowners are updating kitchens and bathrooms to match the neighborhood's modern energy while preserving historic character.",
+    homeTypes: 'Craftsman bungalows, New construction, Condos, Townhomes',
+    avgHomeAge: '60-100 years for original homes',
+    climateNote: "Ballard's proximity to Puget Sound and the Ship Canal means higher salt-air exposure. We recommend marine-grade fixtures and corrosion-resistant hardware for bathrooms in waterfront-adjacent homes.",
+    popularServices: ['Kitchen Remodeling', 'Bathroom Remodeling', 'Tile Installation'],
+    population: '50,000',
+    medianHomeValue: '$920,000',
+    commonHousingTypes: ['Craftsman bungalows', 'Modern townhomes', 'New construction condos', 'Converted single-family'],
+    remodelingPermitInfo: "Permits handled through Seattle SDCI. Ballard's mix of historic and new construction means some projects in the Ballard Avenue Landmark District require additional design review.",
+    neighborhoods: ['Old Ballard', 'Sunset Hill', 'Loyal Heights', 'Whittier Heights', 'Adams'],
+    localContext: "Ballard's housing market is split between century-old Craftsman homes with original kitchens and bathrooms, and newer builds with modern finishes. Homeowners in Old Ballard and Sunset Hill frequently remodel to blend period details like subway tile and clawfoot tubs with contemporary convenience.",
+  },
+  'west-seattle': {
+    localInsight: "West Seattle's peninsula location gives it a distinct small-town feel despite being part of Seattle. The neighborhood's housing stock, largely 1940s-1960s ranches and bungalows, presents excellent remodeling opportunities, especially as the West Seattle Bridge reopening has restored property value momentum.",
+    homeTypes: 'Ranches, Bungalows, View homes, Newer condos',
+    avgHomeAge: '55-80 years',
+    climateNote: "West Seattle's elevated ridge and waterfront exposure create unique moisture conditions. Homes along Beach Drive and Alki need extra waterproofing attention, while hilltop homes in Gatewood benefit from drier conditions.",
+    popularServices: ['Bathroom Remodeling', 'Kitchen Remodeling', 'Shower Installation'],
+    population: '80,000',
+    medianHomeValue: '$790,000',
+    commonHousingTypes: ['Single-family ranches', 'Bungalows', 'View homes', 'Newer waterfront condos'],
+    remodelingPermitInfo: "Permits handled through Seattle SDCI. West Seattle projects follow standard Seattle permitting. The neighborhood's active community councils can provide guidance on local design standards.",
+    neighborhoods: ['Alaska Junction', 'Alki', 'Admiral', 'Gatewood', 'Morgan Junction'],
+    localContext: "West Seattle's post-bridge-crisis recovery has reignited home improvement investment. Homeowners who stayed through the bridge closure are now upgrading kitchens and bathrooms in their 1940s-1960s homes, while new buyers are renovating to match the peninsula's growing appeal.",
+  },
+  'capitol-hill': {
+    localInsight: "Capitol Hill's dense, walkable urban core features some of Seattle's oldest and most architecturally diverse housing. From grand early-1900s apartment buildings to 1920s brick condos and modern infill, bathrooms and kitchens here range from untouched originals to already-remodeled spaces needing a refresh.",
+    homeTypes: 'Historic apartments, Condos, Townhomes, Co-ops',
+    avgHomeAge: '70-120 years for original buildings',
+    climateNote: "Capitol Hill's older multi-unit buildings often have shared plumbing stacks, making bathroom remodeling more complex. We coordinate with HOAs and adjacent units to minimize disruption during plumbing modifications.",
+    popularServices: ['Bathroom Remodeling', 'Tile Installation', 'Countertop Installation'],
+    population: '35,000',
+    medianHomeValue: '$650,000',
+    commonHousingTypes: ['Historic condos', 'Converted apartments', 'Townhomes', 'Co-op units', 'New mid-rise condos'],
+    remodelingPermitInfo: 'Permits through Seattle SDCI. Capitol Hill properties in designated historic or landmark areas (such as Harvard-Belmont) may require Landmarks Preservation Board review for exterior-visible changes.',
+    neighborhoods: ['Pike/Pine corridor', 'Volunteer Park', 'Harvard-Belmont', '15th Avenue', 'Madison Valley border'],
+    localContext: "Capitol Hill's housing stock includes some of the oldest continuously occupied buildings in Seattle. Many condo and apartment owners are updating 1920s-era bathrooms with original hex tile and pedestal sinks, balancing historic charm with modern plumbing and waterproofing standards.",
+  },
+  'queen-anne': {
+    localInsight: "Queen Anne encompasses two distinct markets: Upper Queen Anne's stately single-family homes with panoramic views, and Lower Queen Anne's dense condo and apartment scene near Seattle Center. Both present unique remodeling needs.",
+    homeTypes: 'Historic single-family, High-rise condos, Townhomes, Apartments',
+    avgHomeAge: '60-110 years for Upper Queen Anne homes',
+    climateNote: "Queen Anne's hilltop elevation means homes on the south and west slopes get more wind and rain exposure. Bathroom windows and exterior walls in these homes need thorough moisture barrier inspection during remodels.",
+    popularServices: ['Kitchen Remodeling', 'Bathroom Remodeling', 'Shower Installation'],
+    population: '36,000',
+    medianHomeValue: '$950,000',
+    commonHousingTypes: ['Grand single-family homes', 'Historic Victorians', 'High-rise condos', 'Garden apartments'],
+    remodelingPermitInfo: 'Permits through Seattle SDCI. Upper Queen Anne homes in certain historic zones may have design guidelines. Lower Queen Anne condo remodels require HOA approval in addition to city permits.',
+    neighborhoods: ['Upper Queen Anne', 'Lower Queen Anne', 'North Queen Anne', 'West Queen Anne', 'Counterbalance'],
+    localContext: "Queen Anne's grand homes on the hilltop were built for Seattle's early affluent families, and many still have original early-1900s kitchens and bathrooms. The neighborhood's strong property values make high-end remodeling a sound investment.",
+  },
+  'kirkland': {
+    localInsight: "Kirkland's charming waterfront neighborhoods like Juanita, Houghton, and Moss Bay feature a mix of mid-century homes and newer construction. Many homeowners are updating dated 1970s-1980s bathrooms with modern walk-in showers and floating vanities while preserving their homes' character.",
+    homeTypes: 'Waterfront, Mid-century, Newer single-family',
+    avgHomeAge: '35-50 years',
+    climateNote: 'Lakeside homes in Kirkland face higher moisture exposure. We pay special attention to waterproofing and ventilation in bathrooms of homes near Lake Washington.',
+    popularServices: ['Shower Installation', 'Bathroom Remodeling', 'Kitchen Remodeling'],
+    population: '92,175',
+    medianHomeValue: '$1,150,000',
+    commonHousingTypes: ['Waterfront homes', 'Mid-century ranches', 'Newer single-family', 'Townhomes'],
+    remodelingPermitInfo: 'City of Kirkland requires building permits for structural, plumbing, and electrical work. Waterfront properties near Lake Washington may require additional shoreline permits.',
+    neighborhoods: ['Juanita', 'Houghton', 'Moss Bay', 'Totem Lake', 'Norkirk'],
+    localContext: "Kirkland's waterfront charm and walkable downtown have driven property values steadily upward. Many mid-century homes from the 1970s-1980s have original bathrooms with dated tile and fixtures, making kitchen and bathroom remodeling the top home improvement request in the area.",
   },
   'renton': {
     localInsight: 'Renton offers excellent value for remodeling investment. Neighborhoods like The Landing and Kennydale are seeing home values rise, making kitchen and bathroom updates a smart financial move. Many homes from the 1960s-1980s are perfect candidates for modernization.',
     homeTypes: 'Ranch-style, Split-level, Newer townhomes',
-    avgHomeAge: '1960s-1980s',
-    climateNote: 'Renton\'s location in the Cedar River valley means basement and ground-floor bathrooms need extra waterproofing attention due to higher groundwater levels.',
+    avgHomeAge: '40-60 years',
+    climateNote: "Renton's location in the Cedar River valley means basement and ground-floor bathrooms need extra waterproofing attention due to higher groundwater levels.",
     popularServices: ['Kitchen Remodeling', 'Bathroom Remodeling', 'Countertop Installation'],
-  },
-  'kent': {
-    localInsight: 'Kent\'s affordable housing stock makes it an ideal market for remodeling — homeowners can significantly increase property value with strategic kitchen and bathroom updates. The East Hill and West Hill neighborhoods have many homes ripe for renovation.',
-    homeTypes: 'Single-family, Manufactured homes, Newer developments',
-    avgHomeAge: '1970s-1990s',
-    climateNote: 'Kent\'s valley location can mean more moisture in basements and lower-level bathrooms. Proper ventilation and waterproofing are especially important here.',
-    popularServices: ['Bathroom Remodeling', 'Tile Installation', 'Bathtub Installation'],
+    population: '106,785',
+    medianHomeValue: '$620,000',
+    commonHousingTypes: ['Ranch-style homes', 'Split-level homes', 'Newer townhomes', 'Condos'],
+    remodelingPermitInfo: "City of Renton Community & Economic Development requires permits for structural modifications, plumbing changes, and electrical work. Apply through the city's online permit portal.",
+    neighborhoods: ['The Landing', 'Kennydale', 'Renton Highlands', 'Benson Hill', 'Fairwood'],
+    localContext: "Renton's position as Boeing's manufacturing hub and a growing tech center has attracted new residents, pushing home values up. Owners of 1960s-1980s homes are remodeling kitchens and bathrooms to compete with newer construction in the area and capture the rising equity.",
   },
   'federal-way': {
     localInsight: 'Federal Way homeowners are investing in updates as the city grows. Located between Seattle and Tacoma, it offers great value. Many homes near Dash Point and Steel Lake were built in the 1980s-1990s and benefit from modernized kitchens and bathrooms.',
     homeTypes: 'Suburban single-family, Condos, Townhomes',
-    avgHomeAge: '1980s-1990s',
+    avgHomeAge: '30-40 years',
     climateNote: 'Federal Way gets more rainfall than Seattle proper. Shower waterproofing and bathroom ventilation should be top priorities in any remodeling project here.',
     popularServices: ['Bathroom Remodeling', 'Shower Installation', 'Kitchen Remodeling'],
+    population: '99,037',
+    medianHomeValue: '$500,000',
+    commonHousingTypes: ['Suburban single-family homes', 'Condos', 'Townhomes', 'Manufactured homes'],
+    remodelingPermitInfo: 'City of Federal Way requires permits for structural, plumbing, and electrical modifications. Permit applications available through the Community Development Department.',
+    neighborhoods: ['Dash Point', 'Steel Lake', 'Twin Lakes', 'Camelot', 'Mirror Lake'],
+    localContext: "Federal Way's affordable housing and improving infrastructure, including light rail expansion plans, are driving increased remodeling activity. Homeowners are upgrading 1980s-1990s kitchens and bathrooms to boost resale value in a market with growing buyer demand.",
   },
-  'tacoma': {
-    localInsight: 'Tacoma\'s historic homes in Stadium District, North End, and Proctor offer character but often need significant bathroom and kitchen updates. The city\'s revitalization has made remodeling a strong investment — updated homes in these neighborhoods command premium prices.',
-    homeTypes: 'Victorian, Craftsman, Historic, New construction',
-    avgHomeAge: '1910s-1950s in historic areas',
-    climateNote: 'Tacoma\'s older homes often have original plumbing that needs updating during remodels. We frequently upgrade galvanized pipes to PEX during bathroom renovations.',
-    popularServices: ['Bathroom Remodeling', 'Kitchen Remodeling', 'Tile Installation'],
-  },
-  'lynnwood': {
-    localInsight: 'Lynnwood is experiencing a building boom with the light rail extension. Property values are climbing, and homeowners in established neighborhoods are upgrading to match the area\'s trajectory. Kitchen and bathroom remodels here offer strong ROI.',
-    homeTypes: 'Ranch-style, Split-level, New apartments/condos',
-    avgHomeAge: '1960s-1980s',
-    climateNote: 'Lynnwood homes from the 1960s-70s frequently have original bathroom fans that are undersized. We upgrade ventilation as part of every bathroom remodel.',
-    popularServices: ['Kitchen Remodeling', 'Bathroom Remodeling', 'Countertop Installation'],
-  },
-  'sammamish': {
-    localInsight: 'Sammamish is one of the Eastside\'s most desirable family communities. Homes in Klahanie, Pine Lake, and Beaver Lake tend to be larger with multiple bathrooms. Homeowners here often remodel the master bath first, then update guest and kids\' bathrooms over time.',
-    homeTypes: 'Large single-family, Executive homes',
-    avgHomeAge: '1990s-2010s',
-    climateNote: 'Sammamish\'s proximity to the Cascades means slightly colder winters. Heated bathroom floors and insulated exterior walls are popular upgrade requests.',
-    popularServices: ['Bathroom Remodeling', 'Shower Installation', 'Countertop Installation'],
-  },
-  'issaquah': {
-    localInsight: 'Issaquah blends mountain-town charm with suburban convenience. Homes in Issaquah Highlands, Gilman Village area, and Squak Mountain neighborhoods range from newer construction to established 1990s builds. Many homeowners want nature-inspired designs — natural stone, earth tones, and wood accents.',
-    homeTypes: 'Newer single-family, Townhomes, Mountain-view homes',
-    avgHomeAge: '1990s-2010s',
-    climateNote: 'Issaquah\'s foothill location brings more snow and temperature swings than Seattle. Bathroom tile choices should account for thermal movement — we recommend porcelain over natural stone for heated floors.',
-    popularServices: ['Tile Installation', 'Bathroom Remodeling', 'Kitchen Remodeling'],
-  },
-};
+}
 
 // Review templates with name variations
 const firstNames = [

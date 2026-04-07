@@ -26,11 +26,10 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(BUSINESS.website),
   title: {
-    default: `Kitchen & Bathroom Remodeling Seattle | ${BUSINESS.name}`,
-    template: `%s | ${BUSINESS.name} Seattle`,
+    default: `Seattle Kitchen & Bathroom Remodeling ★${BUSINESS.rating} | Free Estimates | ${BUSINESS.phone}`,
+    template: `%s | Remodeling Pros Seattle`,
   },
-  description: `Seattle's #1 kitchen & bathroom remodeling company. Full remodels, tile installation, countertops, showers, and bathtub installation. ${BUSINESS.warranty} warranty. Licensed & insured. Free estimates: ${BUSINESS.phone}`,
-  keywords: "kitchen remodeling seattle, bathroom remodeling seattle, bathroom remodel seattle wa, kitchen remodel seattle, tile installation seattle, countertop installation seattle, shower installation seattle, bathtub installation seattle, bathroom renovation seattle, kitchen renovation seattle, bathroom contractor seattle, kitchen contractor seattle, home remodeling seattle, bathroom remodeler seattle",
+  description: `Top-rated kitchen & bathroom remodeling in Seattle. ${BUSINESS.projectsCompleted} projects completed. ${BUSINESS.rating}★ rating. Licensed & insured. ${BUSINESS.warranty} warranty. Call ${BUSINESS.phone} for FREE estimate today!`,
   authors: [{ name: BUSINESS.name }],
   creator: BUSINESS.name,
   publisher: BUSINESS.name,
@@ -46,8 +45,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: `Kitchen & Bathroom Remodeling Seattle | ${BUSINESS.name}`,
-    description: "Seattle's #1 kitchen & bathroom remodeling. Full remodels, tile, countertops, showers. Licensed & insured. Free estimates!",
+    title: `Seattle Kitchen & Bathroom Remodeling ★${BUSINESS.rating} | Free Estimates`,
+    description: `${BUSINESS.projectsCompleted} projects. ${BUSINESS.rating}★ rated. Kitchen & bath remodeling Seattle. Licensed, insured, ${BUSINESS.warranty} warranty. Call ${BUSINESS.phone}!`,
     url: BUSINESS.website,
     siteName: BUSINESS.name,
     locale: "en_US",
@@ -111,7 +110,7 @@ export default function RootLayout({
         />
 {/* Google Ads & GA4 scripts moved to body with lazyOnload */}
         {/* Schema.org JSON-LD - Enhanced @graph structure */}
-        <SchemaScript schema={generateHomePageSchema()} />
+        {/* Homepage schema moved to page.tsx to avoid duplicating on all pages */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />

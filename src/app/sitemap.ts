@@ -14,32 +14,32 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: baseUrl,
       lastModified: currentDate,
-      changeFrequency: 'daily',
+      changeFrequency: 'weekly',
       priority: 1.0,
     },
     {
       url: `${baseUrl}/contact`,
       lastModified: currentDate,
-      changeFrequency: 'daily',
-      priority: 0.98,
+      changeFrequency: 'weekly',
+      priority: 0.90,
     },
     {
       url: `${baseUrl}/locations`,
       lastModified: currentDate,
-      changeFrequency: 'daily',
-      priority: 0.97,
+      changeFrequency: 'weekly',
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/services`,
       lastModified: currentDate,
-      changeFrequency: 'daily',
-      priority: 0.97,
+      changeFrequency: 'weekly',
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/common-problems`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
-      priority: 0.92,
+      priority: 0.65,
     },
     {
       url: `${baseUrl}/gallery`,
@@ -50,8 +50,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${baseUrl}/blog`,
       lastModified: currentDate,
-      changeFrequency: 'daily',
-      priority: 0.92,
+      changeFrequency: 'weekly',
+      priority: 0.65,
     },
     {
       url: `${baseUrl}/process`,
@@ -75,7 +75,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/projects`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
-      priority: 0.92,
+      priority: 0.65,
     },
     {
       url: `${baseUrl}/remodeling`,
@@ -142,23 +142,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  // Remodeling location+service combo pages — 12 cities × 6 services = 72 pages
+  // Remodeling location+service combo pages — 50 cities × 6 services = 300 pages
   const remodelingLocationServicePages: MetadataRoute.Sitemap = [];
-  for (const location of LOCATIONS.filter(l => l.primary)) {
+  for (const location of ALL_LOCATIONS) {
     for (const serviceSlug of REMODELING_SERVICE_SLUGS) {
       const isSeattle = location.id === 'seattle';
       const isBathroom = serviceSlug === 'bathroom-remodeling';
       const isKitchen = serviceSlug === 'kitchen-remodeling';
-      let priority = 0.90;
-      if (isSeattle && (isBathroom || isKitchen)) priority = 0.97;
-      else if (isSeattle) priority = 0.94;
-      else if (isBathroom || isKitchen) priority = 0.93;
-      else priority = 0.91;
+      let priority = 0.60;
+      if (isSeattle && (isBathroom || isKitchen)) priority = 0.80;
+      else if (isSeattle) priority = 0.75;
+      else if (isBathroom || isKitchen) priority = 0.70;
+      else priority = 0.60;
 
       remodelingLocationServicePages.push({
         url: `${baseUrl}/locations/${location.id}/${serviceSlug}`,
         lastModified: currentDate,
-        changeFrequency: 'daily' as const,
+        changeFrequency: 'weekly' as const,
         priority,
       });
     }

@@ -23,11 +23,33 @@ const remodelingProcess = [
   { number: 6, title: 'Final Walkthrough', description: 'We inspect every surface, test every fixture, and back it all with our 5-year warranty.', color: '#22c55e' },
 ];
 
+// Geographic proximity mapping for better internal linking
+const NEARBY_CITIES: Record<string, string[]> = {
+  'seattle': ['shoreline', 'renton', 'tukwila', 'burien', 'mercer-island', 'bellevue', 'kirkland', 'lynnwood'],
+  'bellevue': ['kirkland', 'redmond', 'newcastle', 'mercer-island', 'issaquah', 'sammamish', 'renton', 'seattle'],
+  'kirkland': ['bellevue', 'redmond', 'bothell', 'woodinville', 'kenmore', 'seattle', 'sammamish', 'lynnwood'],
+  'redmond': ['kirkland', 'bellevue', 'sammamish', 'woodinville', 'bothell', 'issaquah', 'seattle', 'kenmore'],
+  'kent': ['renton', 'auburn', 'federal-way', 'covington', 'tukwila', 'seattle', 'des-moines', 'maple-valley'],
+  'renton': ['kent', 'tukwila', 'newcastle', 'bellevue', 'mercer-island', 'seattle', 'issaquah', 'auburn'],
+  'bothell': ['kirkland', 'woodinville', 'kenmore', 'lynnwood', 'redmond', 'mountlake-terrace', 'edmonds', 'seattle'],
+  'issaquah': ['sammamish', 'bellevue', 'renton', 'newcastle', 'redmond', 'maple-valley', 'kirkland', 'kent'],
+  'sammamish': ['issaquah', 'redmond', 'bellevue', 'kirkland', 'woodinville', 'renton', 'newcastle', 'bothell'],
+  'federal-way': ['kent', 'auburn', 'des-moines', 'tacoma', 'covington', 'renton', 'tukwila', 'seattle'],
+  'tacoma': ['federal-way', 'kent', 'auburn', 'des-moines', 'renton', 'seattle', 'tukwila', 'covington'],
+  'lynnwood': ['edmonds', 'mountlake-terrace', 'shoreline', 'bothell', 'mukilteo', 'kenmore', 'kirkland', 'seattle'],
+};
+
 export default function LocationPageClient({ location, content, reviews }: Props) {
-  const nearbyLocations = ALL_LOCATIONS
-    .filter((l) => l.id !== location.id)
-    .sort((a, b) => (b.primary ? 1 : 0) - (a.primary ? 1 : 0))
-    .slice(0, 8);
+  // Use geographic proximity if available, otherwise fall back to primary-sorted
+  const nearbyIds = NEARBY_CITIES[location.id] || [];
+  const nearbyLocations = nearbyIds.length > 0
+    ? nearbyIds
+        .map(id => ALL_LOCATIONS.find(l => l.id === id))
+        .filter((l): l is typeof ALL_LOCATIONS[number] => l !== undefined)
+    : ALL_LOCATIONS
+        .filter((l) => l.id !== location.id)
+        .sort((a, b) => (b.primary ? 1 : 0) - (a.primary ? 1 : 0))
+        .slice(0, 8);
 
   return (
     <>
@@ -130,7 +152,7 @@ export default function LocationPageClient({ location, content, reviews }: Props
             {REMODELING_SERVICES.map((service) => (
               <Link
                 key={service.id}
-                href={service.href}
+                href={`/locations/${location.id}${service.href.replace('/services', '')}`}
                 className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl border border-gray-100 transition group"
               >
                 <div className="relative h-56">
@@ -438,7 +460,7 @@ export default function LocationPageClient({ location, content, reviews }: Props
             {SERVICES.map((service) => (
               <Link
                 key={service.id}
-                href={service.href}
+                href={`/locations/${location.id}${service.href.replace('/services', '')}`}
                 className="bg-slate-50 rounded-xl p-4 text-center hover:bg-[#0b66b3] hover:text-white transition group border border-gray-100"
               >
                 <span className="font-semibold text-sm text-gray-700 group-hover:text-white transition">
@@ -552,13 +574,6 @@ export default function LocationPageClient({ location, content, reviews }: Props
                 '@type': 'State',
                 name: 'Washington',
               },
-            },
-            aggregateRating: {
-              '@type': 'AggregateRating',
-              ratingValue: BUSINESS.rating,
-              reviewCount: BUSINESS.reviewCount,
-              bestRating: '5',
-              worstRating: '1',
             },
             review: reviews.slice(0, 3).map((review) => ({
               '@type': 'Review',

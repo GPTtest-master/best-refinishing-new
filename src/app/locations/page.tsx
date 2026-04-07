@@ -7,7 +7,7 @@ import { generateLocationsIndexSchema } from '@/lib/schema';
 import { SchemaScript } from '@/components/SchemaScript';
 
 export const metadata: Metadata = {
-  title: `Kitchen & Bathroom Remodeling Service Areas - 50+ Cities | ${BUSINESS.name}`,
+  title: `Remodeling Service Areas | 50+ Cities in WA | ${BUSINESS.name}`,
   description: `Professional kitchen and bathroom remodeling in Seattle, Bellevue, Redmond, Kirkland, Tacoma and 50+ cities across the Puget Sound. ${BUSINESS.warranty} warranty. Call ${BUSINESS.phone}.`,
   keywords: 'kitchen remodeling near me, bathroom remodeling seattle, kitchen renovation bellevue, remodeling service areas seattle',
   alternates: {

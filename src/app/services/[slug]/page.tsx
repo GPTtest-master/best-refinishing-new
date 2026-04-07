@@ -28,6 +28,11 @@ function getServiceId(slug: string): string {
     'countertop-installation': 'countertop-installation',
     'shower-installation': 'shower-installation',
     'bathtub-installation': 'bathtub-installation',
+    'tub-to-shower': 'tub-to-shower',
+    'cabinet-refacing': 'cabinet-refacing',
+    'walk-in-shower': 'walk-in-shower',
+    'ada-bathroom': 'ada-bathroom',
+    'curbless-shower': 'curbless-shower',
     'bathtub': 'bathtub',
     'shower': 'shower',
     'tile': 'tile',
@@ -48,15 +53,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   return {
-    title: `${service.title} Seattle & 50+ Cities | ${BUSINESS.name} - ${service.price}`,
+    title: `${service.title} Seattle WA | ${service.price} | ★${BUSINESS.rating} Rated | Free Quote`,
     description: `Professional ${service.title.toLowerCase()} in Seattle, Bellevue, Redmond & 50+ cities. ${service.description} ${BUSINESS.warranty} warranty. Call ${BUSINESS.phone} for free estimate.`,
-    keywords: `${service.title.toLowerCase()}, ${service.shortTitle.toLowerCase()} remodeling seattle, ${service.shortTitle.toLowerCase()} installation bellevue, bathroom remodeling seattle, ${service.shortTitle.toLowerCase()} remodeling near me`,
     openGraph: {
       title: `${service.title} Seattle & 50+ Cities | ${BUSINESS.name}`,
       description: service.description,
       type: 'website',
       locale: 'en_US',
       siteName: BUSINESS.name,
+      images: [{ url: '/images/remodeling/kitchen-showcase-1.jpg', width: 1200, height: 630 }],
     },
     alternates: {
       canonical: `${BUSINESS.website}/services/${slug}`,

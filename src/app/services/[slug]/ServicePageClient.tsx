@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { SERVICES, REMODELING_SERVICES, ALL_SERVICES, BUSINESS, PROCESS_STEPS, REMODELING_PROCESS_STEPS, FAQ_ITEMS, REMODELING_FAQ_ITEMS, REVIEWS, REMODELING_REVIEWS, REMODELING_SERVICE_CONTENT, BLOG_POSTS } from '@/lib/constants';
+import { SERVICES, REMODELING_SERVICES, ALL_SERVICES, BUSINESS, PROCESS_STEPS, REMODELING_PROCESS_STEPS, FAQ_ITEMS, REMODELING_FAQ_ITEMS, REVIEWS, REMODELING_REVIEWS, REMODELING_SERVICE_CONTENT, BLOG_POSTS, LOCATIONS } from '@/lib/constants';
 import BeforeAfterSlider from '@/components/ui/BeforeAfterSlider';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
@@ -869,6 +869,39 @@ export default function ServicePageClient({ service }: { service: Service }) {
         </section>
       )}
 
+
+      {/* Service Areas - Internal Links to Combo Pages */}
+      <section className="py-12 bg-slate-50 border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-8">
+            <span className="inline-block text-[#0b66b3] font-semibold text-sm uppercase tracking-wider mb-3">
+              Serving 50+ Cities
+            </span>
+            <h2 className="text-2xl font-bold text-gray-900">
+              {service.title} — Available Across Greater Seattle
+            </h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {LOCATIONS.map(city => (
+              <Link
+                key={city.id}
+                href={`/locations/${city.id}${service.href.replace('/services', '')}`}
+                className="px-4 py-3 bg-white rounded-lg border border-gray-200 hover:border-[#0b66b3] hover:shadow-md transition text-center group"
+              >
+                <span className="text-sm font-medium text-gray-900 group-hover:text-[#0b66b3] transition">
+                  {service.shortTitle} in {city.name}
+                </span>
+              </Link>
+            ))}
+          </div>
+          <div className="text-center mt-6">
+            <Link href="/locations" className="text-[#0b66b3] font-semibold hover:underline">
+              View All 50+ Service Areas →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Other Services */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4">
@@ -928,11 +961,6 @@ export default function ServicePageClient({ service }: { service: Service }) {
                   name: BUSINESS.name,
                   telephone: BUSINESS.phone,
                   url: BUSINESS.website,
-                  aggregateRating: {
-                    '@type': 'AggregateRating',
-                    ratingValue: BUSINESS.rating,
-                    reviewCount: BUSINESS.reviewCount,
-                  },
                 },
                 areaServed: [
                   { '@type': 'City', name: 'Seattle' },
