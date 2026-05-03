@@ -907,7 +907,7 @@ const blogContent: Record<string, {
       },
       {
         heading: 'Ready to Remodel the Right Way?',
-        content: `At Kitchen and Bathroom Remodeling Pros, we are fully licensed, bonded, and insured. We do things right the first time — proper waterproofing, code-compliant ventilation, smart storage planning. Over 500 projects completed with a 4.98-star rating.\n\n**Call (206) 222-5159** or book a free consultation. We serve Seattle, Bellevue, Kirkland, Redmond, and 50+ cities.`
+        content: `At Kitchen and Bathroom Remodeling Pros, we are fully licensed, bonded, and insured. We do things right the first time — proper waterproofing, code-compliant ventilation, smart storage planning. Over 500 projects completed with a 5-star rating.\n\n**Call (206) 222-5159** or book a free consultation. We serve Seattle, Bellevue, Kirkland, Redmond, and 50+ cities.`
       }
     ],
     relatedServices: ['bathroom-remodeling', 'shower-installation', 'tile-installation']

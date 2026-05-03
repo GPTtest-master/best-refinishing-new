@@ -68,7 +68,7 @@ const tips = [
 
 const stats = [
   { value: '500+', label: 'Projects Completed' },
-  { value: '4.98', label: 'Google Rating' },
+  { value: '5.0', label: 'Google Rating' },
   { value: '15+', label: 'Years Experience' },
   { value: '$7,900', label: 'Starting Price' },
 ];

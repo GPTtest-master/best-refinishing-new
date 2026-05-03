@@ -12,7 +12,7 @@ export const BUSINESS = {
   warranty: '5 Years',
   experience: '15+',
   projectsCompleted: '500+',
-  rating: '4.98',
+  rating: '5.0',
   reviewCount: '87',
   address: '701 5th Ave, 42nd Floor, Suite 4272',
   addressCity: 'Seattle, WA 98104',
@@ -1076,7 +1076,7 @@ Before signing a contract, make sure you have clear answers to these questions:
 
 ## Ready to Get Started?
 
-Whether you are planning a quick cosmetic update or a full gut renovation, understanding the real costs helps you make informed decisions. At Kitchen and Bathroom Remodeling Pros, we provide free detailed estimates for bathroom remodeling projects across Seattle, Bellevue, Kirkland, Redmond, and the greater Puget Sound area. Our team has completed over 500 projects with a 4.98-star rating, and we back our work with a 5-year warranty.
+Whether you are planning a quick cosmetic update or a full gut renovation, understanding the real costs helps you make informed decisions. At Kitchen and Bathroom Remodeling Pros, we provide free detailed estimates for bathroom remodeling projects across Seattle, Bellevue, Kirkland, Redmond, and the greater Puget Sound area. Our team has completed over 500 projects with a 5-star rating, and we back our work with a 5-year warranty.
 
 Call us at (206) 222-5159 or book a free consultation online to discuss your bathroom remodeling project.`,
     author: 'Remodeling Pros Team',
@@ -1217,7 +1217,7 @@ Absolutely. The Seattle real estate market remains competitive, and updated kitc
 
 At Kitchen and Bathroom Remodeling Pros, we handle kitchen remodeling projects of every size across Seattle, Bellevue, Kirkland, Redmond, Renton, and the surrounding Puget Sound area. From initial design consultation to final walkthrough, our team of experienced professionals manages every detail so you do not have to.
 
-We have completed over 500 projects with a 4.98-star rating and offer a 5-year warranty on our work. Call (206) 222-5159 or book your free consultation online to get a detailed estimate for your kitchen remodel.`,
+We have completed over 500 projects with a 5-star rating and offer a 5-year warranty on our work. Call (206) 222-5159 or book your free consultation online to get a detailed estimate for your kitchen remodel.`,
     author: 'Remodeling Pros Team',
     date: '2026-03-05',
     readTime: '12 min read',
@@ -1383,7 +1383,7 @@ For structurally sound showers, we can also discuss smaller-scope updates such a
 
 Every shower project is different. The best starting point is a professional assessment of your existing shower condition, your goals, and your budget. At Kitchen and Bathroom Remodeling Pros, we offer free consultations for shower and tile projects throughout Seattle, Bellevue, Kirkland, Redmond, and the greater Puget Sound area.
 
-With over 500 completed projects and a 4.98-star rating, our team delivers quality tile and shower installations backed by a 5-year warranty. Call (206) 222-5159 or book online to get started.`,
+With over 500 completed projects and a 5-star rating, our team delivers quality tile and shower installations backed by a 5-year warranty. Call (206) 222-5159 or book online to get started.`,
     author: 'Remodeling Pros Team',
     date: '2026-02-20',
     readTime: '9 min read',
@@ -1543,7 +1543,7 @@ Here is a simple framework:
 
 Every home is different, and the right renovation strategy depends on your specific situation. At Kitchen and Bathroom Remodeling Pros, we offer free consultations to help Seattle homeowners evaluate their options and plan renovations that maximize both enjoyment and value.
 
-With 15+ years of experience, over 500 completed projects, and a 4.98-star rating across the Puget Sound area, we have the expertise to guide you toward the right decision - whether that is a full kitchen remodel, a bathroom renovation, or a focused upgrade plan that controls budget without cutting quality.
+With 15+ years of experience, over 500 completed projects, and a 5-star rating across the Puget Sound area, we have the expertise to guide you toward the right decision - whether that is a full kitchen remodel, a bathroom renovation, or a focused upgrade plan that controls budget without cutting quality.
 
 Call (206) 222-5159 or book a free consultation online to discuss your project.`,
     author: 'Remodeling Pros Team',
@@ -1749,7 +1749,7 @@ Every one of these mistakes is preventable. The key is planning, hiring qualifie
 
 ## Ready to Remodel the Right Way?
 
-At Kitchen and Bathroom Remodeling Pros, we have completed over 500 bathroom projects across Seattle, Bellevue, Kirkland, Redmond, and the greater Puget Sound area with a 4.98-star rating. We do things right the first time — proper waterproofing, code-compliant ventilation, smart storage planning, and full licensing and insurance.
+At Kitchen and Bathroom Remodeling Pros, we have completed over 500 bathroom projects across Seattle, Bellevue, Kirkland, Redmond, and the greater Puget Sound area with a 5-star rating. We do things right the first time — proper waterproofing, code-compliant ventilation, smart storage planning, and full licensing and insurance.
 
 Call (206) 222-5159 or book a free consultation online. We will walk through your bathroom, discuss your goals, and give you an honest, detailed estimate with no pressure and no surprises.`,
     author: 'Remodeling Pros Team',
@@ -2551,7 +2551,7 @@ Total construction time for a full kitchen remodel is typically 5-8 weeks, but p
 
 Every kitchen is different. The best way to get accurate pricing for your specific project is to have an experienced contractor assess your space, discuss your goals, and provide a detailed line-item estimate.
 
-At Kitchen and Bathroom Remodeling Pros, we have completed hundreds of kitchen remodeling projects across Seattle, Bellevue, Kirkland, Redmond, Renton, and the greater Puget Sound area. We provide detailed written estimates within 48 hours of your consultation, with transparent pricing and no hidden fees. Our work is backed by a 5-year warranty and our 4.98-star rating from 87 verified reviews.
+At Kitchen and Bathroom Remodeling Pros, we have completed hundreds of kitchen remodeling projects across Seattle, Bellevue, Kirkland, Redmond, Renton, and the greater Puget Sound area. We provide detailed written estimates within 48 hours of your consultation, with transparent pricing and no hidden fees. Our work is backed by a 5-year warranty and our 5-star rating from 87 verified reviews.
 
 Call (206) 222-5159 or book a free in-home consultation to discuss your kitchen remodeling project today.`,
     author: 'Remodeling Pros Team',
