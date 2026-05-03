@@ -33,20 +33,20 @@ export default function Header() {
       {/* Top Bar - hidden on mobile */}
       <div className="hidden md:block bg-gradient-to-r from-slate-100 to-blue-50 text-gray-700 text-sm border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 py-2 flex justify-between items-center">
-          {/* Left - 24/7 Quote */}
-          <a href="https://nexfield.pro/crm/book?u=137" className="flex items-center gap-2 font-semibold text-[#0b66b3] hover:text-[#084c8a] transition">
+          {/* Left - Estimate CTA */}
+          <Link href="/contact" className="flex items-center gap-2 font-semibold text-[#0b66b3] hover:text-[#084c8a] transition">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            24/7 Free Quotes
-          </a>
+            Free estimate with itemized scope
+          </Link>
 
           {/* Center - Value proposition */}
           <div className="flex items-center gap-2 text-gray-700 font-semibold">
             <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
-            <span>Seattle&apos;s #1 <span className="text-[#0b66b3]">Kitchen & Bath Remodeling</span></span>
+            <span>Licensed <span className="text-[#0b66b3]">Kitchen & Bath Remodeling</span></span>
           </div>
 
           {/* Right - Rating */}
@@ -71,7 +71,7 @@ export default function Header() {
         <nav className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center h-20 md:h-24">
             {/* Logo */}
-            <Link href="/" className="flex items-center flex-shrink-0 h-full py-1 gap-3">
+            <Link href="/" className="flex items-center flex-shrink-0 h-full py-1">
               {/* Mobile logo */}
               <Image
                 src="/images/logo.png"
@@ -81,11 +81,7 @@ export default function Header() {
                 className="h-[110px] w-auto object-contain md:hidden"
                 priority
               />
-              <span className="md:hidden font-bold text-xs leading-tight">
-                <span className="text-amber-500">Kitchen &amp; Bathroom</span><br />
-                <span className="text-gray-800">Remodeling Pros</span>
-              </span>
-              {/* Desktop logo + name */}
+              {/* Desktop logo */}
               <Image
                 src="/images/logo.png"
                 alt="Kitchen and Bathroom Remodeling Pros"
@@ -94,10 +90,6 @@ export default function Header() {
                 className="hidden md:block h-[150px] w-auto object-contain"
                 priority
               />
-              <div className="hidden md:flex flex-col leading-tight">
-                <span className="text-amber-500 font-black text-base tracking-tight">Kitchen & Bathroom</span>
-                <span className="text-gray-800 font-bold text-sm tracking-tight">Remodeling Pros</span>
-              </div>
             </Link>
 
             {/* Desktop Navigation */}
@@ -129,12 +121,12 @@ export default function Header() {
               </a>
 
               {/* Get Quote button */}
-              <a
-                href="https://nexfield.pro/crm/book?u=137"
+              <Link
+                href="/contact"
                 className="hidden sm:inline-flex px-6 py-3 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold hover:from-amber-600 hover:to-amber-700 transition shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 hover:scale-105 transform"
               >
-                Free Estimate
-              </a>
+                Schedule Estimate
+              </Link>
 
               {/* Mobile menu button */}
               <button
@@ -166,6 +158,29 @@ export default function Header() {
                   {item.name}
                 </Link>
               ))}
+              <div className="mt-4 rounded-2xl border border-[#0b66b3]/15 bg-[#0b66b3]/5 p-4">
+                <div className="text-sm font-bold text-gray-900">Ready to price a remodel?</div>
+                <div className="mt-1 text-xs text-gray-600">Send the request once. We confirm scope, timeline, and next steps.</div>
+                <div className="mt-4 grid grid-cols-2 gap-2">
+                  <Link
+                    href="/contact"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="inline-flex items-center justify-center rounded-xl bg-amber-500 px-3 py-3 text-sm font-bold text-white hover:bg-amber-600 transition"
+                  >
+                    Estimate
+                  </Link>
+                  <a
+                    href={BUSINESS.phoneLink}
+                    onClick={() => {
+                      trackPhoneClick();
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="inline-flex items-center justify-center rounded-xl bg-white px-3 py-3 text-sm font-bold text-[#0b66b3] border border-[#0b66b3]/20 hover:border-[#0b66b3] transition"
+                  >
+                    Call
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </nav>

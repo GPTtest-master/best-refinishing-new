@@ -56,7 +56,7 @@ export default function ShowerDoorsPage() {
       {/* Hero */}
       <section className="relative pt-24 pb-16 overflow-hidden">
         <div className="absolute inset-0">
-          <Image src="/images/remodeling/shower-hero.png" alt="Shower door installation and remodeling" fill className="object-cover" priority quality={70} />
+          <Image src="/images/remodeling/shower-doors-hero.jpg" alt="Shower door installation and remodeling" fill className="object-cover" priority quality={75} />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-slate-900/70 to-slate-900/50" />
         </div>
         <div className="relative max-w-7xl mx-auto px-4">
@@ -77,7 +77,7 @@ export default function ShowerDoorsPage() {
             </p>
             <div className="flex flex-wrap gap-4">
               <a
-                href="https://nexfield.pro/crm/book?u=137"
+                href="/contact"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-amber-500 text-white font-bold text-lg hover:bg-amber-600 transition"
               >
                 Get Free Measurement
@@ -230,7 +230,7 @@ export default function ShowerDoorsPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://nexfield.pro/crm/book?u=137"
+              href="/contact"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-amber-500 text-white font-bold text-lg hover:bg-amber-600 transition"
             >
               Request Free Measurement

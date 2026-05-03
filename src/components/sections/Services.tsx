@@ -82,12 +82,12 @@ export default function Services() {
                 ))}
               </div>
               <div className="flex gap-3">
-                <a
-                  href="https://nexfield.pro/crm/book?u=137"
-                  className="flex-1 py-3 rounded-xl bg-[#0b66b3] text-white font-bold text-center hover:bg-[#084c8a] transition"
+                <Link
+                  href="/contact"
+                  className="flex-1 py-3 rounded-xl bg-amber-500 text-white font-bold text-center hover:bg-amber-600 transition"
                 >
-                  Get Quote
-                </a>
+                  Estimate
+                </Link>
                 <Link
                   href={REMODELING_SERVICES[activeTab].href}
                   className="px-4 py-3 rounded-xl border-2 border-gray-200 text-gray-700 font-bold hover:border-[#0b66b3] transition"
@@ -163,13 +163,20 @@ export default function Services() {
                   ))}
                 </div>
 
-                {/* CTA Button */}
-                <Link
-                  href={service.href}
-                  className="block w-full py-3 rounded-xl bg-[#0b66b3] text-white font-semibold text-center hover:bg-[#084c8a] transition"
-                >
-                  {service.title} Details
-                </Link>
+                <div className="grid grid-cols-[1fr_auto] gap-2">
+                  <Link
+                    href="/contact"
+                    className="block w-full py-3 rounded-xl bg-amber-500 text-white font-semibold text-center hover:bg-amber-600 transition"
+                  >
+                    Get Estimate
+                  </Link>
+                  <Link
+                    href={service.href}
+                    className="block px-4 py-3 rounded-xl border border-gray-200 text-gray-700 font-semibold text-center hover:border-[#0b66b3] hover:text-[#0b66b3] transition"
+                  >
+                    Details
+                  </Link>
+                </div>
               </div>
             </div>
           ))}
@@ -179,7 +186,7 @@ export default function Services() {
         <div className="mt-10 md:mt-16 text-center">
           <p className="text-gray-600 mb-4">Need a custom remodeling solution?</p>
           <a
-            href="https://nexfield.pro/crm/book?u=137"
+            href="/contact"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#0b66b3] text-white font-bold text-lg hover:bg-[#084c8a] transition"
           >
             Get Free Assessment

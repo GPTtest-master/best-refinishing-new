@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { BLOG_POSTS, BUSINESS, SERVICES, ALL_SERVICES, REMODELING_SERVICES, LOCATIONS } from '@/lib/constants';
+import { ACTIVE_BLOG_POSTS, BUSINESS, ALL_SERVICES, REMODELING_SERVICES, LOCATIONS } from '@/lib/constants';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 // Blog content stored separately for SEO optimization
@@ -10,10 +10,260 @@ const blogContent: Record<string, {
   sections: { heading?: string; content?: string; list?: string[]; image?: { src: string; alt: string; caption?: string; position?: string } }[];
   relatedServices?: string[]; // service IDs from SERVICES array
 }> = {
+  'seattle-remodeling-permits-bathroom-kitchen': {
+    sections: [
+      {
+        content: `Seattle kitchen and bathroom remodels usually need permit review when the scope changes plumbing, electrical, structure, ventilation, or life-safety conditions. Purely cosmetic updates are usually simpler, but <a href="/services/bathroom-remodeling" class="text-[#0b66b3] underline">bathroom remodeling</a> and <a href="/services/kitchen-remodeling" class="text-[#0b66b3] underline">kitchen remodeling</a> should define the permit path before demolition so the estimate, inspections, and schedule are clear.`
+      },
+      {
+        heading: 'The Short Rule: Cosmetic Work Is Different From System Work',
+        content: `Painting, replacing cabinet pulls, swapping a mirror, or installing a like-for-like vanity top is usually a different category from opening walls, moving drains, adding circuits, changing framing, or replacing a shower assembly. Once the remodel touches building systems, you should assume a permit review may be needed and confirm before demolition. Seattle's permit rules are published by <a href="https://www.seattle.gov/sdci/permits" target="_blank" rel="noopener noreferrer" class="text-[#0b66b3] underline">Seattle Department of Construction & Inspections</a>.`
+      },
+      {
+        heading: 'Bathroom Remodel Permit Triggers',
+        content: `Bathroom remodels get risky when the scope is described as a simple update but the job actually changes waterproofing, plumbing, or electrical. These are the items we flag early during an estimate:`,
+        list: [
+          '**Moving a toilet, tub, shower, or vanity drain:** expect plumbing permit review and inspection planning.',
+          '**Adding or relocating lighting, outlets, heated floors, or exhaust fans:** electrical permits and GFCI/code requirements can apply.',
+          '**Converting a tub to a walk-in shower:** waterproofing, drain, valve, and ventilation details must be planned as a system.',
+          '**Opening walls in older homes:** galvanized supply lines, old wiring, framing damage, or hidden moisture can change the scope.',
+          '**Condo or townhouse work:** HOA approval, work-hour limits, elevator protection, and insurance certificates can be as important as city permits.'
+        ]
+      },
+      {
+        image: {
+          src: '/images/remodeling/bathroom-showcase-4.jpg',
+          alt: 'Seattle bathroom remodel with tile shower and permit-sensitive plumbing work',
+          caption: 'The permit-sensitive part of a bathroom remodel is often behind the tile: waterproofing, plumbing, ventilation, and electrical.'
+        }
+      },
+      {
+        heading: 'Kitchen Remodel Permit Triggers',
+        content: `Kitchen projects often start as cabinet and countertop updates, then become permit jobs when the layout changes. Before signing, define whether the project is a refresh or a remodel with system changes.`,
+        list: [
+          '**Keeping the same layout:** cabinet replacement, countertops, backsplash, and paint may be simpler if plumbing/electrical stay untouched.',
+          '**Moving the sink, range, dishwasher, or refrigerator water line:** plumbing and electrical scope should be documented in the bid.',
+          '**Adding an island:** island outlets, lighting, and possible floor repair need planning before cabinets are ordered.',
+          '**Removing or changing walls:** structural review may be needed if a wall is load-bearing or affects lateral support.',
+          '**Changing ventilation:** range hood ducting must be planned early, especially in condos and older Seattle homes.'
+        ]
+      },
+      {
+        heading: 'What We Want Homeowners To Verify Before Hiring',
+        content: `Before you compare bids, verify that the contractor is registered and that the written scope says who handles permits, inspections, disposal, protection, and change orders. Washington homeowners can check contractor registration through the official <a href="https://secure.lni.wa.gov/verify/" target="_blank" rel="noopener noreferrer" class="text-[#0b66b3] underline">Washington L&I contractor lookup</a>. If the home was built before 1978 and painted surfaces may be disturbed, ask about lead-safe practices and review the EPA's <a href="https://www.epa.gov/lead/renovation-repair-and-painting-program" target="_blank" rel="noopener noreferrer" class="text-[#0b66b3] underline">Renovation, Repair and Painting Program</a>.`
+      },
+      {
+        heading: 'Permit Questions To Ask On The First Estimate',
+        content: `A serious remodeling estimate should make permit responsibility boring and clear. Ask these questions before you pay a deposit:`,
+        list: [
+          '**Which parts of this scope require permit confirmation?** The contractor should answer by trade: plumbing, electrical, building, mechanical.',
+          '**Who pulls permits and schedules inspections?** Avoid vague answers like "we will see later."',
+          '**What is excluded from the price?** Permit fees, engineering, asbestos/lead testing, utility work, and HOA paperwork should be listed.',
+          '**What happens if inspection requires a correction?** The contract should explain responsibility, timing, and cost.',
+          '**Can this scope be phased?** Sometimes the smartest plan is a clean cosmetic phase now and a larger permitted layout change later.'
+        ]
+      },
+      {
+        heading: 'Internal Links For Planning The Next Step',
+        content: `If you are still deciding scope, start with our <a href="/blog/bathroom-remodeling-cost-seattle-2026" class="text-[#0b66b3] underline">Seattle bathroom remodeling cost guide</a> or the <a href="/blog/kitchen-remodeling-seattle-guide" class="text-[#0b66b3] underline">Seattle kitchen remodeling guide</a>. If you already know the room, compare <a href="/services/tub-to-shower" class="text-[#0b66b3] underline">tub-to-shower conversions</a>, <a href="/services/tile-installation" class="text-[#0b66b3] underline">tile installation</a>, and city pages like <a href="/locations/seattle" class="text-[#0b66b3] underline">Seattle</a>, <a href="/locations/issaquah" class="text-[#0b66b3] underline">Issaquah</a>, and <a href="/locations/bothell" class="text-[#0b66b3] underline">Bothell</a>.`
+      },
+      {
+        heading: 'Bottom Line',
+        content: `Do not treat permits as an afterthought. A clean remodel is planned around the visible finish and the hidden systems behind it. When the estimate, permit path, and inspection plan are clear before demolition, the project has a much better chance of staying on budget and on schedule.`
+      }
+    ],
+    relatedServices: ['bathroom-remodeling', 'kitchen-remodeling', 'tub-to-shower']
+  },
+  'kitchen-remodel-seattle-wa-cost-2026': {
+    sections: [
+      {
+        content: `A Seattle kitchen remodel in 2026 usually costs $18,000-$32,000 for a focused refresh, $35,000-$65,000 for a mid-range remodel, $65,000-$95,000 for layout changes, and $95,000+ for a premium rebuild. The final number depends on cabinets, countertops, electrical scope, plumbing changes, permits, and how much of the existing layout stays in place.`
+      },
+      {
+        heading: 'Realistic 2026 Seattle Kitchen Remodel Budgets',
+        content: `Use these ranges as a planning framework before you request estimates:`,
+        list: [
+          '**Focused refresh: $18,000 - $32,000:** cabinet paint or refacing, new counters, backsplash, sink, faucet, lighting touch-ups.',
+          '**Mid-range remodel: $35,000 - $65,000:** new cabinets, quartz counters, tile backsplash, flooring, sink, faucet, appliance hookup, lighting upgrades.',
+          '**Layout-change remodel: $65,000 - $95,000:** moving plumbing or electrical, island changes, wall repair, custom cabinet layout, permit coordination.',
+          '**High-end full kitchen: $95,000 - $140,000+:** premium cabinets, panel-ready appliances, structural work, custom stone, designer lighting, major finish upgrades.'
+        ]
+      },
+      {
+        heading: 'The Five Cost Drivers That Matter Most',
+        content: `Most kitchen bids look different because contractors are not pricing the same kitchen. When we review a kitchen, these five decisions drive the number:`,
+        list: [
+          '**Cabinet strategy:** paint/reface, stock cabinets, semi-custom, or fully custom.',
+          '**Layout discipline:** keeping the sink, range, and refrigerator close to their current locations saves money.',
+          '**Countertop material:** quartz is predictable and durable; natural stone requires more selection and maintenance planning.',
+          '**Electrical scope:** older kitchens may need circuits, lighting, GFCI/AFCI updates, or panel review.',
+          '**Project protection:** dust control, floor protection, disposal, and temporary kitchen planning are part of a real bid.'
+        ]
+      },
+      {
+        image: {
+          src: '/images/remodeling/kitchen-showcase-2.jpg',
+          alt: 'Seattle WA kitchen remodel with quartz counters and new cabinets',
+          caption: 'A kitchen remodel budget is mostly decided before demolition: layout, cabinets, counters, and electrical scope.'
+        }
+      },
+      {
+        heading: 'Low Bid Warning Signs',
+        content: `A cheap kitchen bid can be legitimate if the scope is small. It becomes dangerous when important work is missing. Watch for these gaps:`,
+        list: [
+          '**No cabinet details:** brand, box construction, finish, hardware, and installation method should be specified.',
+          '**No countertop allowance:** "quartz included" is not enough. Thickness, edge, slab allowance, sink cutout, and seams matter.',
+          '**No permit language:** if electrical, plumbing, or structural changes are involved, the bid should say how permits are handled.',
+          '**No change-order process:** unclear change orders are how a cheap bid becomes the most expensive bid.',
+          '**No schedule assumptions:** cabinet lead times and inspection timing should be discussed before start date promises.'
+        ]
+      },
+      {
+        heading: 'How To Spend Money Where It Shows',
+        content: `For many Seattle homes, the best kitchen remodel is not the most expensive one. It is the one that puts money into the surfaces and systems people notice every day.`,
+        list: [
+          '**Spend on cabinets you touch every day:** drawer boxes, hinges, slides, and layout matter more than decorative upgrades.',
+          '**Choose a durable countertop:** quartz is often the best balance of appearance, maintenance, and cost.',
+          '**Upgrade lighting:** layered lighting can make a mid-range kitchen feel custom.',
+          '**Keep plumbing stable if possible:** moving a sink across the room can consume money without improving daily function.',
+          '**Plan backsplash last:** backsplash ties the room together, but it should follow cabinet and counter decisions.'
+        ]
+      },
+      {
+        heading: 'Where To Go Next',
+        content: `For a broader planning view, read our <a href="/blog/kitchen-remodeling-seattle-guide" class="text-[#0b66b3] underline">Seattle kitchen remodeling guide</a>. If you are comparing city-specific work, start with <a href="/locations/seattle" class="text-[#0b66b3] underline">Seattle remodeling</a>, <a href="/locations/bellevue/kitchen-remodeling" class="text-[#0b66b3] underline">Bellevue kitchen remodeling</a>, <a href="/locations/issaquah" class="text-[#0b66b3] underline">Issaquah</a>, or <a href="/locations/bothell" class="text-[#0b66b3] underline">Bothell</a>. For a direct service page, use <a href="/services/kitchen-remodeling" class="text-[#0b66b3] underline">kitchen remodeling</a> or <a href="/services/countertop-installation" class="text-[#0b66b3] underline">countertop installation</a>.`
+      },
+      {
+        heading: 'Bottom Line',
+        content: `A useful Seattle kitchen remodel estimate should be boringly specific: cabinet plan, countertop allowance, electrical scope, plumbing assumptions, permit responsibility, schedule assumptions, and exclusions. If a bid does not make those items clear, the price is not real yet.`
+      }
+    ],
+    relatedServices: ['kitchen-remodeling', 'countertop-installation', 'cabinet-refacing']
+  },
+  'canyon-park-townhome-kitchen-remodeling': {
+    sections: [
+      {
+        content: `Canyon Park townhome kitchen remodeling should start with HOA rules, access, ventilation, cabinet storage, and material delivery before finish selections. Townhome kitchens are usually tighter than detached-home kitchens, so the strongest remodels improve storage, lighting, counters, and workflow while avoiding unnecessary plumbing or ventilation moves.`
+      },
+      {
+        heading: 'Why Townhome Kitchens Need A Tighter Plan',
+        content: `In a townhome, every inch matters. The best remodel is usually not about making the kitchen bigger. It is about making the existing footprint work harder with better storage, cleaner lighting, durable counters, and a layout that respects plumbing, electrical, ventilation, and HOA limits.`,
+        list: [
+          '**Compact cabinet layout:** deep drawers, corner solutions, pantry pull-outs, and ceiling-height uppers can add storage without moving walls.',
+          '**Ventilation path:** range hood routing can be more limited in attached homes, so it needs to be checked early.',
+          '**Shared-wall awareness:** plumbing and electrical work may affect neighboring walls or require stricter scheduling.',
+          '**Access planning:** parking, stairs, narrow entries, floor protection, and debris removal should be in the project plan.',
+          '**Noise and work-hour rules:** HOA requirements can affect demolition, delivery, and inspection timing.'
+        ]
+      },
+      {
+        heading: 'Realistic Budget Ranges For Canyon Park And Bothell Townhomes',
+        content: `Use these ranges as planning numbers before you request a written estimate. The final price depends on cabinet strategy, countertop choice, appliance plan, electrical scope, and whether plumbing or ventilation changes are required.`,
+        list: [
+          '**Focused kitchen refresh: $18,000 - $32,000:** cabinet refacing or paint, new counters, sink, faucet, backsplash, lighting touch-ups, and small finish updates.',
+          '**Mid-range townhome kitchen remodel: $35,000 - $65,000:** new cabinets, quartz counters, backsplash, flooring repair, fixture updates, and improved lighting.',
+          '**Layout-change remodel: $65,000 - $95,000+:** moving sink/range locations, major electrical updates, new ventilation routing, wall repair, and custom storage.',
+          '**Premium compact kitchen: $90,000+:** custom cabinetry, panel-ready appliances, premium stone, designer lighting, and high-end finish package.'
+        ]
+      },
+      {
+        image: {
+          src: '/images/remodeling/kitchen-showcase-1.jpg',
+          alt: 'Modern townhome kitchen remodeling inspiration near Canyon Park and Bothell',
+          caption: 'For a townhome kitchen, storage, lighting, countertop durability, and logistics matter as much as the final finish.'
+        }
+      },
+      {
+        heading: 'HOA And Permit Questions To Ask Before Demo',
+        content: `Do not wait until the crew arrives to discover HOA or permit issues. Ask these questions while comparing estimates:`,
+        list: [
+          '**Does the HOA require written approval before work starts?** Some townhome communities require scope, insurance, and contractor documentation.',
+          '**Are work hours restricted?** This affects demolition, deliveries, and inspection scheduling.',
+          '**Where can materials and debris be staged?** Small garages and shared parking can slow the job if this is not planned.',
+          '**Will plumbing, electrical, or ventilation move?** If yes, the permit and inspection path should be discussed before signing.',
+          '**Who protects common areas?** Entryways, stairs, floors, and shared hallways should be protected and cleaned daily.'
+        ]
+      },
+      {
+        heading: 'Best Upgrades For A Compact Kitchen',
+        content: `The strongest townhome kitchen remodels spend money where the homeowner feels it every day.`,
+        list: [
+          '**Cabinet drawers over lower doors:** drawers make deep storage usable instead of turning it into wasted space.',
+          '**Quartz countertops:** durable, low-maintenance, and easier to specify consistently than many natural stone options.',
+          '**Layered lighting:** recessed lighting, under-cabinet lighting, and pendants can make a small kitchen feel more expensive.',
+          '**Better backsplash planning:** tile size, edge trim, outlet placement, and grout color can make or break the finish.',
+          '**Pull-out pantry storage:** a narrow pull-out can replace several shelves of clutter.'
+        ]
+      },
+      {
+        heading: 'Local Pages To Compare',
+        content: `If your project is in or near Canyon Park, start with <a href="/locations/bothell/kitchen-remodeling" class="text-[#0b66b3] underline">Bothell kitchen remodeling</a>, <a href="/locations/kirkland/kitchen-remodeling" class="text-[#0b66b3] underline">Kirkland kitchen remodeling</a>, and <a href="/locations/woodinville/kitchen-remodeling" class="text-[#0b66b3] underline">Woodinville kitchen remodeling</a>. For scope planning, compare <a href="/services/kitchen-remodeling" class="text-[#0b66b3] underline">kitchen remodeling</a>, <a href="/services/countertop-installation" class="text-[#0b66b3] underline">countertop installation</a>, and <a href="/services/cabinet-refacing" class="text-[#0b66b3] underline">cabinet refacing</a>.`
+      },
+      {
+        heading: 'Bottom Line',
+        content: `For Canyon Park townhomes, the winning remodel is organized before demolition: HOA approval, access, cabinet plan, countertop allowance, lighting, ventilation, permit assumptions, and cleanup. If a bid does not explain those items, it is not specific enough yet.`
+      }
+    ],
+    relatedServices: ['kitchen-remodeling', 'countertop-installation', 'cabinet-refacing']
+  },
+  'bathroom-remodeling-near-me-seattle-area': {
+    sections: [
+      {
+        content: `The best bathroom remodeling contractor near you is not always the closest company on the map. For Seattle-area homes, choose the contractor who can explain waterproofing, ventilation, plumbing assumptions, permit triggers, access, timeline, warranty, and the hidden risks in your exact type of home before the walls are open.`
+      },
+      {
+        heading: 'Local Fit Matters More Than Distance',
+        content: `A contractor being nearby is useful. But the important local knowledge is about housing stock, access, parking, material delivery, HOA rules, and inspection expectations. For example, a small Seattle bathroom may need careful floor protection and ventilation planning, while a suburban primary bath may be more about layout, shower glass, and tile sequencing.`
+      },
+      {
+        heading: 'The Estimate Checklist',
+        content: `Use this checklist when comparing bathroom remodeling contractors near you:`,
+        list: [
+          '**Scope clarity:** the bid should say what is being demolished, replaced, reused, and excluded.',
+          '**Waterproofing method:** shower walls and floors need a specific membrane or system, not vague "waterproof board" language.',
+          '**Ventilation plan:** bathroom fans matter in the Seattle climate and should be sized and routed correctly.',
+          '**Plumbing assumptions:** old valves, galvanized lines, low water pressure, or drain changes should be discussed upfront.',
+          '**Tile layout:** niche placement, grout joint size, edge trim, curb details, and slope should be decided before tile starts.',
+          '**Warranty and service:** ask what is covered, for how long, and how punch-list items are handled.'
+        ]
+      },
+      {
+        image: {
+          src: '/images/remodeling/bathroom-showcase-3.jpg',
+          alt: 'Seattle-area bathroom remodeling with custom shower tile',
+          caption: 'The best bathroom remodelers talk about waterproofing, ventilation, layout, and finish details before quoting the final number.'
+        }
+      },
+      {
+        heading: 'Questions That Separate Pros From Salespeople',
+        content: `The first consultation should reveal whether you are talking to a remodeler or just a salesperson. Ask direct questions:`,
+        list: [
+          '**What would you not change in this bathroom?** Good contractors protect budget by preserving what already works.',
+          '**Where do you expect hidden problems?** Older homes can hide plumbing, subfloor, and ventilation issues.',
+          '**How do you waterproof showers?** The answer should name a system or method, not just "we seal it."',
+          '**What can delay this job?** Honest answers include material lead times, inspections, change orders, and HOA approvals.',
+          '**How do I compare your bid with another one?** A strong contractor can explain scope differences without trashing competitors.'
+        ]
+      },
+      {
+        heading: 'City Pages For Local Planning',
+        content: `If you are comparing local remodelers, start with the page closest to your project: <a href="/locations/seattle" class="text-[#0b66b3] underline">Seattle</a>, <a href="/locations/bellevue/bathroom-remodeling" class="text-[#0b66b3] underline">Bellevue bathroom remodeling</a>, <a href="/locations/issaquah/bathroom-remodeling" class="text-[#0b66b3] underline">Issaquah bathroom remodeling</a>, and <a href="/locations/bothell/bathroom-remodeling" class="text-[#0b66b3] underline">Bothell bathroom remodeling</a>. If your project is focused on changing the bathing area, compare <a href="/services/tub-to-shower" class="text-[#0b66b3] underline">tub-to-shower conversion</a>, <a href="/services/shower-installation" class="text-[#0b66b3] underline">shower installation</a>, and <a href="/services/tile-installation" class="text-[#0b66b3] underline">tile installation</a>.`
+      },
+      {
+        heading: 'What A Strong Bathroom Bid Should Include',
+        content: `A serious bathroom remodeling bid should include demolition, disposal, site protection, rough plumbing assumptions, electrical assumptions, waterproofing, tile scope, fixture installation, glass or shower door assumptions, painting, cleanup, warranty, and payment schedule. If a bid is missing several of those items, it may not be cheaper - it may just be incomplete.`
+      },
+      {
+        heading: 'Bottom Line',
+        content: `The best bathroom remodeling contractor near you is the one who can explain the risks of your exact room before the walls are open. Proximity helps. Scope clarity, waterproofing knowledge, local permitting awareness, and a real written estimate matter more.`
+      }
+    ],
+    relatedServices: ['bathroom-remodeling', 'shower-installation', 'tile-installation']
+  },
   'bathroom-remodeling-cost-seattle-2026': {
     sections: [
       {
-        content: `Thinking about remodeling your bathroom in Seattle? Whether you're updating a guest bath or gutting a master suite, **understanding real costs** helps you budget accurately and avoid surprises. This guide breaks down actual pricing from our completed projects across the Seattle metro area.`
+        content: `A Seattle bathroom remodel in 2026 usually costs $7,900-$15,000 for a cosmetic refresh, $15,000-$30,000 for a mid-range remodel, $30,000-$45,000+ for a high-end bathroom, and $45,000-$75,000+ for a primary suite gut remodel. The biggest cost drivers are layout changes, tile scope, waterproofing, plumbing, fixtures, permits, and hidden conditions in older homes.`
       },
       {
         heading: 'Bathroom Remodeling Costs in Seattle (2026)',
@@ -62,7 +312,7 @@ const blogContent: Record<string, {
         list: [
           '**Keep the existing layout:** Moving plumbing is the biggest hidden cost',
           '**Choose porcelain over natural stone:** Looks similar, costs 50% less, easier to maintain',
-          '**Refinish instead of replace the tub:** Save $3,000-5,000 if the tub is structurally sound',
+          '**Avoid unnecessary fixture moves:** Keep plumbing in place unless the new layout meaningfully improves access, storage, or resale value',
           '**Standard sizes:** Custom shower bases and odd-sized vanities cost significantly more',
           '**Bundle services:** Kitchen + bathroom together often gets a 10-15% discount',
           '**Off-season scheduling:** Winter months (Nov-Feb) often have better pricing and availability'
@@ -100,7 +350,7 @@ const blogContent: Record<string, {
   'kitchen-remodeling-seattle-guide': {
     sections: [
       {
-        content: `A kitchen remodel is one of the biggest investments you can make in your Seattle home — and one of the most rewarding. Whether you're updating countertops and cabinets or doing a complete gut renovation, **knowing what to expect** saves you time, money, and stress.`
+        content: `A Seattle kitchen remodel usually takes 4-8 weeks of construction after design, permits, cabinet lead times, and material selections are complete. Budget commonly ranges from $25,000-$75,000+ depending on cabinet strategy, countertop choice, appliance plan, electrical work, plumbing changes, and whether walls or layout are changed.`
       },
       {
         heading: 'Kitchen Remodeling Costs in Seattle (2026)',
@@ -190,7 +440,7 @@ const blogContent: Record<string, {
   'shower-tile-installation-seattle': {
     sections: [
       {
-        content: `Whether you're replacing an old fiberglass insert with a custom tile shower or adding a stunning backsplash to your kitchen, **professional tile installation** transforms spaces in ways few other upgrades can. Here's everything Seattle homeowners need to know.`
+        content: `Professional shower tile installation in Seattle usually takes 10-14 working days for a standard tiled shower and longer for custom layouts. The result depends less on the tile itself and more on demolition, framing, waterproofing, pan slope, drain planning, layout, grout, edge details, and glass coordination.`
       },
       {
         heading: 'Shower Installation Costs in Seattle',
@@ -266,7 +516,7 @@ const blogContent: Record<string, {
   'kitchen-vs-bathroom-remodel-roi': {
     sections: [
       {
-        content: `You've decided to remodel — but should you start with the kitchen or the bathroom? Both add value, but the **return on investment differs significantly** based on your home, your market, and your budget. Here's a data-driven comparison for Seattle homeowners.`
+        content: `For most Seattle homeowners, kitchen remodels create the broadest resale impact, while bathroom remodels can deliver faster daily comfort and strong ROI at a smaller budget. The better first project is the room with the weakest function, most visible buyer objection, or highest risk of hidden water or layout problems.`
       },
       {
         heading: 'The ROI Comparison: Kitchen vs. Bathroom',
@@ -327,7 +577,7 @@ const blogContent: Record<string, {
           '**If you\'re selling soon:** Kitchen first — it photographs better and impacts buyer first impressions',
           '**If budget is tight:** Start with a bathroom — higher ROI percentage, lower total cost, faster completion',
           '**Best of both worlds:** Many clients do both — start with the bathroom, then tackle the kitchen. We offer bundle pricing.',
-          '**Don\'t forget:** We also offer refinishing as a budget-friendly option for tubs and surfaces that are structurally sound'
+          '**Keep scope honest:** If the structure and layout already work, spend first on the updates people touch every day - shower glass, tile, vanity storage, lighting, fixtures, and ventilation'
         ]
       },
       {
@@ -588,7 +838,7 @@ const blogContent: Record<string, {
   'bathroom-remodeling-mistakes-seattle': {
     sections: [
       {
-        content: `Bathroom remodeling is a smart investment — but costly mistakes can turn your dream project into a financial nightmare. After 500+ projects across Seattle, we have identified the **five most expensive mistakes** homeowners make and exactly how to avoid each one.`
+        content: `The most expensive Seattle bathroom remodeling mistakes are weak waterproofing, vague bids, poor ventilation, late material decisions, and moving plumbing without a strong layout reason. Avoid them by defining the scope, waterproofing system, fixture list, permit path, and change-order process before demolition.`
       },
       {
         heading: 'Mistake #1: Skipping Proper Waterproofing',
@@ -665,7 +915,7 @@ const blogContent: Record<string, {
   'quartz-vs-granite-countertops-seattle': {
     sections: [
       {
-        content: `Quartz or granite? It is the biggest countertop decision Seattle homeowners face during a kitchen remodel. Both are premium materials, but they differ in **durability, maintenance, cost, and performance** in Seattle's humid climate. Here is the complete comparison.`
+        content: `Quartz is usually the better countertop choice for Seattle homeowners who want low maintenance, consistent color, and strong stain resistance. Granite is better when you want a natural stone look, unique slabs, and do not mind periodic sealing. The right choice depends on maintenance tolerance, style, budget, and how heavily the kitchen is used.`
       },
       {
         heading: 'Quick Comparison: Quartz vs Granite',
@@ -742,7 +992,7 @@ const blogContent: Record<string, {
   'walk-in-shower-vs-bathtub-seattle': {
     sections: [
       {
-        content: `Walk-in shower or bathtub? It is one of the most consequential bathroom decisions Seattle homeowners face — and the wrong choice can cost thousands in resale value. Here is what **real market data** says about what buyers actually want.`
+        content: `For resale, most Seattle homes should keep at least one bathtub somewhere in the house, especially if family buyers are likely. A walk-in shower is usually the better daily-use upgrade for primary bathrooms, aging-in-place needs, accessibility, and homeowners who rarely use a tub.`
       },
       {
         heading: 'What Seattle Buyers Want in 2026',
@@ -763,7 +1013,7 @@ const blogContent: Record<string, {
           '**It is the only bathroom:** Removing the only tub reduces buyer pool significantly',
           '**You have young children:** Kids under 8 need a tub daily',
           '**It is a secondary/guest bathroom:** Tub/shower combos serve the widest range of uses',
-          '**It is a special feature:** Clawfoot or vintage tubs are selling points — refinish for $700 instead',
+          '**It is a special feature:** Clawfoot or vintage tubs can be selling points, so plan around the feature instead of removing it automatically',
           '**Family neighborhood:** Ballard, Greenwood, West Seattle families expect tubs',
           '**Resale impact of removing only tub:** $5,000 - $15,000 reduction in home value'
         ]
@@ -805,13 +1055,13 @@ const blogContent: Record<string, {
           '**2-bathroom home:** Walk-in shower in primary, tub/shower combo in secondary',
           '**3+ bathroom home:** Walk-in primary, tub in secondary, shower-only in third',
           '**1-bathroom condo:** Keep the tub unless targeting non-family buyers',
-          '**Before converting:** Consider refinishing the tub first ($700 vs. $5,000+ conversion)',
+          '**Before converting:** Confirm who uses the bathroom, whether another tub remains in the home, and whether the drain/waterproofing plan supports the new shower layout',
           '**Selling within 2 years:** Go with broadest appeal — walk-in primary, tub elsewhere'
         ]
       },
       {
         heading: 'Get Expert Advice',
-        content: `We help Seattle homeowners navigate this decision every week. We offer both refinishing and full remodeling, so we will give you an honest recommendation based on your situation.\n\n**Call (206) 222-5159** or book a free consultation. We serve Seattle, Bellevue, Kirkland, Redmond, and 50+ surrounding cities.`
+        content: `We help Seattle homeowners navigate this decision every week. We compare accessibility, resale, waterproofing, layout, and budget so you can choose the right scope before construction begins.\n\n**Call (206) 222-5159** or book a free consultation. We serve Seattle, Bellevue, Kirkland, Redmond, and 50+ surrounding cities.`
       }
     ],
     relatedServices: ['bathroom-remodeling', 'shower-installation', 'bathtub']
@@ -819,7 +1069,7 @@ const blogContent: Record<string, {
   'kitchen-remodel-timeline-seattle': {
     sections: [
       {
-        content: `How long does a kitchen remodel really take? The answer depends on scope, materials, permits, and your contractor's organization. Here are **realistic week-by-week timelines** for every level of kitchen remodel in Seattle.`
+        content: `A Seattle kitchen remodel usually takes 2-4 weeks for a focused refresh, 4-8 weeks for a full mid-range remodel, and 8-12+ weeks for major layout or structural changes. Planning, permits, cabinet lead times, countertop fabrication, inspections, and change orders can add weeks before or during construction.`
       },
       {
         heading: 'Timeline Summary',
@@ -934,14 +1184,14 @@ type Props = {
 };
 
 export async function generateStaticParams() {
-  return BLOG_POSTS.map((post) => ({
+  return ACTIVE_BLOG_POSTS.map((post) => ({
     slug: post.slug,
   }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const post = BLOG_POSTS.find((p) => p.slug === slug);
+  const post = ACTIVE_BLOG_POSTS.find((p) => p.slug === slug);
 
   if (!post) {
     return {
@@ -981,14 +1231,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
-  const post = BLOG_POSTS.find((p) => p.slug === slug);
+  const post = ACTIVE_BLOG_POSTS.find((p) => p.slug === slug);
   const content = blogContent[slug];
 
   if (!post || !content) {
     notFound();
   }
 
-  const otherPosts = BLOG_POSTS.filter((p) => p.slug !== slug);
+  const otherPosts = ACTIVE_BLOG_POSTS.filter((p) => p.slug !== slug);
+  const primaryCityServiceSlug =
+    content.relatedServices?.includes('kitchen-remodeling') ? 'kitchen-remodeling'
+    : content.relatedServices?.includes('shower-installation') ? 'shower-installation'
+    : content.relatedServices?.includes('tile-installation') ? 'tile-installation'
+    : 'bathroom-remodeling';
 
   // Article structured data for SEO
   const articleJsonLd = {
@@ -1030,7 +1285,7 @@ export default async function BlogPostPage({ params }: Props) {
       />
 
 
-      <article className="min-h-screen bg-white">
+      <article className="min-h-screen bg-white overflow-x-hidden">
         {/* Hero Section */}
         <header className="pt-24 pb-12 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
           <div className="absolute inset-0">
@@ -1063,7 +1318,7 @@ export default async function BlogPostPage({ params }: Props) {
               <span className="text-gray-400">{post.readTime}</span>
             </div>
 
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black leading-tight mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black leading-tight mb-6 break-words">
               {post.title}
             </h1>
 
@@ -1085,9 +1340,24 @@ export default async function BlogPostPage({ params }: Props) {
 
         {/* Article Content */}
         <div className="max-w-4xl mx-auto px-4 py-12">
-          <div className="prose prose-lg max-w-none">
-            {content.sections.map((section, index) => (
-              <div key={index} className="mb-8">
+          <div className="prose prose-lg max-w-none overflow-hidden">
+            {content.sections.map((section, index) => {
+              const isIntroSection = index === 0 && !section.heading && section.content;
+
+              return (
+              <div
+                key={index}
+                className={
+                  isIntroSection
+                    ? 'mb-10 rounded-2xl border border-[#0b66b3]/15 bg-[#0b66b3]/5 p-6 md:p-8'
+                    : 'mb-8'
+                }
+              >
+                {isIntroSection && (
+                  <h2 className="mb-3 text-sm font-bold uppercase tracking-wider text-[#0b66b3]">
+                    Quick Answer
+                  </h2>
+                )}
                 {section.heading && (
                   <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mt-12 mb-4">
                     {section.heading}
@@ -1096,7 +1366,7 @@ export default async function BlogPostPage({ params }: Props) {
 
                 {section.content && (
                   <div
-                    className="text-gray-700 leading-relaxed text-lg"
+                    className="text-gray-700 leading-relaxed text-lg break-words"
                     dangerouslySetInnerHTML={{
                       __html: section.content
                         .replace(/\*\*(.*?)\*\*/g, '<strong class="text-gray-900">$1</strong>')
@@ -1113,7 +1383,7 @@ export default async function BlogPostPage({ params }: Props) {
                           <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                         </svg>
                         <span
-                          className="text-gray-700"
+                          className="text-gray-700 break-words"
                           dangerouslySetInnerHTML={{
                             __html: item.replace(/\*\*(.*?)\*\*/g, '<strong class="text-gray-900">$1</strong>')
                           }}
@@ -1142,7 +1412,8 @@ export default async function BlogPostPage({ params }: Props) {
                   </figure>
                 )}
               </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Tags */}
@@ -1201,7 +1472,7 @@ export default async function BlogPostPage({ params }: Props) {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="https://nexfield.pro/crm/book?u=137"
+                href="/contact"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-amber-500 text-white font-bold text-lg hover:bg-amber-600 transition"
               >
                 Get Free Estimate
@@ -1284,7 +1555,7 @@ export default async function BlogPostPage({ params }: Props) {
                 <p className="text-sm text-white/80 mb-4">Get a free estimate in your city today</p>
                 <div className="grid grid-cols-2 gap-2">
                   {['seattle','bellevue','kirkland','redmond','kent','issaquah','bothell','renton'].map(city => (
-                    <Link key={city} href={`/locations/${city}/bathroom-remodeling`} className="px-3 py-2 bg-white/10 rounded-lg hover:bg-white/20 transition text-sm text-center capitalize border border-white/10">
+                    <Link key={city} href={`/locations/${city}/${primaryCityServiceSlug}`} className="px-3 py-2 bg-white/10 rounded-lg hover:bg-white/20 transition text-sm text-center capitalize border border-white/10">
                       {city.replace('-',' ')}
                     </Link>
                   ))}

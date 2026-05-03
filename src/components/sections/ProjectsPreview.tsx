@@ -6,9 +6,9 @@ export default function ProjectsPreview() {
   const featured = PROJECTS.slice(0, 3);
 
   return (
-    <section className="py-20 bg-slate-50">
+    <section className="pt-6 pb-12 md:pt-10 md:pb-16 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-12">
           <span className="inline-block text-[#0b66b3] font-semibold text-sm uppercase tracking-wider mb-3">
             Recent Projects
           </span>

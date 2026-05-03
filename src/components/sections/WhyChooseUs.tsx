@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { BUSINESS } from '@/lib/constants';
 
 const reasons = [
@@ -111,15 +112,18 @@ export default function WhyChooseUs() {
 
         {/* CTA */}
         <div className="mt-12 text-center">
-          <a
-            href="https://nexfield.pro/crm/book?u=137"
+          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-500">
+            Get a scope-first estimate before the project starts
+          </p>
+          <Link
+            href="/contact"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-amber-500 text-white font-bold text-lg hover:bg-amber-600 transition shadow-lg shadow-amber-500/25"
           >
-            Get Your Free Estimate
+            Schedule Free Estimate
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

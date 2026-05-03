@@ -1,14 +1,16 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { SERVICES, REMODELING_SERVICES, ALL_SERVICES, BUSINESS, ALL_LOCATIONS } from '@/lib/constants';
+import { REMODELING_SERVICES, BUSINESS, ALL_LOCATIONS } from '@/lib/constants';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import { generateServicesIndexSchema } from '@/lib/schema';
 import { SchemaScript } from '@/components/SchemaScript';
 
 export const metadata: Metadata = {
-  title: `Kitchen & Bath Remodeling Services Seattle | From $5,000 | ${BUSINESS.phone}`,
-  description: `Professional kitchen & bathroom remodeling, tile installation, countertop installation, and shower installation in Seattle & 50+ cities. ${BUSINESS.warranty} warranty. Call ${BUSINESS.phone}.`,
+  title: {
+    absolute: 'Kitchen & Bath Remodeling Services Seattle | Licensed Pros',
+  },
+  description: `Kitchen and bathroom remodeling services in Seattle: design-build remodels, tile, countertops, showers, and bathtub installation with ${BUSINESS.warranty} warranty.`,
   keywords: 'kitchen remodeling seattle, bathroom remodeling seattle, tile installation, countertop installation, shower installation, bathtub installation, remodeling services seattle',
   alternates: {
     canonical: `${BUSINESS.website}/services`,
@@ -70,7 +72,7 @@ export default function ServicesPage() {
               {BUSINESS.phone}
             </a>
             <Link
-              href="https://nexfield.pro/crm/book?u=137"
+              href="/contact"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 backdrop-blur border-2 border-white/30 text-white font-bold text-lg hover:bg-white/20 transition"
             >
               Get Free Quote
@@ -273,7 +275,7 @@ export default function ServicesPage() {
               Call {BUSINESS.phone}
             </a>
             <Link
-              href="https://nexfield.pro/crm/book?u=137"
+              href="/contact"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-[#0b66b3] font-bold text-lg hover:bg-gray-100 transition"
             >
               Request Free Quote

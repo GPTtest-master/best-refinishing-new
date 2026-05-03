@@ -5,10 +5,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingCTA from "@/components/ui/FloatingCTA";
-import ExitIntentPopup from "@/components/ui/ExitIntentPopup";
 import { BUSINESS } from "@/lib/constants";
-import { generateHomePageSchema } from "@/lib/schema";
-import { SchemaScript } from "@/components/SchemaScript";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import HashScrollHandler from "@/components/ui/HashScrollHandler";
 
@@ -26,10 +23,10 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(BUSINESS.website),
   title: {
-    default: `Seattle Kitchen & Bathroom Remodeling ★${BUSINESS.rating} | Free Estimates | ${BUSINESS.phone}`,
+    default: 'Kitchen & Bathroom Remodeling Seattle WA | Licensed Pros',
     template: `%s | Remodeling Pros Seattle`,
   },
-  description: `Top-rated kitchen & bathroom remodeling in Seattle. ${BUSINESS.projectsCompleted} projects completed. ${BUSINESS.rating}★ rating. Licensed & insured. ${BUSINESS.warranty} warranty. Call ${BUSINESS.phone} for FREE estimate today!`,
+  description: `Seattle kitchen and bathroom remodeling by licensed, insured remodelers. Itemized estimates, ${BUSINESS.warranty} warranty, ${BUSINESS.projectsCompleted} local projects. Call ${BUSINESS.phone}.`,
   authors: [{ name: BUSINESS.name }],
   creator: BUSINESS.name,
   publisher: BUSINESS.name,
@@ -45,8 +42,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: `Seattle Kitchen & Bathroom Remodeling ★${BUSINESS.rating} | Free Estimates`,
-    description: `${BUSINESS.projectsCompleted} projects. ${BUSINESS.rating}★ rated. Kitchen & bath remodeling Seattle. Licensed, insured, ${BUSINESS.warranty} warranty. Call ${BUSINESS.phone}!`,
+    title: 'Kitchen & Bathroom Remodeling Seattle WA | Licensed Pros',
+    description: `Seattle kitchen and bathroom remodeling. Licensed, insured, ${BUSINESS.warranty} warranty, itemized estimates, and ${BUSINESS.projectsCompleted} local projects.`,
     url: BUSINESS.website,
     siteName: BUSINESS.name,
     locale: "en_US",
@@ -63,7 +60,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: `Kitchen & Bathroom Remodeling Seattle | ${BUSINESS.name}`,
-    description: "Seattle's #1 kitchen & bathroom remodeling company. Free estimates!",
+    description: 'Seattle kitchen and bathroom remodeling by licensed, insured pros.',
     images: ['/images/remodeling/kitchen-showcase-1.jpg'],
   },
   alternates: {
@@ -91,23 +88,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        {/* Preload critical hero image for LCP */}
-        <link
-          rel="preload"
-          as="image"
-          href="/images/remodeling/hero.png"
-          type="image/png"
-          media="(min-width: 768px)"
-          fetchPriority="high"
-        />
-        <link
-          rel="preload"
-          as="image"
-          href="/images/remodeling/hero.png"
-          type="image/png"
-          media="(max-width: 767px)"
-          fetchPriority="high"
-        />
 {/* Google Ads & GA4 scripts moved to body with lazyOnload */}
         {/* Schema.org JSON-LD - Enhanced @graph structure */}
         {/* Homepage schema moved to page.tsx to avoid duplicating on all pages */}

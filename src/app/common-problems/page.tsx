@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     canonical: `${BUSINESS.website}/common-problems`,
   },
   openGraph: {
-    title: 'Common Bathtub & Tile Problems We Fix | Kitchen and Bathroom Remodeling Pros Seattle',
-    description: 'Expert solutions for stained, cracked, chipped, and discolored bathtubs, tiles, and countertops. See before/after photos and learn how we fix each problem.',
+    title: 'Common Kitchen & Bathroom Problems We Fix | Kitchen and Bathroom Remodeling Pros Seattle',
+    description: 'Expert remodeling solutions for outdated kitchens, damaged bathrooms, cracked tile, leaking showers, storage problems, and water damage.',
     type: 'website',
   },
 };
@@ -252,7 +252,7 @@ export default function CommonProblemsPage() {
                   </svg>
                 </a>
                 <a
-                  href="https://nexfield.pro/crm/book?u=137"
+                  href="/contact"
                   className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-white text-gray-900 font-bold text-lg hover:bg-gray-100 transition"
                 >
                   Free Estimate
@@ -267,9 +267,9 @@ export default function CommonProblemsPage() {
           <div className="max-w-5xl mx-auto px-4">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               {[
-                { value: '500+', label: 'Problems Fixed' },
-                { value: '1 Day', label: 'Most Repairs' },
-                { value: '80%', label: 'Cost Savings' },
+                { value: '500+', label: 'Projects Completed' },
+                { value: 'Permit', label: 'Aware Planning' },
+                { value: 'Design', label: 'To Installation' },
                 { value: '5 Year', label: 'Warranty' },
               ].map((stat) => (
                 <div key={stat.label}>
@@ -289,7 +289,7 @@ export default function CommonProblemsPage() {
                 10 Most Common Kitchen & Bathroom Problems
               </h2>
               <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                Click on any problem to see how we fix it — and how much you&apos;ll save vs. replacement
+                Click on any problem to see the likely cause, the right remodeling scope, and which service page has the next details.
               </p>
             </div>
 
@@ -357,7 +357,7 @@ export default function CommonProblemsPage() {
                       </div>
 
                       <a
-                        href="https://nexfield.pro/crm/book?u=137"
+                        href="/contact"
                         className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-green-600 text-white font-bold hover:bg-green-700 transition w-full justify-center"
                       >
                         Get Quote for This Problem
@@ -464,7 +464,7 @@ export default function CommonProblemsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://nexfield.pro/crm/book?u=137"
+                href="/contact"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-amber-500 text-white font-bold text-lg hover:bg-amber-600 transition"
               >
                 Get Free Assessment

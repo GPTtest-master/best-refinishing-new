@@ -200,7 +200,7 @@ export default function SliderEditor() {
                 }}
               >
                 <img
-                  src={`${beforeImg}?t=${Date.now()}`}
+                  src={beforeImg}
                   alt="Before"
                   className="absolute inset-0 w-full h-full object-cover pointer-events-none"
                   draggable={false}
@@ -227,7 +227,7 @@ export default function SliderEditor() {
                 }}
               >
                 <img
-                  src={`${afterImg}?t=${Date.now()}`}
+                  src={afterImg}
                   alt="After"
                   className="absolute inset-0 w-full h-full object-cover pointer-events-none"
                   draggable={false}

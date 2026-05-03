@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { SERVICES, REMODELING_SERVICES, ALL_SERVICES, BUSINESS, PROCESS_STEPS, REMODELING_PROCESS_STEPS, FAQ_ITEMS, REMODELING_FAQ_ITEMS, REVIEWS, REMODELING_REVIEWS, REMODELING_SERVICE_CONTENT, BLOG_POSTS, LOCATIONS } from '@/lib/constants';
+import { REMODELING_SERVICES, ALL_SERVICES, BUSINESS, PROCESS_STEPS, REMODELING_PROCESS_STEPS, FAQ_ITEMS, REMODELING_FAQ_ITEMS, REVIEWS, REMODELING_REVIEWS, REMODELING_SERVICE_CONTENT, BLOG_POSTS, LOCATIONS, PROJECTS } from '@/lib/constants';
 import BeforeAfterSlider from '@/components/ui/BeforeAfterSlider';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
@@ -41,22 +41,36 @@ const remodelingBeforeAfter: Record<string, { before: string; after: string; lab
 
 // Showcase images for remodeling services
 const remodelingShowcase: Record<string, string[]> = {
-  'bathroom-remodeling': ['/images/remodeling/bathroom-showcase-1.jpg', '/images/remodeling/bathroom-showcase-2.jpg', '/images/remodeling/bathroom-showcase-3.jpg', '/images/remodeling/bathroom-showcase-4.jpg'],
-  'kitchen-remodeling': ['/images/remodeling/kitchen-showcase-1.jpg', '/images/remodeling/kitchen-showcase-2.jpg', '/images/remodeling/kitchen-showcase-3.jpg', '/images/remodeling/kitchen-showcase-4.jpg'],
-  'shower-installation': ['/images/remodeling/bathroom-showcase-1.jpg', '/images/remodeling/bathroom-showcase-3.jpg'],
+  'bathroom-remodeling': ['/images/remodeling/bathroom-remodeling-hero-optimized.jpg', '/images/remodeling/bathroom-showcase-1.jpg', '/images/remodeling/bathroom-showcase-2.jpg', '/images/remodeling/bathroom-showcase-3.jpg'],
+  'kitchen-remodeling': ['/images/remodeling/kitchen-remodeling-hero.jpg', '/images/remodeling/kitchen-showcase-1.jpg', '/images/remodeling/kitchen-showcase-2.jpg', '/images/remodeling/kitchen-showcase-3.jpg'],
+  'shower-installation': ['/images/remodeling/shower-inst.jpg', '/images/remodeling/bathroom-showcase-1.jpg', '/images/remodeling/bathroom-showcase-3.jpg'],
   'bathtub-installation': ['/images/remodeling/bathroom-showcase-2.jpg', '/images/remodeling/bathroom-showcase-4.jpg'],
-  'tile-installation': ['/images/remodeling/bathroom-showcase-3.jpg', '/images/remodeling/kitchen-detail-1.jpg', '/images/remodeling/kitchen-detail-2.jpg'],
-  'countertop-installation': ['/images/remodeling/kitchen-detail-1.jpg', '/images/remodeling/kitchen-detail-2.jpg', '/images/remodeling/kitchen-showcase-1.jpg'],
+  'tub-to-shower': ['/images/remodeling/tub-to-shower-conversion.jpg', '/images/remodeling/tubtoshower.jpg', '/images/remodeling/shower-inst.jpg'],
+  'walk-in-shower': ['/images/remodeling/walkinshower.jpg', '/images/remodeling/shower-inst.jpg', '/images/remodeling/bathroom-showcase-3.jpg'],
+  'tile-installation': ['/images/remodeling/tile-installation.avif', '/images/remodeling/bathroom-showcase-3.jpg', '/images/remodeling/kitchen-detail-1.jpg'],
+  'countertop-installation': ['/images/remodeling/countertop-installation.png', '/images/remodeling/kitchen-detail-1.jpg', '/images/remodeling/kitchen-detail-2.jpg'],
 };
 
 // Related blog posts per service
 const serviceRelatedBlogs: Record<string, string[]> = {
   'bathroom-remodeling': ['bathroom-remodeling-cost-seattle-2026', 'kitchen-vs-bathroom-remodel-roi'],
-  'kitchen-remodeling': ['kitchen-remodeling-seattle-guide', 'kitchen-vs-bathroom-remodel-roi'],
+  'kitchen-remodeling': ['kitchen-remodeling-seattle-guide', 'kitchen-remodel-seattle-wa-cost-2026', 'canyon-park-townhome-kitchen-remodeling'],
   'tile-installation': ['shower-tile-installation-seattle', 'bathroom-remodeling-cost-seattle-2026'],
-  'countertop-installation': ['kitchen-remodeling-seattle-guide', 'kitchen-vs-bathroom-remodel-roi'],
+  'countertop-installation': ['kitchen-remodeling-seattle-guide', 'kitchen-remodel-seattle-wa-cost-2026', 'canyon-park-townhome-kitchen-remodeling'],
   'shower-installation': ['shower-tile-installation-seattle', 'bathroom-remodeling-cost-seattle-2026'],
   'bathtub-installation': ['bathroom-remodeling-cost-seattle-2026', 'shower-tile-installation-seattle'],
+};
+
+const serviceProjectTypeKeywords: Record<string, string[]> = {
+  'bathroom-remodeling': ['bathroom'],
+  'kitchen-remodeling': ['kitchen'],
+  'countertop-installation': ['kitchen'],
+  'cabinet-refacing': ['kitchen'],
+  'tile-installation': ['bathroom', 'kitchen'],
+  'shower-installation': ['bathroom'],
+  'bathtub-installation': ['bathroom'],
+  'tub-to-shower': ['bathroom'],
+  'walk-in-shower': ['bathroom'],
 };
 
 // Service to slider index mapping (refinishing only)
@@ -79,6 +93,12 @@ export default function ServicePageClient({ service }: { service: Service }) {
   const richContent = isRemodeling ? REMODELING_SERVICE_CONTENT[service.id] : null;
   const serviceFaqs = richContent?.uniqueFaqs || faqItems.slice(0, 4);
   const defaultSliderIndex = serviceToSliderIndex[service.id] || 0;
+  const relatedProjectKeywords = serviceProjectTypeKeywords[service.id] || [];
+  const relatedProjects = isRemodeling
+    ? PROJECTS.filter((project) =>
+        relatedProjectKeywords.some((keyword) => project.type.toLowerCase().includes(keyword))
+      ).slice(0, 3)
+    : [];
 
   return (
     <>
@@ -161,12 +181,12 @@ export default function ServicePageClient({ service }: { service: Service }) {
                   <div className="text-sm text-green-600 font-medium">{service.savings}</div>
                 </div>
                 <div className="flex flex-col gap-3">
-                  <a
-                    href="https://nexfield.pro/crm/book?u=137"
+                  <Link
+                    href="/contact"
                     className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-amber-500 text-white font-bold text-lg hover:bg-amber-600 transition shadow-lg shadow-amber-500/30"
                   >
-                    Free Estimate
-                  </a>
+                    Schedule Free Estimate
+                  </Link>
                   <a
                     href={BUSINESS.phoneLink}
                     className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white text-gray-900 font-semibold border-2 border-gray-200 hover:border-[#0b66b3] transition"
@@ -177,6 +197,14 @@ export default function ServicePageClient({ service }: { service: Service }) {
                     {BUSINESS.phone}
                   </a>
                 </div>
+              </div>
+
+              <div className="mb-8 flex flex-wrap gap-2 text-sm text-gray-600">
+                {['No obligation', 'Itemized scope', 'Photos optional', 'Fast response'].map((item) => (
+                  <span key={item} className="rounded-full border border-gray-200 bg-white px-3 py-1 font-semibold shadow-sm">
+                    {item}
+                  </span>
+                ))}
               </div>
 
               {/* Features */}
@@ -201,6 +229,7 @@ export default function ServicePageClient({ service }: { service: Service }) {
                     alt={service.title}
                     fill
                     className="object-cover"
+                    style={{ objectPosition: service.imagePosition || 'center' }}
                     priority
                   />
                 </div>
@@ -778,7 +807,7 @@ export default function ServicePageClient({ service }: { service: Service }) {
             Serving Seattle, Bellevue, Redmond, Kirkland, Tacoma and 50+ cities across the Puget Sound
           </p>
           <p className="text-lg text-white/70 mb-8">
-            Call us now or fill out the form for a free estimate. We respond {BUSINESS.responseTime.toLowerCase()}!
+            Schedule through our contact page or call now. We respond {BUSINESS.responseTime.toLowerCase()} with the next step, scope questions, and estimate timing.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -791,11 +820,18 @@ export default function ServicePageClient({ service }: { service: Service }) {
               Call {BUSINESS.phone}
             </a>
             <Link
-              href="https://nexfield.pro/crm/book?u=137"
+              href="/contact"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-[#0b66b3] font-bold text-lg hover:bg-gray-100 transition"
             >
-              Request Quote Online
+              Request Estimate Online
             </Link>
+          </div>
+          <div className="mt-8 flex flex-wrap justify-center gap-2 text-sm text-white/80">
+            {['Licensed team', 'Clear scope', 'No pressure', 'Project photos welcome'].map((item) => (
+              <span key={item} className="rounded-full border border-white/20 bg-white/10 px-3 py-1 font-semibold">
+                {item}
+              </span>
+            ))}
           </div>
         </div>
       </section>
@@ -830,6 +866,64 @@ export default function ServicePageClient({ service }: { service: Service }) {
           </div>
         </div>
       </section>
+
+      {/* Related Project Proof */}
+      {relatedProjects.length > 0 && (
+        <section className="py-16 bg-white border-b border-gray-100">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+              <div>
+                <span className="inline-block text-[#0b66b3] font-semibold text-sm uppercase tracking-wider mb-3">
+                  Proof Before You Book
+                </span>
+                <h2 className="text-2xl md:text-3xl font-black text-gray-900">
+                  Related {service.shortTitle} Remodeling Case Studies
+                </h2>
+                <p className="text-gray-600 mt-2 max-w-2xl">
+                  Real before-and-after projects help you compare scope, materials, budget drivers, and finish quality before requesting an estimate.
+                </p>
+              </div>
+              <Link href="/projects" className="text-[#0b66b3] font-bold hover:underline">
+                View all projects
+              </Link>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {relatedProjects.map((project) => (
+                <Link
+                  key={project.id}
+                  href={`/projects/${project.id}`}
+                  className="group rounded-2xl overflow-hidden border border-gray-100 bg-slate-50 hover:bg-white hover:shadow-lg transition"
+                >
+                  <div className="grid grid-cols-2">
+                    <div className="relative aspect-[4/3]">
+                      <Image src={project.beforeImage} alt={`Before: ${project.title}`} fill className="object-cover" />
+                      <span className="absolute bottom-2 left-2 rounded-full bg-red-500 px-2 py-0.5 text-[10px] font-bold uppercase text-white">
+                        Before
+                      </span>
+                    </div>
+                    <div className="relative aspect-[4/3]">
+                      <Image src={project.afterImage} alt={`After: ${project.title}`} fill className="object-cover" />
+                      <span className="absolute bottom-2 left-2 rounded-full bg-green-500 px-2 py-0.5 text-[10px] font-bold uppercase text-white">
+                        After
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-5">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-[#0b66b3] mb-2">
+                      {project.location}
+                    </p>
+                    <h3 className="font-bold text-gray-900 group-hover:text-[#0b66b3] transition">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 mt-2 line-clamp-2">{project.description}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Related Blog Articles */}
       {isRemodeling && serviceRelatedBlogs[service.id] && (

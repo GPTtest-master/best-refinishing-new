@@ -1,13 +1,15 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ALL_LOCATIONS, LOCATIONS, ADDITIONAL_LOCATIONS, BUSINESS, SERVICES } from '@/lib/constants';
+import { LOCATIONS, ADDITIONAL_LOCATIONS, BUSINESS, REMODELING_SERVICES } from '@/lib/constants';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import { generateLocationsIndexSchema } from '@/lib/schema';
 import { SchemaScript } from '@/components/SchemaScript';
 
 export const metadata: Metadata = {
-  title: `Remodeling Service Areas | 50+ Cities in WA | ${BUSINESS.name}`,
+  title: {
+    absolute: 'Kitchen & Bathroom Remodeling Service Areas | Seattle WA',
+  },
   description: `Professional kitchen and bathroom remodeling in Seattle, Bellevue, Redmond, Kirkland, Tacoma and 50+ cities across the Puget Sound. ${BUSINESS.warranty} warranty. Call ${BUSINESS.phone}.`,
   keywords: 'kitchen remodeling near me, bathroom remodeling seattle, kitchen renovation bellevue, remodeling service areas seattle',
   alternates: {
@@ -63,7 +65,7 @@ export default function LocationsPage() {
               {BUSINESS.phone}
             </a>
             <Link
-              href="https://nexfield.pro/crm/book?u=137"
+              href="/contact"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 backdrop-blur border-2 border-white/30 text-white font-bold text-lg hover:bg-white/20 transition"
             >
               Get Free Quote
@@ -164,12 +166,12 @@ export default function LocationsPage() {
               Services Available in All Locations
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Professional remodeling and refinishing for every surface in your home
+              Kitchen and bathroom remodeling services available across the Puget Sound area
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {SERVICES.map((service) => (
+            {REMODELING_SERVICES.map((service) => (
               <Link
                 key={service.id}
                 href={service.href}
@@ -265,7 +267,7 @@ export default function LocationsPage() {
                 </div>
               </div>
               <a
-                href="https://nexfield.pro/crm/book?u=137"
+                href="/contact"
                 className="mt-6 w-full inline-flex items-center justify-center px-6 py-3 rounded-xl bg-amber-500 text-white font-bold hover:bg-amber-600 transition"
               >
                 Free Estimate
@@ -295,7 +297,7 @@ export default function LocationsPage() {
               Call {BUSINESS.phone}
             </a>
             <Link
-              href="https://nexfield.pro/crm/book?u=137"
+              href="/contact"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-[#0b66b3] font-bold text-lg hover:bg-gray-100 transition"
             >
               Request Quote

@@ -4,7 +4,6 @@ export const BUSINESS = {
   tagline: 'Seattle Kitchen & Bath Remodeling Experts',
   phone: '(206) 222-5159',
   phoneLink: 'tel:+12062225159',
-  smsLink: 'sms:+12062225159',
   bookingUrl: 'https://nexfield.pro/crm/book?u=137',
   email: 'office@best-refinishing.com',
   website: 'https://www.best-refinishing.com',
@@ -135,7 +134,7 @@ export const REMODELING_SERVICES = [
     price: 'From $7,900',
     savings: 'Complete Transform',
     popular: true,
-    image: '/images/remodeling/bathroom-hero.jpeg',
+    image: '/images/remodeling/bathroom-remodeling-hero-optimized.jpg',
     imagePosition: 'center',
     imageScale: 1,
     href: '/services/bathroom-remodeling',
@@ -151,7 +150,7 @@ export const REMODELING_SERVICES = [
     price: 'From $25,000',
     savings: 'Dream Kitchen',
     popular: true,
-    image: '/images/remodeling/kitchen-hero.png',
+    image: '/images/remodeling/kitchen-remodeling-hero.jpg',
     imagePosition: 'center',
     imageScale: 1,
     href: '/services/kitchen-remodeling',
@@ -167,7 +166,7 @@ export const REMODELING_SERVICES = [
     price: 'From $5,000',
     savings: 'Per Project',
     popular: false,
-    image: '/images/remodeling/tile-hero.jpg',
+    image: '/images/remodeling/tile-installation.avif',
     imagePosition: 'center',
     imageScale: 1,
     href: '/services/tile-installation',
@@ -183,7 +182,7 @@ export const REMODELING_SERVICES = [
     price: 'From $5,000',
     savings: 'Premium Quality',
     popular: false,
-    image: '/images/remodeling/countertop-hero.png',
+    image: '/images/remodeling/countertop-installation.png',
     imagePosition: 'center',
     imageScale: 1,
     href: '/services/countertop-installation',
@@ -199,7 +198,7 @@ export const REMODELING_SERVICES = [
     price: 'From $5,000',
     savings: 'Custom Design',
     popular: false,
-    image: '/images/remodeling/shower-hero.png',
+    image: '/images/remodeling/shower-inst.jpg',
     imagePosition: 'center',
     imageScale: 1,
     href: '/services/shower-installation',
@@ -231,7 +230,7 @@ export const REMODELING_SERVICES = [
     price: 'From $5,000',
     savings: 'Modern Upgrade',
     popular: false,
-    image: '/images/remodeling/shower-hero.png',
+    image: '/images/remodeling/tub-to-shower-conversion.jpg',
     imagePosition: 'center',
     imageScale: 1,
     href: '/services/tub-to-shower',
@@ -247,7 +246,7 @@ export const REMODELING_SERVICES = [
     price: 'From $8,000',
     savings: 'Save 40-50%',
     popular: false,
-    image: '/images/remodeling/kitchen-hero.png',
+    image: '/images/remodeling/kitchen-remodeling-hero.jpg',
     imagePosition: 'center',
     imageScale: 1,
     href: '/services/cabinet-refacing',
@@ -263,7 +262,7 @@ export const REMODELING_SERVICES = [
     price: 'From $6,000',
     savings: 'Accessible Luxury',
     popular: false,
-    image: '/images/remodeling/shower-hero.png',
+    image: '/images/remodeling/walkinshower.jpg',
     imagePosition: 'center',
     imageScale: 1,
     href: '/services/walk-in-shower',
@@ -561,7 +560,7 @@ export const REMODELING_SERVICE_CONTENT: Record<string, {
     uniqueFaqs: [
       { question: 'What is the average bathroom remodel cost in Seattle?', answer: 'In the Seattle metro area, a mid-range bathroom remodel typically costs $12,000–$25,000. Our projects start at $7,900 for basic updates (new tile, vanity, fixtures) and go up to $35,000+ for luxury master bath renovations with heated floors and custom tile work.' },
       { question: 'Do I need a permit for a bathroom remodel in Seattle?', answer: 'Yes, if you are changing plumbing, electrical, or structural elements. Simple cosmetic updates (paint, new vanity, accessories) don\'t require permits. We handle all permit applications and inspections as part of our service.' },
-      { question: 'Can you remodel a bathroom without replacing the tub?', answer: 'Absolutely. If your bathtub is in good condition, we can refinish it and focus the budget on new tile, vanity, fixtures, and paint. This approach saves $2,000-$4,000 compared to full tub replacement.' },
+      { question: 'Can you remodel a bathroom without moving the tub?', answer: 'Absolutely. If the tub location works, we can keep the plumbing layout stable and focus the budget on tile, vanity, fixtures, lighting, ventilation, and finish details. This often saves thousands compared to moving drains and supply lines.' },
       { question: 'What waterproofing system do you use in showers?', answer: 'We use the Schluter-KERDI membrane system or RedGard liquid waterproofing depending on the application. Both exceed building code requirements and come with manufacturer warranties. Proper waterproofing is the single most important step in any shower remodel.' },
       { question: 'How do you protect the rest of my home during demolition?', answer: 'We seal off the work area with plastic sheeting and zipper doors, lay floor protection on walkways, and use HEPA-filtered dust extraction. We also remove debris daily — you won\'t come home to a mess.' },
     ],
@@ -779,15 +778,15 @@ export const NAV_ITEMS = [
 export const PROJECTS = [
   {
     id: 'capitol-hill-kitchen-remodel',
-    title: 'Modern Kitchen Transformation',
+    title: 'Capitol Hill Kitchen Remodel With Quartz Island',
     location: 'Capitol Hill, Seattle',
     type: 'Kitchen Remodeling',
     duration: '4 weeks',
-    budget: '$32,000',
+    budget: 'From $24,500',
     beforeImage: '/images/remodeling/before-after/kitchen1-before.jpg',
     afterImage: '/images/remodeling/before-after/kitchen1-after.jpg',
     heroImage: '/images/remodeling/kitchen-showcase-1.jpg',
-    description: 'Complete gut renovation of a 1960s galley kitchen into an open-concept modern space with quartz countertops, custom shaker cabinets, and a large island with seating.',
+    description: 'Seattle kitchen remodel converting a dated 1960s galley layout into an open-concept kitchen with quartz countertops, custom shaker cabinets, updated lighting, and a practical island with seating.',
     challenge: 'The original kitchen was a narrow, dark galley layout with outdated laminate counters, worn vinyl flooring, and a wall separating it from the dining area. The homeowners wanted more light, more space, and a kitchen that could host family gatherings.',
     solution: 'We removed the non-load-bearing wall between the kitchen and dining room, opening up the entire space. We installed custom white shaker cabinets with soft-close hardware, Calacatta quartz countertops, a 6-foot waterfall island, porcelain tile flooring, and a full subway tile backsplash. All plumbing and electrical were updated to code.',
     materials: ['Calacatta Quartz Countertops', 'Custom Shaker Cabinets', 'Porcelain Tile Flooring', 'Subway Tile Backsplash', 'Kohler Fixtures', 'LED Under-Cabinet Lighting'],
@@ -795,15 +794,15 @@ export const PROJECTS = [
   },
   {
     id: 'bellevue-master-bathroom',
-    title: 'Luxury Master Bathroom Remodel',
+    title: 'Bellevue Primary Bathroom Remodel With Walk-In Shower',
     location: 'Bellevue, WA',
     type: 'Bathroom Remodeling',
     duration: '2.5 weeks',
-    budget: '$18,500',
+    budget: 'From $15,900',
     beforeImage: '/images/remodeling/before-after/bathroom1-before.jpg',
     afterImage: '/images/remodeling/before-after/bathroom1-after.jpg',
     heroImage: '/images/remodeling/bathroom-showcase-1.jpg',
-    description: 'Dated 1990s master bathroom transformed into a spa-inspired retreat with a frameless glass walk-in shower, floating double vanity, and heated porcelain tile floors.',
+    description: 'Bellevue bathroom remodel replacing a dated 1990s layout with a frameless glass walk-in shower, floating double vanity, heated porcelain tile floors, and cleaner daily function.',
     challenge: 'The master bathroom had a cramped layout with a rarely-used soaking tub, outdated tile, and a small shower stall. Grout was stained, fixtures were corroded, and the vanity was falling apart.',
     solution: 'We removed the tub to create a spacious 5x3 walk-in shower with floor-to-ceiling large-format porcelain tile and a linear drain. Installed a 60-inch floating double vanity with quartz top, frameless glass shower enclosure, heated floors, and modern brushed nickel fixtures throughout.',
     materials: ['Large-Format Porcelain Tile', 'Frameless Glass Shower Enclosure', 'Floating Double Vanity', 'Quartz Vanity Top', 'Heated Floor System', 'Brushed Nickel Fixtures'],
@@ -811,15 +810,15 @@ export const PROJECTS = [
   },
   {
     id: 'kirkland-kitchen-renovation',
-    title: 'Craftsman Kitchen Renovation',
+    title: 'Kirkland Craftsman Kitchen Remodel',
     location: 'Kirkland, WA',
     type: 'Kitchen Remodeling',
     duration: '5 weeks',
-    budget: '$45,000',
+    budget: 'From $29,500',
     beforeImage: '/images/remodeling/before-after/kitchen2-before.jpg',
     afterImage: '/images/remodeling/before-after/kitchen2-after.jpg',
     heroImage: '/images/remodeling/kitchen-showcase-3.jpg',
-    description: 'Full kitchen renovation in a Craftsman-style home — preserving architectural character while adding modern functionality with professional-grade appliances and custom cabinetry.',
+    description: 'Kirkland kitchen remodel in a Craftsman-style home, preserving architectural character while adding modern cabinetry, upgraded electrical, durable counters, and better storage.',
     challenge: 'Beautiful Craftsman home with a kitchen that hadn\'t been updated since the 1980s. The homeowners wanted to honor the home\'s character while bringing the kitchen into the modern era. Old wiring couldn\'t support modern appliances.',
     solution: 'We designed custom Craftsman-style inset cabinets with period-appropriate hardware. Installed honed granite countertops, hand-glazed subway tile, a farmhouse sink, and upgraded the entire electrical panel. New hardwood flooring matched the original throughout the home.',
     materials: ['Custom Inset Cabinetry', 'Honed Granite Countertops', 'Hand-Glazed Subway Tile', 'Farmhouse Sink', 'Hardwood Flooring', 'Period Hardware'],
@@ -827,15 +826,15 @@ export const PROJECTS = [
   },
   {
     id: 'redmond-guest-bathroom',
-    title: 'Guest Bathroom Complete Remodel',
+    title: 'Redmond Guest Bathroom Remodel With Water Damage Repair',
     location: 'Redmond, WA',
     type: 'Bathroom Remodeling',
     duration: '2 weeks',
-    budget: '$12,000',
+    budget: 'From $9,900',
     beforeImage: '/images/remodeling/before-after/bathroom2-before.jpg',
     afterImage: '/images/remodeling/before-after/bathroom2-after.jpg',
     heroImage: '/images/remodeling/bathroom-showcase-3.jpg',
-    description: 'Small guest bathroom with water damage transformed into a bright, modern space with new tile, vanity, toilet, and fixtures — all completed in just 2 weeks.',
+    description: 'Redmond bathroom remodel correcting hidden water damage before rebuilding the room with new waterproofing, tile, vanity, toilet, fixtures, and brighter finishes.',
     challenge: 'The guest bathroom had significant water damage behind the shower walls, peeling paint, a cracked toilet, and a vanity from the 1990s. The subfloor was soft in places and needed replacement.',
     solution: 'We gutted the bathroom down to studs, replaced damaged subfloor sections, installed moisture-resistant cement board, and waterproofed with a membrane system. New white subway tile in the shower, hexagonal marble floor tile, modern vanity with vessel sink, and a comfort-height toilet.',
     materials: ['White Subway Tile', 'Hexagonal Marble Floor Tile', 'Vessel Sink Vanity', 'Comfort-Height Toilet', 'Waterproofing Membrane', 'Cement Board'],
@@ -843,15 +842,15 @@ export const PROJECTS = [
   },
   {
     id: 'seattle-downtown-condo-kitchen',
-    title: 'Downtown Condo Kitchen Upgrade',
+    title: 'Downtown Seattle Condo Kitchen Remodel',
     location: 'Downtown Seattle, WA',
     type: 'Kitchen Remodeling',
     duration: '3 weeks',
-    budget: '$28,000',
+    budget: 'From $22,500',
     beforeImage: '/images/remodeling/before-after/kitchen3-before.jpg',
     afterImage: '/images/remodeling/before-after/kitchen3-after.jpg',
     heroImage: '/images/remodeling/kitchen-detail-2.jpg',
-    description: 'High-rise condo kitchen remodel with space-maximizing design — waterfall quartz island, integrated appliances, and custom storage solutions for urban living.',
+    description: 'Downtown Seattle condo kitchen remodel with HOA-aware scheduling, space-maximizing storage, waterfall quartz surfaces, integrated appliances, and improved lighting.',
     challenge: 'Small condo kitchen with limited counter space, no island, and builder-grade finishes. HOA restrictions required quiet work hours and elevator booking for materials. Every inch of space needed to count.',
     solution: 'Designed a compact waterfall island with integrated storage, installed flat-panel cabinets to the ceiling for maximum storage, quartz countertops, glass tile backsplash, and under-cabinet lighting. Coordinated all deliveries with HOA and completed work within approved hours.',
     materials: ['Quartz Waterfall Island', 'Flat-Panel Cabinets to Ceiling', 'Glass Tile Backsplash', 'Integrated Appliance Panels', 'Under-Cabinet LED Lighting', 'Soft-Close Hardware'],
@@ -859,15 +858,15 @@ export const PROJECTS = [
   },
   {
     id: 'tacoma-master-bath-spa',
-    title: 'Spa-Inspired Master Bath',
+    title: 'Tacoma Primary Bathroom Spa Remodel',
     location: 'Tacoma, WA',
     type: 'Bathroom Remodeling',
     duration: '3 weeks',
-    budget: '$22,000',
+    budget: 'From $16,900',
     beforeImage: '/images/remodeling/before-after/bathroom3-before.jpg',
     afterImage: '/images/remodeling/before-after/bathroom3-after.jpg',
     heroImage: '/images/remodeling/bathroom-showcase-4.jpg',
-    description: 'Complete master bathroom remodel designed as a personal spa — freestanding soaking tub, rain shower with body jets, natural stone tile, and warm wood-look accents.',
+    description: 'Tacoma primary bathroom remodel replacing a leaking jacuzzi layout with a freestanding soaking tub, rain shower with body jets, natural stone tile, and warm wood-look accents.',
     challenge: 'Large master bathroom with a jacuzzi tub that leaked, dated tile, and poor lighting. The homeowners traveled frequently and wanted a hotel-spa experience at home without the jacuzzi maintenance headaches.',
     solution: 'Removed the jacuzzi and replaced it with a sculptural freestanding soaking tub. Built a large walk-in shower with rain head, handheld, and body jets. Installed wood-look porcelain planks on the floor, natural stone accent wall, floating vanity with integrated lighting, and a skylight tube for natural light.',
     materials: ['Freestanding Soaking Tub', 'Rain Shower System with Body Jets', 'Wood-Look Porcelain Planks', 'Natural Stone Accent Wall', 'Floating Vanity', 'Skylight Tube'],
@@ -877,6 +876,62 @@ export const PROJECTS = [
 
 // Blog Posts
 export const BLOG_POSTS = [
+  {
+    id: 'seattle-remodeling-permits-bathroom-kitchen',
+    slug: 'seattle-remodeling-permits-bathroom-kitchen',
+    title: 'Seattle Remodeling Permits: Bathroom & Kitchen Permit Checklist',
+    excerpt: 'A practical Seattle permit checklist for bathroom and kitchen remodels: when permits are needed, what slows projects down, and how homeowners can verify contractors before signing.',
+    content: `Permits are not paperwork theater in Seattle. They decide whether plumbing, electrical, framing, ventilation, and inspection work are documented correctly. This guide explains when bathroom and kitchen remodels usually need permits, what homeowners should ask before signing, and which official resources to check before construction starts.`,
+    author: 'Remodeling Pros Team',
+    date: '2026-05-01',
+    readTime: '9 min read',
+    category: 'Permits',
+    tags: ['seattle remodeling permits', 'bathroom remodel permit seattle', 'kitchen remodel permit seattle', 'licensed contractor washington'],
+    image: '/images/remodeling/kitchen-showcase-4.jpg',
+    featured: true,
+  },
+  {
+    id: 'kitchen-remodel-seattle-wa-cost-2026',
+    slug: 'kitchen-remodel-seattle-wa-cost-2026',
+    title: 'Kitchen Remodel Seattle WA Cost Guide: 2026 Budget & Scope',
+    excerpt: 'A Seattle WA kitchen remodel cost guide built around real decision points: cabinets, layout changes, countertops, permits, timeline, and how to avoid low-bid surprises.',
+    content: `Kitchen remodel pricing in Seattle WA is not just about square footage. Cabinets, electrical, plumbing, permit scope, layout changes, and material lead times drive the real number. This guide gives homeowners a practical cost framework before they collect bids.`,
+    author: 'Remodeling Pros Team',
+    date: '2026-05-01',
+    readTime: '11 min read',
+    category: 'Cost Guide',
+    tags: ['kitchen remodel seattle wa', 'kitchen remodel cost seattle', 'seattle kitchen renovation', 'kitchen remodeling contractor seattle'],
+    image: '/images/remodeling/kitchen-showcase-2.jpg',
+    featured: false,
+  },
+  {
+    id: 'canyon-park-townhome-kitchen-remodeling',
+    slug: 'canyon-park-townhome-kitchen-remodeling',
+    title: 'Canyon Park Townhome Kitchen Remodeling: HOA, Layout & Budget Guide',
+    excerpt: 'A practical kitchen remodeling guide for Canyon Park and Bothell townhomes: HOA approvals, compact layouts, cabinet storage, countertop choices, ventilation, permits, and realistic budget planning.',
+    content: `Canyon Park townhome kitchen remodeling is different from remodeling a detached single-family home. Access, HOA rules, shared walls, parking, elevator or stair logistics, ventilation paths, and compact cabinet layouts all affect the estimate. This guide explains how to plan a townhome kitchen remodel before you sign a contract.`,
+    author: 'Remodeling Pros Team',
+    date: '2026-05-03',
+    readTime: '8 min read',
+    category: 'Local Planning',
+    tags: ['kitchen remodeling canyon park townhomes', 'bothell kitchen remodel', 'townhome kitchen remodel', 'canyon park remodeling'],
+    image: '/images/remodeling/kitchen-showcase-1.jpg',
+    featured: false,
+  },
+  {
+    id: 'bathroom-remodeling-near-me-seattle-area',
+    slug: 'bathroom-remodeling-near-me-seattle-area',
+    title: 'Bathroom Remodeling Near Me: Seattle-Area Contractor Checklist',
+    excerpt: 'Searching bathroom remodeling near me in the Seattle area? Use this expert checklist to compare contractors, scope, waterproofing, permits, warranty, and estimate quality.',
+    content: `The best bathroom remodeling contractor near you is not always the one closest to your ZIP code. For Seattle-area homes, the right contractor understands waterproofing, ventilation, older plumbing, permit triggers, condo rules, and realistic scheduling.`,
+    author: 'Remodeling Pros Team',
+    date: '2026-05-01',
+    readTime: '8 min read',
+    category: 'Hiring Guide',
+    tags: ['bathroom remodeling near me', 'bathroom remodel contractor seattle', 'seattle bathroom remodeling', 'bathroom renovation contractor'],
+    image: '/images/remodeling/bathroom-showcase-3.jpg',
+    featured: false,
+  },
   {
     id: 'bathroom-remodeling-cost-seattle-2026',
     slug: 'bathroom-remodeling-cost-seattle-2026',
@@ -961,9 +1016,9 @@ A second-floor bathroom remodel may cost more due to the difficulty of running n
 
 ## How to Save Money on Your Bathroom Remodel
 
-### Consider Refinishing Instead of Replacing
+### Keep Good Layouts When They Still Work
 
-If your bathtub, tile, or countertops are structurally sound but look dated, professional refinishing can save 60-80% compared to full replacement. At Kitchen and Bathroom Remodeling Pros, we offer bathtub refinishing starting at $700 — a fraction of the $2,500-$5,000 cost of tub replacement plus installation.
+If your existing plumbing locations already make sense, keeping the toilet, tub, shower, or vanity in place can preserve budget for the details homeowners actually feel every day: better tile, lighting, ventilation, storage, fixtures, glass, and counters. Moving drains and supply lines should solve a real layout problem, not happen by default.
 
 ### Keep Plumbing in Place
 
@@ -1318,11 +1373,11 @@ A professional tile shower installation follows this sequence:
 
 Total timeline: 10-14 working days for a standard tiled shower. Complex projects with custom features can take 3-4 weeks.
 
-## Shower Refinishing: A Budget-Friendly Alternative
+## When Shower Tile Should Be Replaced, Not Covered Up
 
-If your shower tile is in good structural condition but looks dated, stained, or discolored, refinishing is a viable alternative to full replacement. Professional shower refinishing starts at $900 and can transform the look of your shower in a single day without demolition, dust, or weeks of construction.
+If tile is cracked, grout is failing, waterproofing is missing, or water has reached the wall cavity, a proper shower rebuild is the safer long-term choice. A new waterproofing system, correctly sloped pan, durable tile, and quality glass can prevent the expensive failures that cosmetic updates never solve.
 
-Refinishing works best when the underlying tile is sound and you want to change the color or restore the surface. It is not a solution for cracked tiles, significant grout failure, or water damage behind the walls.
+For structurally sound showers, we can also discuss smaller-scope updates such as glass, fixtures, grout repair, or targeted tile work, but wet-area failures should be fixed at the assembly level.
 
 ## Get a Professional Assessment
 
@@ -1464,16 +1519,16 @@ Many of our Seattle clients take a phased approach that maximizes impact while m
 
 This phased approach gives you two significantly improved spaces for $23,000-$40,000 total — often with a combined ROI that exceeds what you would get from pouring the same amount into a single major kitchen remodel.
 
-## The Refinishing Option: Maximum Impact, Minimum Spend
+## The Smart Scope Option: Maximum Impact, Controlled Spend
 
-Before committing to a full remodel of either space, consider whether refinishing could solve your problem at a fraction of the cost. At Kitchen and Bathroom Remodeling Pros, we see many homeowners who assume they need a $20,000+ renovation when a $700-$2,000 refinishing project would address their actual concerns.
+Before committing to a full remodel of either space, decide which problems actually need construction and which can be solved with targeted upgrades. Many Seattle homeowners get stronger ROI by fixing the weakest daily-use elements first instead of overbuilding one room.
 
-- **Bathtub refinishing** ($700+) vs. tub replacement ($2,500-$5,000+)
-- **Tile refinishing** ($400+) vs. full retiling ($3,000-$8,000+)
-- **Countertop refinishing** ($600+) vs. new countertops ($2,500-$8,000+)
-- **Cabinet refinishing** vs. new cabinets ($5,000-$25,000+)
+- **Bathroom impact:** shower access, waterproofing, vanity storage, ventilation, and lighting
+- **Kitchen impact:** counter space, cabinet function, lighting, sink workflow, and durable surfaces
+- **Resale impact:** consistent finishes across the home usually beat one over-improved room
+- **Budget control:** keep working layouts when possible and spend on the pieces people see and touch
 
-Refinishing is ideal when the fixtures are structurally sound but cosmetically dated. It can buy you 10-15 years of life from existing surfaces at 70-80% less than replacement.
+This approach is ideal when the room has good bones but poor function, dated materials, or weak storage. It can create a high-end feel without turning every project into a full gut renovation.
 
 ## Making Your Decision
 
@@ -1488,7 +1543,7 @@ Here is a simple framework:
 
 Every home is different, and the right renovation strategy depends on your specific situation. At Kitchen and Bathroom Remodeling Pros, we offer free consultations to help Seattle homeowners evaluate their options and plan renovations that maximize both enjoyment and value.
 
-With 15+ years of experience, over 500 completed projects, and a 4.98-star rating across the Puget Sound area, we have the expertise to guide you toward the right decision — whether that is a full kitchen remodel, a bathroom renovation, or a cost-effective refinishing solution.
+With 15+ years of experience, over 500 completed projects, and a 4.98-star rating across the Puget Sound area, we have the expertise to guide you toward the right decision - whether that is a full kitchen remodel, a bathroom renovation, or a focused upgrade plan that controls budget without cutting quality.
 
 Call (206) 222-5159 or book a free consultation online to discuss your project.`,
     author: 'Remodeling Pros Team',
@@ -2504,10 +2559,19 @@ Call (206) 222-5159 or book a free in-home consultation to discuss your kitchen 
     readTime: '12 min read',
     category: 'Cost Guides',
     tags: ['kitchen remodeling cost seattle', 'kitchen renovation price', 'kitchen remodel budget 2026', 'seattle kitchen contractor', 'cabinet cost seattle', 'countertop cost seattle'],
-    image: '/images/remodeling/kitchen-hero.png',
+    image: '/images/remodeling/kitchen-remodeling-hero.jpg',
     featured: true,
   },
 ] as const;
+
+export const REDIRECTED_REFINISHING_BLOG_SLUGS = [
+  'bathtub-refinishing-vs-replacement-cost-seattle',
+  'how-long-does-bathtub-refinishing-last',
+] as const;
+
+export const ACTIVE_BLOG_POSTS = BLOG_POSTS.filter(
+  (post) => !REDIRECTED_REFINISHING_BLOG_SLUGS.includes(post.slug as (typeof REDIRECTED_REFINISHING_BLOG_SLUGS)[number])
+);
 
 // Reviews/Testimonials
 export const REVIEWS = [

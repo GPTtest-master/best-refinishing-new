@@ -251,7 +251,7 @@ export default function CustomFinishesPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://nexfield.pro/crm/book?u=137"
+              href="/contact"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-amber-500 text-white font-bold text-lg hover:bg-amber-600 transition"
             >
               Book Design Consultation

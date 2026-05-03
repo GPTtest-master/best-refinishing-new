@@ -44,9 +44,15 @@ const nextConfig: NextConfig = {
       { source: '/locations/:city/repair', destination: '/locations/:city/bathroom-remodeling' },
     ];
 
+    const blogRedirects = [
+      { source: '/blog/bathtub-refinishing-vs-replacement-cost-seattle', destination: '/blog/walk-in-shower-vs-bathtub-seattle' },
+      { source: '/blog/how-long-does-bathtub-refinishing-last', destination: '/services/bathtub-installation' },
+    ];
+
     return [
       ...serviceRedirects.map(r => ({ ...r, permanent: true })),
       ...locationServiceRedirects.map(r => ({ ...r, permanent: true })),
+      ...blogRedirects.map(r => ({ ...r, permanent: true })),
     ];
   },
 

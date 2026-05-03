@@ -2,14 +2,26 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { LOCATIONS, ALL_LOCATIONS, SERVICES, REMODELING_SERVICES, ALL_SERVICES, BUSINESS, PROCESS_STEPS, BLOG_POSTS } from '@/lib/constants';
-import { getLocationServiceContent, SERVICE_SLUGS, REMODELING_SERVICE_SLUGS, ALL_SERVICE_SLUGS } from '@/lib/locationServiceContent';
+import { ALL_LOCATIONS, REMODELING_SERVICES, BUSINESS, ACTIVE_BLOG_POSTS, PROJECTS } from '@/lib/constants';
+import { getLocationServiceContent, REMODELING_SERVICE_SLUGS } from '@/lib/locationServiceContent';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import { generateLocationServicePageSchema } from '@/lib/schema';
 import { SchemaScript } from '@/components/SchemaScript';
 
 // Top 12 cities for local SEO
 const TOP_CITIES = ALL_LOCATIONS;
+
+const serviceProjectTypeKeywords: Record<string, string[]> = {
+  'bathroom-remodeling': ['bathroom'],
+  'kitchen-remodeling': ['kitchen'],
+  'countertop-installation': ['kitchen'],
+  'cabinet-refacing': ['kitchen'],
+  'tile-installation': ['bathroom', 'kitchen'],
+  'shower-installation': ['bathroom'],
+  'bathtub-installation': ['bathroom'],
+  'tub-to-shower': ['bathroom'],
+  'walk-in-shower': ['bathroom'],
+};
 
 // Generate static params for top 12 cities × 6 services = 72 pages
 export async function generateStaticParams() {
@@ -32,7 +44,7 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
   const { city, service } = await params;
 
   const location = TOP_CITIES.find(l => l.id === city);
-  const serviceData = [...ALL_SERVICES].find(s => s.href === `/services/${service}`);
+  const serviceData = REMODELING_SERVICES.find(s => s.href === `/services/${service}`);
 
   if (!location || !serviceData) {
     return { title: 'Not Found' };
@@ -65,7 +77,7 @@ export default async function LocationServicePage({ params }: { params: Promise<
   const { city, service } = await params;
 
   const location = TOP_CITIES.find(l => l.id === city);
-  const serviceData = [...ALL_SERVICES].find(s => s.href === `/services/${service}`);
+  const serviceData = REMODELING_SERVICES.find(s => s.href === `/services/${service}`);
 
   if (!location || !serviceData) {
     notFound();
@@ -74,12 +86,26 @@ export default async function LocationServicePage({ params }: { params: Promise<
   const content = getLocationServiceContent(location.name, location.id, service, serviceData.price);
 
   // Get related services (other services in same city)
-  const otherServices = [...ALL_SERVICES].filter(s => s.href !== `/services/${service}`).slice(0, 4);
+  const otherServices = REMODELING_SERVICES.filter(s => s.href !== `/services/${service}`).slice(0, 4);
 
   // Resolve nearby cities from the content data
   const nearbyCities = content.nearbyCityIds
     .map(id => TOP_CITIES.find(c => c.id === id))
     .filter((c): c is (typeof TOP_CITIES)[number] => c !== undefined);
+  const projectKeywords = serviceProjectTypeKeywords[service] || [];
+  const cityProjectTerms = location.id === 'seattle'
+    ? ['seattle', 'capitol hill', 'downtown']
+    : [location.name.toLowerCase()];
+  const localServiceProjects = PROJECTS.filter((project) =>
+    projectKeywords.some((keyword) => project.type.toLowerCase().includes(keyword)) &&
+    cityProjectTerms.some((term) => project.location.toLowerCase().includes(term))
+  );
+  const serviceProofProjects = (localServiceProjects.length > 0
+    ? localServiceProjects
+    : PROJECTS.filter((project) =>
+        projectKeywords.some((keyword) => project.type.toLowerCase().includes(keyword))
+      )
+  ).slice(0, 3);
 
   // JSON-LD Schema - Enhanced @graph structure
   const schema = generateLocationServicePageSchema(
@@ -150,7 +176,7 @@ export default async function LocationServicePage({ params }: { params: Promise<
                   Call {BUSINESS.phone}
                 </a>
                 <Link
-                  href="https://nexfield.pro/crm/book?u=137"
+                  href="/contact"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white/10 border border-white/30 text-white font-bold text-lg hover:bg-white/20 transition"
                 >
                   Get Free Quote
@@ -203,6 +229,54 @@ export default async function LocationServicePage({ params }: { params: Promise<
             <p className="text-lg text-gray-800 leading-relaxed font-medium">
               {content.citableAnswer}
             </p>
+          </div>
+        </section>
+      )}
+
+      {/* Project Proof */}
+      {serviceProofProjects.length > 0 && (
+        <section className="py-12 bg-white border-b border-gray-100">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-8 items-start">
+              <div>
+                <span className="inline-block text-[#0b66b3] font-semibold text-sm uppercase tracking-wider mb-3">
+                  Before You Compare Bids
+                </span>
+                <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-3">
+                  Relevant {content.serviceName} Project Proof
+                </h2>
+                <p className="text-gray-600 leading-relaxed">
+                  These before-and-after case studies show the kind of scope details homeowners should compare: layout, material choices, waterproofing or cabinet planning, timeline, and budget drivers.
+                </p>
+                <Link href="/projects" className="mt-5 inline-flex text-[#0b66b3] font-bold hover:underline">
+                  View all remodeling case studies
+                </Link>
+              </div>
+              <div className="grid sm:grid-cols-3 gap-4">
+                {serviceProofProjects.map((project) => (
+                  <Link
+                    key={project.id}
+                    href={`/projects/${project.id}`}
+                    className="group overflow-hidden rounded-xl border border-gray-100 bg-slate-50 hover:bg-white hover:shadow-md transition"
+                  >
+                    <div className="relative aspect-[4/3]">
+                      <Image src={project.afterImage} alt={project.title} fill className="object-cover" />
+                      <span className="absolute left-3 top-3 rounded-full bg-[#0b66b3] px-2 py-1 text-[10px] font-bold uppercase text-white">
+                        Case Study
+                      </span>
+                    </div>
+                    <div className="p-4">
+                      <p className="text-[11px] font-semibold uppercase tracking-wider text-[#0b66b3] mb-1">
+                        {project.location}
+                      </p>
+                      <h3 className="text-sm font-bold text-gray-900 group-hover:text-[#0b66b3] transition line-clamp-2">
+                        {project.title}
+                      </h3>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
       )}
@@ -381,7 +455,7 @@ export default async function LocationServicePage({ params }: { params: Promise<
                     <p className="text-lg text-gray-600 mb-6">
                       Every {content.serviceName.toLowerCase()} project in {location.name} includes these services &mdash; no hidden fees, no surprises.
                     </p>
-                    <Link href="https://nexfield.pro/crm/book?u=137" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0b66b3] text-white font-bold hover:bg-[#084c8a] transition">
+                    <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0b66b3] text-white font-bold hover:bg-[#084c8a] transition">
                       Get Free Quote
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -492,7 +566,7 @@ export default async function LocationServicePage({ params }: { params: Promise<
               </div>
 
               <Link
-                href="https://nexfield.pro/crm/book?u=137"
+                href="/contact"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0b66b3] text-white font-bold hover:bg-[#084c8a] transition"
               >
                 Get Your Free Quote
@@ -602,7 +676,7 @@ export default async function LocationServicePage({ params }: { params: Promise<
               Call {BUSINESS.phone}
             </a>
             <Link
-              href="https://nexfield.pro/crm/book?u=137"
+              href="/contact"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-[#0b66b3] font-bold text-lg hover:bg-gray-100 transition"
             >
               Get Free Quote
@@ -685,28 +759,27 @@ export default async function LocationServicePage({ params }: { params: Promise<
         </div>
       </section>
 
-      {/* Cross-link: Remodeling Services */}
-      {(SERVICE_SLUGS as readonly string[]).includes(service) && (
-        <section className="py-12 bg-white">
-          <div className="max-w-4xl mx-auto px-4">
-            <div className="bg-gradient-to-r from-[#0b66b3] to-[#084c8a] rounded-2xl p-8 text-center">
-              <h3 className="text-2xl font-bold text-white mb-3">Looking for a Full Remodel in {location.name}?</h3>
-              <p className="text-white/80 mb-6 max-w-xl mx-auto">Refinishing is great for quick updates, but if you want a complete transformation — new tile, countertops, fixtures, and more — explore our remodeling services.</p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Link href="/services/bathroom-remodeling" className="px-6 py-3 bg-amber-500 text-white rounded-xl font-bold hover:bg-amber-600 transition">
-                  Bathroom Remodeling
-                </Link>
-                <Link href="/services/kitchen-remodeling" className="px-6 py-3 bg-white text-[#0b66b3] rounded-xl font-bold hover:bg-gray-100 transition">
-                  Kitchen Remodeling
-                </Link>
-                <Link href="/projects" className="px-6 py-3 bg-white/10 border border-white/30 text-white rounded-xl font-bold hover:bg-white/20 transition">
-                  View Projects
-                </Link>
-              </div>
+      <section className="py-12 bg-white">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="bg-gradient-to-r from-[#0b66b3] to-[#084c8a] rounded-2xl p-8 text-center">
+            <h3 className="text-2xl font-bold text-white mb-3">Not Sure Which Scope Fits Your {location.name} Home?</h3>
+            <p className="text-white/80 mb-6 max-w-xl mx-auto">
+              We can compare layout changes, waterproofing needs, material options, permit requirements, and budget ranges before you commit to a scope.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Link href="/contact" className="px-6 py-3 bg-amber-500 text-white rounded-xl font-bold hover:bg-amber-600 transition">
+                Get Scope Advice
+              </Link>
+              <Link href="/projects" className="px-6 py-3 bg-white text-[#0b66b3] rounded-xl font-bold hover:bg-gray-100 transition">
+                View Projects
+              </Link>
+              <a href={BUSINESS.phoneLink} className="px-6 py-3 bg-white/10 border border-white/30 text-white rounded-xl font-bold hover:bg-white/20 transition">
+                Call {BUSINESS.phone}
+              </a>
             </div>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       
       {/* Related Guides */}
@@ -720,19 +793,19 @@ export default async function LocationServicePage({ params }: { params: Promise<
               const svc = service.toLowerCase();
               let relatedSlugs: string[] = [];
               if (svc.includes('bathroom')) {
-                relatedSlugs = ['bathroom-remodeling-cost-seattle-2026', 'bathtub-refinishing-vs-replacement-cost-seattle', 'shower-tile-installation-seattle'];
+                relatedSlugs = ['bathroom-remodeling-cost-seattle-2026', 'bathroom-remodeling-mistakes-seattle', 'shower-tile-installation-seattle'];
               } else if (svc.includes('kitchen') || svc.includes('counter') || svc.includes('cabinet')) {
-                relatedSlugs = ['kitchen-remodeling-cost-seattle-2026', 'kitchen-remodeling-seattle-guide', 'kitchen-vs-bathroom-remodel-roi'];
+                relatedSlugs = ['kitchen-remodeling-cost-seattle-2026', 'canyon-park-townhome-kitchen-remodeling', 'kitchen-remodeling-seattle-guide'];
               } else if (svc.includes('shower') || svc.includes('tub') || svc.includes('bath')) {
-                relatedSlugs = ['shower-tile-installation-seattle', 'how-long-does-bathtub-refinishing-last', 'bathtub-refinishing-vs-replacement-cost-seattle'];
+                relatedSlugs = ['shower-tile-installation-seattle', 'walk-in-shower-vs-bathtub-seattle', 'bathroom-remodeling-mistakes-seattle'];
               } else if (svc.includes('tile')) {
                 relatedSlugs = ['shower-tile-installation-seattle', 'bathroom-remodeling-cost-seattle-2026', 'kitchen-remodeling-seattle-guide'];
               } else {
                 relatedSlugs = ['bathroom-remodeling-cost-seattle-2026', 'kitchen-remodeling-seattle-guide', 'kitchen-vs-bathroom-remodel-roi'];
               }
               const blogPosts = relatedSlugs
-                .map(slug => BLOG_POSTS.find(p => p.slug === slug))
-                .filter((p): p is (typeof BLOG_POSTS)[number] => p !== undefined)
+                .map(slug => ACTIVE_BLOG_POSTS.find(p => p.slug === slug))
+                .filter((p): p is (typeof ACTIVE_BLOG_POSTS)[number] => p !== undefined)
                 .slice(0, 3);
               return blogPosts.map((post) => (
                 <Link

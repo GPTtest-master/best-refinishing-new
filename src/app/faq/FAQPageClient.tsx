@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FAQ_ITEMS, BUSINESS, SERVICES, LOCATIONS } from '@/lib/constants';
+import { REMODELING_FAQ_ITEMS, BUSINESS, REMODELING_SERVICES, LOCATIONS } from '@/lib/constants';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 function FAQItem({ question, answer, isOpen, onClick }: {
@@ -34,6 +34,12 @@ function FAQItem({ question, answer, isOpen, onClick }: {
 
 export default function FAQPageClient() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const officialResources = [
+    { label: 'WA L&I Contractor Lookup', href: 'https://www.lni.wa.gov/licensing-permits/contractors/hiring-a-contractor/verify-contractor-tradesperson-business#businesses' },
+    { label: 'Seattle SDCI Permits', href: 'https://www.seattle.gov/sdci/permits' },
+    { label: 'Bellevue Development Services', href: 'https://bellevuewa.gov/city-government/departments/development' },
+    { label: 'King County Permits', href: 'https://kingcounty.gov/en/dept/local-services/certificates-permits-licenses/permits' },
+  ];
 
   return (
     <>
@@ -60,7 +66,7 @@ export default function FAQPageClient() {
               <span className="block text-amber-400">&mdash; Seattle</span>
             </h1>
             <p className="text-xl text-white/80 leading-relaxed">
-              Everything you need to know about our professional refinishing services.
+              Practical answers about kitchen and bathroom remodeling scope, permits, timelines, materials, and warranty.
               Can&apos;t find what you&apos;re looking for? Call us at {BUSINESS.phone}
             </p>
           </div>
@@ -71,7 +77,7 @@ export default function FAQPageClient() {
       <section className="py-20 bg-white">
         <div className="max-w-3xl mx-auto px-4">
           <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
-            {FAQ_ITEMS.map((item, index) => (
+            {REMODELING_FAQ_ITEMS.map((item, index) => (
               <FAQItem
                 key={index}
                 question={item.question}
@@ -96,52 +102,51 @@ export default function FAQPageClient() {
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-white rounded-2xl p-6 shadow-lg">
               <h3 className="text-lg font-bold text-gray-900 mb-3">
-                What surfaces can you refinish?
+                Do bathroom remodels in Seattle need permits?
               </h3>
               <p className="text-gray-600">
-                We refinish bathtubs, showers, tiles, sinks, and countertops. We work with porcelain,
-                cast iron, fiberglass, acrylic, ceramic, and cultured marble surfaces.
+                Cosmetic work usually does not. Moving plumbing, adding circuits, changing structure, or major shower rebuilds often require permits.
+                We review scope during the estimate and identify what needs to be permitted before work starts.
               </p>
             </div>
 
             <div className="bg-white rounded-2xl p-6 shadow-lg">
               <h3 className="text-lg font-bold text-gray-900 mb-3">
-                Do you offer color matching?
+                What should I decide before requesting an estimate?
               </h3>
               <p className="text-gray-600">
-                Yes! We can match virtually any color. We offer a wide range of standard colors
-                and can create custom matches to coordinate with your bathroom design.
+                Have a rough budget range, must-have features, photos of the current space, and any layout pain points ready.
+                We can help with material options, but knowing what bothers you most makes the estimate much more accurate.
               </p>
             </div>
 
             <div className="bg-white rounded-2xl p-6 shadow-lg">
               <h3 className="text-lg font-bold text-gray-900 mb-3">
-                Is refinishing a DIY project?
+                Can you help choose materials?
               </h3>
               <p className="text-gray-600">
-                We strongly recommend professional refinishing. DIY kits don&apos;t provide the
-                durability, finish quality, or safety measures that professional equipment offers.
+                Yes. We help compare porcelain tile, quartz, granite, vanities, fixtures, shower glass, cabinet options, and finishes based on budget,
+                maintenance, lead time, and the style of your home.
               </p>
             </div>
 
             <div className="bg-white rounded-2xl p-6 shadow-lg">
               <h3 className="text-lg font-bold text-gray-900 mb-3">
-                How do I maintain my refinished surface?
+                What causes remodel costs to change?
               </h3>
               <p className="text-gray-600">
-                Use non-abrasive cleaners like dish soap or bathroom cleaners without grit.
-                Avoid bleach-based products and abrasive scrubbers. Regular gentle cleaning
-                keeps your surface looking new.
+                Layout changes, plumbing relocation, electrical upgrades, waterproofing condition, cabinet choice, countertop material, tile size,
+                and permit requirements are the biggest cost drivers.
               </p>
             </div>
 
             <div className="bg-white rounded-2xl p-6 shadow-lg">
               <h3 className="text-lg font-bold text-gray-900 mb-3">
-                Do you work with property managers?
+                Can I remodel in phases?
               </h3>
               <p className="text-gray-600">
-                Yes! We offer special pricing for property managers and landlords with
-                multiple units. We can handle high-volume projects efficiently.
+                Yes, when the scope supports it. Kitchens, bathrooms, countertops, tile, and showers can sometimes be phased, but plumbing,
+                waterproofing, and permit work should be planned as one coherent project to avoid rework.
               </p>
             </div>
 
@@ -165,9 +170,9 @@ export default function FAQPageClient() {
           <div className="grid md:grid-cols-2 gap-12">
             {/* Services */}
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Refinishing Services</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Remodeling Services</h3>
               <div className="grid gap-3">
-                {SERVICES.map((service) => (
+                {REMODELING_SERVICES.map((service) => (
                   <Link
                     key={service.id}
                     href={service.href}
@@ -213,19 +218,52 @@ export default function FAQPageClient() {
         </div>
       </section>
 
+      {/* Official Resources */}
+      <section className="py-14 bg-slate-50 border-y border-gray-100">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="grid lg:grid-cols-[1fr_1.4fr] gap-8 items-start">
+            <div>
+              <span className="inline-block text-[#0b66b3] font-semibold text-sm uppercase tracking-wider mb-3">
+                Official Resources
+              </span>
+              <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-3">
+                Verify Permits, Licensing, and Local Requirements
+              </h2>
+              <p className="text-gray-600 leading-relaxed">
+                Remodel scope can change when plumbing, electrical, structural work, or HOA rules are involved. These official sources are useful before you compare estimates.
+              </p>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-3">
+              {officialResources.map((resource) => (
+                <a
+                  key={resource.href}
+                  href={resource.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-xl border border-gray-200 bg-white p-4 font-semibold text-gray-800 hover:border-[#0b66b3] hover:text-[#0b66b3] transition"
+                >
+                  {resource.label}
+                  <span className="block mt-2 text-xs font-medium text-gray-500">Official external resource</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Remodeling Link */}
       <section className="py-12 bg-white border-t border-gray-100">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <p className="text-lg text-gray-600 mb-4">
             Have questions about our remodeling services?
           </p>
-          <a href="/services/bathroom-remodeling" className="text-[#0b66b3] font-semibold hover:underline">
+          <Link href="/services/bathroom-remodeling" className="text-[#0b66b3] font-semibold hover:underline">
             Learn about Bathroom Remodeling →
-          </a>
+          </Link>
           <span className="mx-3 text-gray-300">|</span>
-          <a href="/services/kitchen-remodeling" className="text-[#0b66b3] font-semibold hover:underline">
+          <Link href="/services/kitchen-remodeling" className="text-[#0b66b3] font-semibold hover:underline">
             Learn about Kitchen Remodeling →
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -236,7 +274,7 @@ export default function FAQPageClient() {
             Still Have Questions?
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Our team is here to help. Call us or send a message and we&apos;ll get back
+            Our team is here to help. Call us or use the contact form and we&apos;ll get back
             to you within {BUSINESS.responseTime}.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -250,7 +288,7 @@ export default function FAQPageClient() {
               Call {BUSINESS.phone}
             </a>
             <Link
-              href="https://nexfield.pro/crm/book?u=137"
+              href="/contact"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-[#0b66b3] font-bold text-lg hover:bg-gray-100 transition"
             >
               Contact Us
@@ -266,7 +304,7 @@ export default function FAQPageClient() {
             '@context': 'https://schema.org',
             '@type': 'FAQPage',
             mainEntity: [
-              ...FAQ_ITEMS.map((item) => ({
+              ...REMODELING_FAQ_ITEMS.map((item) => ({
                 '@type': 'Question',
                 name: item.question,
                 acceptedAnswer: {
@@ -276,42 +314,42 @@ export default function FAQPageClient() {
               })),
               {
                 '@type': 'Question',
-                name: 'What surfaces can you refinish?',
+                name: 'Do bathroom remodels in Seattle need permits?',
                 acceptedAnswer: {
                   '@type': 'Answer',
-                  text: 'We refinish bathtubs, showers, tiles, sinks, and countertops. We work with porcelain, cast iron, fiberglass, acrylic, ceramic, and cultured marble surfaces.',
+                  text: 'Cosmetic work usually does not. Moving plumbing, adding circuits, changing structure, or major shower rebuilds often require permits. We review scope during the estimate and identify what needs to be permitted before work starts.',
                 },
               },
               {
                 '@type': 'Question',
-                name: 'Do you offer color matching?',
+                name: 'What should I decide before requesting an estimate?',
                 acceptedAnswer: {
                   '@type': 'Answer',
-                  text: 'Yes! We can match virtually any color. We offer a wide range of standard colors and can create custom matches to coordinate with your bathroom design.',
+                  text: 'Have a rough budget range, must-have features, photos of the current space, and any layout pain points ready. We can help with material options, but knowing what bothers you most makes the estimate much more accurate.',
                 },
               },
               {
                 '@type': 'Question',
-                name: 'Is refinishing a DIY project?',
+                name: 'Can you help choose materials?',
                 acceptedAnswer: {
                   '@type': 'Answer',
-                  text: "We strongly recommend professional refinishing. DIY kits don't provide the durability, finish quality, or safety measures that professional equipment offers.",
+                  text: 'Yes. We help compare porcelain tile, quartz, granite, vanities, fixtures, shower glass, cabinet options, and finishes based on budget, maintenance, lead time, and the style of your home.',
                 },
               },
               {
                 '@type': 'Question',
-                name: 'How do I maintain my refinished surface?',
+                name: 'What causes remodel costs to change?',
                 acceptedAnswer: {
                   '@type': 'Answer',
-                  text: 'Use non-abrasive cleaners like dish soap or bathroom cleaners without grit. Avoid bleach-based products and abrasive scrubbers. Regular gentle cleaning keeps your surface looking new.',
+                  text: 'Layout changes, plumbing relocation, electrical upgrades, waterproofing condition, cabinet choice, countertop material, tile size, and permit requirements are the biggest cost drivers.',
                 },
               },
               {
                 '@type': 'Question',
-                name: 'Do you work with property managers?',
+                name: 'Can I remodel in phases?',
                 acceptedAnswer: {
                   '@type': 'Answer',
-                  text: 'Yes! We offer special pricing for property managers and landlords with multiple units. We can handle high-volume projects efficiently.',
+                  text: 'Yes, when the scope supports it. Kitchens, bathrooms, countertops, tile, and showers can sometimes be phased, but plumbing, waterproofing, and permit work should be planned as one coherent project to avoid rework.',
                 },
               },
               {

@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { REMODELING_SERVICES, ALL_LOCATIONS, LOCATIONS, BUSINESS, BLOG_POSTS, PROJECTS } from '@/lib/constants';
+import { REMODELING_SERVICES, ALL_LOCATIONS, LOCATIONS, BUSINESS, ACTIVE_BLOG_POSTS, PROJECTS } from '@/lib/constants';
 import { REMODELING_SERVICE_SLUGS } from '@/lib/locationServiceContent';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -165,7 +165,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   // Blog posts - fresh content signals
-  const blogPages: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
+  const blogPages: MetadataRoute.Sitemap = ACTIVE_BLOG_POSTS.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(post.date).toISOString(),
     changeFrequency: 'weekly' as const,

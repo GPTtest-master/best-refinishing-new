@@ -3,15 +3,17 @@ import { BUSINESS } from '@/lib/constants';
 import ContactPageClient from './ContactPageClient';
 
 export const metadata: Metadata = {
-  title: `Contact Us - Get Free Quote | ${BUSINESS.name}`,
-  description: `Contact ${BUSINESS.name} for free kitchen & bathroom remodeling estimates in Seattle & 50+ cities. Call ${BUSINESS.phone} or fill out our form. Licensed contractors, ${BUSINESS.warranty} warranty. We respond ${BUSINESS.responseTime.toLowerCase()}!`,
+  title: {
+    absolute: 'Free Remodeling Estimate Seattle | Kitchen & Bathroom Pros',
+  },
+  description: `Schedule a kitchen or bathroom remodeling estimate in Seattle. Licensed remodelers, itemized scope review, ${BUSINESS.warranty} warranty, and fast response.`,
   keywords: 'contact remodeling pros seattle, free remodeling estimate, kitchen remodeling quote seattle, bathroom remodeling estimate, seattle contractor',
   alternates: {
     canonical: `${BUSINESS.website}/contact`,
   },
   openGraph: {
-    title: `Contact Us - Get Free Quote | ${BUSINESS.name}`,
-    description: `Get a free remodeling estimate. We respond ${BUSINESS.responseTime.toLowerCase()}!`,
+    title: 'Free Remodeling Estimate Seattle | Kitchen & Bathroom Pros',
+    description: 'Schedule a kitchen or bathroom remodeling estimate with licensed Seattle-area remodelers.',
     type: 'website',
     locale: 'en_US',
     siteName: BUSINESS.name,

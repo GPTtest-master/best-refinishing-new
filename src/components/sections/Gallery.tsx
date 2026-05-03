@@ -6,7 +6,7 @@ import { BUSINESS } from '@/lib/constants';
 const galleryItems = [
   {
     src: '/images/optimized/after3.webp',
-    title: 'Cast Iron Tub Refinishing',
+    title: 'Bathroom Update',
     location: 'Seattle, WA',
   },
   {
@@ -16,7 +16,7 @@ const galleryItems = [
   },
   {
     src: '/images/optimized/sink-after-1.webp',
-    title: 'Kitchen Sink Refinishing',
+    title: 'Kitchen Detail Update',
     location: 'Kirkland, WA',
   },
   {
@@ -31,7 +31,7 @@ const galleryItems = [
   },
   {
     src: '/images/optimized/baztub-after.webp',
-    title: 'Tub Refinishing',
+    title: 'Bathroom Transformation',
     location: 'Renton, WA',
   },
 ];
@@ -96,7 +96,7 @@ export default function Gallery() {
           <p className="text-gray-600 mb-4">Ready for your transformation?</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://nexfield.pro/crm/book?u=137"
+              href="/contact"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-[#0b66b3] text-white font-bold text-lg hover:bg-[#084c8a] transition"
             >
               Get Free Quote

@@ -6,12 +6,12 @@ import { BUSINESS } from '@/lib/constants';
 
 // Service prices mapping - must match QuickForm.tsx
 const servicePrices: Record<string, { label: string; price: number }> = {
-  bathtub: { label: 'Bathtub Refinishing', price: 700 },
-  shower: { label: 'Shower Refinishing', price: 900 },
-  tile: { label: 'Tile Refinishing', price: 400 },
-  sink: { label: 'Sink Refinishing', price: 450 },
-  countertop: { label: 'Countertop Refinishing', price: 600 },
-  repair: { label: 'Chip & Crack Repair', price: 350 },
+  bathtub: { label: 'Bathtub Installation', price: 4500 },
+  shower: { label: 'Shower Installation', price: 6500 },
+  tile: { label: 'Tile Installation', price: 2500 },
+  sink: { label: 'Bathroom Remodeling', price: 12000 },
+  countertop: { label: 'Countertop Installation', price: 2800 },
+  repair: { label: 'Project Scope Review', price: 0 },
   other: { label: 'Other Service', price: 0 },
 };
 
@@ -139,8 +139,8 @@ export default function ThankYouPage() {
                   </svg>
                 </div>
                 <div>
-                  <div className="font-bold text-gray-900 text-lg">SMS from Manager</div>
-                  <div className="text-gray-600">Our manager will text you to clarify details, confirm the price, schedule a convenient date, and answer all your questions</div>
+                  <div className="font-bold text-gray-900 text-lg">Call from Manager</div>
+                  <div className="text-gray-600">Our manager will call you to clarify details, confirm the price, schedule a convenient date, and answer all your questions</div>
                 </div>
               </li>
               <li className="flex items-start gap-4">

@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { ALL_LOCATIONS, SERVICES, REMODELING_SERVICES, BUSINESS } from '@/lib/constants';
+import { ALL_LOCATIONS, REMODELING_SERVICES, BUSINESS, PROJECTS } from '@/lib/constants';
 import { LocationContent, LocationReview, CITY_SPECIFIC_CONTENT } from '@/lib/locationContent';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
@@ -50,6 +50,13 @@ export default function LocationPageClient({ location, content, reviews }: Props
         .filter((l) => l.id !== location.id)
         .sort((a, b) => (b.primary ? 1 : 0) - (a.primary ? 1 : 0))
         .slice(0, 8);
+  const cityProjectTerms = location.id === 'seattle'
+    ? ['seattle', 'capitol hill', 'downtown']
+    : [location.name.toLowerCase()];
+  const exactLocalProjects = PROJECTS.filter((project) =>
+    cityProjectTerms.some((term) => project.location.toLowerCase().includes(term))
+  );
+  const proofProjects = (exactLocalProjects.length > 0 ? exactLocalProjects : PROJECTS).slice(0, 3);
 
   return (
     <>
@@ -96,7 +103,7 @@ export default function LocationPageClient({ location, content, reviews }: Props
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <a
-                href="https://nexfield.pro/crm/book?u=137"
+                href="/contact"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold text-lg hover:from-amber-600 hover:to-amber-700 transition shadow-lg shadow-amber-500/30"
               >
                 Free Estimate in {location.name}
@@ -129,6 +136,62 @@ export default function LocationPageClient({ location, content, reviews }: Props
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Project Proof */}
+      <section className="py-16 bg-slate-50 border-y border-gray-100">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+            <div>
+              <span className="inline-block text-[#0b66b3] font-semibold text-sm uppercase tracking-wider mb-3">
+                Real Project Proof
+              </span>
+              <h2 className="text-2xl md:text-3xl font-black text-gray-900">
+                {exactLocalProjects.length > 0 ? `Remodeling Projects Near ${location.name}` : `Seattle-Area Remodels Relevant to ${location.name} Homes`}
+              </h2>
+              <p className="text-gray-600 mt-2 max-w-2xl">
+                Use these case studies to compare scope, materials, timelines, and before-and-after quality before booking an estimate.
+              </p>
+            </div>
+            <Link href="/projects" className="text-[#0b66b3] font-bold hover:underline">
+              View all case studies
+            </Link>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {proofProjects.map((project) => (
+              <Link
+                key={project.id}
+                href={`/projects/${project.id}`}
+                className="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm hover:shadow-lg transition"
+              >
+                <div className="grid grid-cols-2">
+                  <div className="relative aspect-[4/3]">
+                    <Image src={project.beforeImage} alt={`Before: ${project.title}`} fill className="object-cover" />
+                    <span className="absolute bottom-2 left-2 rounded-full bg-red-500 px-2 py-0.5 text-[10px] font-bold uppercase text-white">
+                      Before
+                    </span>
+                  </div>
+                  <div className="relative aspect-[4/3]">
+                    <Image src={project.afterImage} alt={`After: ${project.title}`} fill className="object-cover" />
+                    <span className="absolute bottom-2 left-2 rounded-full bg-green-500 px-2 py-0.5 text-[10px] font-bold uppercase text-white">
+                      After
+                    </span>
+                  </div>
+                </div>
+                <div className="p-5">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-[#0b66b3] mb-2">
+                    {project.type} - {project.location}
+                  </p>
+                  <h3 className="font-bold text-gray-900 group-hover:text-[#0b66b3] transition">
+                    {project.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-gray-600 line-clamp-2">{project.description}</p>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -441,33 +504,40 @@ export default function LocationPageClient({ location, content, reviews }: Props
         </div>
       </section>
 
-      {/* Also Available: Refinishing */}
+      {/* Local Planning Checklist */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-10">
             <span className="inline-block text-gray-500 font-semibold text-sm uppercase tracking-wider mb-3">
-              Also Available
+              Before You Remodel
             </span>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
-              Refinishing Services in {location.name}
+              Planning Checklist for {location.name} Homes
             </h2>
             <p className="text-gray-600 max-w-xl mx-auto">
-              Need a refresh without a full remodel? We also offer professional refinishing services.
+              The best estimate starts with the real constraints of your home: permits, layout, moisture control, and material lead times.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {SERVICES.map((service) => (
-              <Link
-                key={service.id}
-                href={`/locations/${location.id}${service.href.replace('/services', '')}`}
-                className="bg-slate-50 rounded-xl p-4 text-center hover:bg-[#0b66b3] hover:text-white transition group border border-gray-100"
-              >
-                <span className="font-semibold text-sm text-gray-700 group-hover:text-white transition">
-                  {service.shortTitle}
-                </span>
-                <div className="text-xs text-gray-500 group-hover:text-white/70 mt-1 transition">{service.price}</div>
-              </Link>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                title: 'Permit Scope',
+                text: CITY_SPECIFIC_CONTENT[location.id]?.remodelingPermitInfo || 'We confirm whether plumbing, electrical, or structural work requires a local permit before work begins.',
+              },
+              {
+                title: 'Layout Priorities',
+                text: 'We separate must-have layout changes from cosmetic choices so the budget goes toward storage, access, lighting, and daily function first.',
+              },
+              {
+                title: 'Wet-Area Protection',
+                text: 'Bathrooms and showers are planned around ventilation, waterproofing, drainage, and tile details that prevent expensive failures later.',
+              },
+            ].map((item) => (
+              <div key={item.title} className="rounded-2xl border border-gray-100 bg-slate-50 p-6">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
+                <p className="text-sm leading-relaxed text-gray-600">{item.text}</p>
+              </div>
             ))}
           </div>
         </div>
@@ -494,7 +564,7 @@ export default function LocationPageClient({ location, content, reviews }: Props
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://nexfield.pro/crm/book?u=137"
+              href="/contact"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-amber-500 text-white font-bold text-lg hover:bg-amber-600 transition shadow-lg shadow-amber-500/30"
             >
               Free {location.name} Estimate

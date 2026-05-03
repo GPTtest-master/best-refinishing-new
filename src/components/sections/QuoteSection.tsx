@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, Suspense } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { BUSINESS, SERVICES } from '@/lib/constants';
+import { BUSINESS } from '@/lib/constants';
 
 // Service image type
 interface ServiceImage {
@@ -19,17 +19,6 @@ interface ServiceImage {
   beforeRotate?: number;
   afterRotate?: number;
 }
-
-// Before/After image pairs for each service type
-// Service options with prices for the form
-const formServices = [
-  { id: 'bathtub', label: 'Bathtub', price: 700 },
-  { id: 'shower', label: 'Shower', price: 900 },
-  { id: 'tile', label: 'Tub+Tile', price: 900 },
-  { id: 'sink', label: 'Sink', price: 450 },
-  { id: 'countertop', label: 'Counter', price: 600 },
-  { id: 'other', label: 'Other', price: 0 },
-];
 
 const serviceImages: ServiceImage[] = [
   {
@@ -80,13 +69,13 @@ function QuoteSectionContent() {
   const [isDragging, setIsDragging] = useState(false);
   const [activeService, setActiveService] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
-  const [gclid, setGclid] = useState<string>('');
+  const gclidRef = useRef('');
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     zip: '',
     services: [] as string[],
-    smsConsent: false,
+    phoneConsent: false,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -95,14 +84,14 @@ function QuoteSectionContent() {
   useEffect(() => {
     const gclidParam = searchParams.get('gclid');
     if (gclidParam) {
-      setGclid(gclidParam);
+      gclidRef.current = gclidParam;
       // Also store in localStorage for persistence
       localStorage.setItem('gclid', gclidParam);
     } else {
       // Try to get from localStorage if not in URL
       const storedGclid = localStorage.getItem('gclid');
       if (storedGclid) {
-        setGclid(storedGclid);
+        gclidRef.current = storedGclid;
       }
     }
   }, [searchParams]);
@@ -162,7 +151,7 @@ function QuoteSectionContent() {
         body: JSON.stringify({
           ...formData,
           service: formData.services.join(', '),
-          gclid: gclid || undefined,
+          gclid: gclidRef.current || undefined,
         }),
       });
 
@@ -256,7 +245,7 @@ function QuoteSectionContent() {
               >
                 <Image
                   src={serviceImages[activeService].before}
-                  alt="Before refinishing"
+                  alt="Before remodeling project"
                   fill
                   className="object-cover pointer-events-none"
                   style={{ objectPosition: serviceImages[activeService].beforePosition || 'center' }}
@@ -280,7 +269,7 @@ function QuoteSectionContent() {
                 >
                   <Image
                     src={serviceImages[activeService].after}
-                    alt="After refinishing"
+                    alt="After remodeling project"
                     fill
                     className="object-cover pointer-events-none"
                     style={{ objectPosition: serviceImages[activeService].afterPosition || 'center' }}
@@ -439,18 +428,18 @@ function QuoteSectionContent() {
                     )}
                   </div>
 
-                  {/* SMS Consent */}
+                  {/* Phone consent */}
                   <div className="flex items-start gap-3 p-3 rounded-lg bg-slate-50">
                     <input
                       type="checkbox"
-                      id="smsConsent-quote"
+                      id="phoneConsent-quote"
                       required
-                      checked={formData.smsConsent}
-                      onChange={(e) => setFormData({ ...formData, smsConsent: e.target.checked })}
+                      checked={formData.phoneConsent}
+                      onChange={(e) => setFormData({ ...formData, phoneConsent: e.target.checked })}
                       className="mt-0.5 w-5 h-5 rounded border-2 border-gray-300 text-[#0b66b3] focus:ring-[#0b66b3] cursor-pointer flex-shrink-0"
                     />
-                    <label htmlFor="smsConsent-quote" className="text-xs text-gray-600 leading-relaxed cursor-pointer">
-                      I agree to receive SMS/text messages about my quote. Msg & data rates may apply. Reply STOP to opt-out.{' '}
+                    <label htmlFor="phoneConsent-quote" className="text-xs text-gray-600 leading-relaxed cursor-pointer">
+                      I agree to be contacted by phone call about my quote request. This number is for calls only.{' '}
                       <a href="/privacy" className="text-[#0b66b3] underline">Privacy</a> & <a href="/terms" className="text-[#0b66b3] underline">Terms</a>.
                     </label>
                   </div>

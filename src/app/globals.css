@@ -58,6 +58,7 @@ img {
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -66,6 +67,7 @@ body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 /* Selection color */
@@ -323,6 +325,27 @@ input:focus, textarea:focus, select:focus {
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+@keyframes hero-object-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -10px;
+  }
+}
+
+.hero-object-float {
+  animation: hero-object-float 9s ease-in-out infinite;
+  will-change: translate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-object-float {
+    animation: none;
+  }
 }
 
 /* Line clamp utilities */

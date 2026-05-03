@@ -1,9 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { REMODELING_REVIEWS, REVIEWS, BUSINESS } from '@/lib/constants';
+import Link from 'next/link';
+import { REMODELING_REVIEWS, BUSINESS } from '@/lib/constants';
 
-const ALL_REVIEWS = [...REMODELING_REVIEWS, ...REVIEWS];
+const ALL_REVIEWS = REMODELING_REVIEWS;
 
 export default function Reviews() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -153,8 +154,8 @@ export default function Reviews() {
           {[
             { icon: '🏆', title: 'Licensed', subtitle: '& Insured', color: 'from-green-500/20 to-green-600/20' },
             { icon: '✅', title: '5-Year', subtitle: 'Warranty', color: 'from-blue-500/20 to-blue-600/20' },
-            { icon: '⚡', title: '1-Day', subtitle: 'Service', color: 'from-amber-500/20 to-amber-600/20' },
-            { icon: '💰', title: 'Save $5000+', subtitle: 'vs. Replacement', color: 'from-purple-500/20 to-purple-600/20' },
+            { icon: '⚡', title: 'Fast', subtitle: 'Project Starts', color: 'from-amber-500/20 to-amber-600/20' },
+            { icon: '💰', title: 'Itemized', subtitle: 'Estimates', color: 'from-purple-500/20 to-purple-600/20' },
           ].map((badge) => (
             <div
               key={badge.title}
@@ -169,15 +170,18 @@ export default function Reviews() {
 
         {/* CTA */}
         <div className="mt-16 text-center">
-          <a
-            href="https://nexfield.pro/crm/book?u=137"
+          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/60">
+            See what your project could cost before you commit
+          </p>
+          <Link
+            href="/contact"
             className="inline-flex items-center gap-3 px-10 py-5 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold text-xl hover:from-amber-600 hover:to-amber-700 transition shadow-2xl shadow-amber-500/30 hover:scale-105 transform"
           >
-            Get Your Free Quote Today
+            Schedule Your Free Estimate
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

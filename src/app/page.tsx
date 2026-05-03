@@ -3,7 +3,6 @@ import { generateHomePageSchema } from "@/lib/schema";
 import { SchemaScript } from "@/components/SchemaScript";
 import Hero from "@/components/sections/Hero";
 import Services from "@/components/sections/Services";
-import StatsBar from "@/components/sections/StatsBar";
 import ProjectsPreview from "@/components/sections/ProjectsPreview";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import Reviews from "@/components/sections/Reviews";
@@ -14,9 +13,8 @@ export default function Home() {
     <>
       <SchemaScript schema={generateHomePageSchema()} />
       <Hero />
-      <StatsBar />
-      <Services />
       <ProjectsPreview />
+      <Services />
       <WhyChooseUs />
       <Reviews />
       <BlogPreview />

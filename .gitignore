@@ -29,6 +29,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+tmp-*.log
+.tmp-gsc-*/
+.chrome-tmp/
+.chrome-cdp*/
 
 # env files (can opt-in for committing if needed)
 .env*

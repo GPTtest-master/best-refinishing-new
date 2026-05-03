@@ -31,7 +31,7 @@ const benefits = [
   },
   {
     title: 'Fast Turnaround',
-    description: 'Minimize vacancy time with our same-day service. Most units ready in 24-48 hours.',
+    description: 'Minimize vacancy time with scoped unit turns, batched materials, and clear scheduling for occupied or vacant units.',
     icon: (
       <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -58,7 +58,7 @@ const benefits = [
   },
   {
     title: 'Consistent Quality',
-    description: 'Same high-quality finish across all units. Professional results every time.',
+    description: 'Consistent fixtures, tile, counters, and installation standards across every unit.',
     icon: (
       <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
@@ -118,8 +118,8 @@ export default function CommercialPage() {
               <span className="block text-amber-400">Multi-Unit Projects</span>
             </h1>
             <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-              Specialized refinishing services for property managers, landlords, and commercial clients.
-              Fast turnaround, consistent quality, and competitive pricing for all your units.
+              Specialized remodeling services for property managers, landlords, and commercial clients.
+              Clear scope, consistent quality, and competitive pricing for unit turns and multi-unit upgrades.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -133,7 +133,7 @@ export default function CommercialPage() {
                 Call for Volume Pricing
               </a>
               <Link
-                href="https://nexfield.pro/crm/book?u=137"
+                href="/contact"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-gray-900 font-bold text-lg hover:bg-gray-100 transition"
               >
                 Request Commercial Quote
@@ -156,11 +156,11 @@ export default function CommercialPage() {
               <div className="text-gray-500 mt-1">Years Experience</div>
             </div>
             <div>
-              <div className="text-4xl font-black text-[#0b66b3]">24hr</div>
-              <div className="text-gray-500 mt-1">Turnaround Time</div>
+              <div className="text-4xl font-black text-[#0b66b3]">Multi</div>
+              <div className="text-gray-500 mt-1">Unit Scheduling</div>
             </div>
             <div>
-              <div className="text-4xl font-black text-[#0b66b3]">3 Years</div>
+              <div className="text-4xl font-black text-[#0b66b3]">{BUSINESS.warranty}</div>
               <div className="text-gray-500 mt-1">Warranty</div>
             </div>
           </div>
@@ -287,7 +287,7 @@ export default function CommercialPage() {
               Call {BUSINESS.phone}
             </a>
             <Link
-              href="https://nexfield.pro/crm/book?u=137"
+              href="/contact"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-[#0b66b3] font-bold text-lg hover:bg-gray-100 transition"
             >
               Request Volume Quote

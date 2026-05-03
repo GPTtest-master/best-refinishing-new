@@ -5,8 +5,8 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'Remodeling Care Products — Protect Your Investment',
-  description: 'Professional cleaning products for remodeled and refinished surfaces. Safe formulas for quartz, granite, tile, and refinished bathtubs. Protect your remodeling investment.',
-  keywords: 'quartz countertop cleaner, tile surface care, remodeling aftercare products, granite sealer, refinished surface care',
+  description: 'Professional cleaning and care products for remodeled kitchens and bathrooms. Safe formulas for quartz, granite, tile, glass, fixtures, and grout.',
+  keywords: 'quartz countertop cleaner, tile surface care, remodeling aftercare products, granite sealer, shower glass cleaner',
   alternates: {
     canonical: `${BUSINESS.website}/shop`,
   },
@@ -16,10 +16,10 @@ const products = [
   {
     id: 'daily-cleaner',
     name: 'Daily Surface Cleaner',
-    description: 'Gentle daily cleaner specially formulated for refinished surfaces. pH-balanced, non-abrasive formula that cleans without damaging your finish.',
+    description: 'Gentle daily cleaner for quartz, tile, fixtures, glass, and other common kitchen and bathroom surfaces.',
     price: '$14.99',
     size: '32 oz spray bottle',
-    features: ['Safe for all refinished surfaces', 'pH-balanced formula', 'No harsh chemicals', 'Fresh scent'],
+    features: ['Safe for most sealed surfaces', 'pH-balanced formula', 'No harsh chemicals', 'Fresh scent'],
     badge: 'Best Seller',
     image: '/images/product-cleaner.jpg',
   },
@@ -46,7 +46,7 @@ const products = [
   {
     id: 'complete-care-bundle',
     name: 'Complete Care Bundle',
-    description: 'Everything you need to maintain your refinished surfaces. Includes daily cleaner, deep clean kit, and protector spray.',
+    description: 'Everything you need to maintain remodeled kitchens and bathrooms. Includes daily cleaner, deep clean kit, and protector spray.',
     price: '$54.99',
     size: 'Full care system',
     features: ['All 3 products included', 'Save 15%', 'Free shipping', '6-month supply'],
@@ -77,8 +77,8 @@ export default function ShopPage() {
               <span className="block text-amber-400">&mdash; Protect Your Investment</span>
             </h1>
             <p className="text-xl text-white/80 leading-relaxed">
-              Professional-grade cleaning products designed specifically for refinished surfaces.
-              The same products our technicians recommend.
+              Professional-grade cleaning products for quartz counters, tile, shower glass, fixtures, grout, and other remodeled surfaces.
+              The same product types our technicians recommend after installation.
             </p>
           </div>
         </div>
@@ -110,7 +110,7 @@ export default function ShopPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Products</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Keep your refinished surfaces looking beautiful for years to come.
+              Keep your remodeled kitchen or bathroom looking clean, durable, and easy to maintain.
             </p>
           </div>
 
@@ -174,7 +174,7 @@ export default function ShopPage() {
               Online ordering launching soon!
             </p>
             <a
-              href="https://nexfield.pro/crm/book?u=137"
+              href="/contact"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#0b66b3] text-white font-bold hover:bg-[#084c8a] transition"
             >
               Schedule Service & Get Products
@@ -187,7 +187,7 @@ export default function ShopPage() {
       <section className="py-20 bg-slate-50">
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Care Tips for Refinished Surfaces</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Care Tips for Remodeled Surfaces</h2>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -228,13 +228,13 @@ export default function ShopPage() {
       <section className="py-20 bg-gradient-to-r from-slate-900 to-slate-800">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
-            Need Refinishing Service?
+            Planning a Remodeling Project?
           </h2>
           <p className="text-gray-300 text-lg mb-8">
-            Our products are included with care instructions after every refinishing job.
+            We can help you choose materials, fixtures, and care requirements before the work starts.
           </p>
           <a
-            href="https://nexfield.pro/crm/book?u=137"
+            href="/contact"
             className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-amber-500 text-white font-bold text-lg hover:bg-amber-600 transition"
           >
             Free Estimate

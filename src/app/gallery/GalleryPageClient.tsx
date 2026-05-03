@@ -10,11 +10,6 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs';
 const categoryServiceMap: Record<string, { href: string; label: string }> = {
   'bathroom-remodeling': { href: '/services/bathroom-remodeling', label: 'Bathroom Remodeling' },
   'kitchen-remodeling': { href: '/services/kitchen-remodeling', label: 'Kitchen Remodeling' },
-  bathtub: { href: '/services/bathtub-refinishing', label: 'Bathtub Refinishing' },
-  sink: { href: '/services/sink-refinishing', label: 'Sink Refinishing' },
-  shower: { href: '/services/shower-refinishing', label: 'Shower Refinishing' },
-  tile: { href: '/services/tile-grout-refinishing', label: 'Tile Refinishing' },
-  countertop: { href: '/services/countertop-refinishing', label: 'Countertop Refinishing' },
 };
 
 // Gallery photos — remodeling first
@@ -37,29 +32,12 @@ const galleryPhotos = [
   { id: 206, src: '/images/remodeling/before-after/kitchen2-after.jpg', alt: 'Kitchen after countertop installation', category: 'kitchen-remodeling' },
   { id: 207, src: '/images/remodeling/kitchen-showcase-3.jpg', alt: 'Custom kitchen cabinetry', category: 'kitchen-remodeling' },
   { id: 208, src: '/images/remodeling/kitchen-detail-1.jpg', alt: 'Kitchen countertop detail', category: 'kitchen-remodeling' },
-  // Refinishing
-  { id: 1, src: '/images/optimized/entire-bath-before.webp', alt: 'Complete bathroom - before refinishing', category: 'bathtub' },
-  { id: 2, src: '/images/optimized/entirebath.webp', alt: 'Complete bathroom refinishing - after', category: 'bathtub' },
-  { id: 3, src: '/images/optimized/IMG_5026.webp', alt: 'Professional bathtub refinishing', category: 'bathtub' },
-  { id: 4, src: '/images/optimized/IMG_5030.webp', alt: 'Bathtub restoration project', category: 'bathtub' },
-  { id: 5, src: '/images/optimized/IMG_7087.webp', alt: 'Tub and tile refinishing', category: 'bathtub' },
-  { id: 6, src: '/images/optimized/IMG_7432.webp', alt: 'Refinished bathtub result', category: 'bathtub' },
-  { id: 7, src: '/images/optimized/IMG_74332.webp', alt: 'Seattle bathtub reglazing', category: 'bathtub' },
-  { id: 8, src: '/images/optimized/IMG_70062.webp', alt: 'Bathtub before refinishing', category: 'bathtub' },
-  { id: 9, src: '/images/optimized/baztub-after.webp', alt: 'Gleaming white tub finish', category: 'bathtub' },
-  { id: 10, src: '/images/optimized/bathtub-4-before.webp', alt: 'Cast iron tub before refinishing', category: 'bathtub' },
-  { id: 11, src: '/images/optimized/bathtub-4-after.webp', alt: 'Cast iron tub after refinishing', category: 'bathtub' },
-  { id: 12, src: '/images/optimized/sink-before-1.webp', alt: 'Sink before refinishing', category: 'sink' },
-  { id: 13, src: '/images/optimized/sink-after-1.webp', alt: 'Restored sink with new finish', category: 'sink' },
-  { id: 14, src: '/images/optimized/local-5.webp', alt: 'Local Repair Before', category: 'bathtub' },
-  { id: 15, src: '/images/optimized/local-5-after.webp', alt: 'Local Repair After', category: 'bathtub' },
 ];
 
 const categories = [
   { id: 'all', label: 'All Projects' },
   { id: 'bathroom-remodeling', label: 'Bathroom Remodeling' },
   { id: 'kitchen-remodeling', label: 'Kitchen Remodeling' },
-  { id: 'bathtub', label: 'Refinishing' },
 ];
 
 export default function GalleryPageClient() {
@@ -89,7 +67,7 @@ export default function GalleryPageClient() {
             Kitchen &amp; Bathroom Remodeling Gallery &mdash; Before &amp; After
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Explore our portfolio of stunning remodeling and refinishing transformations.
+            Explore our portfolio of kitchen and bathroom remodeling transformations.
             See the quality and craftsmanship that makes us the top choice in Seattle.
           </p>
         </div>
@@ -106,7 +84,7 @@ export default function GalleryPageClient() {
               Our Completed Projects
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Browse through our collection of remodeling and refinishing projects across the Seattle area
+              Browse kitchen and bathroom remodeling projects across the Seattle area
             </p>
           </div>
 
@@ -195,7 +173,7 @@ export default function GalleryPageClient() {
 
         <div className="relative max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-black text-white mb-6">
-            Ready to Transform Your Bathroom?
+            Ready to Transform Your Kitchen or Bathroom?
           </h2>
           <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
             Join our 500+ satisfied customers in the Seattle area. Get a free quote today
@@ -204,7 +182,7 @@ export default function GalleryPageClient() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="https://nexfield.pro/crm/book?u=137"
+              href="/contact"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold text-lg hover:from-amber-600 hover:to-amber-700 transition shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 hover:scale-105 transform"
             >
               Get Free Quote

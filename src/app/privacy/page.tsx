@@ -72,30 +72,27 @@ export default function PrivacyPolicyPage() {
             <p className="text-gray-600 mb-4">We use the information we collect to:</p>
             <ul className="list-disc pl-6 text-gray-600 space-y-2 mb-6">
               <li>Respond to your quote requests and inquiries</li>
-              <li>Schedule and provide refinishing services</li>
+              <li>Schedule and provide remodeling services</li>
               <li>Send you updates about your project</li>
               <li>Send promotional communications (with your consent)</li>
               <li>Improve our website and services</li>
               <li>Comply with legal obligations</li>
             </ul>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4" id="sms-policy">3. SMS/Text Message Policy</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4" id="phone-policy">3. Phone Communications Policy</h2>
             <div className="bg-blue-50 border-l-4 border-[#0b66b3] p-6 mb-6">
               <p className="text-gray-700 mb-4">
-                <strong>By providing your phone number and checking the consent box on our quote form, you agree to receive SMS/text messages from {BUSINESS.name}.</strong>
+                <strong>By providing your phone number, you agree that {BUSINESS.name} may contact you by phone call about your quote request, appointment scheduling, and service updates.</strong>
               </p>
               <ul className="list-disc pl-6 text-gray-600 space-y-2">
-                <li><strong>Purpose:</strong> We send texts related to your quote request, appointment confirmations, service updates, and promotional offers.</li>
-                <li><strong>Frequency:</strong> Message frequency varies based on your interactions with us.</li>
-                <li><strong>Costs:</strong> Message and data rates may apply depending on your mobile carrier plan.</li>
-                <li><strong>Opt-Out:</strong> Reply STOP to any message to unsubscribe from SMS communications.</li>
-                <li><strong>Help:</strong> Reply HELP for assistance or contact us at {BUSINESS.phone}.</li>
-                <li><strong>Carriers:</strong> Major carriers supported include AT&T, Verizon, T-Mobile, Sprint, and others.</li>
+                <li><strong>Purpose:</strong> We use phone calls related to your quote request, appointment confirmations, and service updates.</li>
+                <li><strong>Frequency:</strong> Call frequency varies based on your interactions with us.</li>
+                <li><strong>No SMS:</strong> The phone number listed on this website is for calls only. Please use the contact form or email for written messages.</li>
+                <li><strong>Help:</strong> Contact us at {BUSINESS.phone} or {BUSINESS.email} for assistance.</li>
               </ul>
             </div>
             <p className="text-gray-600 mb-6">
-              Your consent to receive SMS messages is not a condition of purchasing our services.
-              You can request a quote by calling us directly at {BUSINESS.phone} if you prefer not to receive text messages.
+              You can request a quote by calling us directly at {BUSINESS.phone}, using our contact form, or emailing {BUSINESS.email}.
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">4. Information Sharing</h2>
@@ -103,7 +100,7 @@ export default function PrivacyPolicyPage() {
               We do not sell, trade, or rent your personal information to third parties. We may share your information with:
             </p>
             <ul className="list-disc pl-6 text-gray-600 space-y-2 mb-6">
-              <li><strong>Service Providers:</strong> Third-party companies that help us operate our business (e.g., SMS providers, payment processors)</li>
+              <li><strong>Service Providers:</strong> Third-party companies that help us operate our business (e.g., CRM providers, payment processors)</li>
               <li><strong>Legal Requirements:</strong> When required by law or to protect our rights</li>
               <li><strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets</li>
             </ul>
@@ -136,7 +133,7 @@ export default function PrivacyPolicyPage() {
               <li>Request correction of inaccurate information</li>
               <li>Request deletion of your information</li>
               <li>Opt-out of marketing communications</li>
-              <li>Withdraw consent for SMS messages (reply STOP)</li>
+              <li>Withdraw consent for future phone calls by contacting us directly</li>
             </ul>
 
             <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">8. California Privacy Rights (CCPA)</h2>

@@ -1,24 +1,24 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { BUSINESS } from '@/lib/constants';
 
 export default function ExitIntentPopup() {
   const router = useRouter();
   const [isVisible, setIsVisible] = useState(false);
-  const [hasShown, setHasShown] = useState(false);
-  const [formData, setFormData] = useState({ name: '', phone: '', service: '', smsConsent: false });
+  const hasShownRef = useRef(false);
+  const [formData, setFormData] = useState({ name: '', phone: '', service: '', phoneConsent: false });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const services = [
-    'Bathtub Refinishing',
-    'Shower Refinishing',
-    'Tile Refinishing',
-    'Sink Refinishing',
-    'Countertop Refinishing',
-    'Chip & Crack Repair',
+    'Bathroom Remodeling',
+    'Kitchen Remodeling',
+    'Tub-to-Shower Conversion',
+    'Shower Installation',
+    'Tile Installation',
+    'Countertop Installation',
     'Other',
   ];
 
@@ -26,15 +26,15 @@ export default function ExitIntentPopup() {
     // Check if popup was already shown in this session
     const popupShown = sessionStorage.getItem('discountPopupShown');
     if (popupShown) {
-      setHasShown(true);
+      hasShownRef.current = true;
       return;
     }
 
     // Show popup after 5 minutes (300000 ms)
     const timeoutId = setTimeout(() => {
-      if (!hasShown) {
+      if (!hasShownRef.current) {
         setIsVisible(true);
-        setHasShown(true);
+        hasShownRef.current = true;
         sessionStorage.setItem('discountPopupShown', 'true');
       }
     }, 300000); // 5 minutes
@@ -42,7 +42,7 @@ export default function ExitIntentPopup() {
     return () => {
       clearTimeout(timeoutId);
     };
-  }, [hasShown]);
+  }, []);
 
   const handleClose = () => {
     setIsVisible(false);
@@ -53,7 +53,7 @@ export default function ExitIntentPopup() {
     setIsSubmitting(true);
 
     try {
-      // Send to API route (Twilio SMS)
+      // Send lead to contact API
       await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -125,7 +125,7 @@ export default function ExitIntentPopup() {
                 Get $50 OFF
               </h2>
               <p className="text-white/90 text-lg">
-                Your first refinishing project
+                Your first remodeling project
               </p>
             </div>
 
@@ -174,18 +174,18 @@ export default function ExitIntentPopup() {
                     ))}
                   </select>
                 </div>
-                {/* SMS Consent */}
+                {/* Phone consent */}
                 <div className="flex items-start gap-3 p-3 rounded-lg bg-gray-50">
                   <input
                     type="checkbox"
-                    id="smsConsent-popup"
+                    id="phoneConsent-popup"
                     required
-                    checked={formData.smsConsent}
-                    onChange={(e) => setFormData({ ...formData, smsConsent: e.target.checked })}
+                    checked={formData.phoneConsent}
+                    onChange={(e) => setFormData({ ...formData, phoneConsent: e.target.checked })}
                     className="mt-0.5 w-5 h-5 rounded border-2 border-gray-300 text-amber-500 focus:ring-amber-500 cursor-pointer flex-shrink-0"
                   />
-                  <label htmlFor="smsConsent-popup" className="text-xs text-gray-600 leading-relaxed cursor-pointer">
-                    I agree to receive SMS about my quote. Msg & data rates may apply. Reply STOP to opt-out.{' '}
+                  <label htmlFor="phoneConsent-popup" className="text-xs text-gray-600 leading-relaxed cursor-pointer">
+                    I agree to be contacted by phone call about my quote request. This number is for calls only.{' '}
                     <a href="/privacy" className="text-amber-600 underline">Privacy</a> & <a href="/terms" className="text-amber-600 underline">Terms</a>.
                   </label>
                 </div>

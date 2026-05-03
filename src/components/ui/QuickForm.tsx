@@ -11,12 +11,12 @@ interface QuickFormProps {
 
 // Service options with IDs and prices for tracking
 const serviceOptions = [
-  { id: 'bathtub', label: 'Bathtub Refinishing', price: 700 },
-  { id: 'shower', label: 'Shower Refinishing', price: 900 },
-  { id: 'tile', label: 'Tile Refinishing', price: 400 },
-  { id: 'sink', label: 'Sink Refinishing', price: 450 },
-  { id: 'countertop', label: 'Countertop Refinishing', price: 600 },
-  { id: 'repair', label: 'Chip & Crack Repair', price: 350 },
+  { id: 'bathtub', label: 'Bathtub Installation', price: 4500 },
+  { id: 'shower', label: 'Shower Installation', price: 6500 },
+  { id: 'tile', label: 'Tile Installation', price: 2500 },
+  { id: 'sink', label: 'Bathroom Remodeling', price: 12000 },
+  { id: 'countertop', label: 'Countertop Installation', price: 2800 },
+  { id: 'repair', label: 'Project Scope Review', price: 0 },
   { id: 'other', label: 'Other', price: 0 },
 ];
 
@@ -30,7 +30,7 @@ export default function QuickForm({ variant = 'light', title, compact = false }:
     phone: '',
     service: '',
     message: '',
-    smsConsent: false,
+    phoneConsent: false,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -199,22 +199,22 @@ export default function QuickForm({ variant = 'light', title, compact = false }:
           </div>
         )}
 
-        {/* SMS Consent Checkbox - Required for TCPA Compliance */}
+        {/* Phone consent checkbox */}
         <div className={`flex items-start gap-3 p-3 rounded-lg ${variant === 'light' ? 'bg-slate-50' : 'bg-white/5'}`}>
           <input
             type="checkbox"
-            id={`smsConsent-${variant}`}
+            id={`phoneConsent-${variant}`}
             required
-            checked={formData.smsConsent}
-            onChange={(e) => setFormData({ ...formData, smsConsent: e.target.checked })}
+            checked={formData.phoneConsent}
+            onChange={(e) => setFormData({ ...formData, phoneConsent: e.target.checked })}
             className="mt-0.5 w-5 h-5 rounded border-2 border-gray-300 text-[#0b66b3] focus:ring-[#0b66b3] cursor-pointer flex-shrink-0"
           />
           <label
-            htmlFor={`smsConsent-${variant}`}
+            htmlFor={`phoneConsent-${variant}`}
             className={`text-xs leading-relaxed cursor-pointer ${variant === 'light' ? 'text-gray-600' : 'text-gray-300'}`}
           >
-            I agree to receive SMS/text messages from Kitchen and Bathroom Remodeling Pros regarding my quote request.
-            Message frequency varies. Msg & data rates may apply. Reply STOP to opt-out.{' '}
+            I agree to be contacted by phone call from Kitchen and Bathroom Remodeling Pros regarding my quote request.
+            This number is for calls only.{' '}
             <a href="/privacy" className={`underline ${variant === 'light' ? 'text-[#0b66b3]' : 'text-amber-400'}`}>Privacy</a>
             {' '}&{' '}
             <a href="/terms" className={`underline ${variant === 'light' ? 'text-[#0b66b3]' : 'text-amber-400'}`}>Terms</a>.

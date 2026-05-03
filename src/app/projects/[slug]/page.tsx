@@ -5,6 +5,202 @@ import { notFound } from 'next/navigation';
 import { PROJECTS, BUSINESS } from '@/lib/constants';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
+const projectInsights: Record<string, {
+  searchTitle: string;
+  answer: string;
+  scope: { label: string; value: string }[];
+  planningNotes: { title: string; text: string }[];
+  relatedLinks: { label: string; href: string }[];
+  authorityLinks?: { label: string; href: string }[];
+}> = {
+  'capitol-hill-kitchen-remodel': {
+    searchTitle: 'Seattle kitchen remodel case study: layout, island, cabinets, and quartz',
+    answer: 'This Seattle kitchen remodel opened a dated galley kitchen into a brighter cooking and gathering space with new cabinetry, quartz counters, updated electrical, better lighting, and a practical island layout.',
+    scope: [
+      { label: 'Primary intent', value: 'Open the kitchen to the dining area without wasting budget on unnecessary structural changes.' },
+      { label: 'Best upgrade', value: 'A waterfall quartz island that added prep space, seating, and storage in one move.' },
+      { label: 'Budget control', value: 'Kept the project focused on layout, cabinets, counters, lighting, and code updates.' },
+      { label: 'Buyer-visible value', value: 'Cabinet function, counter space, lighting, and a cleaner traffic path.' },
+    ],
+    planningNotes: [
+      {
+        title: 'Why this matters for Seattle homes',
+        text: 'Older Seattle kitchens often feel small because of wall placement, poor lighting, and limited storage. The first design decision is whether a wall removal actually improves daily use or simply adds permit and engineering cost.',
+      },
+      {
+        title: 'What we checked before demo',
+        text: 'We reviewed wall function, electrical capacity, cabinet lead times, appliance locations, and the countertop seam plan before demolition so the project would not drift midstream.',
+      },
+      {
+        title: 'How to compare a bid like this',
+        text: 'Ask whether cabinet hardware, countertop edge profile, sink cutout, backsplash, under-cabinet lighting, disposal, and permit coordination are included or excluded.',
+      },
+    ],
+    relatedLinks: [
+      { label: 'Seattle kitchen remodeling service', href: '/locations/seattle/kitchen-remodeling' },
+      { label: 'Kitchen remodeling cost guide', href: '/blog/kitchen-remodel-seattle-wa-cost-2026' },
+      { label: 'Countertop installation', href: '/services/countertop-installation' },
+    ],
+    authorityLinks: [
+      { label: 'Seattle permit information', href: 'https://www.seattle.gov/sdci/permits' },
+      { label: 'Washington contractor lookup', href: 'https://secure.lni.wa.gov/verify/' },
+    ],
+  },
+  'bellevue-master-bathroom': {
+    searchTitle: 'Bellevue bathroom remodel case study: walk-in shower, vanity, and heated tile',
+    answer: 'This Bellevue primary bathroom remodel replaced a cramped tub-and-shower layout with a larger walk-in shower, frameless glass, heated porcelain tile floors, and a floating double vanity.',
+    scope: [
+      { label: 'Primary intent', value: 'Trade an underused tub for a daily-use shower with better access and storage.' },
+      { label: 'Best upgrade', value: 'A large-format porcelain shower with frameless glass and a linear drain.' },
+      { label: 'Budget control', value: 'Kept plumbing changes targeted instead of rebuilding the entire suite footprint.' },
+      { label: 'Daily value', value: 'Better shower space, easier cleaning, warmer floors, and a more useful vanity.' },
+    ],
+    planningNotes: [
+      {
+        title: 'Waterproofing came first',
+        text: 'For bathroom remodeling, tile is the visible finish but waterproofing is the system that protects the project. We planned membrane details, shower slope, drain location, and glass dimensions before tile installation.',
+      },
+      {
+        title: 'Bellevue homeowner concern',
+        text: 'Primary bathrooms in Bellevue homes often carry resale expectations. The remodel needed to feel premium without spending money on low-use features.',
+      },
+      {
+        title: 'How to compare a bid like this',
+        text: 'Ask whether shower glass, waterproofing system, valve trim, vanity top, heated floor thermostat, fan work, painting, and warranty are included.',
+      },
+    ],
+    relatedLinks: [
+      { label: 'Bellevue bathroom remodeling', href: '/locations/bellevue/bathroom-remodeling' },
+      { label: 'Bathroom remodeling cost guide', href: '/blog/bathroom-remodeling-cost-seattle-2026' },
+      { label: 'Walk-in shower installation', href: '/services/walk-in-shower' },
+    ],
+    authorityLinks: [
+      { label: 'Bellevue permits and inspections', href: 'https://bellevuewa.gov/city-government/departments/development/permits' },
+      { label: 'Washington contractor lookup', href: 'https://secure.lni.wa.gov/verify/' },
+    ],
+  },
+  'kirkland-kitchen-renovation': {
+    searchTitle: 'Kirkland kitchen remodel case study: Craftsman details with modern function',
+    answer: 'This Kirkland kitchen remodel preserved the home character while replacing outdated wiring, cabinetry, counters, backsplash, sink, and flooring with a more durable kitchen plan.',
+    scope: [
+      { label: 'Primary intent', value: 'Modernize the kitchen without stripping the Craftsman character out of the home.' },
+      { label: 'Best upgrade', value: 'Inset-style cabinetry and period hardware paired with updated electrical capacity.' },
+      { label: 'Budget control', value: 'Focused custom work where it preserved the home style, not on trendy extras.' },
+      { label: 'Daily value', value: 'Better appliance support, durable counters, and storage that fits the architecture.' },
+    ],
+    planningNotes: [
+      {
+        title: 'Older-home sequencing',
+        text: 'When a kitchen has older wiring, the electrical plan has to be settled before cabinets. Outlet placement, appliance load, lighting, and panel capacity can change the final layout.',
+      },
+      {
+        title: 'Design restraint',
+        text: 'A character home can look worse if every finish is ultra-modern. We used modern durability but kept cabinet proportions and hardware aligned with the house.',
+      },
+      {
+        title: 'How to compare a bid like this',
+        text: 'Ask whether floor patching, cabinet installation tolerances, electrical panel work, backsplash edges, and appliance hookups are included.',
+      },
+    ],
+    relatedLinks: [
+      { label: 'Kirkland kitchen remodeling', href: '/locations/kirkland/kitchen-remodeling' },
+      { label: 'Kitchen remodeling guide', href: '/blog/kitchen-remodeling-seattle-guide' },
+      { label: 'Cabinet refacing', href: '/services/cabinet-refacing' },
+    ],
+  },
+  'redmond-guest-bathroom': {
+    searchTitle: 'Redmond bathroom remodel case study: water damage repair and modern guest bath',
+    answer: 'This Redmond guest bathroom remodel corrected hidden water damage, replaced compromised subfloor sections, added proper waterproofing, and rebuilt the room with new tile, vanity, toilet, and fixtures.',
+    scope: [
+      { label: 'Primary intent', value: 'Fix the hidden failure first, then rebuild a clean and durable guest bathroom.' },
+      { label: 'Best upgrade', value: 'Subfloor repair plus a real waterproofing system behind the finished tile.' },
+      { label: 'Budget control', value: 'Kept the footprint compact and spent where moisture damage had to be corrected.' },
+      { label: 'Daily value', value: 'A brighter guest bath with reliable tile, fixtures, and ventilation planning.' },
+    ],
+    planningNotes: [
+      {
+        title: 'Do not tile over a problem',
+        text: 'Water damage changes the job. A surface-only refresh can hide the issue temporarily, but the remodel only becomes durable once subfloor, wall board, waterproofing, and ventilation are handled.',
+      },
+      {
+        title: 'Small bathrooms need exact decisions',
+        text: 'In a compact guest bath, vanity depth, toilet clearance, tile size, and door swing decide whether the finished room feels usable.',
+      },
+      {
+        title: 'How to compare a bid like this',
+        text: 'Ask whether subfloor repairs, cement board, membrane, fan replacement, paint, disposal, and punch-list cleanup are included.',
+      },
+    ],
+    relatedLinks: [
+      { label: 'Redmond bathroom remodeling', href: '/locations/redmond/bathroom-remodeling' },
+      { label: 'Bathroom remodeling near me checklist', href: '/blog/bathroom-remodeling-near-me-seattle-area' },
+      { label: 'Tile installation', href: '/services/tile-installation' },
+    ],
+  },
+  'seattle-downtown-condo-kitchen': {
+    searchTitle: 'Downtown Seattle condo kitchen remodel case study: storage, HOA, and quartz island',
+    answer: 'This Downtown Seattle condo kitchen remodel upgraded a compact high-rise kitchen with better storage, quartz surfaces, lighting, and HOA-aware scheduling.',
+    scope: [
+      { label: 'Primary intent', value: 'Make a small condo kitchen feel larger without changing the building footprint.' },
+      { label: 'Best upgrade', value: 'Ceiling-height cabinets and a compact island with hidden storage.' },
+      { label: 'Budget control', value: 'Worked inside HOA restrictions and avoided layout changes that would add building complexity.' },
+      { label: 'Daily value', value: 'More storage, better light, cleaner counters, and a more functional prep zone.' },
+    ],
+    planningNotes: [
+      {
+        title: 'Condo logistics are part of the remodel',
+        text: 'High-rise work is not just construction. Elevator reservations, loading access, work hours, insurance certificates, noise limits, and disposal rules affect the schedule.',
+      },
+      {
+        title: 'Storage beats square footage',
+        text: 'In a condo kitchen, tall cabinets, drawer organization, and integrated appliance panels can create more usable space without expensive structural work.',
+      },
+      {
+        title: 'How to compare a bid like this',
+        text: 'Ask whether HOA paperwork, delivery protection, elevator coordination, countertop templating, and appliance panel installation are included.',
+      },
+    ],
+    relatedLinks: [
+      { label: 'Seattle kitchen remodeling', href: '/locations/seattle/kitchen-remodeling' },
+      { label: 'Seattle remodeling permits', href: '/blog/seattle-remodeling-permits-bathroom-kitchen' },
+      { label: 'Kitchen remodel cost guide', href: '/blog/kitchen-remodel-seattle-wa-cost-2026' },
+    ],
+    authorityLinks: [
+      { label: 'Seattle permit information', href: 'https://www.seattle.gov/sdci/permits' },
+      { label: 'Washington contractor lookup', href: 'https://secure.lni.wa.gov/verify/' },
+    ],
+  },
+  'tacoma-master-bath-spa': {
+    searchTitle: 'Tacoma primary bathroom remodel case study: spa shower and freestanding tub',
+    answer: 'This Tacoma primary bathroom remodel replaced a leaking jacuzzi layout with a cleaner spa-style plan: freestanding tub, multi-head shower, better lighting, and durable porcelain surfaces.',
+    scope: [
+      { label: 'Primary intent', value: 'Remove a failing jacuzzi setup and create a bathroom that felt calmer and easier to maintain.' },
+      { label: 'Best upgrade', value: 'A walk-in shower with rain head, handheld, body jets, and a natural stone accent wall.' },
+      { label: 'Budget control', value: 'Spent on wet-area function and lighting, not gimmick features that add maintenance.' },
+      { label: 'Daily value', value: 'More reliable bathing space, better lighting, and a premium finish without a leaking tub system.' },
+    ],
+    planningNotes: [
+      {
+        title: 'Maintenance matters',
+        text: 'Large jetted tubs can become expensive to maintain. A freestanding tub plus a better shower often gives homeowners more daily value and a cleaner long-term ownership experience.',
+      },
+      {
+        title: 'Plan valve access early',
+        text: 'Multi-head shower systems need water pressure, valve planning, waterproofing, and access decisions before walls close.',
+      },
+      {
+        title: 'How to compare a bid like this',
+        text: 'Ask whether shower valve rough-in, tub filler plumbing, glass, waterproofing, tile edge trim, and final fixture testing are included.',
+      },
+    ],
+    relatedLinks: [
+      { label: 'Tacoma bathroom remodeling', href: '/locations/tacoma/bathroom-remodeling' },
+      { label: 'Shower installation', href: '/services/shower-installation' },
+      { label: 'Bathroom remodel cost guide', href: '/blog/bathroom-remodeling-cost-seattle-2026' },
+    ],
+  },
+};
+
 export async function generateStaticParams() {
   return PROJECTS.map((project) => ({
     slug: project.id,
@@ -42,6 +238,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   if (!project) notFound();
 
   const otherProjects = PROJECTS.filter((p) => p.id !== project.id).slice(0, 3);
+  const insight = projectInsights[project.id];
 
   return (
     <div className="min-h-screen bg-white">
@@ -105,6 +302,73 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </div>
         </div>
       </section>
+
+      {/* SEO / Planning Summary */}
+      {insight && (
+        <section className="py-16 bg-white border-b border-gray-100">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-10 items-start">
+              <div>
+                <span className="inline-block text-[#0b66b3] font-semibold text-sm uppercase tracking-wider mb-3">
+                  Project Breakdown
+                </span>
+                <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+                  {insight.searchTitle}
+                </h2>
+                <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                  {insight.answer}
+                </p>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {insight.scope.map((item) => (
+                    <div key={item.label} className="rounded-2xl bg-slate-50 border border-gray-100 p-5">
+                      <h3 className="text-sm font-bold uppercase tracking-wider text-[#0b66b3] mb-2">
+                        {item.label}
+                      </h3>
+                      <p className="text-gray-700 leading-relaxed">{item.value}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <aside className="rounded-2xl bg-slate-900 p-6 text-white">
+                <h3 className="text-xl font-bold mb-4">Useful Next Steps</h3>
+                <div className="space-y-3">
+                  {insight.relatedLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="flex items-center justify-between rounded-xl bg-white/10 px-4 py-3 text-sm font-semibold text-white hover:bg-white/15 transition"
+                    >
+                      {link.label}
+                      <span aria-hidden="true">-&gt;</span>
+                    </Link>
+                  ))}
+                </div>
+                {insight.authorityLinks && (
+                  <div className="mt-6 border-t border-white/10 pt-5">
+                    <p className="text-xs font-bold uppercase tracking-wider text-white/50 mb-3">
+                      Verify Planning Details
+                    </p>
+                    <div className="space-y-2">
+                      {insight.authorityLinks.map((link) => (
+                        <a
+                          key={link.href}
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block text-sm text-white/75 hover:text-white underline underline-offset-4"
+                        >
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </aside>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Before & After */}
       <section className="py-20">
@@ -176,6 +440,33 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </div>
         </div>
       </section>
+
+      {/* Planning Notes */}
+      {insight && (
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="text-center mb-12">
+              <span className="inline-block text-[#0b66b3] font-semibold text-sm uppercase tracking-wider mb-3">
+                Contractor Notes
+              </span>
+              <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+                What Homeowners Should Learn From This Remodel
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                These are the details that separate a clean remodeling plan from a vague quote.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              {insight.planningNotes.map((note) => (
+                <div key={note.title} className="rounded-2xl border border-gray-100 bg-slate-50 p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{note.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{note.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Materials & Highlights */}
       <section className="py-20 bg-white">
@@ -249,7 +540,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://nexfield.pro/crm/book?u=137"
+              href="/contact"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-amber-500 text-white font-bold text-lg hover:bg-amber-600 transition shadow-lg"
             >
               Free Estimate

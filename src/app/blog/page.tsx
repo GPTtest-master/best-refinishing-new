@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { BLOG_POSTS, BUSINESS } from '@/lib/constants';
+import { ACTIVE_BLOG_POSTS, BUSINESS } from '@/lib/constants';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 export const metadata: Metadata = {
@@ -21,10 +21,12 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
+  const featuredPost = ACTIVE_BLOG_POSTS.find((post) => post.featured) ?? ACTIVE_BLOG_POSTS[0];
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-[#0b66b3] via-[#0958a0] to-[#073d6b] text-white relative overflow-hidden">
+      <section className="pt-24 pb-10 bg-gradient-to-br from-[#0b66b3] via-[#0958a0] to-[#073d6b] text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2" />
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-400 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2" />
@@ -49,21 +51,21 @@ export default function BlogPage() {
       </section>
 
       {/* Blog Posts Grid */}
-      <section className="py-16">
+      <section className="pt-8 pb-16">
         <div className="max-w-7xl mx-auto px-4">
           {/* Featured Post */}
-          {BLOG_POSTS.filter(p => p.featured)[0] && (
+          {featuredPost && (
             <div className="mb-16">
               <h2 className="text-sm font-bold text-[#0b66b3] uppercase tracking-wider mb-6">Featured Article</h2>
               <Link
-                href={`/blog/${BLOG_POSTS[0].slug}`}
+                href={`/blog/${featuredPost.slug}`}
                 className="group block bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100"
               >
                 <div className="grid md:grid-cols-2 gap-0">
                   <div className="relative h-64 md:h-full min-h-[300px]">
                     <Image
-                      src={BLOG_POSTS[0].image}
-                      alt={BLOG_POSTS[0].title}
+                      src={featuredPost.image}
+                      alt={featuredPost.title}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                     />
@@ -72,18 +74,18 @@ export default function BlogPage() {
                   <div className="p-8 md:p-12 flex flex-col justify-center">
                     <div className="flex items-center gap-3 mb-4">
                       <span className="px-3 py-1 rounded-full bg-amber-100 text-amber-700 text-sm font-semibold">
-                        {BLOG_POSTS[0].category}
+                        {featuredPost.category}
                       </span>
-                      <span className="text-gray-500 text-sm">{BLOG_POSTS[0].readTime}</span>
+                      <span className="text-gray-500 text-sm">{featuredPost.readTime}</span>
                     </div>
                     <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 group-hover:text-[#0b66b3] transition-colors">
-                      {BLOG_POSTS[0].title}
+                      {featuredPost.title}
                     </h3>
                     <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-                      {BLOG_POSTS[0].excerpt}
+                      {featuredPost.excerpt}
                     </p>
                     <div className="flex items-center justify-between">
-                      <span className="text-gray-500 text-sm">{BLOG_POSTS[0].date}</span>
+                      <span className="text-gray-500 text-sm">{featuredPost.date}</span>
                       <span className="inline-flex items-center gap-2 text-[#0b66b3] font-semibold group-hover:gap-3 transition-all">
                         Read Article
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -101,7 +103,7 @@ export default function BlogPage() {
           <div>
             <h2 className="text-sm font-bold text-[#0b66b3] uppercase tracking-wider mb-6">All Articles</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {BLOG_POSTS.map((post) => (
+              {ACTIVE_BLOG_POSTS.map((post) => (
                 <Link
                   key={post.id}
                   href={`/blog/${post.slug}`}
@@ -154,6 +156,7 @@ export default function BlogPage() {
             {[
               { label: 'Bathroom Remodeling', href: '/services/bathroom-remodeling' },
               { label: 'Kitchen Remodeling', href: '/services/kitchen-remodeling' },
+              { label: 'Canyon Park Townhome Kitchens', href: '/blog/canyon-park-townhome-kitchen-remodeling' },
               { label: 'Tile Installation', href: '/services/tile-installation' },
               { label: 'Countertop Installation', href: '/services/countertop-installation' },
               { label: 'Shower Installation', href: '/services/shower-installation' },
@@ -186,7 +189,7 @@ export default function BlogPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://nexfield.pro/crm/book?u=137"
+              href="/contact"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-amber-500 text-white font-bold text-lg hover:bg-amber-600 transition"
             >
               Get Free Estimate
@@ -221,7 +224,7 @@ export default function BlogPage() {
               name: BUSINESS.name,
               url: BUSINESS.website,
             },
-            blogPost: BLOG_POSTS.map((post) => ({
+            blogPost: ACTIVE_BLOG_POSTS.map((post) => ({
               '@type': 'BlogPosting',
               headline: post.title,
               description: post.excerpt,

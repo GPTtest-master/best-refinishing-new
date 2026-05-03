@@ -43,15 +43,15 @@ export default function TermsOfServicePage() {
 
             <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">1. Services</h2>
             <p className="text-gray-600 mb-4">
-              {BUSINESS.name} provides professional refinishing services including but not limited to:
+              {BUSINESS.name} provides professional remodeling services including but not limited to:
             </p>
             <ul className="list-disc pl-6 text-gray-600 space-y-2 mb-6">
-              <li>Bathtub refinishing and reglazing</li>
-              <li>Shower refinishing</li>
-              <li>Tile and grout refinishing</li>
-              <li>Sink refinishing</li>
-              <li>Countertop refinishing</li>
-              <li>Chip and crack repair</li>
+              <li>Bathroom remodeling</li>
+              <li>Kitchen remodeling</li>
+              <li>Shower installation and tub-to-shower conversion</li>
+              <li>Bathtub installation</li>
+              <li>Tile installation</li>
+              <li>Countertop installation</li>
             </ul>
 
             <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">2. Quotes and Pricing</h2>
@@ -81,13 +81,13 @@ export default function TermsOfServicePage() {
             <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">5. Warranty</h2>
             <div className="bg-green-50 border-l-4 border-green-500 p-6 mb-6">
               <p className="text-gray-700 mb-4">
-                <strong>{BUSINESS.name} provides a {BUSINESS.warranty} warranty on all refinishing work.</strong>
+                <strong>{BUSINESS.name} provides a {BUSINESS.warranty} warranty on qualifying remodeling workmanship.</strong>
               </p>
               <p className="text-gray-600 mb-4">Our warranty covers:</p>
               <ul className="list-disc pl-6 text-gray-600 space-y-2">
-                <li>Peeling or flaking of the refinished surface</li>
-                <li>Bubbling or blistering under normal use</li>
-                <li>Color fading under normal conditions</li>
+                <li>Covered workmanship issues described in the written project agreement</li>
+                <li>Installation defects under normal residential use</li>
+                <li>Warranty items documented during the final walkthrough</li>
               </ul>
             </div>
             <p className="text-gray-600 mb-4">The warranty does NOT cover:</p>
@@ -101,23 +101,23 @@ export default function TermsOfServicePage() {
 
             <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">6. Care Instructions</h2>
             <p className="text-gray-600 mb-4">
-              To maintain your warranty and ensure the longevity of your refinished surfaces:
+              To maintain your warranty and ensure the longevity of your remodeled space:
             </p>
             <ul className="list-disc pl-6 text-gray-600 space-y-2 mb-6">
-              <li>Wait 24-48 hours before using the refinished surface</li>
-              <li>Use only non-abrasive cleaners (dish soap is recommended)</li>
-              <li>Avoid abrasive pads, scouring powders, or harsh chemicals</li>
-              <li>Do not use suction-cup bath mats</li>
-              <li>Wipe up standing water to prevent mineral deposits</li>
+              <li>Follow the care instructions provided for your specific fixtures, tile, counters, and glass</li>
+              <li>Use non-abrasive cleaners unless the material manufacturer recommends otherwise</li>
+              <li>Maintain ventilation in bathrooms and wet areas</li>
+              <li>Report leaks, loose fixtures, or unusual movement promptly</li>
+              <li>Keep standing water and harsh chemicals away from vulnerable finishes</li>
             </ul>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">7. SMS Communications</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">7. Phone Communications</h2>
             <p className="text-gray-600 mb-6">
-              By providing your phone number and consenting to receive text messages, you agree to receive
-              SMS communications from {BUSINESS.name} regarding your quote, appointment scheduling,
-              and service updates. See our{' '}
-              <Link href="/privacy#sms-policy" className="text-[#0b66b3] underline">Privacy Policy</Link>
-              {' '}for full SMS terms including opt-out instructions.
+              By providing your phone number, you agree that {BUSINESS.name} may contact you by phone call regarding
+              your quote, appointment scheduling, and service updates. The phone number listed on this website is for calls only.
+              See our{' '}
+              <Link href="/privacy#phone-policy" className="text-[#0b66b3] underline">Privacy Policy</Link>
+              {' '}for more details.
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">8. Liability Limitations</h2>
@@ -131,7 +131,7 @@ export default function TermsOfServicePage() {
             <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">9. Customer Responsibilities</h2>
             <p className="text-gray-600 mb-4">Customers agree to:</p>
             <ul className="list-disc pl-6 text-gray-600 space-y-2 mb-6">
-              <li>Provide accurate information about the surfaces to be refinished</li>
+              <li>Provide accurate information about the rooms, fixtures, materials, and existing conditions involved in the project</li>
               <li>Ensure access to water and electricity at the work site</li>
               <li>Clear the work area of personal items</li>
               <li>Provide adequate ventilation access</li>

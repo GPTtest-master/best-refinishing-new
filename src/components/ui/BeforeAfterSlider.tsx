@@ -172,7 +172,7 @@ export default function BeforeAfterSlider({
         >
           <Image
             src={currentImage.before}
-            alt="Before refinishing"
+            alt="Before remodeling project"
             fill
             className="object-cover pointer-events-none"
             style={{ objectPosition: currentImage.beforePosition || 'center' }}
@@ -196,7 +196,7 @@ export default function BeforeAfterSlider({
           >
             <Image
               src={currentImage.after}
-              alt="After refinishing"
+              alt="After remodeling project"
               fill
               className="object-cover pointer-events-none"
               style={{ objectPosition: currentImage.afterPosition || 'center' }}

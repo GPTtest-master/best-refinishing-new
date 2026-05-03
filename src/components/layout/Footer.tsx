@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { BUSINESS, REMODELING_SERVICES, SERVICES, LOCATIONS, ALL_LOCATIONS } from '@/lib/constants';
+import { BUSINESS, REMODELING_SERVICES, LOCATIONS } from '@/lib/constants';
 
 export default function Footer() {
   return (
@@ -20,7 +20,7 @@ export default function Footer() {
             Ready to Remodel Your Space?
           </h2>
           <p className="text-xl mb-10 opacity-90 max-w-2xl mx-auto">
-            Get your FREE estimate today — Expert remodeling from design to installation!
+            Get a free itemized estimate for kitchen, bathroom, shower, tile, or countertop work.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -35,10 +35,10 @@ export default function Footer() {
               {BUSINESS.phone}
             </a>
             <Link
-              href="https://nexfield.pro/crm/book?u=137"
+              href="/contact"
               className="inline-flex items-center justify-center px-10 py-5 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold text-xl hover:from-amber-600 hover:to-amber-700 transition shadow-2xl shadow-amber-500/30"
             >
-              Free Estimate
+              Schedule Estimate
             </Link>
           </div>
         </div>
@@ -144,7 +144,7 @@ export default function Footer() {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-sm text-gray-400">Call or Text</div>
+                  <div className="text-sm text-gray-400">Call Only</div>
                   <div className="font-semibold text-white">{BUSINESS.phone}</div>
                 </div>
               </a>
@@ -238,7 +238,7 @@ export default function Footer() {
             <Link href="/process" className="text-gray-400 hover:text-white transition">Process</Link>
             <Link href="/common-problems" className="text-gray-400 hover:text-white transition">Common Problems</Link>
             <Link href="/blog" className="text-gray-400 hover:text-white transition">Blog</Link>
-            <Link href="https://nexfield.pro/crm/book?u=137" className="text-gray-400 hover:text-white transition">Contact</Link>
+            <Link href="/contact" className="text-gray-400 hover:text-white transition">Contact</Link>
             <span className="text-gray-700">|</span>
             <Link href="/privacy" className="text-gray-400 hover:text-white transition">Privacy Policy</Link>
             <Link href="/terms" className="text-gray-400 hover:text-white transition">Terms of Service</Link>

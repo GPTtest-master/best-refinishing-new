@@ -149,26 +149,14 @@ export async function POST(request: NextRequest) {
       estimatedPrice: data.estimatedPrice || 0,
     });
 
-    // Format phone for Twilio (ensure +1 prefix for US numbers)
-    let formattedPhone = data.phone.replace(/\D/g, '');
-    if (formattedPhone.length === 10) {
-      formattedPhone = '+1' + formattedPhone;
-    } else if (!formattedPhone.startsWith('+')) {
-      formattedPhone = '+' + formattedPhone;
-    }
-
-    // 1. Send SMS notification to business owner with price
+    // Send SMS notification to business owner with price if Twilio is configured.
     const priceInfo = data.estimatedPrice && data.estimatedPrice > 0
-      ? `\n💰 Quote: from $${data.estimatedPrice}`
+      ? `\nQuote: from $${data.estimatedPrice}`
       : '';
-    const businessMessage = `🔔 NEW LEAD!\n\n👤 ${data.name}\n📞 ${data.phone}\n🔧 ${data.service}${priceInfo}${data.message ? `\n💬 ${data.message}` : ''}\n\n⏰ ${new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' })}`;
+    const businessMessage = `NEW LEAD!\n\nName: ${data.name}\nPhone: ${data.phone}\nService: ${data.service}${priceInfo}${data.message ? `\nMessage: ${data.message}` : ''}\n\n${new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' })}`;
 
     await sendTwilioSMS(BUSINESS_PHONE, businessMessage);
 
-    // 2. Send confirmation SMS to customer with pricing info
-    const customerMessage = `Hi ${data.name}! 👋\n\nThank you for contacting Kitchen and Bathroom Remodeling Pros!\n\nHere are our starting prices:\n🛁 Bathtub: from $700\n🚿 Shower: from $900\n🪨 Countertop: from $550\n🚰 Sink: from $400\n\nWe'll call you very soon!\n\n📞 (206) 222-5159\n🌐 best-refinishing.com`;
-
-    await sendTwilioSMS(formattedPhone, customerMessage);
 
     return NextResponse.json({
       success: true,

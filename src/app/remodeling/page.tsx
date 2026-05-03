@@ -5,64 +5,64 @@ import { BUSINESS, REMODELING_SERVICES } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Kitchen & Bathroom Remodeling Seattle | Save Smart, Remodel Right',
-  description: 'Full-service kitchen and bathroom remodeling in Seattle. Compare refinishing vs remodeling costs, explore our 6 remodeling services, and get a free consultation. 500+ projects completed, 4.98 rating.',
-  keywords: 'kitchen remodeling seattle, bathroom remodeling seattle, renovation cost tips, remodeling services, bathroom makeover budget, remodeling alternatives',
+  description: 'Full-service kitchen and bathroom remodeling in Seattle. Learn how to plan scope, budget, permits, materials, and installation with a licensed remodeling team.',
+  keywords: 'kitchen remodeling seattle, bathroom remodeling seattle, renovation cost tips, remodeling services, bathroom remodel budget, kitchen remodel planning',
   alternates: {
     canonical: `${BUSINESS.website}/remodeling`,
   },
 };
 
-const savingsExamples = [
+const budgetLevers = [
   {
-    item: 'Bathtub',
-    replace: '$3,000 - $8,000',
-    refinish: '$350 - $600',
-    savings: 'Save $2,500+',
+    item: 'Layout',
+    risk: 'Moving every wall or fixture before the plan is proven',
+    smarterPlan: 'Keep what works, change what improves storage, access, and traffic flow',
+    value: 'Controls labor and permit cost',
   },
   {
-    item: 'Tile Surround',
-    replace: '$2,000 - $5,000',
-    refinish: '$400 - $800',
-    savings: 'Save $1,500+',
+    item: 'Plumbing',
+    risk: 'Relocating drains, vents, or supply lines without a clear benefit',
+    smarterPlan: 'Move plumbing only when it fixes function, safety, or long-term resale',
+    value: 'Avoids surprise rough-in costs',
   },
   {
-    item: 'Vanity Top',
-    replace: '$500 - $2,000',
-    refinish: '$200 - $400',
-    savings: 'Save $300+',
+    item: 'Materials',
+    risk: 'Choosing premium finishes everywhere instead of where they matter',
+    smarterPlan: 'Spend on countertops, tile, waterproofing, hardware, and daily-use surfaces',
+    value: 'Better look without waste',
   },
   {
-    item: 'Shower Pan',
-    replace: '$1,500 - $4,000',
-    refinish: '$350 - $600',
-    savings: 'Save $1,000+',
+    item: 'Timeline',
+    risk: 'Starting demolition before selections and lead times are confirmed',
+    smarterPlan: 'Finalize fixtures, tile, glass, cabinets, and counters before the crew opens walls',
+    value: 'Fewer delays mid-project',
   },
 ];
 
 const tips = [
   {
     number: '01',
-    title: 'Don\'t Replace What Can Be Restored',
-    description: 'Before demolishing, assess what can be refinished. Most bathtubs, tiles, and countertops can be beautifully restored for a fraction of replacement cost.',
-    savings: 'Average savings: $4,000+',
+    title: 'Start With Function, Not Finishes',
+    description: 'A remodel should fix the problems you feel every day: poor storage, bad lighting, tight shower access, weak ventilation, or a kitchen layout that slows you down.',
+    savings: 'Highest daily impact',
   },
   {
     number: '02',
     title: 'Keep Plumbing in Place',
-    description: 'Moving plumbing is one of the most expensive parts of a remodel. Refinishing lets you keep existing fixtures while transforming the look.',
-    savings: 'Average savings: $2,000+',
+    description: 'Moving plumbing can be worth it, but it should earn its place in the budget. We price layout options clearly before you commit to rough-in work.',
+    savings: 'Avoids hidden scope creep',
   },
   {
     number: '03',
-    title: 'Custom Colors Without Custom Prices',
-    description: 'Our designer can match any color scheme. Get that marble look, custom tint, or modern finish without replacing anything.',
-    savings: 'Average savings: $1,500+',
+    title: 'Choose Durable Materials First',
+    description: 'Seattle-area bathrooms need real waterproofing, ventilation, and slip-aware tile. Kitchens need counters, cabinets, and hardware that handle daily use.',
+    savings: 'Fewer repairs later',
   },
   {
     number: '04',
-    title: 'Combine Services for Maximum Value',
-    description: 'Refinish tub, tiles, and countertop together for package pricing. Complete bathroom transformation in one day.',
-    savings: 'Package discount: 15-20%',
+    title: 'Bundle Related Work',
+    description: 'If tile, plumbing, lighting, vanity, and glass all touch the same room, planning them together usually produces a cleaner result than piecemeal work.',
+    savings: 'Cleaner sequencing',
   },
 ];
 
@@ -88,18 +88,17 @@ export default function RemodelingPage() {
               Smart Renovation
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
-              Save Thousands on
-              <span className="block text-amber-400">Your Bathroom Remodel</span>
+              Remodel Smarter,
+              <span className="block text-amber-400">Not Just Bigger</span>
             </h1>
             <p className="text-xl text-white/80 leading-relaxed mb-8">
-              Planning a renovation? Learn insider tips on how to get designer results
-              without the designer price tag. Our experts help you save where it matters.
+              Plan a kitchen or bathroom remodel around layout, materials, permits, and installation details that actually improve how the space works.
             </p>
             <a
               href="#savings-calculator"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-amber-500 text-white font-bold text-lg hover:bg-amber-600 transition"
             >
-              See Your Potential Savings
+              See Budget Strategy
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
@@ -127,18 +126,17 @@ export default function RemodelingPage() {
       <section className="py-16 bg-red-50 border-y border-red-100">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-            The Hidden Costs of Bathroom Remodeling
+            The Hidden Costs of Poor Remodeling Scope
           </h2>
           <p className="text-gray-600 text-lg mb-8">
-            The average Seattle bathroom remodel costs <strong className="text-red-600">$15,000 - $35,000</strong>.
-            Most homeowners don&apos;t realize that <strong>up to 40% of that budget</strong> goes to replacing
-            items that could have been refinished.
+            The average Seattle bathroom remodel costs <strong className="text-red-600">$15,000 - $35,000</strong>, and kitchens can run much higher.
+            The expensive part is not always the finish selection. It is unclear scope, unplanned plumbing/electrical work, late material choices, and weak sequencing.
           </p>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { icon: '💸', text: 'Demolition & disposal fees' },
-              { icon: '🔧', text: 'Plumbing modifications' },
-              { icon: '🚧', text: 'Weeks of construction' },
+              { icon: 'COST', text: 'Unplanned change orders' },
+              { icon: 'MEP', text: 'Plumbing and electrical surprises' },
+              { icon: 'TIME', text: 'Delayed materials and inspections' },
             ].map((item) => (
               <div key={item.text} className="bg-white rounded-xl p-4 shadow-sm">
                 <span className="text-2xl block mb-2">{item.icon}</span>
@@ -154,10 +152,10 @@ export default function RemodelingPage() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Compare: Replace vs. Refinish
+              Where Remodeling Budgets Move
             </h2>
             <p className="text-gray-600 text-lg">
-              See how much you can save on common bathroom items
+              The right plan decides where to spend, where to simplify, and what should never be skipped.
             </p>
           </div>
 
@@ -165,21 +163,21 @@ export default function RemodelingPage() {
             <table className="w-full">
               <thead>
                 <tr className="border-b-2 border-gray-200">
-                  <th className="text-left py-4 px-4 font-bold text-gray-900">Item</th>
-                  <th className="text-center py-4 px-4 font-bold text-red-600">Replace Cost</th>
-                  <th className="text-center py-4 px-4 font-bold text-green-600">Refinish Cost</th>
-                  <th className="text-center py-4 px-4 font-bold text-[#0b66b3]">Your Savings</th>
+                  <th className="text-left py-4 px-4 font-bold text-gray-900">Decision</th>
+                  <th className="text-left py-4 px-4 font-bold text-red-600">Budget Risk</th>
+                  <th className="text-left py-4 px-4 font-bold text-green-600">Smarter Plan</th>
+                  <th className="text-center py-4 px-4 font-bold text-[#0b66b3]">Why It Matters</th>
                 </tr>
               </thead>
               <tbody>
-                {savingsExamples.map((row) => (
+                {budgetLevers.map((row) => (
                   <tr key={row.item} className="border-b border-gray-100 hover:bg-slate-50">
                     <td className="py-4 px-4 font-semibold text-gray-900">{row.item}</td>
-                    <td className="py-4 px-4 text-center text-gray-600">{row.replace}</td>
-                    <td className="py-4 px-4 text-center text-gray-600">{row.refinish}</td>
+                    <td className="py-4 px-4 text-gray-600">{row.risk}</td>
+                    <td className="py-4 px-4 text-gray-600">{row.smarterPlan}</td>
                     <td className="py-4 px-4 text-center">
                       <span className="inline-block px-3 py-1 rounded-full bg-green-100 text-green-700 font-bold text-sm">
-                        {row.savings}
+                        {row.value}
                       </span>
                     </td>
                   </tr>
@@ -190,9 +188,9 @@ export default function RemodelingPage() {
 
           <div className="mt-8 p-6 rounded-2xl bg-green-50 border border-green-200 text-center">
             <p className="text-2xl font-bold text-green-700">
-              Total Potential Savings: $5,000 - $10,000+
+              Best Savings: A Clear Scope Before Demolition
             </p>
-            <p className="text-green-600 mt-2">On a typical bathroom remodel</p>
+            <p className="text-green-600 mt-2">The cheapest remodel is not always the best value. The best value is the scope that solves the real problem once.</p>
           </div>
         </div>
       </section>
@@ -290,15 +288,14 @@ export default function RemodelingPage() {
                 Custom Designs for Any Concept
               </h2>
               <p className="text-gray-600 text-lg mb-6">
-                Our design specialist works with you to match any aesthetic — modern, classic,
-                rustic, or contemporary. We can create custom marble effects, stone textures,
-                and any color to complement your renovation vision.
+                Our design specialist helps turn a rough idea into a buildable plan - layout,
+                storage, lighting, tile, counters, fixtures, and finish selections that work together.
               </p>
               <ul className="space-y-4">
                 {[
-                  'Match existing decor perfectly',
-                  'Custom marble & stone effects',
-                  'Unlimited color options',
+                  'Layout and storage planning',
+                  'Tile, countertop, and fixture selection',
+                  'Permit-aware scope review',
                   'Design consultation included',
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-3">
@@ -351,8 +348,8 @@ export default function RemodelingPage() {
               className="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg hover:border-[#0b66b3]/20 transition group"
             >
               <h3 className="font-bold text-gray-900 group-hover:text-[#0b66b3] mb-2">Remodeling Tips Blog</h3>
-              <p className="text-gray-600 text-sm mb-3">Read expert advice on renovations, refinishing, and maximizing your home improvement budget.</p>
-              <span className="text-[#0b66b3] font-semibold text-sm">Read articles →</span>
+              <p className="text-gray-600 text-sm mb-3">Read expert advice on remodeling costs, timelines, materials, permits, and project planning.</p>
+              <span className="text-[#0b66b3] font-semibold text-sm">Read articles -&gt;</span>
             </Link>
             <Link
               href="/projects"
@@ -367,8 +364,8 @@ export default function RemodelingPage() {
               className="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg hover:border-[#0b66b3]/20 transition group"
             >
               <h3 className="font-bold text-gray-900 group-hover:text-[#0b66b3] mb-2">Common Problems We Fix</h3>
-              <p className="text-gray-600 text-sm mb-3">Stains, chips, cracks, peeling — see how we solve common bathroom issues without full replacement.</p>
-              <span className="text-[#0b66b3] font-semibold text-sm">See solutions →</span>
+              <p className="text-gray-600 text-sm mb-3">Leaks, poor layouts, cracked tile, weak storage, and outdated surfaces - see how we solve common kitchen and bathroom problems.</p>
+              <span className="text-[#0b66b3] font-semibold text-sm">See solutions -&gt;</span>
             </Link>
           </div>
         </div>
@@ -381,12 +378,11 @@ export default function RemodelingPage() {
             Planning a Remodel?
           </h2>
           <p className="text-gray-300 text-lg mb-8">
-            Get a free consultation to see how much you can save. We&apos;ll assess your bathroom
-            and provide honest recommendations.
+            Get a free consultation to review your layout, goals, permit needs, and realistic budget before you start construction.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://nexfield.pro/crm/book?u=137"
+              href="/contact"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-amber-500 text-white font-bold text-lg hover:bg-amber-600 transition"
             >
               Get Free Consultation
